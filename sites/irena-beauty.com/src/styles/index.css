@@ -1,0 +1,96 @@
+@import './tailwind.css';
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&family=Playfair+Display:wght@400;500;600&family=Fredoka:wght@400;500;600;700&display=swap');
+/* Import Tailwind CSS */
+
+/* Import Google Fonts */
+
+/* Global Base Styles */
+body {
+  font-family: 'Nunito', 'Playfair Display', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--text-primary);
+  background-color: var(--bg-main);
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Hebrew: use Fredoka everywhere (overrides inline Playfair/Nunito font styles) */
+html[lang="he"],
+html[lang="he"] * {
+  font-family: 'Fredoka', sans-serif !important;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+/* Remove default list styles */
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Remove default link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Button reset */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Input reset */
+input, textarea {
+  font-family: inherit;
+}
+
+/* Accessibility: Focus visible */
+*:focus-visible {
+  outline: 2px solid var(--primary-foreground);
+  outline-offset: 2px;
+}
+
+/* Hero entrance animation */
+@keyframes heroFade {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-fade {
+  opacity: 0;
+  animation: heroFade 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-fade {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

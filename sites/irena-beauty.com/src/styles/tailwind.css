@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ==================== PRIMARY COLORS ==================== */
+    /* Primary brand color - Dark charcoal for main UI elements */
+    --primary-background: #1d1d1e;
+    --primary-foreground: #ffffff;
+    
+    /* ==================== SECONDARY COLORS ==================== */
+    /* Secondary brand color - Warm beige for accents */
+    --secondary-background: #f6e6d6;
+    --secondary-light: #f8efe8;
+    --secondary-foreground: #1d1d1e;
+    
+    /* ==================== ACCENT COLORS ==================== */
+    /* Accent color - Champagne gold to match the brand monogram */
+    --accent-color: #c2a05a;
+    --accent-foreground: #1d1d1e;
+    
+    /* ==================== TEXT COLORS ==================== */
+    /* Primary text - Dark charcoal for main content */
+    --text-primary: #1d1d1e;
+    /* Secondary text - Gray for supporting content */
+    --text-secondary: #848484;
+    /* Light text - For dark backgrounds */
+    --text-light: #f9f9f9;
+    /* White text - For dark backgrounds */
+    --text-white: #ffffff;
+    
+    /* ==================== BACKGROUND COLORS ==================== */
+    /* Main background - Light warm tone */
+    --bg-main: #f8efe8;
+    /* Card background - Pure white for content cards */
+    --bg-card: #ffffff;
+    /* Section background - Warm beige for sections */
+    --bg-section: #f6e6d6;
+    /* Dark background - For headers/footers */
+    --bg-dark: #1d1d1e;
+    
+    /* ==================== BORDER COLORS ==================== */
+    /* Primary border - Black for strong separation */
+    --border-primary: #000000;
+    /* Secondary border - Dark charcoal */
+    --border-secondary: #1d1d1e;
+    /* Light border - Gray for subtle separation */
+    --border-light: #848484;
+    /* Muted border - Light gray */
+    --border-muted: #999999;
+    
+    /* ==================== COMPONENT: HEADER ==================== */
+    --header-bg: #ffffff;
+    --header-text: #1d1d1e;
+    --header-link: #848484;
+    --header-link-hover: #1d1d1e;
+    
+    /* ==================== COMPONENT: BUTTON ==================== */
+    --button-bg: #1d1d1e;
+    --button-text: #ffffff;
+    --button-hover-bg: #000000;
+    
+    /* ==================== COMPONENT: FOOTER ==================== */
+    --footer-bg: #1d1d1e;
+    --footer-text: #f9f9f9;
+    --footer-link: #848484;
+    
+    /* ==================== COMPONENT: INPUT ==================== */
+    --input-border: #1d1d1e;
+    --input-text: #1d1d1e;
+    --input-placeholder: #848484;
+    --input-bg: #ffffff;
+    
+    /* ==================== COMPONENT: CARD ==================== */
+    --card-bg: #ffffff;
+    --card-border: #1d1d1e;
+    
+    /* ==================== TYPOGRAPHY VARIABLES ==================== */
+    /* Font Sizes */
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 24px;
+    --font-size-2xl: 30px;
+    --font-size-3xl: 36px;
+    --font-size-4xl: 48px;
+    
+    /* Font Weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    
+    /* Line Heights */
+    --line-height-tight: 16px;
+    --line-height-snug: 20px;
+    --line-height-normal: 21px;
+    --line-height-relaxed: 22px;
+    --line-height-loose: 24px;
+    --line-height-xl: 25px;
+    --line-height-2xl: 33px;
+    --line-height-3xl: 40px;
+    --line-height-4xl: 49px;
+    --line-height-5xl: 50px;
+    --line-height-6xl: 63px;
+    --line-height-7xl: 64px;
+    
+    /* Font Families */
+    --font-primary: 'Nunito', sans-serif;
+    --font-display: 'Playfair Display', serif;
+    
+    /* ==================== SPACING VARIABLES ==================== */
+    /* Margin Values */
+    --margin-xs: 4px;
+    --margin-sm: 6px;
+    --margin-md: 10px;
+    --margin-lg: 20px;
+    --margin-xl: 24px;
+    --margin-2xl: 30px;
+    --margin-3xl: 36px;
+    --margin-4xl: 44px;
+    --margin-5xl: 50px;
+    --margin-6xl: 56px;
+    --margin-7xl: 134px;
+    --margin-8xl: 148px;
+    
+    /* Padding Values */
+    --padding-xs: 12px;
+    --padding-sm: 14px;
+    --padding-md: 18px;
+    --padding-lg: 22px;
+    --padding-xl: 24px;
+    --padding-2xl: 26px;
+    --padding-3xl: 28px;
+    --padding-4xl: 36px;
+    --padding-5xl: 38px;
+    --padding-6xl: 40px;
+    --padding-7xl: 54px;
+    --padding-8xl: 56px;
+    --padding-9xl: 78px;
+    --padding-10xl: 80px;
+    --padding-11xl: 100px;
+    --padding-12xl: 174px;
+    --padding-13xl: 224px;
+    
+    /* Gap Values */
+    --gap-xs: 2px;
+    --gap-sm: 6px;
+    --gap-md: 8px;
+    --gap-lg: 10px;
+    --gap-xl: 12px;
+    --gap-2xl: 14px;
+    --gap-3xl: 16px;
+    --gap-4xl: 20px;
+    --gap-5xl: 22px;
+    --gap-6xl: 24px;
+    --gap-7xl: 30px;
+    --gap-8xl: 36px;
+    --gap-9xl: 40px;
+    --gap-10xl: 60px;
+    --gap-11xl: 80px;
+    --gap-12xl: 200px;
+    
+    /* ==================== BORDER VARIABLES ==================== */
+    /* Border Radius */
+    --radius-sm: 6px;
+    
+    /* Border Width */
+    --border-width-thin: 1px;
+    
+    /* ==================== LAYOUT VARIABLES ==================== */
+    /* Width Values */
+    --width-xs: 6px;
+    --width-sm: 10px;
+    --width-md: 12px;
+    --width-lg: 14px;
+    --width-xl: 24px;
+    --width-2xl: 32px;
+    --width-3xl: 34px;
+    --width-4xl: 36px;
+    --width-5xl: 74px;
+    --width-6xl: 120px;
+    --width-7xl: 216px;
+    --width-8xl: 266px;
+    --width-9xl: 364px;
+    --width-10xl: 558px;
+    --width-11xl: 560px;
+    --width-container: 1142px;
+    
+    /* Percentage Widths */
+    --width-1/12: 8%;
+    --width-2/12: 18%;
+    --width-3/12: 22%;
+    --width-4/12: 30%;
+    --width-5/12: 32%;
+    --width-6/12: 36%;
+    --width-7/12: 38%;
+    --width-8/12: 40%;
+    --width-9/12: 42%;
+    --width-10/12: 46%;
+    --width-11/12: 48%;
+    --width-full: 50%;
+    --width-60: 60%;
+    --width-62: 62%;
+    --width-78: 78%;
+    --width-82: 82%;
+    --width-90: 90%;
+    --width-100: 100%;
+  }
+}
+
+/* ==================== CUSTOM UTILITY CLASSES ==================== */
+@layer components {
+  /* Container */
+  .container-custom {
+    max-width: var(--width-container);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+  }
+  
+  /* Section spacing */
+  .section-padding {
+    padding-top: var(--padding-11xl);
+    padding-bottom: var(--padding-11xl);
+  }
+  
+  /* Text styles */
+  .heading-primary {
+    font-family: var(--font-display);
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-7xl);
+    color: var(--text-primary);
+  }
+  
+  .heading-secondary {
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-4xl);
+    color: var(--text-primary);
+  }
+  
+  .body-text {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
+  }
+}

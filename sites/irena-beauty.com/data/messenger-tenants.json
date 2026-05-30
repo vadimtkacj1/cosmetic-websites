@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "tenants": {
+    "default": {
+      "label": "default",
+      "subscribeCode": "84E7099E",
+      "telegram": [],
+      "whatsapp": []
+    }
+  }
+}

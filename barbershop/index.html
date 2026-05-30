@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birds Barbershop | Austin's Best Haircuts & Salon for All</title>
+  <meta name="description" content="Austin's award-winning salon-barbershop for 20 years. Get a high-quality cut, a free local beer, and play some arcade games. Inclusive vibes for all y'all.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Righteous&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================
+       RESET & CUSTOM PROPERTIES
+    ========================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:   #F7F1EA;
+      --yellow:  #E8FE59;
+      --pink:    #CC3366;
+      --black:   #111111;
+      --salmon:  #F06B6B;
+      --white:   #FFFFFF;
+      --gray:    #666666;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    /* =========================================
+       KEYFRAME ANIMATIONS
+    ========================================= */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(60px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0px) rotate(0deg); }
+      33%     { transform: translateY(-14px) rotate(4deg); }
+      66%     { transform: translateY(-7px) rotate(-3deg); }
+    }
+    @keyframes floatB {
+      0%,100% { transform: translateY(0px) rotate(0deg) scale(1); }
+      50%     { transform: translateY(-20px) rotate(-5deg) scale(1.03); }
+    }
+    @keyframes floatC {
+      0%,100% { transform: translateY(0px) rotate(0deg); }
+      40%     { transform: translateY(-10px) rotate(6deg); }
+      80%     { transform: translateY(-4px) rotate(-2deg); }
+    }
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    @keyframes spinSlowRev {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(-360deg); }
+    }
+    @keyframes pulseBadge {
+      0%,100% { box-shadow: 0 0 0 0 rgba(204,51,102,0.4); }
+      50%     { box-shadow: 0 0 0 12px rgba(204,51,102,0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes wiggle {
+      0%,100% { transform: rotate(0deg); }
+      20%     { transform: rotate(-6deg); }
+      40%     { transform: rotate(6deg); }
+      60%     { transform: rotate(-4deg); }
+      80%     { transform: rotate(4deg); }
+    }
+    @keyframes heroTextReveal {
+      0%   { opacity: 0; transform: translateY(80px) skewY(4deg); }
+      100% { opacity: 1; transform: translateY(0) skewY(0deg); }
+    }
+    @keyframes badgeSpin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes ripple {
+      0%   { transform: scale(0); opacity: 0.5; }
+      100% { transform: scale(3); opacity: 0; }
+    }
+    @keyframes underlineDraw {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+    @keyframes gradientShift {
+      0%,100% { background-position: 0% 50%; }
+      50%     { background-position: 100% 50%; }
+    }
+
+    /* =========================================
+       SCROLL-TRIGGERED HELPERS
+    ========================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .reveal.from-left  { transform: translateX(-50px); }
+    .reveal.from-right { transform: translateX(50px); }
+    .reveal.scale-in   { transform: scale(0.85); }
+    .reveal.from-left.in,
+    .reveal.from-right.in,
+    .reveal.scale-in.in { transform: none; }
+
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+    .d5 { transition-delay: 0.5s; }
+    .d6 { transition-delay: 0.6s; }
+    .d7 { transition-delay: 0.7s; }
+    .d8 { transition-delay: 0.8s; }
+    .d9 { transition-delay: 0.9s; }
+
+    /* =========================================
+       BUTTONS
+    ========================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 34px;
+      border-radius: 300px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1),
+                  box-shadow 0.25s ease,
+                  background 0.25s ease,
+                  color 0.25s ease;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.25) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .btn:hover::before { opacity: 1; }
+    .btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 30px rgba(0,0,0,0.18); }
+    .btn:active { transform: translateY(-1px) scale(0.99); }
+
+    .btn-dark    { background: var(--black); color: var(--cream); border-color: var(--black); }
+    .btn-dark:hover { background: #222; }
+    .btn-outline { background: transparent; color: var(--black); border-color: var(--black); }
+    .btn-outline:hover { background: var(--black); color: var(--cream); }
+    .btn-outline-light { background: transparent; color: var(--cream); border-color: var(--cream); }
+    .btn-outline-light:hover { background: var(--cream); color: var(--black); }
+    .btn-yellow  { background: var(--yellow); color: var(--black); border-color: var(--yellow); }
+    .btn-yellow:hover { background: #d6eb47; }
+    .btn-pink    { background: var(--pink); color: var(--white); border-color: var(--pink); }
+    .btn-pink:hover { background: #b02d59; }
+    .btn-sm { padding: 10px 24px; font-size: 13px; }
+    .btn-lg { padding: 18px 44px; font-size: 17px; }
+
+    /* =========================================
+       NAVIGATION
+    ========================================= */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 900;
+      padding: 22px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+    }
+    .nav.scrolled {
+      background: var(--cream);
+      padding: 14px 48px;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+    }
+    .nav-logo { height: 38px; transition: transform 0.3s ease; }
+    .nav-logo:hover { transform: scale(1.06) rotate(-1deg); }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 3px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--pink);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    .nav-ctas { display: flex; gap: 10px; }
+
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 910;
+    }
+    .nav-burger span {
+      display: block; width: 26px; height: 2px;
+      background: var(--black);
+      transition: all 0.35s ease;
+      transform-origin: center;
+    }
+    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* mobile menu */
+    .nav-mobile {
+      position: fixed;
+      inset: 0;
+      background: var(--cream);
+      z-index: 800;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      transform: translateY(-100%);
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .nav-mobile.open { transform: translateY(0); }
+    .nav-mobile a {
+      font-family: 'Righteous', sans-serif;
+      font-size: 42px;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      transition: color 0.2s;
+    }
+    .nav-mobile a:hover { color: var(--pink); }
+
+    /* =========================================
+       HERO
+    ========================================= */
+    .hero {
+      min-height: 100vh;
+      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 40px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative background blobs */
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(1px);
+    }
+    .hero-blob-1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, var(--yellow) 0%, transparent 70%);
+      top: -280px; right: -250px;
+      opacity: 0.35;
+      animation: spinSlow 40s linear infinite;
+    }
+    .hero-blob-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, var(--pink) 0%, transparent 70%);
+      bottom: -200px; left: -150px;
+      opacity: 0.2;
+      animation: spinSlowRev 30s linear infinite;
+    }
+    .hero-blob-3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--salmon) 0%, transparent 70%);
+      top: 40%; left: 15%;
+      opacity: 0.1;
+      animation: spinSlow 20s linear infinite;
+    }
+
+    /* Floating icons */
+    .hero-floats { position: absolute; inset: 0; pointer-events: none; }
+    .hero-float {
+      position: absolute;
+      will-change: transform;
+    }
+    .hero-float:nth-child(1) {
+      width: clamp(70px,8vw,130px);
+      top: 18%; left: 4%;
+      animation: float 5.5s ease-in-out infinite;
+    }
+    .hero-float:nth-child(2) {
+      width: clamp(60px,7vw,110px);
+      top: 22%; right: 5%;
+      animation: floatB 4.8s ease-in-out infinite;
+      animation-delay: -2s;
+    }
+    .hero-float:nth-child(3) {
+      width: clamp(55px,6vw,95px);
+      bottom: 22%; right: 9%;
+      animation: floatC 6s ease-in-out infinite;
+      animation-delay: -4s;
+    }
+    .hero-float:nth-child(4) {
+      width: clamp(45px,5vw,75px);
+      bottom: 28%; left: 9%;
+      animation: float 7s ease-in-out infinite;
+      animation-delay: -1s;
+    }
+
+    .hero-kicker {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeIn 0.6s 0.2s ease forwards;
+    }
+
+    .hero-headline {
+      font-family: 'Righteous', sans-serif;
+      font-size: clamp(64px, 11vw, 130px);
+      line-height: 0.95;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-headline .line {
+      display: block;
+      overflow: hidden;
+    }
+    .hero-headline .line-inner {
+      display: block;
+      opacity: 0;
+      animation: heroTextReveal 1s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    .hero-headline .line:nth-child(1) .line-inner { animation-delay: 0.3s; }
+    .hero-headline .line:nth-child(2) .line-inner { animation-delay: 0.5s; }
+
+    .hero-highlight {
+      display: inline-block;
+      background: var(--yellow);
+      padding: 4px 18px 0;
+      transform: rotate(-1.5deg);
+      position: relative;
+    }
+
+    .hero-sub {
+      font-family: 'Bree Serif', serif;
+      font-size: clamp(16px, 2vw, 22px);
+      color: var(--gray);
+      margin-top: 28px;
+      max-width: 500px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.9s ease forwards;
+    }
+
+    .hero-ctas {
+      margin-top: 44px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeUp 0.8s 1.1s ease forwards;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0;
+      animation: fadeIn 1s 1.8s ease forwards;
+    }
+    .hero-scroll-hint span {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .scroll-line {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, var(--black), transparent);
+      animation: float 2s ease-in-out infinite;
+    }
+
+    /* =========================================
+       FEATURES STRIP
+    ========================================= */
+    .features {
+      background: var(--yellow);
+      padding: 56px 40px;
+    }
+    .features-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 48px;
+    }
+    .feature-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 18px;
+    }
+    .feature-icon-wrap {
+      width: 90px; height: 90px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .feature-item:hover .feature-icon-wrap {
+      transform: scale(1.12) rotate(-5deg);
+      background: rgba(255,255,255,0.8);
+    }
+    .feature-icon-wrap img { width: 54px; }
+    .feature-label {
+      font-family: 'Bree Serif', serif;
+      font-size: 20px;
+      color: var(--black);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.3;
+    }
+
+    /* =========================================
+       INTRO / VOTED #1
+    ========================================= */
+    .intro {
+      background: var(--black);
+      color: var(--cream);
+      padding: 120px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .intro-noise {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .intro-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--pink);
+      color: var(--white);
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      animation: pulseBadge 2.5s ease-in-out infinite;
+      transition: transform 0.2s ease;
+    }
+    .intro-badge:hover { transform: scale(1.05); }
+    .intro-badge a { color: var(--white); }
+
+    .intro-headline {
+      font-family: 'Righteous', sans-serif;
+      font-size: clamp(52px, 9vw, 110px);
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: 0.95;
+      color: var(--yellow);
+      margin-bottom: 64px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-divider {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 28px;
+    }
+    .intro-divider::before,
+    .intro-divider::after {
+      content: '';
+      display: block;
+      width: 50px; height: 1px;
+      background: var(--pink);
+      opacity: 0.5;
+    }
+
+    .intro-body {
+      max-width: 620px;
+      margin: 0 auto 48px;
+      font-family: 'Bree Serif', serif;
+      font-size: 20px;
+      line-height: 1.75;
+      opacity: 0.85;
+    }
+
+    .intro-ctas {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* =========================================
+       STATS BAR
+    ========================================= */
+    .stats {
+      background: var(--yellow);
+      padding: 48px 40px;
+    }
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Righteous', sans-serif;
+      font-size: clamp(44px, 6vw, 72px);
+      color: var(--black);
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Bree Serif', serif;
+      font-size: 15px;
+      color: var(--black);
+      opacity: 0.7;
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* =========================================
+       SERVICES
+    ========================================= */
+    .services { padding: 120px 40px; }
+
+    .services-top {
+      max-width: 1100px;
+      margin: 0 auto 64px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 48px;
+    }
+    .services-title {
+      font-family: 'Righteous', sans-serif;
+      font-size: clamp(44px, 7vw, 88px);
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: 0.95;
+    }
+    .services-right { max-width: 340px; }
+    .services-tagline {
+      font-family: 'Bree Serif', serif;
+      font-size: 24px;
+      color: var(--pink);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    .services-desc {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--gray);
+    }
+
+    .services-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      aspect-ratio: 2/3;
+      background: #ddd;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
+                  box-shadow 0.4s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 28px 56px rgba(0,0,0,0.18);
+    }
+    .service-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .service-card:hover img { transform: scale(1.1); }
+
+    .service-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+        rgba(0,0,0,0.85) 0%,
+        rgba(0,0,0,0.2) 50%,
+        transparent 100%);
+      transition: opacity 0.4s ease;
+    }
+
+    .service-card-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 48px 18px 18px;
+      color: var(--white);
+      font-family: 'Bree Serif', serif;
+      font-size: 17px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card-arrow {
+      position: absolute;
+      top: 18px; right: 18px;
+      width: 36px; height: 36px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.6);
+      transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .service-card:hover .service-card-arrow {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .service-card-arrow svg {
+      width: 16px; height: 16px; fill: var(--black);
+    }
+
+    .services-actions {
+      max-width: 1100px;
+      margin: 52px auto 0;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* =========================================
+       TESTIMONIALS
+    ========================================= */
+    .testimonials {
+      background: var(--pink);
+      padding: 120px 0 80px;
+      overflow: hidden;
+    }
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 64px;
+      padding: 0 40px;
+    }
+    .testimonials-title {
+      font-family: 'Righteous', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      text-transform: uppercase;
+      color: var(--white);
+      letter-spacing: -1px;
+    }
+    .testimonials-subtitle {
+      font-family: 'Bree Serif', serif;
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 12px;
+    }
+
+    .testimonials-viewport {
+      overflow: hidden;
+      padding: 0 max(40px, calc((100vw - 1100px)/2));
+    }
+    .testimonials-track {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+      will-change: transform;
+    }
+
+    .t-card {
+      flex: 0 0 calc(33.333% - 16px);
+      background: var(--white);
+      border-radius: 24px;
+      padding: 44px 40px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .t-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.15);
+    }
+
+    .t-icon {
+      width: 64px; height: 64px;
+      object-fit: contain;
+      margin-bottom: 24px;
+    }
+
+    .t-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+    .t-star {
+      width: 18px; height: 18px;
+      fill: var(--yellow);
+    }
+
+    .t-quote {
+      font-family: 'Bree Serif', serif;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--black);
+      font-style: italic;
+      margin-bottom: 28px;
+    }
+
+    .t-author {
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--pink);
+    }
+
+    .t-card::before {
+      content: '"';
+      position: absolute;
+      top: 20px; right: 30px;
+      font-family: 'Righteous', sans-serif;
+      font-size: 100px;
+      color: var(--yellow);
+      opacity: 0.3;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .testimonials-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 44px;
+    }
+    .t-prev, .t-next {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      border: 2px solid rgba(255,255,255,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+    .t-prev:hover, .t-next:hover {
+      background: var(--white);
+      border-color: var(--white);
+    }
+    .t-prev svg, .t-next svg { width: 16px; fill: var(--white); transition: fill 0.3s; }
+    .t-prev:hover svg, .t-next:hover svg { fill: var(--pink); }
+
+    .t-dots { display: flex; gap: 8px; }
+    .t-dot {
+      width: 8px; height: 8px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .t-dot.active {
+      width: 28px;
+      background: var(--white);
+    }
+
+    /* =========================================
+       LOCATIONS
+    ========================================= */
+    .locations { padding: 120px 40px; }
+    .locations-title {
+      font-family: 'Righteous', sans-serif;
+      font-size: clamp(44px, 7vw, 88px);
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .locations-title span { color: var(--pink); }
+
+    .locations-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .loc-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      background: #ccc;
+    }
+    .loc-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease, filter 0.4s ease;
+    }
+    .loc-card:hover img {
+      transform: scale(1.08);
+      filter: brightness(0.6);
+    }
+    .loc-card-grad {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
+      transition: opacity 0.4s ease;
+    }
+    .loc-card-name {
+      position: absolute;
+      bottom: 22px; left: 22px;
+      color: var(--white);
+      font-family: 'Bree Serif', serif;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .loc-card-cta {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .loc-card:hover .loc-card-cta { opacity: 1; }
+    .loc-card-cta span {
+      background: var(--yellow);
+      color: var(--black);
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transform: translateY(12px);
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .loc-card:hover .loc-card-cta span { transform: translateY(0); }
+
+    /* =========================================
+       MARQUEE
+    ========================================= */
+    .marquee-wrap {
+      background: var(--black);
+      overflow: hidden;
+      padding: 18px 0;
+      cursor: default;
+      user-select: none;
+    }
+    .marquee-inner {
+      display: flex;
+      white-space: nowrap;
+      animation: marqueeScroll 22s linear infinite;
+      width: max-content;
+    }
+    .marquee-wrap:hover .marquee-inner { animation-play-state: paused; }
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 22px;
+      padding: 0 28px;
+      font-family: 'Righteous', sans-serif;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--yellow);
+    }
+    .marquee-sep {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--pink);
+      flex-shrink: 0;
+    }
+    .marquee-link { color: var(--yellow); }
+    .marquee-link:hover { color: var(--pink); }
+
+    /* =========================================
+       INSTAGRAM
+    ========================================= */
+    .insta { padding: 120px 40px; }
+    .insta-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .insta-eyebrow {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--pink);
+      margin-bottom: 16px;
+    }
+    .insta-title {
+      font-family: 'Righteous', sans-serif;
+      font-size: clamp(44px, 7vw, 88px);
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      margin-bottom: 28px;
+    }
+    .insta-cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--pink);
+      border: 2px solid var(--pink);
+      padding: 12px 28px;
+      border-radius: 100px;
+      transition: all 0.3s ease;
+    }
+    .insta-cta-link:hover {
+      background: var(--pink);
+      color: var(--white);
+    }
+    .insta-cta-link svg {
+      width: 18px; height: 18px;
+      stroke: currentColor; stroke-width: 2; fill: none;
+      flex-shrink: 0;
+    }
+
+    .insta-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .insta-post {
+      aspect-ratio: 1;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      background: #ddd;
+    }
+    .insta-post img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .insta-post:hover img { transform: scale(1.08); }
+    .insta-post-over {
+      position: absolute;
+      inset: 0;
+      background: rgba(204,51,102,0.78);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .insta-post:hover .insta-post-over { opacity: 1; }
+    .insta-post-over svg {
+      width: 44px; height: 44px;
+      stroke: white; stroke-width: 1.5; fill: none;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+    .footer {
+      background: var(--black);
+      color: var(--cream);
+      padding: 100px 40px 48px;
+    }
+    .footer-top {
+      max-width: 1100px;
+      margin: 0 auto 72px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 60px;
+    }
+    .footer-logo {
+      height: 34px;
+      filter: invert(1);
+      margin-bottom: 18px;
+      transition: opacity 0.3s ease;
+    }
+    .footer-logo:hover { opacity: 0.7; }
+    .footer-about {
+      font-family: 'Bree Serif', serif;
+      font-size: 16px;
+      line-height: 1.65;
+      opacity: 0.65;
+      margin-bottom: 28px;
+    }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-social {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .footer-social:hover { background: var(--pink); border-color: var(--pink); }
+    .footer-social svg {
+      width: 18px; height: 18px;
+      stroke: var(--cream); stroke-width: 1.5; fill: none;
+    }
+    .footer-col-head {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 24px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 14px; }
+    .footer-links a {
+      font-size: 16px;
+      opacity: 0.65;
+      transition: opacity 0.2s, color 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-links a::before {
+      content: '→';
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: all 0.2s ease;
+      font-size: 14px;
+      color: var(--yellow);
+    }
+    .footer-links a:hover { opacity: 1; color: var(--yellow); transform: translateX(6px); }
+    .footer-links a:hover::before { opacity: 1; transform: translateX(0); }
+
+    .footer-book p {
+      font-family: 'Bree Serif', serif;
+      font-size: 16px;
+      opacity: 0.65;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .footer-divider {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      opacity: 0.45;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* =========================================
+       BACK TO TOP
+    ========================================= */
+    .back-top {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 48px; height: 48px;
+      background: var(--black);
+      color: var(--cream);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 800;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      border: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .back-top.visible { opacity: 1; transform: translateY(0); }
+    .back-top:hover { background: var(--pink); transform: translateY(-4px); }
+    .back-top svg { width: 20px; fill: currentColor; }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+    @media (max-width: 1080px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 48px; }
+    }
+    @media (max-width: 860px) {
+      .nav-links, .nav-ctas { display: none; }
+      .nav-burger { display: flex; }
+      .features-inner { grid-template-columns: 1fr; gap: 32px; }
+      .services-top { flex-direction: column; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .t-card { flex: 0 0 85%; }
+      .locations-grid { grid-template-columns: repeat(2, 1fr); }
+      .insta-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .stats-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 520px) {
+      .hero { padding: 120px 24px 80px; }
+      .services { padding: 80px 24px; }
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .locations-grid { grid-template-columns: 1fr; }
+      .insta-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer { padding: 80px 24px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav" id="nav">
+  <a href="#top">
+    <img class="nav-logo"
+         src="https://birdsbarbershop.com/wp-content/uploads/2025/11/birds-barbershop-logo-black.svg"
+         alt="Birds Barbershop">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#locations">Locations</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#beats">Beats</a></li>
+  </ul>
+  <div class="nav-ctas">
+    <a href="#" class="btn btn-outline btn-sm">Apply</a>
+    <a href="#" class="btn btn-dark btn-sm">Book Now</a>
+  </div>
+  <div class="nav-burger" id="burger" role="button" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- mobile full-screen nav -->
+<div class="nav-mobile" id="navMobile">
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#locations" class="mobile-link">Locations</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#beats" class="mobile-link">Beats</a>
+  <a href="#" class="btn btn-dark btn-lg" style="margin-top:16px;">Book Now</a>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-blob hero-blob-3"></div>
+
+  <div class="hero-floats" aria-hidden="true">
+    <div class="hero-float">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/peace-shears.svg" alt="" draggable="false">
+    </div>
+    <div class="hero-float">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/hairdryer-daisy.svg" alt="" draggable="false">
+    </div>
+    <div class="hero-float">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/checker-face.svg" alt="" draggable="false">
+    </div>
+    <div class="hero-float">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/hair-pin.svg" alt="" draggable="false">
+    </div>
+  </div>
+
+  <p class="hero-kicker">Austin's award-winning barbershop · Since 2006</p>
+
+  <h1 class="hero-headline" id="top">
+    <span class="line"><span class="line-inner">Haircuts for</span></span>
+    <span class="line"><span class="line-inner"><span class="hero-highlight">all y'all</span></span></span>
+  </h1>
+
+  <p class="hero-sub">20 years of great hair, good tunes, and free drinks. Open every day — all are welcome.</p>
+
+  <div class="hero-ctas">
+    <a href="#" class="btn btn-outline btn-lg">Apply</a>
+    <a href="#" class="btn btn-dark btn-lg">Book Now</a>
+  </div>
+
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section class="features">
+  <div class="features-inner">
+    <div class="feature-item reveal d1">
+      <div class="feature-icon-wrap">
+        <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/peace-shears.svg" alt="">
+      </div>
+      <h3 class="feature-label">Easy Online<br>Booking!</h3>
+    </div>
+    <div class="feature-item reveal d3">
+      <div class="feature-icon-wrap">
+        <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/hairdryer-daisy.svg" alt="">
+      </div>
+      <h3 class="feature-label">Locally Owned<br>Austin Original</h3>
+    </div>
+    <div class="feature-item reveal d5">
+      <div class="feature-icon-wrap">
+        <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/checker-face.svg" alt="">
+      </div>
+      <h3 class="feature-label">Free Beverages<br>for Everyone</h3>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INTRO / VOTED #1 ===================== -->
+<section class="intro" id="about">
+  <div class="intro-noise" aria-hidden="true"></div>
+
+  <div class="reveal">
+    <div class="intro-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <a href="https://calendar.austinchronicle.com/best-of/2024/services-readers-poll/barbershop-12946379" target="_blank" rel="noopener">Best Barbershop – Austin Chronicle</a>
+    </div>
+  </div>
+
+  <h2 class="intro-headline reveal d1">voted #1<br>every year</h2>
+
+  <div class="intro-divider reveal d2">
+    LET US INTRODUCE OURSELVES
+  </div>
+
+  <p class="intro-body reveal d3">
+    We've been setting the quality standard for the Austin haircut since 2006. That's 20 years of great hair, good tunes, and free drinks. Book ahead online or stop on by and see what it means to be the best. We're open every day, and all are welcome.
+  </p>
+
+  <div class="intro-ctas reveal d4">
+    <a href="#" class="btn btn-yellow btn-lg">Apply</a>
+    <a href="#" class="btn btn-outline-light btn-lg">Book Now</a>
+  </div>
+</section>
+
+<!-- ===================== STATS ===================== -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="reveal d1">
+      <div class="stat-num">20+</div>
+      <div class="stat-label">Years in Austin</div>
+    </div>
+    <div class="reveal d3">
+      <div class="stat-num">9</div>
+      <div class="stat-label">Locations</div>
+    </div>
+    <div class="reveal d5">
+      <div class="stat-num">#1</div>
+      <div class="stat-label">Every Year</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="services" id="services">
+  <div class="services-top">
+    <h2 class="services-title reveal from-left">WE KEEP IT<br>simple</h2>
+    <div class="services-right reveal from-right d2">
+      <p class="services-tagline">haircuts shouldn't be complicated</p>
+      <p class="services-desc">We're here to give you great hair with zero pretense or pressure. No drama, just quality results. Come as you are, we'll take care of the rest.</p>
+    </div>
+  </div>
+
+  <div class="services-grid">
+    <a href="#" class="service-card reveal d1">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/short-cut.webp" alt="Short Cut" loading="lazy">
+      <div class="service-card-overlay"></div>
+      <div class="service-card-arrow">
+        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </div>
+      <div class="service-card-label">Short Cut</div>
+    </a>
+    <a href="#" class="service-card reveal d2">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/skin-fade.webp" alt="Skin Fade" loading="lazy">
+      <div class="service-card-overlay"></div>
+      <div class="service-card-arrow">
+        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </div>
+      <div class="service-card-label">Skin Fade</div>
+    </a>
+    <a href="#" class="service-card reveal d3">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/long-cut.webp" alt="Long Cut" loading="lazy">
+      <div class="service-card-overlay"></div>
+      <div class="service-card-arrow">
+        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </div>
+      <div class="service-card-label">Long Cut</div>
+    </a>
+    <a href="#" class="service-card reveal d4">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/buzz-cut.webp" alt="Buzz Cut" loading="lazy">
+      <div class="service-card-overlay"></div>
+      <div class="service-card-arrow">
+        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </div>
+      <div class="service-card-label">Buzz Cut</div>
+    </a>
+    <a href="#" class="service-card reveal d5">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/kid-cut.webp" alt="Kid Cut" loading="lazy">
+      <div class="service-card-overlay"></div>
+      <div class="service-card-arrow">
+        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </div>
+      <div class="service-card-label">Kid Cut</div>
+    </a>
+  </div>
+
+  <div class="services-actions reveal d2">
+    <a href="#" class="btn btn-outline">View All Services</a>
+    <a href="#" class="btn btn-dark">Book Now</a>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="testimonials">
+  <div class="testimonials-header reveal">
+    <h2 class="testimonials-title">What people say</h2>
+    <p class="testimonials-subtitle">Don't just take our word for it</p>
+  </div>
+
+  <div class="testimonials-viewport">
+    <div class="testimonials-track" id="tTrack">
+      <div class="t-card">
+        <img class="t-icon" src="https://birdsbarbershop.com/wp-content/uploads/2026/01/lips.webp" alt="">
+        <div class="t-stars">
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="t-quote">"I've been going to Barbara at Birds Barbershop on South Lamar for a couple of years now. I actually look forward to my appointments because it feels more like catching up with a friend who just happens to be amazing at what she does. Highly recommend to anyone looking for a top-notch stylist!"</p>
+        <div class="t-author">— John Moore</div>
+      </div>
+      <div class="t-card">
+        <img class="t-icon" src="https://birdsbarbershop.com/wp-content/uploads/2026/01/hair-pin.svg" alt="">
+        <div class="t-stars">
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="t-quote">"Parker is an absolute sweetheart! He was amazing at cutting my hair and making me feel comfortable about the process. He helped me feel excited and less nervous about going from a straight cut no layers to a wolf cut. I was super thrilled with the result, and I will be back!"</p>
+        <div class="t-author">— Avery McCrory</div>
+      </div>
+      <div class="t-card">
+        <img class="t-icon" src="https://birdsbarbershop.com/wp-content/uploads/2026/01/record-and-drink.svg" alt="">
+        <div class="t-stars">
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="t-quote">"This is the best place to get a haircut in Austin. Scheduling a haircut is easy on their app, the staff is extremely helpful, and the hairstylists are so professional. I always get a short cut which is reasonably priced and the results always make me feel like a new person."</p>
+        <div class="t-author">— Eduardo Martinez</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="testimonials-controls">
+    <button class="t-prev" id="tPrev" aria-label="Previous">
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="t-dots" id="tDots">
+      <div class="t-dot active" data-i="0"></div>
+      <div class="t-dot" data-i="1"></div>
+      <div class="t-dot" data-i="2"></div>
+    </div>
+    <button class="t-next" id="tNext" aria-label="Next">
+      <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ===================== LOCATIONS ===================== -->
+<section class="locations" id="locations">
+  <h2 class="locations-title reveal">
+    Find us across <span>austin</span>
+  </h2>
+
+  <div class="locations-grid">
+    <a href="#" class="loc-card reveal d1">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/183-at-anderson-mill.webp" alt="183 at Anderson Mill" loading="lazy">
+      <div class="loc-card-grad"></div>
+      <div class="loc-card-cta"><span>View Location →</span></div>
+      <div class="loc-card-name">183 at Anderson Mill</div>
+    </a>
+    <a href="#" class="loc-card reveal d2">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/east-6th.webp" alt="East 6th" loading="lazy">
+      <div class="loc-card-grad"></div>
+      <div class="loc-card-cta"><span>View Location →</span></div>
+      <div class="loc-card-name">East 6th</div>
+    </a>
+    <a href="#" class="loc-card reveal d3">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/41st-red-river.webp" alt="41st &amp; Red River" loading="lazy">
+      <div class="loc-card-grad"></div>
+      <div class="loc-card-cta"><span>View Location →</span></div>
+      <div class="loc-card-name">41st &amp; Red River</div>
+    </a>
+    <a href="#" class="loc-card reveal d1">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/Burnet.webp" alt="Burnet" loading="lazy">
+      <div class="loc-card-grad"></div>
+      <div class="loc-card-cta"><span>View Location →</span></div>
+      <div class="loc-card-name">Burnet</div>
+    </a>
+    <a href="#" class="loc-card reveal d2">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/domain-northside.webp" alt="Domain Northside" loading="lazy">
+      <div class="loc-card-grad"></div>
+      <div class="loc-card-cta"><span>View Location →</span></div>
+      <div class="loc-card-name">Domain Northside</div>
+    </a>
+    <a href="#" class="loc-card reveal d3">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/slaughter-lane.webp" alt="Slaughter Lane" loading="lazy">
+      <div class="loc-card-grad"></div>
+      <div class="loc-card-cta"><span>View Location →</span></div>
+      <div class="loc-card-name">Slaughter Lane</div>
+    </a>
+    <a href="#" class="loc-card reveal d1">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/south-congress.webp" alt="South Congress" loading="lazy">
+      <div class="loc-card-grad"></div>
+      <div class="loc-card-cta"><span>View Location →</span></div>
+      <div class="loc-card-name">South Congress</div>
+    </a>
+    <a href="#" class="loc-card reveal d2">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/william-cannon.webp" alt="William Cannon" loading="lazy">
+      <div class="loc-card-grad"></div>
+      <div class="loc-card-cta"><span>View Location →</span></div>
+      <div class="loc-card-name">William Cannon</div>
+    </a>
+    <a href="#" class="loc-card reveal d3">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/south-lamar.webp" alt="South Lamar" loading="lazy">
+      <div class="loc-card-grad"></div>
+      <div class="loc-card-cta"><span>View Location →</span></div>
+      <div class="loc-card-name">South Lamar</div>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== MARQUEE ===================== -->
+<div class="marquee-wrap" id="beats">
+  <div class="marquee-inner" aria-hidden="true">
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+    <!-- duplicate for seamless loop -->
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+    <a class="marquee-item marquee-link" href="#">check out our rotating mixtapes <span class="marquee-sep"></span></a>
+  </div>
+</div>
+
+<!-- ===================== INSTAGRAM ===================== -->
+<section class="insta">
+  <div class="insta-header reveal">
+    <p class="insta-eyebrow">Follow along</p>
+    <h2 class="insta-title">that's not all</h2>
+    <a href="https://instagram.com/birdsbarbershop" target="_blank" rel="noopener" class="insta-cta-link">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      Connect on Instagram
+    </a>
+  </div>
+
+  <div class="insta-grid">
+    <a href="https://www.instagram.com/reel/DXpCkEVkl1Z/" target="_blank" rel="noopener" class="insta-post reveal d1">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/sb-instagram-feed-images/682893860_26447335921614392_4100391890268859802_nlow.webp" alt="Instagram" loading="lazy">
+      <div class="insta-post-over">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/p/DXmnhb9ErFt/" target="_blank" rel="noopener" class="insta-post reveal d2">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/sb-instagram-feed-images/675455214_18584183848031135_6286526633392743044_nlow.webp" alt="Instagram" loading="lazy">
+      <div class="insta-post-over">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/p/DXcqm6GEuqn/" target="_blank" rel="noopener" class="insta-post reveal d3">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/sb-instagram-feed-images/671279680_18583139650031135_3434707867370685341_nlow.webp" alt="Instagram" loading="lazy">
+      <div class="insta-post-over">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/p/DXXDl1flg28/" target="_blank" rel="noopener" class="insta-post reveal d4">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/sb-instagram-feed-images/670884441_18582608500031135_1597285461663887921_nlow.webp" alt="Instagram" loading="lazy">
+      <div class="insta-post-over">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/p/DXH-z5xmpiX/" target="_blank" rel="noopener" class="insta-post reveal d5">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/sb-instagram-feed-images/670840775_18581242234031135_5853521484213445118_nlow.webp" alt="Instagram" loading="lazy">
+      <div class="insta-post-over">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/reel/DW9tZnIhfI9/" target="_blank" rel="noopener" class="insta-post reveal d6">
+      <img src="https://birdsbarbershop.com/wp-content/uploads/sb-instagram-feed-images/670625771_1302897295030252_1082433084003417499_nlow.webp" alt="Instagram" loading="lazy">
+      <div class="insta-post-over">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <a href="#top">
+        <img class="footer-logo"
+             src="https://birdsbarbershop.com/wp-content/uploads/2025/11/birds-barbershop-logo-black.svg"
+             alt="Birds Barbershop">
+      </a>
+      <p class="footer-about">Austin's award-winning salon-barbershop for 20 years. Great hair, good tunes, and free drinks — for all y'all.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/birdsbarbershop" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <p class="footer-col-head">Services</p>
+      <ul class="footer-links">
+        <li><a href="#">Short Cut</a></li>
+        <li><a href="#">Skin Fade</a></li>
+        <li><a href="#">Long Cut</a></li>
+        <li><a href="#">Buzz Cut</a></li>
+        <li><a href="#">Kid Cut</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="footer-col-head">Locations</p>
+      <ul class="footer-links">
+        <li><a href="#">South Lamar</a></li>
+        <li><a href="#">East 6th</a></li>
+        <li><a href="#">South Congress</a></li>
+        <li><a href="#">Burnet</a></li>
+        <li><a href="#">Domain Northside</a></li>
+        <li><a href="#">View All →</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-book">
+      <p class="footer-col-head">Book a Cut</p>
+      <p>Open every day. All are welcome. No drama, just quality cuts.</p>
+      <a href="#" class="btn btn-yellow">Book Now</a>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Birds Barbershop. Austin's best since 2006.</span>
+    <span>Made with ✂️ in Austin, TX</span>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-top" id="backTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- ===================== JAVASCRIPT ===================== -->
+<script>
+  /* --- NAV SCROLL --- */
+  const nav = document.getElementById('nav');
+  const backTop = document.getElementById('backTop');
+  let lastY = 0;
+
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 60);
+    backTop.classList.toggle('visible', y > 400);
+    lastY = y;
+  }, { passive: true });
+
+  backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* --- MOBILE MENU --- */
+  const burger = document.getElementById('burger');
+  const navMobile = document.getElementById('navMobile');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    navMobile.classList.toggle('open');
+    document.body.style.overflow = navMobile.classList.contains('open') ? 'hidden' : '';
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('open');
+      navMobile.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* --- INTERSECTION OBSERVER (scroll reveals) --- */
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(el => revealObs.observe(el));
+
+  /* --- TESTIMONIAL CAROUSEL --- */
+  const tTrack = document.getElementById('tTrack');
+  const tDots  = document.querySelectorAll('.t-dot');
+  const tPrev  = document.getElementById('tPrev');
+  const tNext  = document.getElementById('tNext');
+  let tCurrent = 0;
+  let tTimer;
+  const TOTAL_SLIDES = 3;
+
+  function getCardWidth() {
+    const card = tTrack.firstElementChild;
+    const style = getComputedStyle(tTrack);
+    const gap = parseFloat(style.gap) || 24;
+    return card.offsetWidth + gap;
+  }
+
+  function goTo(index) {
+    tCurrent = (index + TOTAL_SLIDES) % TOTAL_SLIDES;
+    tTrack.style.transform = `translateX(-${tCurrent * getCardWidth()}px)`;
+    tDots.forEach((d, i) => d.classList.toggle('active', i === tCurrent));
+  }
+
+  function autoNext() { goTo(tCurrent + 1); }
+
+  function resetTimer() {
+    clearInterval(tTimer);
+    tTimer = setInterval(autoNext, 4500);
+  }
+
+  tPrev.addEventListener('click', () => { goTo(tCurrent - 1); resetTimer(); });
+  tNext.addEventListener('click', () => { goTo(tCurrent + 1); resetTimer(); });
+  tDots.forEach(d => {
+    d.addEventListener('click', () => { goTo(parseInt(d.dataset.i)); resetTimer(); });
+  });
+
+  // Touch/drag support
+  let tStartX = 0;
+  tTrack.addEventListener('touchstart', e => { tStartX = e.touches[0].clientX; }, { passive: true });
+  tTrack.addEventListener('touchend', e => {
+    const diff = tStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { goTo(tCurrent + (diff > 0 ? 1 : -1)); resetTimer(); }
+  }, { passive: true });
+
+  window.addEventListener('resize', () => goTo(tCurrent));
+  resetTimer();
+
+  /* --- PARALLAX HERO FLOATS --- */
+  const floats = document.querySelectorAll('.hero-float');
+  window.addEventListener('mousemove', e => {
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    const dx = (e.clientX - cx) / cx;
+    const dy = (e.clientY - cy) / cy;
+    floats.forEach((f, i) => {
+      const depth = (i + 1) * 8;
+      f.style.transform = `translate(${dx * depth}px, ${dy * depth}px)`;
+    });
+  }, { passive: true });
+
+  /* --- HERO SCROLL PARALLAX --- */
+  const heroBlobs = document.querySelectorAll('.hero-blob');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    heroBlobs.forEach((b, i) => {
+      b.style.transform = `translateY(${y * (0.15 + i * 0.08)}px)`;
+    });
+  }, { passive: true });
+</script>
+</body>
+</html>
