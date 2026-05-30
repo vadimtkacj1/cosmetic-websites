@@ -138,11 +138,11 @@ export default function HeroSection() {
           </div>
 
           {/* Мобільне зображення (тепер зверху на мобільних завдяки flex-col-reverse) */}
-          <div className="block md:hidden w-full overflow-hidden rounded-b-[32px] shadow-sm">
-            <img 
-              src={imagePath} 
-              alt="Nails and Beauty" 
-              className={`w-full h-auto object-cover ${isRtl ? 'scaleX(-1)' : ''}`}
+          <div className="block md:hidden w-full overflow-hidden rounded-b-[32px] shadow-sm" style={{ maxHeight: '75vw' }}>
+            <img
+              src={imagePath}
+              alt="Nails and Beauty"
+              className={`w-full h-full object-cover object-top ${isRtl ? 'scaleX(-1)' : ''}`}
             />
           </div>
 

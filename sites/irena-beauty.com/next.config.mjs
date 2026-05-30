@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const BASE_PATH = process.env.BASE_PATH ?? '/landing/glam_nails';
+const BASE_PATH = process.env.BASE_PATH ?? '';
 
 const nextConfig = {
   productionBrowserSourceMaps: true,
