@@ -20,6 +20,7 @@ const FeatureCard = ({ icon, title, description, iconAlt }: FeatureCardProps) =>
         alt={iconAlt}
         width={74}
         height={74}
+        unoptimized
         className="w-[60px] h-[60px] sm:w-[67px] sm:h-[67px] md:w-[74px] md:h-[74px]"
       />
 
@@ -39,7 +40,7 @@ const FEATURE_ICONS = [
   '/images/img_vector_white_a700.svg',
   '/images/img_vector_white_a700_74x74.svg',
   '/images/img_vector_74x74.svg',
-  '/images/img_vector_gray_900.svg',
+  '/images/img_vector_1.svg',
 ]
 
 export default function WhyChooseUsSection() {
@@ -88,7 +89,7 @@ export default function WhyChooseUsSection() {
                 <button
                   type="button"
                   onClick={openBooking}
-                  className="flex flex-row justify-center items-center bg-primary-background px-[14px] py-[14px] hover:opacity-90 transition-opacity"
+                  className="flex flex-row justify-center items-center bg-primary-background px-[14px] py-[14px] rounded-xl hover:opacity-90 transition-opacity"
                 >
                   <span className="text-[15px] sm:text-[15px] md:text-base font-normal leading-relaxed text-start text-text-white" style={{ fontFamily: 'Nunito Sans' }}>
                     {why.bookingCta}

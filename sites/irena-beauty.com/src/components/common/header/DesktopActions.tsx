@@ -12,7 +12,7 @@ const DesktopActions = () => {
     <LanguageSwitcher />
     <Button
       text={actions.book}
-      className="ms-[20px] px-[28px] py-[14px]"
+      className="ms-[20px] px-[28px] py-[14px] rounded-xl"
       variant="primary"
       size="medium"
       padding="px-[28px] py-[14px]"

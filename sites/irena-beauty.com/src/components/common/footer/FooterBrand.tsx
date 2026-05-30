@@ -1,14 +1,15 @@
 'use client';
-import Image from 'next/image';
 import FooterSocialIcons from './FooterSocialIcons';
 import { useSiteContent } from '@/components/i18n/LocaleProvider';
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
 const FooterBrand = () => {
   const { footer } = useSiteContent();
   return (
   <div className="flex flex-col gap-[24px] w-full lg:w-[32%]">
-    <Image
-      src="/logo.png"
+    <img
+      src={`${BASE}/logo.png`}
       alt="GlamNails Logo"
       width={52}
       height={50}

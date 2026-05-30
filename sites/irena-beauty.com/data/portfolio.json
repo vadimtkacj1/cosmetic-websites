@@ -228,12 +228,6 @@
     "createdAt": "2026-05-21T16:58:17.074Z"
   },
   {
-    "id": "41541b6d-51ed-4834-9e6c-bba55042c8cd",
-    "type": "photo",
-    "src": "/images/photos/photo_46.jpeg",
-    "createdAt": "2026-05-21T16:58:17.074Z"
-  },
-  {
     "id": "27bfe486-d27d-4d00-9902-067af75517dc",
     "type": "photo",
     "src": "/images/photos/photo_47.jpeg",
@@ -292,6 +286,18 @@
     "type": "photo",
     "src": "/images/photos/photo_56.jpeg",
     "createdAt": "2026-05-21T16:58:17.074Z"
+  },
+  {
+    "id": "7389efb6-15e7-47f8-a2d7-2eca79926d6f",
+    "type": "photo",
+    "src": "/images/photos/maniqor.jpeg",
+    "createdAt": "2026-05-28T21:42:06.039Z"
+  },
+  {
+    "id": "88737b9c-44a3-4ebc-8efd-06beb6c11d0c",
+    "type": "photo",
+    "src": "/images/photos/predicur.jpeg",
+    "createdAt": "2026-05-28T21:42:06.039Z"
   },
   {
     "id": "9e494715-be06-4caf-b804-8fddf981db4c",
@@ -712,5 +718,11 @@
     "type": "video",
     "src": "/images/videos/video_80.mp4",
     "createdAt": "2026-05-21T16:58:17.074Z"
+  },
+  {
+    "id": "8f31392b-1580-43e9-9223-b33f6689b5b0",
+    "type": "video",
+    "src": "/images/videos/video_permanent.mp4",
+    "createdAt": "2026-05-28T21:42:06.039Z"
   }
 ]

@@ -34,7 +34,7 @@ const MobileNav = ({ open, onClose }: { open: boolean; onClose?: () => void }) =
       </div>
       <Button
         text={actions.book}
-        className="w-full mt-2 px-6 py-3"
+        className="w-full mt-2 px-6 py-3 rounded-xl"
         variant="primary"
         size="medium"
         padding="px-6 py-3"

@@ -1,8 +1,7 @@
 'use client';
 import { useState, useRef } from 'react';
-import Image from 'next/image';
 import Reveal from '@/components/ui/Reveal';
-import { useSiteContent } from '@/components/i18n/LocaleProvider';
+import { useLocale } from '@/components/i18n/LocaleProvider';
 
 interface TestimonialCardProps {
   image: string
@@ -14,12 +13,10 @@ interface TestimonialCardProps {
 
 const TestimonialCard = ({ image, name, location, testimonial, imageAlt }: TestimonialCardProps) => (
   <div className="flex flex-col sm:flex-row gap-[16px] sm:gap-[20px] md:gap-[24px] justify-start items-start bg-secondary-background p-[20px] sm:p-[30px] md:p-[40px] w-full">
-    <Image
+    <img
       src={image}
       alt={imageAlt}
-      width={120}
-      height={120}
-      className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] md:w-[120px] md:h-[120px] rounded-full mx-auto sm:mx-0 flex-shrink-0"
+      className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] md:w-[120px] md:h-[120px] rounded-full mx-auto sm:mx-0 flex-shrink-0 object-cover"
     />
     <div className="flex flex-col gap-[20px] sm:gap-[30px] md:gap-[40px] justify-start items-center w-full">
       <p className="text-[17px] sm:text-[17px] md:text-lg font-normal leading-loose text-start text-text-secondary" style={{ fontFamily: 'Nunito Sans' }}>
@@ -39,13 +36,16 @@ const TestimonialCard = ({ image, name, location, testimonial, imageAlt }: Testi
   </div>
 )
 
-const TESTIMONIAL_IMAGES = ['/images/img_image_120x120.png', '/images/img_image_3.png', '/images/img_image_4.png']
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+const TESTIMONIAL_IMAGES = [`${BASE}/images/img_image_120x120.png`, `${BASE}/images/img_image_3.png`, `${BASE}/images/img_image_4.png`]
 
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const touchStartX = useRef(0)
   const touchEndX = useRef(0)
-  const { testimonials: testimonialsContent } = useSiteContent()
+  const { content, dir } = useLocale()
+  const testimonialsContent = content.testimonials
+  const isRtl = dir === 'rtl'
 
   const testimonials = testimonialsContent.items.map((t, i) => ({
     image: TESTIMONIAL_IMAGES[i] ?? TESTIMONIAL_IMAGES[0],
@@ -67,8 +67,8 @@ export default function TestimonialsSection() {
   const handleTouchEnd = () => {
     const diff = touchStartX.current - touchEndX.current
     if (Math.abs(diff) > 50) {
-      if (diff > 0) next()
-      else prev()
+      if (diff > 0) isRtl ? prev() : next()
+      else isRtl ? next() : prev()
     }
   }
 
@@ -85,7 +85,9 @@ export default function TestimonialsSection() {
           <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6">
             <Reveal delay={120} className="max-w-[1142px] mx-auto">
               {/* Slider */}
+              {/* dir="ltr" isolates slider from RTL so translateX always works physically */}
               <div
+                dir="ltr"
                 className="overflow-hidden"
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
@@ -96,7 +98,7 @@ export default function TestimonialsSection() {
                   style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 >
                   {testimonials.map((testimonial, index) => (
-                    <div key={index} className="w-full flex-shrink-0">
+                    <div key={index} dir={dir} className="w-full flex-shrink-0">
                       <TestimonialCard {...testimonial} />
                     </div>
                   ))}
@@ -106,9 +108,9 @@ export default function TestimonialsSection() {
               {/* Navigation */}
               <div className="flex justify-between items-center mt-[20px] sm:mt-[24px]">
                 <button
-                  onClick={prev}
+                  onClick={isRtl ? next : prev}
                   className="p-[10px] sm:p-[12px] bg-secondary-background hover:bg-primary-background hover:text-white transition-colors rounded-full shadow"
-                  aria-label="Предыдущий отзыв"
+                  aria-label="previous"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -123,15 +125,15 @@ export default function TestimonialsSection() {
                       className={`w-[10px] h-[10px] rounded-full transition-colors ${
                         i === currentIndex ? 'bg-primary-background' : 'bg-gray-300'
                       }`}
-                      aria-label={`Отзыв ${i + 1}`}
+                      aria-label={`${i + 1}`}
                     />
                   ))}
                 </div>
 
                 <button
-                  onClick={next}
+                  onClick={isRtl ? prev : next}
                   className="p-[10px] sm:p-[12px] bg-secondary-background hover:bg-primary-background hover:text-white transition-colors rounded-full shadow"
-                  aria-label="Следующий отзыв"
+                  aria-label="next"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import { useBooking } from '@/components/booking/BookingContext';
 import { useSiteContent } from '@/components/i18n/LocaleProvider';
@@ -46,21 +45,21 @@ const PricingRow = ({ title, price, currency }: PricingItem & { currency: string
   );
 };
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 const CATEGORY_META: { id: string; image: string; imagePosition: 'left' | 'right' }[] = [
-  { id: 'permanent', image: '/images/img_image_618x460.png', imagePosition: 'left' },
-  { id: 'manicure', image: '/images/img_image_2.png', imagePosition: 'right' },
-  { id: 'pedicure', image: '/images/img_image_400x558.png', imagePosition: 'left' },
+  { id: 'permanent', image: `${BASE}/images/photos/photo_48.jpeg`, imagePosition: 'left' },
+  { id: 'manicure', image: `${BASE}/images/photos/maniqor.jpeg`, imagePosition: 'right' },
+  { id: 'pedicure', image: `${BASE}/images/photos/predicur.jpeg`, imagePosition: 'left' },
 ];
 
 const ParallaxImage = ({ src, alt }: { src: string; alt: string }) => {
   return (
     <div className="relative overflow-hidden w-full aspect-[460/618]">
-      <Image
+      <img
         src={src}
         alt={alt}
-        fill
-        sizes="(max-width: 1024px) 100vw, 460px"
-        className="object-cover"
+        className="absolute inset-0 w-full h-full object-cover"
       />
     </div>
   );
@@ -135,7 +134,7 @@ const PricingBlock = ({
 
             <Button
               text={cta}
-              className="w-full sm:w-auto px-[28px] py-[14px] mt-[16px] sm:mt-[20px] md:mt-[24px] hover:opacity-90 hover:-translate-y-0.5 transition-all duration-300"
+              className="w-full sm:w-auto px-[28px] py-[14px] rounded-xl mt-[16px] sm:mt-[20px] md:mt-[24px] hover:opacity-90 hover:-translate-y-0.5 transition-all duration-300"
               text_font_size="text-base"
               text_font_family="Nunito Sans"
               text_font_weight="font-normal"

@@ -3,7 +3,7 @@
 const FooterSocialIcons = () => (
   <div className="flex flex-row gap-[12px] items-center">
     <a
-      href="https://www.instagram.com/irena_beauty_time/"
+      href="https://www.instagram.com/beautyiren/"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Instagram"

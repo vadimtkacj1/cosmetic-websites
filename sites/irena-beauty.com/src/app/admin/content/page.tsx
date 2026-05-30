@@ -22,6 +22,7 @@ const SECTION_LABELS: Record<string, { ru: string; he: string }> = {
   contact: { ru: 'Контакты', he: 'צור קשר' },
   footer: { ru: 'Подвал', he: 'כותרת תחתונה' },
   booking: { ru: 'Форма записи', he: 'טופס תורים' },
+  discountPopup: { ru: 'Приветственный поп-ап', he: 'חלון קבלת פנים' },
   business: { ru: 'Контактные данные', he: 'פרטי קשר' },
 }
 

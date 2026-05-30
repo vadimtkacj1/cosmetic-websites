@@ -10,11 +10,11 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="w-full sticky top-0 z-50">
-      <div className="w-full bg-header-background shadow-md">
-        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6">
+    <header className="w-full sticky top-0 z-50 px-4 sm:px-6 pt-3 pb-1 bg-transparent">
+      <div className="w-full max-w-[1440px] mx-auto bg-header-background shadow-md rounded-[16px]">
+        <div className="px-4 sm:px-6">
           {/* Force LTR so element positions (logo / nav / actions) stay identical across locales */}
-          <div dir="ltr" className="flex flex-row justify-between items-center py-4 md:py-6">
+          <div dir="ltr" className="flex flex-row justify-between items-center py-3 md:py-5">
             <Logo />
             <DesktopNav />
             <DesktopActions />

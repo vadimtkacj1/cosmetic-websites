@@ -24,13 +24,6 @@ const PhoneIcon = ({ className = '' }: { className?: string }) => (
   </svg>
 );
 
-const MailIcon = ({ className = '' }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
-    <rect x="3" y="5" width="18" height="14" rx="2" />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3 7l9 6 9-6" />
-  </svg>
-);
-
 const ClockIcon = ({ className = '' }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
     <circle cx="12" cy="12" r="9" />
@@ -196,25 +189,18 @@ export default function ContactSection() {
                   delay={80}
                 />
                 <ContactRow
-                  icon={<MailIcon className="w-5 h-5" />}
-                  label={contact.labelEmail}
-                  value={business.email}
-                  href={`mailto:${business.email}`}
-                  delay={160}
-                />
-                <ContactRow
                   icon={<InstagramIcon className="w-5 h-5" />}
                   label={contact.labelInstagram}
                   value={business.instagramHandle}
                   href={INSTAGRAM_URL}
                   external
-                  delay={240}
+                  delay={160}
                 />
                 <ContactRow
                   icon={<ClockIcon className="w-5 h-5" />}
                   label={contact.labelHours}
                   value={contact.hours}
-                  delay={320}
+                  delay={240}
                 />
               </div>
 
@@ -223,7 +209,7 @@ export default function ContactSection() {
                   href={WHATSAPP_HREF}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-[10px] bg-primary-background text-text-white px-[26px] py-[14px] hover:opacity-90 hover:-translate-y-0.5 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-[10px] bg-primary-background text-text-white px-[26px] py-[14px] rounded-xl hover:opacity-90 hover:-translate-y-0.5 transition-all duration-300"
                   style={{ fontFamily: 'Nunito Sans' }}
                 >
                   <WhatsAppIcon className="w-[18px] h-[18px]" />
@@ -233,7 +219,7 @@ export default function ContactSection() {
                 </a>
                 <a
                   href={PHONE_HREF}
-                  className="inline-flex items-center justify-center gap-[10px] border border-primary-background text-text-primary px-[26px] py-[14px] hover:bg-primary-background hover:text-text-white hover:-translate-y-0.5 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-[10px] border border-primary-background text-text-primary px-[26px] py-[14px] rounded-xl hover:bg-primary-background hover:text-text-white hover:-translate-y-0.5 transition-all duration-300"
                   style={{ fontFamily: 'Nunito Sans' }}
                 >
                   <PhoneIcon className="w-[18px] h-[18px]" />

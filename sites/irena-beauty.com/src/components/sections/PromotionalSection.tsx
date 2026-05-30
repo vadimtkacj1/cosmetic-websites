@@ -41,7 +41,7 @@ const PromoCard = ({ image, title, imagePosition, imageAlt, cta }: PromoCardProp
 
         <Button
           text={cta}
-          className="w-full sm:w-auto px-[28px] py-[14px]"
+          className="w-full sm:w-auto px-[28px] py-[14px] rounded-xl"
           text_font_size="text-base"
           text_font_family="Nunito Sans"
           text_font_weight="font-normal"

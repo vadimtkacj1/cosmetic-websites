@@ -73,6 +73,52 @@ function seedFromPublic(): PortfolioItem[] {
   return items
 }
 
+function syncWithDisk(items: PortfolioItem[]): PortfolioItem[] {
+  const getStaticSrcs = (dir: string, urlBase: string, extSet: Set<string>): Set<string> => {
+    try {
+      const names = fs.readdirSync(dir).filter((n) => extSet.has(path.extname(n).toLowerCase()))
+      return new Set(names.map((n) => `${urlBase}/${n}`))
+    } catch {
+      return new Set()
+    }
+  }
+
+  const photoSrcs = getStaticSrcs(PUBLIC_PHOTOS, '/images/photos', PHOTO_EXT)
+  const videoSrcs = getStaticSrcs(PUBLIC_VIDEOS, '/images/videos', VIDEO_EXT)
+  const allStaticSrcs = new Set([...photoSrcs, ...videoSrcs])
+
+  // Remove static items whose files no longer exist on disk
+  const existingStaticSrcs = new Set(items.filter((i) => !i.file).map((i) => i.src))
+  const filtered = items.filter((i) => i.file || allStaticSrcs.has(i.src))
+
+  // Add new files found on disk that are not yet in the manifest
+  const now = new Date().toISOString()
+  const newPhotos: PortfolioItem[] = [...photoSrcs]
+    .filter((src) => !existingStaticSrcs.has(src))
+    .sort()
+    .map((src) => ({ id: randomUUID(), type: 'photo', src, createdAt: now }))
+  const newVideos: PortfolioItem[] = [...videoSrcs]
+    .filter((src) => !existingStaticSrcs.has(src))
+    .sort()
+    .map((src) => ({ id: randomUUID(), type: 'video', src, createdAt: now }))
+
+  if (newPhotos.length === 0 && newVideos.length === 0 && filtered.length === items.length) {
+    return items
+  }
+
+  // Insert new photos before the first video block, new videos at the end of video block
+  const firstVideoIdx = filtered.findIndex((i) => i.type === 'video' && !i.file)
+  const insertIdx = firstVideoIdx === -1 ? filtered.length : firstVideoIdx
+  const synced = [
+    ...filtered.slice(0, insertIdx),
+    ...newPhotos,
+    ...filtered.slice(insertIdx),
+    ...newVideos,
+  ]
+  writeManifest(synced)
+  return synced
+}
+
 function readManifest(): PortfolioItem[] {
   try {
     if (!fs.existsSync(MANIFEST_FILE)) {
@@ -80,7 +126,8 @@ function readManifest(): PortfolioItem[] {
       writeManifest(seeded)
       return seeded
     }
-    return JSON.parse(fs.readFileSync(MANIFEST_FILE, 'utf-8')) as PortfolioItem[]
+    const items = JSON.parse(fs.readFileSync(MANIFEST_FILE, 'utf-8')) as PortfolioItem[]
+    return syncWithDisk(items)
   } catch {
     return []
   }

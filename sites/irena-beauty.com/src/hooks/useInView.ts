@@ -1,11 +1,14 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 interface Options {
   threshold?: number;
   rootMargin?: string;
   once?: boolean;
 }
+
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 export function useInView<T extends HTMLElement = HTMLDivElement>({
   threshold = 0.15,
@@ -14,6 +17,16 @@ export function useInView<T extends HTMLElement = HTMLDivElement>({
 }: Options = {}) {
   const ref = useRef<T>(null);
   const [inView, setInView] = useState(false);
+
+  // On mount (e.g. back navigation), if element is already in viewport — show immediately without animation
+  useIsomorphicLayoutEffect(() => {
+    const el = ref.current;
+    if (!el || !once) return;
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setInView(true);
+    }
+  }, [once]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;

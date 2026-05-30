@@ -65,12 +65,14 @@ export default function PortfolioSection() {
   const [visible, setVisible] = useState(PAGE_SIZE);
   const [lightbox, setLightbox] = useState<number | null>(null);
 
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
   useEffect(() => {
     let active = true;
-    fetch('/api/public/portfolio')
+    fetch(`${basePath}/api/public/portfolio`)
       .then((res) => (res.ok ? res.json() : []))
       .then((data: MediaItem[]) => {
-        if (active) setMedia(Array.isArray(data) ? data : []);
+        if (active) setMedia(Array.isArray(data) ? data.map((d) => ({ ...d, src: `${basePath}${d.src}` })) : []);
       })
       .catch(() => {});
     return () => {
