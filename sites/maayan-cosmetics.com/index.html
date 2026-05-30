@@ -1,352 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maayan Cosmetics — Advanced Beauty Clinic, Holon</title>
-<link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/site.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0" />
+  <title>Beauty is a Right, Not a Privilege — Likha Aesthetic Clinic</title>
+  <meta name="description" content="Award winning Aesthetic Clinic of the Year offering non-surgical beauty treatments by a certified & experienced expert, Dr Juliah with a 5 Star Rating." />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<!-- ============================ NAV ============================ -->
-<header class="nav">
-  <a href="#top" class="brand">
-    <span class="brand__name">Maayan</span>
-    <span class="brand__tag">Cosmetics · Holon</span>
-  </a>
-  <nav class="nav__links">
-    <a href="#services" class="navlink">Treatments</a>
-    <a href="#about" class="navlink">About</a>
-    <a href="#products" class="navlink">GIGI Shop</a>
-    <a href="#contact" class="navlink">Contact</a>
-  </nav>
-  <div class="nav__cta">
-    <a href="#contact" class="btn btn--primary nav__book"><span class="spark">✦</span>Book Now</a>
-    <button class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+<!-- ── OVERLAY MENU ── -->
+<div class="nav-overlay" id="navOverlay">
+  <button class="nav-overlay-close" id="navClose" aria-label="Close menu">&times;</button>
+  <a href="treatments.html">Treatments</a>
+  <a href="about.html">About</a>
+  <a href="products.html">Products</a>
+  <a href="contact.html">Location &amp; Hours</a>
+  <a href="contact.html">Gift Cards</a>
+  <a href="https://likha.myaestheticrecord.com/book/appointments/bBQyDNe8pm7oPzox9jGXORxW6aK54J/clinics" target="_blank" style="color:var(--rose);">Book Appointment</a>
+</div>
+
+<!-- ── HEADER ── -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="https://likha.myaestheticrecord.com/book/appointments/bBQyDNe8pm7oPzox9jGXORxW6aK54J/clinics"
+         target="_blank" class="header-book">Book Appointment</a>
+    </div>
+    <a href="index.html" class="header-logo" aria-label="Likha home">
+      <img src="https://likhaaesthetic.ie/wp-content/themes/wondr/img/logo.svg"
+           alt="Likha" onerror="this.outerHTML='<span style=\'font-family:Gilda Display,serif;font-size:26px;letter-spacing:7px;text-transform:uppercase;color:#231F20\'>LIKHA</span>'" />
+    </a>
+    <div class="header-right">
+      <nav class="nav-links">
+        <a href="treatments.html">Treatments</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="6"  cy="6"  r="2" fill="#231F20"/>
+          <circle cx="6"  cy="18" r="2" fill="#231F20"/>
+          <circle cx="18" cy="6"  r="2" fill="#231F20"/>
+          <circle cx="18" cy="18" r="2" fill="#231F20"/>
+          <circle cx="12" cy="12" r="2" fill="#231F20"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </header>
 
-<!-- ======================= MOBILE MENU ========================= -->
-<div class="mobile" id="mobile">
-  <span class="eyebrow">Maayan Cosmetics</span>
-  <a href="#services" data-close>Treatments</a>
-  <a href="#about" data-close>About</a>
-  <a href="#products" data-close>GIGI Shop</a>
-  <a href="#contact" data-close>Contact</a>
-  <a href="#contact" class="btn btn--pink" data-close style="margin-top:1rem;"><span class="spark">✦</span>Book Now</a>
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-container">
+
+    <!-- Award badges -->
+    <div class="hero-awards">
+      <a href="about.html">
+        <img src="https://likhaaesthetic.ie/wp-content/uploads/2026/03/aestheic-Award-clinic-168.png"
+             alt="2025 Winner Best Clinic" />
+      </a>
+      <a href="about.html">
+        <img src="https://likhaaesthetic.ie/wp-content/uploads/2026/03/2025-Patient-Winner.png"
+             alt="2025 Patient Winner" />
+      </a>
+    </div>
+
+    <!-- Title line 1 -->
+    <h1 class="hero-title hero-title-1">Beauty<br>is a Right</h1>
+
+    <!-- Portrait -->
+    <div class="hero-portrait">
+      <a href="treatments.html">
+        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/02/home-hero.png"
+             alt="Likha Aesthetic" />
+      </a>
+    </div>
+
+    <!-- Title line 2 -->
+    <h1 class="hero-title hero-title-2">Not<br>a Privilege</h1>
+
+  </div>
+</section>
+
+<!-- ── TAGLINE ── -->
+<section class="tagline-section">
+  <a href="about.html" class="tagline-link">
+    To Create Something With<br>Intelligence And Skill
+  </a>
+</section>
+
+<!-- ── QUICK NAV ── -->
+<div class="quick-nav">
+  <a href="contact.html" class="quick-nav-item">
+    <span>Gift</span>
+    <strong>Cards</strong>
+  </a>
+  <a href="treatments.html" class="quick-nav-item">
+    <span>Treatments</span>
+    <strong>&amp; Pricing</strong>
+  </a>
+  <a href="contact.html" class="quick-nav-item">
+    <span>Location</span>
+    <strong>&amp; Hours</strong>
+  </a>
+  <a href="products.html" class="quick-nav-item">
+    <span>Selected</span>
+    <strong>Products</strong>
+  </a>
 </div>
 
-<main id="top">
-
-  <!-- ============================ HERO ============================ -->
-  <section class="hero">
-    <div class="blob blob--warm"></div>
-    <div class="blob blob--cool"></div>
-    <div class="wrap">
-      <div class="hero__grid">
-        <div class="hero__copy reveal">
-          <span class="eyebrow">Advanced Beauty Clinic · Clinical Aesthetics</span>
-          <h1 class="display">Real skin,<br>real <em>results</em>.</h1>
-          <p class="lead">Result-driven facial skincare by certified clinical cosmetologist Maayan Vaknin — where medical precision meets a warm, home-like clinic in Holon.</p>
-          <div class="hero__actions">
-            <a href="#contact" class="btn btn--primary"><span class="spark">✦</span>Book a Consultation</a>
-            <a href="#services" class="btn btn--secondary">Explore Treatments<span class="arr">→</span></a>
-          </div>
-          <div class="hero__trust">
-            <div><div class="num">11+</div><div class="lbl">Clinical Treatments</div></div>
-            <div><div class="num">1:1</div><div class="lbl">Personal Follow-Up</div></div>
-            <div><div class="num">GIGI</div><div class="lbl">Premium Retail</div></div>
-          </div>
-        </div>
-        <div class="hero__visual reveal">
-          <div class="circle-icon circle-icon--xl"><img src="assets/icons/skin-health.svg" alt="Facial skincare"></div>
-          <div class="circle-icon circle-icon--md"><img src="assets/icons/chemical-peels.svg" alt="Peeling"></div>
-          <div class="circle-icon circle-icon--sm"><img src="assets/icons/microneedling.svg" alt="Acne care"></div>
-          <div class="circle-icon circle-icon--xs"><img src="assets/icons/profhilo.svg" alt="Mesotherapy"></div>
-        </div>
+<!-- ── TREATMENTS ── -->
+<section class="treatments-home">
+  <div class="section-center">
+    <h2>Treatments</h2>
+    <p class="sub">Simple, affordable and most of all, safe</p>
+  </div>
+  <div class="treatment-circles">
+    <a href="treatments.html#anti-wrinkles" class="treatment-circle">
+      <div class="treatment-circle-icon">
+        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/Anti-Wrinkes.svg" alt="Anti-Wrinkles" />
       </div>
+      <span>Anti-Wrinkles</span>
+    </a>
+    <a href="treatments.html#lip-fillers" class="treatment-circle">
+      <div class="treatment-circle-icon">
+        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/Lip-Fillers-1.svg" alt="Lip Fillers" />
+      </div>
+      <span>Lip Fillers</span>
+    </a>
+    <a href="treatments.html#dermal-fillers" class="treatment-circle">
+      <div class="treatment-circle-icon">
+        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/ddddd-01.svg" alt="Dermal Fillers" />
+      </div>
+      <span>Dermal Fillers</span>
+    </a>
+    <a href="treatments.html#profhilo" class="treatment-circle">
+      <div class="treatment-circle-icon">
+        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/Profhilio.svg" alt="Profhilo" />
+      </div>
+      <span>Profhilo</span>
+    </a>
+    <a href="treatments.html#microneedling" class="treatment-circle">
+      <div class="treatment-circle-icon">
+        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/Micro-Needling.svg" alt="Microneedling" />
+      </div>
+      <span>Microneedling</span>
+    </a>
+    <a href="treatments.html#fat-dissolving" class="treatment-circle">
+      <div class="treatment-circle-icon">
+        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/fat-1.svg" alt="Fat Dissolving" />
+      </div>
+      <span>Fat Dissolving</span>
+    </a>
+    <a href="treatments.html#chemical-peels" class="treatment-circle">
+      <div class="treatment-circle-icon">
+        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/Chemical-peel.svg" alt="Chemical Peels" />
+      </div>
+      <span>Chemical Peels</span>
+    </a>
+    <a href="treatments.html#minor-surgeries" class="treatment-circle">
+      <div class="treatment-circle-icon">
+        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/surgery-01.svg" alt="Minor Surgeries" />
+      </div>
+      <span>Minor Surgeries</span>
+    </a>
+  </div>
+  <div class="view-all-wrap">
+    <a href="treatments.html" class="btn">View All</a>
+  </div>
+</section>
+
+<!-- ── DOCTOR BIO ── -->
+<section class="bio-section">
+  <div class="bio-grid">
+    <div class="bio-text">
+      <span class="doctor-label">Dr. Juliah Tbarani</span>
+      <h2>Beauty is a right, not a privilege</h2>
+      <p>As a doctor with over 22+ years award winning experience working in medical, surgical and general practice fields, patient care is always my foremost concern.</p>
+      <p>I'm a graduate of the <a href="https://www.rcsi.com/dublin" target="_blank" class="inline-link">Royal College of Surgeons Ireland</a> in 2004 with a MB BCH BAO (NUI) LRCP &amp; SI. And in 2019 I was awarded an MICGP.</p>
+      <p>Importantly, I'm a fully CERTIFIED DOCTOR in Non-Surgical Facial Transformation by the <a href="https://www.ecamedicine.com/" target="_blank" class="inline-link">European College of Aesthetic Medicine &amp; Surgery</a> and a member of Primary Care Surgical Association in Ireland.</p>
+      <a href="treatments.html" class="btn">View Treatments</a>
     </div>
-  </section>
-
-  <!-- ======================= BENTO / FEATURES ===================== -->
-  <section class="sec">
-    <div class="wrap">
-      <div class="sec-head center reveal">
-        <span class="eyebrow">Why Maayan</span>
-        <h2 class="h2">Clinical results, delivered with care</h2>
-      </div>
-      <div class="bento reveal">
-        <div class="tile tile--wide tile--feature tile--pink">
-          <div class="blob blob--warm"></div>
-          <span class="tile__ico"><img src="assets/icons/full-face.svg" alt=""></span>
-          <div>
-            <span class="eyebrow eyebrow--muted">Customised Protocols</span>
-            <h3 class="tile__title">Treatments tailored to your skin</h3>
-            <p class="tile__desc">Every plan is built around your skin's needs — acne, seborrhea, anti-aging, or deep rehabilitation — never one-size-fits-all.</p>
-          </div>
-        </div>
-        <div class="tile">
-          <span class="tile__ico"><img src="assets/icons/microneedling.svg" alt=""></span>
-          <h3 class="tile__title">Cutting-edge tech</h3>
-          <p class="tile__desc">High-grade materials and advanced skincare technologies.</p>
-        </div>
-        <div class="tile tile--ink">
-          <span class="eyebrow">Certified</span>
-          <h3 class="tile__title">Doctor-grade expertise</h3>
-          <p class="tile__desc">Led by a certified clinical cosmetologist specialising in results.</p>
-        </div>
-        <div class="tile">
-          <span class="tile__ico"><img src="assets/icons/profhilo.svg" alt=""></span>
-          <h3 class="tile__title">Personal follow-up</h3>
-          <p class="tile__desc">Thorough one-to-one aftercare on every treatment journey.</p>
-        </div>
-        <div class="tile">
-          <span class="tile__ico"><img src="assets/icons/lip-fillers.svg" alt=""></span>
-          <h3 class="tile__title">Warm environment</h3>
-          <p class="tile__desc">A welcoming, home-like clinic — professional, never clinical-cold.</p>
-        </div>
-        <div class="tile">
-          <span class="tile__ico"><img src="assets/icons/skin-health.svg" alt=""></span>
-          <h3 class="tile__title">Radiant confidence</h3>
-          <p class="tile__desc">Helping you feel revitalised and radiant in your own skin.</p>
-        </div>
-      </div>
+    <div class="bio-portrait-wrap">
+      <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/02/image01.jpg"
+           alt="Dr. Juliah Tbarani" />
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ======================= SERVICES LIST ======================== -->
-  <section class="sec services" id="services">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="eyebrow">Our Treatments</span>
-        <h2 class="h2">Simple, advanced and most of all, safe</h2>
-        <p class="lead">A comprehensive catalog of result-driven facial and skin treatments — each beginning with a personal consultation.</p>
-      </div>
-      <div class="svc-list reveal">
-        <div class="svc-row">
-          <div class="svc-row__ico"><img src="assets/icons/skin-health.svg" alt=""></div>
-          <div class="svc-row__name">Pigmentation Removal</div>
-          <div class="svc-row__meta"><span class="svc-row__tag">Book</span><span class="svc-row__arr">→</span></div>
-        </div>
-        <div class="svc-row">
-          <div class="svc-row__ico"><img src="assets/icons/ha-dissolving.svg" alt=""></div>
-          <div class="svc-row__name">Permanent Makeup Removal</div>
-          <div class="svc-row__meta"><span class="svc-row__tag">Book</span><span class="svc-row__arr">→</span></div>
-        </div>
-        <div class="svc-row">
-          <div class="svc-row__ico"><img src="assets/icons/microneedling.svg" alt=""></div>
-          <div class="svc-row__name">Acne &amp; Post-Acne Treatment</div>
-          <div class="svc-row__meta"><span class="svc-row__tag">Book</span><span class="svc-row__arr">→</span></div>
-        </div>
-        <div class="svc-row">
-          <div class="svc-row__ico"><img src="assets/icons/exosome.svg" alt=""></div>
-          <div class="svc-row__name">Tattoo Removal</div>
-          <div class="svc-row__meta"><span class="svc-row__tag">Book</span><span class="svc-row__arr">→</span></div>
-        </div>
-        <div class="svc-row">
-          <div class="svc-row__ico"><img src="assets/icons/chemical-peels.svg" alt=""></div>
-          <div class="svc-row__name">Carbon Peeling</div>
-          <div class="svc-row__meta"><span class="svc-row__tag">Book</span><span class="svc-row__arr">→</span></div>
-        </div>
-        <div class="svc-row">
-          <div class="svc-row__ico"><img src="assets/icons/profhilo.svg" alt=""></div>
-          <div class="svc-row__name">Mesotherapy</div>
-          <div class="svc-row__meta"><span class="svc-row__tag">Book</span><span class="svc-row__arr">→</span></div>
-        </div>
-        <div class="svc-row">
-          <div class="svc-row__ico"><img src="assets/icons/full-face.svg" alt=""></div>
-          <div class="svc-row__name">Skin Tightening &amp; Lifting</div>
-          <div class="svc-row__meta"><span class="svc-row__tag">Book</span><span class="svc-row__arr">→</span></div>
-        </div>
-        <div class="svc-row">
-          <div class="svc-row__ico"><img src="assets/icons/fat-dissolving.svg" alt=""></div>
-          <div class="svc-row__name">Waxing Depilation</div>
-          <div class="svc-row__meta"><span class="svc-row__tag">Book</span><span class="svc-row__arr">→</span></div>
-        </div>
-        <div class="svc-row">
-          <div class="svc-row__ico"><img src="assets/icons/pdo-threads.svg" alt=""></div>
-          <div class="svc-row__name">Eyebrow Shaping</div>
-          <div class="svc-row__meta"><span class="svc-row__tag">Book</span><span class="svc-row__arr">→</span></div>
-        </div>
-        <div class="svc-row">
-          <div class="svc-row__ico"><img src="assets/icons/lip-fillers.svg" alt=""></div>
-          <div class="svc-row__name">Professional Cosmetics &amp; Makeup</div>
-          <div class="svc-row__meta"><span class="svc-row__tag">Book</span><span class="svc-row__arr">→</span></div>
-        </div>
-        <div class="svc-row">
-          <div class="svc-row__ico"><img src="assets/icons/minor-surgeries.svg" alt=""></div>
-          <div class="svc-row__name">Complex Skin Conditions</div>
-          <div class="svc-row__meta"><span class="svc-row__tag">Book</span><span class="svc-row__arr">→</span></div>
-        </div>
-      </div>
+<!-- ── MY PICK ── -->
+<section class="my-pick-section">
+  <div class="my-pick-head">
+    <h2>My Pick</h2>
+    <p>"Creme de la creme" of my daily skin routine</p>
+    <span class="rose-line"></span>
+  </div>
+  <div class="my-pick-grid">
+    <div class="pick-card">
+      <img src="https://likhaaesthetic.ie/wp-content/uploads/2023/08/EXOBALM_Product-e1691008692639.webp"
+           alt="ASCEplus Exobalm" />
+      <h3>ASCEplus Exobalm</h3>
+      <p>Revolutionary post procedure care for rapid healing of the skin.</p>
     </div>
-  </section>
-
-  <!-- ============================ ABOUT =========================== -->
-  <section class="sec about" id="about">
-    <div class="blob blob--cool"></div>
-    <div class="wrap">
-      <div class="about__grid">
-        <div class="about__portrait reveal">
-          <div class="ring"></div>
-          <div class="ph">
-            <div class="mono">MV</div>
-            <div class="cap">Maayan Vaknin</div>
-          </div>
-        </div>
-        <div class="about__copy reveal">
-          <span class="eyebrow">About the Founder</span>
-          <h2 class="h2">Meet Maayan Vaknin</h2>
-          <p class="body">Maayan is a certified clinical cosmetologist specialising in advanced, highly customised, and results-oriented skincare. Her mission is simple: to empower every client to feel confident, revitalised, and radiant in their own skin.</p>
-          <p class="body">Her methodology combines cutting-edge skincare technologies, high-grade materials, and thorough personal follow-ups — treating acne, seborrhea, anti-aging, and deep skin rehabilitation with equal precision and care.</p>
-          <p class="body">The clinic is a seamless blend of top-tier medical professionalism, goal-driven results, and a warm, home-like environment where you always feel at ease.</p>
-          <span class="about__sign">Maayan Vaknin</span>
-          <div class="about__creds">
-            <div><div class="num">Certified</div><div class="lbl">Clinical Cosmetologist</div></div>
-            <div><div class="num">Result-driven</div><div class="lbl">Customised Protocols</div></div>
-            <div><div class="num">1:1</div><div class="lbl">Personal Follow-Up</div></div>
-          </div>
-        </div>
-      </div>
+    <div class="pick-card">
+      <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/Exfoliating-polish-png-1.png"
+           alt="Exfoliating Polish" />
+      <h3>Exfoliating Polish</h3>
+      <p>Magnesium crystals for a clear, smooth and even-toned complexion.</p>
     </div>
-  </section>
-
-  <!-- ======================= PRODUCTS (GIGI) ====================== -->
-  <section class="sec products" id="products">
-    <div class="wrap">
-      <div class="prod-top reveal">
-        <div class="sec-head" style="margin-bottom:0;max-width:none;">
-          <span class="eyebrow">Exclusive Retail</span>
-          <h2 class="h2">The GIGI collection</h2>
-          <p class="lead">Premium professional-grade GIGI cosmetics — the same products used in clinic, now available to take home at exclusive prices.</p>
-        </div>
-        <a href="#contact" class="btn btn--pink"><span class="spark">✦</span>Enquire to Buy</a>
-      </div>
-      <div class="prod-grid reveal">
-        <div class="prod">
-          <div class="prod__img"><span class="prod__badge">Best Seller</span><span class="gigi">GIGI</span></div>
-          <div class="prod__body">
-            <span class="prod__cat">Cleanse</span>
-            <span class="prod__name">Purifying Gel Cleanser</span>
-            <div class="prod__foot">
-              <div class="prod__price"><span class="now">From €24</span><span class="was">€38</span></div>
-              <button class="prod__add" aria-label="Add">+</button>
-            </div>
-          </div>
-        </div>
-        <div class="prod">
-          <div class="prod__img"><span class="gigi">GIGI</span></div>
-          <div class="prod__body">
-            <span class="prod__cat">Treat</span>
-            <span class="prod__name">Vitamin C Serum</span>
-            <div class="prod__foot">
-              <div class="prod__price"><span class="now">From €39</span><span class="was">€58</span></div>
-              <button class="prod__add" aria-label="Add">+</button>
-            </div>
-          </div>
-        </div>
-        <div class="prod">
-          <div class="prod__img"><span class="prod__badge">Clinic Favourite</span><span class="gigi">GIGI</span></div>
-          <div class="prod__body">
-            <span class="prod__cat">Protect</span>
-            <span class="prod__name">SPF 50 Day Defence</span>
-            <div class="prod__foot">
-              <div class="prod__price"><span class="now">From €29</span><span class="was">€44</span></div>
-              <button class="prod__add" aria-label="Add">+</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="pick-card">
+      <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/retinol-1.png"
+           alt="Retinol 1%" />
+      <h3>Retinol Skin Brightener 1%</h3>
+      <p>1% retinol brightens and evens the skin tone.</p>
     </div>
-  </section>
-
-  <!-- ========================== CTA BAND ========================== -->
-  <section class="sec cta-band">
-    <div class="blob blob--warm"></div>
-    <div class="wrap">
-      <div class="cta-band__inner reveal">
-        <span class="eyebrow">Ready when you are</span>
-        <h2 class="display" style="max-width:18ch;">Your glow starts with a conversation.</h2>
-        <p class="lead" style="text-align:center;">Reach out on Facebook or book directly — we'll find the right treatment plan together.</p>
-        <div class="cta-band__actions">
-          <a href="#contact" class="btn btn--primary"><span class="spark">✦</span>Book Appointment</a>
-          <a href="https://facebook.com" target="_blank" rel="noopener" class="btn btn--secondary">Message on Facebook<span class="arr">→</span></a>
-        </div>
-      </div>
+    <div class="pick-card">
+      <img src="https://likhaaesthetic.ie/wp-content/uploads/2023/03/Celltweet-Firming-Moisturiser.png"
+           alt="Celltweet Firming Moisturizer" />
+      <h3>Celltweet Firming Moisturizer</h3>
+      <p>10,000ppm ExoSCRT exosomes for inflammatory skin conditions.</p>
     </div>
-  </section>
+    <div class="pick-card">
+      <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/SPF-Png-1.png"
+           alt="SPF 50" />
+      <h3>Smart Tone SPF 50</h3>
+      <p>Ultra-lightweight sunscreen protecting against UVA/UVB and HEV light.</p>
+    </div>
+  </div>
+</section>
 
-</main>
+<!-- ── CTA DUO ── -->
+<section class="cta-duo">
+  <div class="cta-block">
+    <h2>Ready to book an appointment?</h2>
+    <a href="https://likha.myaestheticrecord.com/book/appointments/bBQyDNe8pm7oPzox9jGXORxW6aK54J/clinics"
+       target="_blank" class="btn btn-rose">Book</a>
+  </div>
+  <div class="cta-block">
+    <h2>Want to talk about your needs?</h2>
+    <a href="contact.html" class="btn btn-white">Make an Enquiry</a>
+  </div>
+</section>
 
-<!-- =========================== FOOTER =========================== -->
-<footer class="footer" id="contact">
-  <div class="wrap">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <div class="brand__name">Maayan</div>
-        <span class="brand__tag" style="color:var(--color-primary-dark);">Cosmetics · Holon</span>
-        <p class="body">Advanced beauty clinic &amp; clinical aesthetics. Professional, result-driven facial skincare in a warm, home-like setting.</p>
-        <div class="social">
-          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 3h-3a4 4 0 0 0-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          </a>
-          <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 4c.5 2.5 2 4 4.5 4.3M16 4v9.5a4.5 4.5 0 1 1-4.5-4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="footer__col">
-        <h5>Visit</h5>
-        <div class="contact-line"><span class="k">Address</span><span class="v">HaMashbir 1, Holon</span></div>
-        <div class="contact-line"><span class="k"></span><span class="v">"Premium Center" complex, 2nd floor</span></div>
-        <div class="contact-line"><span class="k">Phone</span><span class="v"><a href="tel:0527884725">052-788-4725</a></span></div>
-        <div class="contact-line"><span class="k">Email</span><span class="v"><a href="mailto:info@maayan-cosmetics.com">info@maayan-cosmetics.com</a></span></div>
-      </div>
-
-      <div class="footer__col">
-        <h5>Opening Hours</h5>
-        <div class="hours">
-          <div class="hours__row"><span class="d">Mon – Thu</span><span class="t">09:00 – 19:00</span></div>
-          <div class="hours__row"><span class="d">Friday</span><span class="t">09:00 – 13:00</span></div>
-          <div class="hours__row"><span class="d">Sat – Sun</span><span class="t">Closed</span></div>
-        </div>
-        <h5 style="margin-top:1.8rem;">Treatments</h5>
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-logo-wrap">
+      <img src="https://likhaaesthetic.ie/wp-content/themes/wondr/img/logo.svg" alt="Likha"
+           onerror="this.outerHTML='<span class=\'footer-logo-text\'>LIKHA</span>'" />
+      <p>We believe beauty is for everyone — non-surgical treatments, affordable, effective, natural-looking results.</p>
+    </div>
+    <div class="footer-nav-cols">
+      <div class="footer-col">
+        <span class="footer-col-head">Explore</span>
         <ul>
-          <li><a href="#services">Pigmentation &amp; Tattoo Removal</a></li>
-          <li><a href="#services">Acne &amp; Post-Acne Care</a></li>
-          <li><a href="#services">Carbon Peeling &amp; Lifting</a></li>
+          <li><a href="treatments.html">Treatments</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">Reviews</a></li>
+          <li><a href="products.html">Store</a></li>
         </ul>
       </div>
-
-      <div class="footer__col">
-        <h5>Book &amp; Connect</h5>
-        <p class="body" style="margin-bottom:1.2rem;">Facebook is the fastest way to reach us — message anytime to book or ask a question.</p>
-        <a href="https://facebook.com" target="_blank" rel="noopener" class="btn btn--pink" style="margin-bottom:.8rem;"><span class="spark">✦</span>Book via Facebook</a>
-        <a href="tel:0527884725" class="btn btn--secondary">Call the Clinic<span class="arr">→</span></a>
+      <div class="footer-col">
+        <span class="footer-col-head">The Clinic</span>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html">Awards</a></li>
+          <li><a href="about.html">Clinic of the Year</a></li>
+          <li><a href="about.html">Patient Excellence</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-head">Let's Talk</span>
+        <ul>
+          <li><a href="contact.html">Make an Enquiry</a></li>
+          <li><a href="https://likha.myaestheticrecord.com/book/appointments/bBQyDNe8pm7oPzox9jGXORxW6aK54J/clinics" target="_blank">Book Appointment</a></li>
+          <li><a href="about.html">About Dr. Juliah</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
     </div>
-    <div class="footer__bar">
-      <p>© 2026 Maayan Cosmetics, Holon. All rights reserved.</p>
-      <p>Clinical Aesthetics · GIGI Authorised Retailer</p>
-    </div>
+  </div>
+
+  <div class="footer-social">
+    <span>Elsewhere</span>
+    <a href="https://www.facebook.com/LikhaAestheticClinic/" target="_blank" aria-label="Facebook">
+      <svg width="8" height="14" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.12 0H5.18C4.32 0 3.5.34 2.89.95 2.28 1.55 1.94 2.38 1.94 3.24v1.94H0v2.59h1.94v5.18h2.59V7.77h1.94l.65-2.59H4.53V3.24c0-.17.07-.34.19-.46.12-.12.29-.19.46-.19H7.12V0Z" fill="#EAA098"/>
+      </svg>
+    </a>
+    <a href="https://www.instagram.com/likha_aesthetic/" target="_blank" aria-label="Instagram">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="12" height="12" rx="3" stroke="#EAA098" stroke-width="1.5"/>
+        <circle cx="7" cy="7" r="2.5" stroke="#EAA098" stroke-width="1.5"/>
+        <circle cx="10.5" cy="3.5" r="0.75" fill="#EAA098"/>
+      </svg>
+    </a>
+    <a href="https://www.linkedin.com/in/dr-juliah-tbarani/" target="_blank" aria-label="LinkedIn">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 4.5h2V12H1V4.5ZM2 1a1.25 1.25 0 1 1 0 2.5A1.25 1.25 0 0 1 2 1ZM5 4.5h1.9v1s.6-1 2.1-1C11 4.5 12 5.8 12 8v4h-2V8.3c0-1-.4-1.8-1.4-1.8-1.3 0-1.6 1-1.6 1.8V12H5V4.5Z" fill="#EAA098"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="footer-legal">
+    <p>&copy; Likha Aesthetic Clinic</p>
+    <ul>
+      <li><a href="contact.html">Contact Likha</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms &amp; Conditions</a></li>
+    </ul>
   </div>
 </footer>
 
 <script>
-  const burger = document.getElementById('burger');
-  const mobile = document.getElementById('mobile');
-  burger.addEventListener('click', () => mobile.classList.toggle('open'));
-  mobile.querySelectorAll('[data-close]').forEach(a => a.addEventListener('click', () => mobile.classList.remove('open')));
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  const menuBtn  = document.getElementById('menuBtn');
+  const overlay  = document.getElementById('navOverlay');
+  const closeBtn = document.getElementById('navClose');
+  menuBtn.addEventListener('click',  () => overlay.classList.add('open'));
+  closeBtn.addEventListener('click', () => overlay.classList.remove('open'));
+  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
 </script>
 </body>
 </html>
