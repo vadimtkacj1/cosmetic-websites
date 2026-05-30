@@ -39,7 +39,7 @@ const FEATURE_ICONS = [
   '/images/img_vector_white_a700.svg',
   '/images/img_vector_white_a700_74x74.svg',
   '/images/img_vector_74x74.svg',
-  '/images/img_vector_1.svg',
+  '/images/img_vector_gray_900.svg',
 ]
 
 export default function WhyChooseUsSection() {

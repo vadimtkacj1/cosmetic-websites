@@ -68,7 +68,7 @@ const VideoCard = ({ title, subtitle, src }: { title: string; subtitle: string; 
 const SectionEyebrow = ({ label }: { label: string }) => (
   <div className="flex items-center gap-[10px]">
     <span className="text-[11px] sm:text-[12px] tracking-[0.25em] uppercase text-[#c2a05a] font-semibold" style={{ fontFamily: 'Nunito Sans' }}>
-      // {label}
+      {label}
     </span>
   </div>
 );
