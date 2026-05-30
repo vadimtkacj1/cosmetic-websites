@@ -11,8 +11,8 @@ const useIsomorphicLayoutEffect =
   typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 export function useInView<T extends HTMLElement = HTMLDivElement>({
-  threshold = 0.15,
-  rootMargin = '0px 0px -10% 0px',
+  threshold = 0.05,
+  rootMargin = '0px 0px 0px 0px',
   once = true,
 }: Options = {}) {
   const ref = useRef<T>(null);
