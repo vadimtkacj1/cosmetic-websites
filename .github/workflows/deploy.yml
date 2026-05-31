@@ -16,7 +16,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             set -e
-            cd ~/cosmetic-websites
+            cd /var/www/cosmetic-websites
             git pull
 
             # Статичні сайти — просто копіюємо
