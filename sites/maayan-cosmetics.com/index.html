@@ -1,326 +1,1174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0" />
-  <title>Beauty is a Right, Not a Privilege — Likha Aesthetic Clinic</title>
-  <meta name="description" content="Award winning Aesthetic Clinic of the Year offering non-surgical beauty treatments by a certified & experienced expert, Dr Juliah with a 5 Star Rating." />
+  <title>מעיין קוסמטיקה | קוסמטיקאית קלינית — חולון</title>
+  <meta name="description" content="מעיין ועקנין — קוסמטיקאית קלינית בחולון. טיפולי עור מתקדמים: אקנה, פיגמנטציה, מזוטרפיה, מיצוק עור ועוד." />
+
+
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+    USERWAY ACCESSIBILITY WIDGET (готове рішення, безкоштовно)
+    Кроки для активації:
+    1. Зайди на https://userway.org → "Get Started Free"
+    2. Вкажи email та домен maayan-cosmetics.com
+    3. Отримай Account ID і встав замість YOUR_USERWAY_ID нижче
+  ════════════════════════════════════════════════════════════════ -->
+  <script
+    data-account="YOUR_USERWAY_ID"
+    data-position="right"
+    data-size="medium"
+    data-color="#EAA098"
+    src="https://cdn.userway.org/widget.js"
+    async>
+  </script>
+  <style>
+    /* force UserWay button to bottom-right, not header */
+    #userwayAccessibilityIcon { position: fixed !important; bottom: 24px !important; right: 24px !important; top: auto !important; left: auto !important; z-index: 9999 !important; }
+  </style>
+
+  <style>
+  /* ── RTL global ── */
+  html { direction: rtl; }
+  body { direction: rtl; text-align: right; font-family: 'Varela Round', sans-serif; }
+
+  /* ── Hero: flip absolute positions for RTL ── */
+  .hero-title-1 { right: 60px; left: auto; }
+  .hero-title-2 { left: 60px; right: auto; text-align: left; }
+  .hero-awards  { right: 48px; left: auto; }
+
+  /* ── Nav overlay close: flip side ── */
+  .nav-overlay-close { left: 36px; right: auto; }
+
+  /* ── Footer legal: flip text-align of last child link ── */
+  .hours-table tr td:last-child { text-align: left; }
+
+  /* ── Responsive RTL hero fix ── */
+  @media (max-width: 680px) {
+    .hero-title-1 { right: 24px; left: auto; top: 40px; }
+    .hero-title-2 { left:  24px; right: auto; bottom: 40px; }
+    .hero-awards  { right: 16px; left: auto; }
+  }
+  @media (max-width: 900px) {
+    .hero-portrait { transform: translate(30%, -50%); right: 50%; left: auto; }
+  }
+
+  /* ═══════════════════════════════════════
+      COOKIE BANNER
+  ═══════════════════════════════════════ */
+  #cookieBanner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--dark);
+    color: #fff;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    z-index: 9999;
+    flex-wrap: wrap;
+  }
+  #cookieBanner p   { font-size: 13px; opacity: .85; flex: 1; min-width: 200px; }
+  #cookieBanner p a { color: var(--rose); text-decoration: underline; cursor: pointer; }
+  #cookieAccept {
+    background: var(--rose);
+    color: #fff; border: none;
+    padding: 10px 24px;
+    font-family: var(--ff-b); font-size: 13px; font-weight: 600;
+    cursor: pointer; white-space: nowrap;
+    transition: background .2s;
+  }
+  #cookieAccept:hover { background: #d08070; }
+  #cookieBanner.hidden { display: none; }
+
+  /* ═══════════════════════════════════════
+      FLOATING BUTTONS
+  ═══════════════════════════════════════ */
+  .fab-wrap {
+    position: fixed;
+    left: 20px; bottom: 24px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .fab {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,.22);
+    border: none; cursor: pointer;
+    text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+    position: relative;
+  }
+  .fab:hover { transform: scale(1.08); box-shadow: 0 6px 22px rgba(0,0,0,.3); }
+  .fab-wa  { background: #25D366; }
+  .fab-wa::before {
+    content: '';
+    position: absolute;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: #25D366;
+    animation: waPulse 2.5s ease-out infinite;
+    opacity: 0;
+  }
+  @keyframes waPulse {
+    0%   { transform: scale(1); opacity: .5; }
+    100% { transform: scale(1.9); opacity: 0; }
+  }
+
+  /* ═══════════════════════════════════════
+      PORTFOLIO SECTION
+  ═══════════════════════════════════════ */
+  .portfolio-section {
+    padding: 90px 0 80px;
+    background: var(--dark);
+  }
+  .portfolio-head {
+    text-align: center;
+    margin-bottom: 52px;
+    padding: 0 40px;
+  }
+  .portfolio-head p {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--rose); font-weight: 600; font-family: var(--ff-b);
+    margin-bottom: 10px;
+  }
+  .portfolio-head h2 {
+    font-family: var(--ff-h);
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 400; color: #fff;
+    margin-bottom: 0;
+  }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 220px;
+    gap: 4px;
+    padding: 0 4px;
+  }
+  .portfolio-item {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+  .portfolio-item:nth-child(3)  { grid-row: span 2; }
+  .portfolio-item:nth-child(8)  { grid-row: span 2; }
+  .portfolio-item:nth-child(13) { grid-row: span 2; }
+  .portfolio-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+    display: block;
+  }
+  .portfolio-item:hover img { transform: scale(1.06); }
+  .portfolio-item::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(35,31,32,0);
+    transition: background .3s;
+  }
+  .portfolio-item:hover::after { background: rgba(35,31,32,.25); }
+  .portfolio-cta {
+    text-align: center;
+    margin-top: 44px;
+  }
+
+  /* Lightbox */
+  #lb {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.92);
+    z-index: 9900;
+    align-items: center; justify-content: center;
+  }
+  #lb.open { display: flex; }
+  #lb img {
+    max-width: 90vw; max-height: 90vh;
+    object-fit: contain;
+    border: none;
+  }
+  #lb-close {
+    position: absolute; top: 20px; left: 28px;
+    color: #fff; font-size: 38px; cursor: pointer;
+    background: none; border: none; line-height: 1;
+  }
+  #lb-prev, #lb-next {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    color: #fff; font-size: 36px; cursor: pointer;
+    background: none; border: none; line-height: 1;
+    padding: 10px 20px;
+    transition: color .2s;
+  }
+  #lb-prev:hover, #lb-next:hover { color: var(--rose); }
+  #lb-prev { right: 20px; }
+  #lb-next { left: 20px; }
+
+  @media (max-width: 900px) {
+    .portfolio-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 180px; }
+    .portfolio-item:nth-child(3), .portfolio-item:nth-child(8), .portfolio-item:nth-child(13) { grid-row: span 1; }
+  }
+  @media (max-width: 560px) {
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+  }
+
+  /* ═══════════════════════════════════════
+      BOOKING POPUP
+  ═══════════════════════════════════════ */
+  #popupOverlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.55);
+    z-index: 8000;
+    align-items: center; justify-content: center;
+    padding: 16px;
+  }
+  #popupOverlay.open { display: flex; }
+  #popupBox {
+    background: #fff;
+    max-width: 460px; width: 100%;
+    padding: 40px 36px 36px;
+    position: relative;
+    animation: fadeUp .3s ease;
+    direction: rtl; text-align: right;
+  }
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(18px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  #popupClose {
+    position: absolute; top: 12px; left: 14px;
+    background: none; border: none;
+    font-size: 26px; color: var(--grey);
+    cursor: pointer; line-height: 1;
+  }
+  #popupClose:hover { color: var(--dark); }
+  .popup-tag {
+    display: inline-block;
+    background: #FAF2F0; color: var(--rose);
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1px; padding: 4px 14px;
+    border-radius: 20px; margin-bottom: 12px;
+    font-family: var(--ff-b);
+  }
+  #popupBox h2 {
+    font-family: var(--ff-h);
+    font-size: 26px; font-weight: 400;
+    margin-bottom: 8px; line-height: 1.3;
+  }
+  #popupBox > p { color: var(--grey); font-size: 14px; margin-bottom: 22px; font-family: var(--ff-b); }
+
+  /* ═══════════════════════════════════════
+      DOCUMENT MODALS
+  ═══════════════════════════════════════ */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.55);
+    z-index: 9000;
+    align-items: center; justify-content: center;
+    padding: 16px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: #fff;
+    max-width: 660px; width: 100%;
+    max-height: 82vh; overflow-y: auto;
+    padding: 46px 42px;
+    position: relative;
+    animation: fadeUp .3s ease;
+    direction: rtl; text-align: right;
+  }
+  .modal-close {
+    position: absolute; top: 14px; left: 14px;
+    background: none; border: none;
+    font-size: 26px; color: var(--grey);
+    cursor: pointer; line-height: 1;
+  }
+  .modal-close:hover { color: var(--dark); }
+  .modal-box h2 {
+    font-family: var(--ff-h); font-size: 28px; font-weight: 400;
+    margin-bottom: 22px; padding-bottom: 16px;
+    border-bottom: 1.5px solid var(--border);
+  }
+  .modal-box h3 { font-size: 16px; font-weight: 700; margin: 20px 0 8px; font-family: var(--ff-b); }
+  .modal-box p  { color: var(--grey); font-size: 14px; line-height: 1.8; margin-bottom: 10px; font-family: var(--ff-b); }
+
+  /* ═══════════════════════════════════════
+      SHARED FORMS
+  ═══════════════════════════════════════ */
+  .form-row label   { font-family: var(--ff-b); }
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    direction: rtl; text-align: right;
+    font-family: var(--ff-b);
+    -webkit-appearance: none; appearance: none;
+  }
+  .form-row select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left 12px center;
+    padding-left: 36px;
+  }
+  .form-success {
+    display: none;
+    text-align: center; padding: 18px;
+    color: #2d6a4f; background: #d8f3dc;
+    font-weight: 600; font-size: 14px;
+    margin-top: 10px; font-family: var(--ff-b);
+  }
+  .form-success.show { display: block; }
+
+  /* ═══════════════════════════════════════
+      CONTACT SECTION (single-page addition)
+  ═══════════════════════════════════════ */
+  /* ── Contact section ── */
+  .contact-section {
+    padding: 100px 0 80px;
+    background: #fff;
+  }
+  .contact-section .section-center {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .contact-section .section-center h2 {
+    font-family: var(--ff-h);
+    font-size: clamp(32px, 4.5vw, 54px);
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--dark);
+  }
+  .contact-section .section-center .sub {
+    font-size: 11px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--rose);
+    font-weight: 600; font-family: var(--ff-b);
+  }
+  .contact-section .section-center::after {
+    content: '';
+    display: block;
+    width: 36px; height: 2px;
+    background: var(--rose);
+    margin: 16px auto 0;
+  }
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 52px;
+    max-width: 1100px; margin: 0 auto; padding: 0 40px;
+    align-items: start;
+  }
+  .contact-details h3 {
+    font-family: var(--ff-h);
+    font-size: clamp(22px, 2.8vw, 34px);
+    font-weight: 400; margin-bottom: 10px;
+    color: var(--dark);
+  }
+  .contact-details > p {
+    color: var(--grey); font-size: 14px; line-height: 1.9;
+    margin-bottom: 28px; font-family: var(--ff-b);
+  }
+  .contact-details a { font-weight: 600; }
+  .contact-details a:hover { color: var(--rose); }
+  .detail-row {
+    display: flex; align-items: center;
+    gap: 16px; padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--ff-b);
+  }
+  .detail-row:last-of-type { border-bottom: none; }
+  .detail-icon {
+    width: 44px; height: 44px; min-width: 44px;
+    background: var(--cream); border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s, border-color .2s;
+  }
+  .detail-row:hover .detail-icon { background: var(--rose); border-color: var(--rose); }
+  .detail-row:hover .detail-icon svg { color: #fff; stroke: #fff; }
+  .detail-icon svg { width: 16px; height: 16px; color: var(--rose); fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+  .hours-box {
+    margin-top: 24px; padding: 22px 24px;
+    font-family: var(--ff-b);
+  }
+  .hours-box h4 {
+    font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--rose); margin-bottom: 14px;
+  }
+  .hours-box table { width: 100%; border-collapse: collapse; }
+  .hours-box td {
+    padding: 8px 0; border-bottom: 1px solid var(--border);
+    font-size: 13px; color: var(--grey);
+  }
+  .hours-box tr:last-child td { border-bottom: none; }
+  .hours-box td:first-child { font-weight: 700; color: var(--dark); }
+  .hours-box td:last-child { text-align: left; direction: ltr; }
+  .social-icons { display: flex; gap: 8px; margin-top: 22px; }
+  .soc-icon {
+    width: 38px; height: 38px;
+    background: var(--cream);
+    border: 1px solid var(--border); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s, border-color .2s;
+    color: var(--dark);
+  }
+  .soc-icon:hover { border-color: var(--rose); background: var(--rose); color: #fff; }
+  .soc-icon svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; }
+  .contact-form-wrap {
+    background: #fff;
+    padding: 44px 40px;
+    border: none;
+    box-shadow: 0 8px 48px rgba(0,0,0,.07);
+  }
+  .contact-form-wrap h3 {
+    font-family: var(--ff-h); font-size: clamp(22px, 2.5vw, 30px);
+    font-weight: 400; margin-bottom: 28px;
+    padding-bottom: 18px; border-bottom: 1px solid var(--border);
+  }
+  @media (max-width: 860px) {
+    .contact-inner { grid-template-columns: 1fr; padding: 0 24px; }
+    .contact-form-wrap { padding: 32px 24px; }
+  }
+
+  /* ═══════════════════════════════════════
+      NAV OVERLAY: Complete Mobile Layout Fix
+  ═══════════════════════════════════════ */
+  .nav-overlay {
+    position: fixed;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(8px);
+    z-index: 9500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    direction: rtl;
+  }
+  .nav-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .nav-overlay a {
+    font-family: var(--ff-h);
+    font-size: 28px;
+    color: var(--dark);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-overlay a:hover {
+    color: var(--rose);
+  }
+  .nav-overlay-close {
+    position: absolute;
+    top: 24px;
+    left: 36px;
+    right: auto;
+    background: none;
+    border: none;
+    font-size: 42px;
+    color: var(--dark);
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  /* ═══════════════════════════════════════
+      FOOTER SOCIAL: RTL flow
+  ═══════════════════════════════════════ */
+  .footer-social { flex-direction: row-reverse; }
+  .footer-social span { margin-left: 4px; margin-right: 0; }
+
+  /* Responsive accPanel */
+  @media (max-width: 600px) {
+    .fab-wrap { left: 12px; bottom: 20px; }
+    #cookieBanner { padding: 14px 18px; }
+  }
+  </style>
 </head>
 <body>
 
-<!-- ── OVERLAY MENU ── -->
-<div class="nav-overlay" id="navOverlay">
-  <button class="nav-overlay-close" id="navClose" aria-label="Close menu">&times;</button>
-  <a href="treatments.html">Treatments</a>
-  <a href="about.html">About</a>
-  <a href="products.html">Products</a>
-  <a href="contact.html">Location &amp; Hours</a>
-  <a href="contact.html">Gift Cards</a>
-  <a href="https://likha.myaestheticrecord.com/book/appointments/bBQyDNe8pm7oPzox9jGXORxW6aK54J/clinics" target="_blank" style="color:var(--rose);">Book Appointment</a>
+<div id="cookieBanner" role="alert">
+  <p>אנו משתמשים בעוגיות לשיפור חוויית הגלישה. המשך השימוש מהווה הסכמה ל<a onclick="openModal('privacyModal');return false;" href="#">מדיניות הפרטיות</a> שלנו.</p>
+  <button id="cookieAccept">מסכים/ה ←</button>
 </div>
 
-<!-- ── HEADER ── -->
+
+<div id="popupOverlay" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+  <div id="popupBox">
+    <button id="popupClose" aria-label="סגור">&times;</button>
+    <div class="popup-tag">✦ קביעת תור</div>
+    <h2 id="popupTitle">בואי נתחיל את המסע שלך</h2>
+    <p>השאירי פרטים ואחזור אלייך בהקדם לתיאום התור המושלם ✨</p>
+    <!-- ⚠️ ФОРМА: Зайди на https://web3forms.com → введи email власниці → отримай ключ → встав замість YOUR_WEB3FORMS_KEY -->
+    <form id="popupForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key"  value="YOUR_WEB3FORMS_KEY" />
+      <input type="hidden" name="redirect" value="" />
+      <input type="hidden" name="subject"     value="בקשת תור חדשה — מעיין קוסמטיקה" />
+      <input type="hidden" name="from_name"   value="מעיין קוסמטיקה אתר" />
+      <div class="form-row">
+        <label for="p-name">שם מלא *</label>
+        <input type="text" id="p-name" name="name" required placeholder="השם שלך" />
+      </div>
+      <div class="form-row">
+        <label for="p-phone">טלפון *</label>
+        <input type="tel" id="p-phone" name="phone" required placeholder="050-0000000" dir="ltr" style="text-align:right" />
+      </div>
+      <div class="form-row">
+        <label for="p-treatment">טיפול מבוקש *</label>
+        <select id="p-treatment" name="treatment" required>
+          <option value="">בחרי טיפול...</option>
+          <option>הסרת פיגמנטציה</option>
+          <option>הסרת איפור קבוע</option>
+          <option>טיפול באקנה ופוסט אקנה</option>
+          <option>הסרת קעקועים</option>
+          <option>פילינג קרבון</option>
+          <option>מזוטרפיה</option>
+          <option>מיצוק העור</option>
+          <option>שעווה</option>
+          <option>ניקוי גבות</option>
+          <option>איפור</option>
+          <option>טיפולי פנים</option>
+          <option>אחר</option>
+        </select>
+      </div>
+      <a href="#" class="btn" style="display:block;text-align:center;cursor:pointer" onclick="this.closest('form').requestSubmit();return false;">קבעי תור עכשיו ←</a>
+      <button type="submit" class="btn" style="display:none"></button>
+      <div class="form-success" id="popupSuccess">תודה! קיבלתי את פרטייך ואחזור אלייך בקרוב 🌸</div>
+    </form>
+  </div>
+</div>
+
+
+<div id="privacyModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="privTitle">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('privacyModal')">&times;</button>
+    <h2 id="privTitle">מדיניות פרטיות</h2>
+    <p><strong>עדכון אחרון: ינואר 2025</strong></p>
+    <h3>1. מידע שאנו אוספים</h3>
+    <p>אנו אוספים מידע שמסרת לנו ישירות — שם, מספר טלפון וכתובת דוא"ל — בעת מילוי טפסי יצירת קשר או קביעת תור. המידע משמש אך ורק ליצירת קשר ומתן השירות.</p>
+    <h3>2. שימוש במידע</h3>
+    <p>המידע משמש לתיאום תורים, מתן מידע על טיפולים ומוצרים ושיפור השירות. אנו לא מוכרים, משכירים או מעבירים מידע אישי לצדדים שלישיים ללא הסכמתך.</p>
+    <h3>3. קבצי עוגיות</h3>
+    <p>האתר משתמש בקבצי עוגיות לשיפור חוויית הגלישה. ניתן להגדיר את הדפדפן לדחות עוגיות, אם כי הדבר עלול לפגוע בפונקציונליות.</p>
+    <h3>4. אבטחת מידע</h3>
+    <p>אנו נוקטים אמצעי אבטחה סבירים להגנה על המידע. אין ביכולתנו להבטיח אבטחה מוחלטת של מידע המועבר דרך האינטרנט.</p>
+    <h3>5. זכויות המשתמש</h3>
+    <p>יש לך הזכות לעיין במידע הנשמר אודותייך, לבקש תיקון או מחיקתו. לפניות: טלפון 052-7884725.</p>
+    <button class="btn" style="margin-top:16px" onclick="closeModal('privacyModal')">סגירה</button>
+  </div>
+</div>
+
+
+<div id="termsModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('termsModal')">&times;</button>
+    <h2 id="termsTitle">תנאי שימוש</h2>
+    <p><strong>עדכון אחרון: ינואר 2025</strong></p>
+    <h3>1. כללי</h3>
+    <p>השימוש באתר מהווה הסכמה לתנאי השימוש. האתר מופעל על ידי מעיין ועקנין, קוסמטיקאית קלינית.</p>
+    <h3>2. השירותים המוצעים</h3>
+    <p>האתר מספק מידע על טיפולי עור ומוצרי קוסמטיקה. המידע הינו לצורכי מידע כללי ואינו מהווה ייעוץ רפואי.</p>
+    <h3>3. קביעת תורים</h3>
+    <p>קביעת תור דרך האתר הינה בגדר בקשה בלבד. התור יאושר לאחר קבלת אישור מפורש מהקליניקה. ביטול יש לבצע לפחות 24 שעות מראש.</p>
+    <h3>4. תוכן האתר</h3>
+    <p>כל תכני האתר — תמונות, טקסטים ועיצוב — הינם קניין רוחני של הקליניקה. אין להעתיק, לשכפל או להשתמש ללא אישור בכתב.</p>
+    <h3>5. אחריות</h3>
+    <p>הקליניקה אינה אחראית לנזקים שעלולים להיגרם מהסתמכות על מידע באתר. תוצאות הטיפולים עשויות להשתנות בין אנשים שונים.</p>
+    <h3>6. שינויים בתנאים</h3>
+    <p>הקליניקה שומרת לעצמה את הזכות לשנות את תנאי השימוש בכל עת. המשך השימוש מהווה הסכמה לתנאים המעודכנים.</p>
+    <button class="btn" style="margin-top:16px" onclick="closeModal('termsModal')">סגירה</button>
+  </div>
+</div>
+
+
+<div class="fab-wrap">
+  <a href="https://wa.me/972527884725" class="fab fab-wa" target="_blank" rel="noopener" aria-label="וואטסאפ">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.847L0 24l6.341-1.503A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.872 9.872 0 01-5.022-1.371l-.36-.214-3.755.89.948-3.655-.235-.374A9.845 9.845 0 012.118 12c0-5.452 4.43-9.882 9.882-9.882 5.452 0 9.882 4.43 9.882 9.882 0 5.452-4.43 9.882-9.882 9.882z"/></svg>
+  </a>
+</div>
+
+
+<div class="nav-overlay" id="navOverlay">
+  <button class="nav-overlay-close" id="navClose" aria-label="סגור תפריט">&times;</button>
+  <a href="#services"   onclick="navOverlay.classList.remove('open'); document.body.style.overflow='';">טיפולים</a>
+  <a href="#about"      onclick="navOverlay.classList.remove('open'); document.body.style.overflow='';">אודות</a>
+  <a href="#products"  onclick="navOverlay.classList.remove('open'); document.body.style.overflow='';">מוצרים</a>
+  <a href="#contact"   onclick="navOverlay.classList.remove('open'); document.body.style.overflow='';">צרי קשר</a>
+  <a href="#" onclick="openPopup();navOverlay.classList.remove('open');return false;" style="color:var(--rose);">קביעת תור</a>
+</div>
+
+
 <header class="site-header">
   <div class="header-inner">
     <div class="header-left">
-      <a href="https://likha.myaestheticrecord.com/book/appointments/bBQyDNe8pm7oPzox9jGXORxW6aK54J/clinics"
-         target="_blank" class="header-book">Book Appointment</a>
+      <nav class="nav-links">
+        <a href="#services">טיפולים</a>
+        <a href="#about">אודות</a>
+        <a href="#products">מוצרים</a>
+        <a href="#contact">צרי קשר</a>
+      </nav>
     </div>
-    <a href="index.html" class="header-logo" aria-label="Likha home">
-      <img src="https://likhaaesthetic.ie/wp-content/themes/wondr/img/logo.svg"
-           alt="Likha" onerror="this.outerHTML='<span style=\'font-family:Gilda Display,serif;font-size:26px;letter-spacing:7px;text-transform:uppercase;color:#231F20\'>LIKHA</span>'" />
+    <a href="#hero" class="header-logo" aria-label="מעיין קוסמטיקה">
+      <img src="img/logo.png" alt="מעיין קוסמטיקה" style="height:70px;width:auto" />
     </a>
     <div class="header-right">
-      <nav class="nav-links">
-        <a href="treatments.html">Treatments</a>
-        <a href="about.html">About</a>
-        <a href="products.html">Products</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="6"  cy="6"  r="2" fill="#231F20"/>
-          <circle cx="6"  cy="18" r="2" fill="#231F20"/>
-          <circle cx="18" cy="6"  r="2" fill="#231F20"/>
-          <circle cx="18" cy="18" r="2" fill="#231F20"/>
-          <circle cx="12" cy="12" r="2" fill="#231F20"/>
-        </svg>
+      <button onclick="openPopup()" class="header-book">קביעת תור</button>
+      <button class="menu-btn" id="menuBtn" aria-label="פתח תפריט">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="6"  cy="6"  r="2" fill="#231F20"/><circle cx="6"  cy="18" r="2" fill="#231F20"/><circle cx="18" cy="6"  r="2" fill="#231F20"/><circle cx="18" cy="18" r="2" fill="#231F20"/><circle cx="12" cy="12" r="2" fill="#231F20"/></svg>
       </button>
     </div>
   </div>
 </header>
 
-<!-- ── HERO ── -->
-<section class="hero">
+
+<section class="hero" id="hero">
   <div class="hero-container">
-
-    <!-- Award badges -->
-    <div class="hero-awards">
-      <a href="about.html">
-        <img src="https://likhaaesthetic.ie/wp-content/uploads/2026/03/aestheic-Award-clinic-168.png"
-             alt="2025 Winner Best Clinic" />
-      </a>
-      <a href="about.html">
-        <img src="https://likhaaesthetic.ie/wp-content/uploads/2026/03/2025-Patient-Winner.png"
-             alt="2025 Patient Winner" />
-      </a>
-    </div>
-
-    <!-- Title line 1 -->
-    <h1 class="hero-title hero-title-1">Beauty<br>is a Right</h1>
-
-    <!-- Portrait -->
+    <h1 class="hero-title hero-title-1">מעיין<br>ועקנין</h1>
     <div class="hero-portrait">
-      <a href="treatments.html">
-        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/02/home-hero.png"
-             alt="Likha Aesthetic" />
-      </a>
+      <div style="width:100%;min-height:62vh;background:#FAF2F0;display:flex;align-items:center;justify-content:center;color:#EAA098;font-family:var(--ff-h);font-size:18px">תמונה תוחלף</div>
     </div>
-
-    <!-- Title line 2 -->
-    <h1 class="hero-title hero-title-2">Not<br>a Privilege</h1>
-
+    <h1 class="hero-title hero-title-2">קוסמטיקה<br>קלינית</h1>
   </div>
 </section>
 
-<!-- ── TAGLINE ── -->
+
 <section class="tagline-section">
-  <a href="about.html" class="tagline-link">
-    To Create Something With<br>Intelligence And Skill
-  </a>
+  <button onclick="openPopup()" class="tagline-link" style="background:none;border:none;cursor:pointer;width:100%">
+    כי כל עור הוא עולם בפני עצמו
+  </button>
 </section>
 
-<!-- ── QUICK NAV ── -->
+
 <div class="quick-nav">
-  <a href="contact.html" class="quick-nav-item">
-    <span>Gift</span>
-    <strong>Cards</strong>
+  <button onclick="openPopup()" class="quick-nav-item" style="border:none;background:none;cursor:pointer;text-align:right">
+    <span>קביעת</span>
+    <strong>תור</strong>
+  </button>
+  <a href="#services" class="quick-nav-item">
+    <span>טיפולים</span>
+    <strong>ומחירים</strong>
   </a>
-  <a href="treatments.html" class="quick-nav-item">
-    <span>Treatments</span>
-    <strong>&amp; Pricing</strong>
+  <a href="#contact" class="quick-nav-item">
+    <span>כתובת</span>
+    <strong>ושעות</strong>
   </a>
-  <a href="contact.html" class="quick-nav-item">
-    <span>Location</span>
-    <strong>&amp; Hours</strong>
-  </a>
-  <a href="products.html" class="quick-nav-item">
-    <span>Selected</span>
-    <strong>Products</strong>
+  <a href="#products" class="quick-nav-item">
+    <span>מוצרי</span>
+    <strong>GIGI</strong>
   </a>
 </div>
 
-<!-- ── TREATMENTS ── -->
-<section class="treatments-home">
+
+<section class="treatments-home" id="services">
   <div class="section-center">
-    <h2>Treatments</h2>
-    <p class="sub">Simple, affordable and most of all, safe</p>
+    <h2>הטיפולים שלי</h2>
+    <p class="sub">טכנולוגיות מתקדמות, חומרים איכותיים, תוצאות אמיתיות</p>
   </div>
   <div class="treatment-circles">
-    <a href="treatments.html#anti-wrinkles" class="treatment-circle">
+
+    <!-- הסרת פיגמנטציה -->
+    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
       <div class="treatment-circle-icon">
-        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/Anti-Wrinkes.svg" alt="Anti-Wrinkles" />
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <circle cx="22" cy="22" r="7" stroke="currentColor" stroke-width="1.8"/>
+          <line x1="22" y1="7" x2="22" y2="12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="22" y1="31.5" x2="22" y2="37" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="7" y1="22" x2="12.5" y2="22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="31.5" y1="22" x2="37" y2="22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="11.2" y1="11.2" x2="15.2" y2="15.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="28.8" y1="28.8" x2="32.8" y2="32.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="32.8" y1="11.2" x2="28.8" y2="15.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="15.2" y1="28.8" x2="11.2" y2="32.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
       </div>
-      <span>Anti-Wrinkles</span>
+      <span>הסרת פיגמנטציה</span>
     </a>
-    <a href="treatments.html#lip-fillers" class="treatment-circle">
+
+    <!-- הסרת איפור קבוע -->
+    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
       <div class="treatment-circle-icon">
-        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/Lip-Fillers-1.svg" alt="Lip Fillers" />
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <!-- Upper lip with cupid's bow -->
+          <path d="M12 22 C14 17 18 16 22 19 C26 16 30 17 32 22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <!-- Lower lip -->
+          <path d="M12 22 C14 29 18 31 22 31 C26 31 30 29 32 22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <!-- Cupid's bow dip -->
+          <path d="M18 22 C20 21 24 21 26 22" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
       </div>
-      <span>Lip Fillers</span>
+      <span>הסרת איפור קבוע</span>
     </a>
-    <a href="treatments.html#dermal-fillers" class="treatment-circle">
+
+    <!-- טיפול באקנה ופוסט אקנה -->
+    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
       <div class="treatment-circle-icon">
-        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/ddddd-01.svg" alt="Dermal Fillers" />
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <path d="M11 24 Q11 10 22 10 Q33 10 33 24 Q33 35 22 36 Q11 35 11 24 Z" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="17" cy="20" r="1.8" fill="currentColor"/>
+          <circle cx="27" cy="20" r="1.8" fill="currentColor"/>
+          <circle cx="22" cy="17" r="1.4" fill="currentColor"/>
+          <path d="M17 29 Q22 33 27 29" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
       </div>
-      <span>Dermal Fillers</span>
+      <span>טיפול באקנה ופוסט אקנה</span>
     </a>
-    <a href="treatments.html#profhilo" class="treatment-circle">
+
+    <!-- הסרת קעקועים -->
+    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
       <div class="treatment-circle-icon">
-        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/Profhilio.svg" alt="Profhilo" />
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <path d="M26 7 L12 24 H21 L18 37 L32 20 H23 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
       </div>
-      <span>Profhilo</span>
+      <span>הסרת קעקועים</span>
     </a>
-    <a href="treatments.html#microneedling" class="treatment-circle">
+
+    <!-- פילינג קרבון -->
+    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
       <div class="treatment-circle-icon">
-        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/Micro-Needling.svg" alt="Microneedling" />
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <!-- 4-pointed sparkle — brightening/renewal treatment -->
+          <path d="M22 8 L24.2 19.8 L36 22 L24.2 24.2 L22 36 L19.8 24.2 L8 22 L19.8 19.8 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <circle cx="22" cy="22" r="3" stroke="currentColor" stroke-width="1.3"/>
+        </svg>
       </div>
-      <span>Microneedling</span>
+      <span>פילינג קרבון</span>
     </a>
-    <a href="treatments.html#fat-dissolving" class="treatment-circle">
+
+    <!-- מזוטרפיה -->
+    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
       <div class="treatment-circle-icon">
-        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/fat-1.svg" alt="Fat Dissolving" />
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <!-- Syringe barrel -->
+          <rect x="18" y="13" width="8" height="18" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+          <!-- Plunger rod (thinner, clearly separate from barrel) -->
+          <line x1="22" y1="13" x2="22" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <!-- Plunger handle T-bar -->
+          <line x1="19" y1="7" x2="25" y2="7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <!-- Needle (narrow tip below barrel) -->
+          <path d="M20 31 L22 37 L24 31" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Scale marks on the side -->
+          <line x1="18" y1="19" x2="15.5" y2="19" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="18" y1="24" x2="15.5" y2="24" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
       </div>
-      <span>Fat Dissolving</span>
+      <span>מזוטרפיה</span>
     </a>
-    <a href="treatments.html#chemical-peels" class="treatment-circle">
+
+    <!-- מיצוק העור -->
+    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
       <div class="treatment-circle-icon">
-        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/Chemical-peel.svg" alt="Chemical Peels" />
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <ellipse cx="22" cy="28" rx="10" ry="12" stroke="currentColor" stroke-width="1.8"/>
+          <line x1="22" y1="21" x2="22" y2="9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M18 13 L22 9 L26 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </div>
-      <span>Chemical Peels</span>
+      <span>מיצוק העור</span>
     </a>
-    <a href="treatments.html#minor-surgeries" class="treatment-circle">
+
+    <!-- שעווה -->
+    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
       <div class="treatment-circle-icon">
-        <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/surgery-01.svg" alt="Minor Surgeries" />
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <rect x="9" y="26" width="26" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M22 26 Q25 20 31 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M28 12 L31 13 L30 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="15" y1="29" x2="15" y2="33" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="22" y1="29" x2="22" y2="33" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="29" y1="29" x2="29" y2="33" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
       </div>
-      <span>Minor Surgeries</span>
+      <span>שעווה</span>
     </a>
+
+    <!-- ניקוי גבות -->
+    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
+      <div class="treatment-circle-icon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <path d="M8 27 Q13 17 22 16 Q31 17 36 27" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M14 34 Q22 28 30 34" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M14 34 Q22 40 30 34" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="22" cy="34" r="2.5" fill="currentColor"/>
+        </svg>
+      </div>
+      <span>ניקוי גבות</span>
+    </a>
+
+    <!-- איפור -->
+    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
+      <div class="treatment-circle-icon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <rect x="16" y="28" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M16 28 L16 22 L28 22 L28 28" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M16 22 L22 11 L28 22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span>איפור</span>
+    </a>
+
+    <!-- טיפולי פנים -->
+    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
+      <div class="treatment-circle-icon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <path d="M22 33 C22 26 19 20 22 14 C25 20 22 26 22 33 Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 30 C17 28 10 25 9 20 C15 18 21 24 22 30 Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 30 C27 28 34 25 35 20 C29 18 23 24 22 30 Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="14" y1="37" x2="30" y2="37" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>טיפולי פנים</span>
+    </a>
+
   </div>
   <div class="view-all-wrap">
-    <a href="treatments.html" class="btn">View All</a>
+    <button onclick="openPopup()" class="btn">קביעת תור ←</button>
   </div>
 </section>
 
-<!-- ── DOCTOR BIO ── -->
-<section class="bio-section">
+
+<section class="bio-section" id="about">
   <div class="bio-grid">
     <div class="bio-text">
-      <span class="doctor-label">Dr. Juliah Tbarani</span>
-      <h2>Beauty is a right, not a privilege</h2>
-      <p>As a doctor with over 22+ years award winning experience working in medical, surgical and general practice fields, patient care is always my foremost concern.</p>
-      <p>I'm a graduate of the <a href="https://www.rcsi.com/dublin" target="_blank" class="inline-link">Royal College of Surgeons Ireland</a> in 2004 with a MB BCH BAO (NUI) LRCP &amp; SI. And in 2019 I was awarded an MICGP.</p>
-      <p>Importantly, I'm a fully CERTIFIED DOCTOR in Non-Surgical Facial Transformation by the <a href="https://www.ecamedicine.com/" target="_blank" class="inline-link">European College of Aesthetic Medicine &amp; Surgery</a> and a member of Primary Care Surgical Association in Ireland.</p>
-      <a href="treatments.html" class="btn">View Treatments</a>
+      <span class="doctor-label">מעיין ועקנין — קוסמטיקאית קלינית</span>
+      <h2>הקליניקה שלי נולדה מתוך אהבה</h2>
+      <p>נעים מאוד, אני מעיין ועקנין — קוסמטיקאית קלינית המתמחה בטיפולי עור מתקדמים בהתאמה אישית.</p>
+      <p>הקליניקה שלי נולדה מתוך אהבה אמיתית לעולם היופי והטיפוח, ומתוך רצון לעזור לכל אחת ואחד להרגיש בטוחים, זוהרים ויפים בעור של עצמם.</p>
+      <p>אני מתמחה בטיפול באקנה, פוסט אקנה, פיגמנטציה, סבוריאה, אנטי אייג'ינג ושיקום העור, תוך שימוש בטכנולוגיות מתקדמות, חומרים איכותיים וליווי אישי לאורך כל הדרך.</p>
+      <p>בקליניקה שלי חשוב לי להעניק לא רק תוצאות — אלא גם חוויה, יחס אישי, מקצועיות ואווירה נעימה שגורמת לך להרגיש בבית.</p>
+      <button onclick="openPopup()" class="btn">לקביעת תור ←</button>
     </div>
     <div class="bio-portrait-wrap">
-      <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/02/image01.jpg"
-           alt="Dr. Juliah Tbarani" />
+      <img src="img/Picture Of Maayan White BG.png" alt="מעיין ועקנין — קוסמטיקאית קלינית" style="width:100%;max-width:460px;display:block;margin:0 auto" />
     </div>
   </div>
 </section>
 
-<!-- ── MY PICK ── -->
-<section class="my-pick-section">
+
+<!-- ═══ PORTFOLIO ═══ -->
+<div id="lb" role="dialog" aria-modal="true" aria-label="תמונה מוגדלת">
+  <button id="lb-close" aria-label="סגור">&times;</button>
+  <button id="lb-prev" aria-label="הקודמת">&#8250;</button>
+  <img id="lb-img" src="" alt="" />
+  <button id="lb-next" aria-label="הבאה">&#8249;</button>
+</div>
+
+<section class="portfolio-section" id="portfolio">
+  <div class="portfolio-head">
+    <p>הגלריה שלי</p>
+    <h2>תוצאות אמיתיות</h2>
+  </div>
+  <div class="portfolio-grid">
+    <div class="portfolio-item" onclick="openLb(0)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07.jpeg"   alt="תוצאה 1"  loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(1)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07 (1).jpeg" alt="תוצאה 2" loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(2)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07 (2).jpeg" alt="תוצאה 3" loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(3)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07 (3).jpeg" alt="תוצאה 4" loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(4)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07 (4).jpeg" alt="תוצאה 5" loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(5)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08.jpeg"    alt="תוצאה 6"  loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(6)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08 (1).jpeg" alt="תוצאה 7" loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(7)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08 (2).jpeg" alt="תוצאה 8" loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(8)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08 (3).jpeg" alt="תוצאה 9" loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(9)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08 (4).jpeg" alt="תוצאה 10" loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(10)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08 (5).jpeg" alt="תוצאה 11" loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(11)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08 (6).jpeg" alt="תוצאה 12" loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(12)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08 (7).jpeg" alt="תוצאה 13" loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(13)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.09.jpeg"    alt="תוצאה 14"  loading="lazy"/></div>
+  </div>
+  <div class="portfolio-cta">
+    <button onclick="openPopup()" class="btn" style="border-color:#fff;color:#fff;background:transparent;margin-top:0">קביעת תור ←</button>
+  </div>
+</section>
+
+
+<section class="my-pick-section" id="products">
   <div class="my-pick-head">
-    <h2>My Pick</h2>
-    <p>"Creme de la creme" of my daily skin routine</p>
+    <h2>מוצרי GIGI</h2>
+    <p>״הטוב ביותר לעורך — זמין אצלי בקליניקה״</p>
     <span class="rose-line"></span>
   </div>
   <div class="my-pick-grid">
     <div class="pick-card">
-      <img src="https://likhaaesthetic.ie/wp-content/uploads/2023/08/EXOBALM_Product-e1691008692639.webp"
-           alt="ASCEplus Exobalm" />
-      <h3>ASCEplus Exobalm</h3>
-      <p>Revolutionary post procedure care for rapid healing of the skin.</p>
+      <div style="width:100%;height:160px;background:#FAF2F0;display:flex;align-items:center;justify-content:center;color:#EAA098;font-size:13px;font-family:var(--ff-b)">GIGI</div>
+      <h3>Vitamin E Moisturizing Cream</h3>
+      <p>קרם לחות עשיר בויטמין E לעור יבש ורגיש</p>
     </div>
     <div class="pick-card">
-      <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/Exfoliating-polish-png-1.png"
-           alt="Exfoliating Polish" />
-      <h3>Exfoliating Polish</h3>
-      <p>Magnesium crystals for a clear, smooth and even-toned complexion.</p>
+      <div style="width:100%;height:160px;background:#FAF2F0;display:flex;align-items:center;justify-content:center;color:#EAA098;font-size:13px;font-family:var(--ff-b)">GIGI</div>
+      <h3>Carotene Butter Cream</h3>
+      <p>קרם בטר קרוטן מזין המחזיר את זוהר העור</p>
     </div>
     <div class="pick-card">
-      <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/retinol-1.png"
-           alt="Retinol 1%" />
-      <h3>Retinol Skin Brightener 1%</h3>
-      <p>1% retinol brightens and evens the skin tone.</p>
+      <div style="width:100%;height:160px;background:#FAF2F0;display:flex;align-items:center;justify-content:center;color:#EAA098;font-size:13px;font-family:var(--ff-b)">GIGI</div>
+      <h3>Solar Energy SPF 50</h3>
+      <p>הגנת שמש מקצועית, קלה ומרגישה טוב</p>
     </div>
     <div class="pick-card">
-      <img src="https://likhaaesthetic.ie/wp-content/uploads/2023/03/Celltweet-Firming-Moisturiser.png"
-           alt="Celltweet Firming Moisturizer" />
-      <h3>Celltweet Firming Moisturizer</h3>
-      <p>10,000ppm ExoSCRT exosomes for inflammatory skin conditions.</p>
+      <div style="width:100%;height:160px;background:#FAF2F0;display:flex;align-items:center;justify-content:center;color:#EAA098;font-size:13px;font-family:var(--ff-b)">GIGI</div>
+      <h3>Bio Placenta Serum</h3>
+      <p>סרום מחזיר נעורים לעור בוגר</p>
     </div>
     <div class="pick-card">
-      <img src="https://likhaaesthetic.ie/wp-content/uploads/2021/03/SPF-Png-1.png"
-           alt="SPF 50" />
-      <h3>Smart Tone SPF 50</h3>
-      <p>Ultra-lightweight sunscreen protecting against UVA/UVB and HEV light.</p>
+      <div style="width:100%;height:160px;background:#FAF2F0;display:flex;align-items:center;justify-content:center;color:#EAA098;font-size:13px;font-family:var(--ff-b)">GIGI</div>
+      <h3>Nutri-Peptide Eye Cream</h3>
+      <p>קרם עיניים עתיר פפטידים נגד קמטוטים</p>
     </div>
+  </div>
+  <div style="text-align:center;padding:0 40px 20px;max-width:700px;margin:0 auto">
+    <p style="font-size:14px;color:var(--grey);font-family:var(--ff-b)">
+      מוצרי GIGI <strong>זמינים לרכישה ישירות בקליניקה</strong> — עם ייעוץ אישי מותאם לעורך.
+    </p>
   </div>
 </section>
 
-<!-- ── CTA DUO ── -->
-<section class="cta-duo">
-  <div class="cta-block">
-    <h2>Ready to book an appointment?</h2>
-    <a href="https://likha.myaestheticrecord.com/book/appointments/bBQyDNe8pm7oPzox9jGXORxW6aK54J/clinics"
-       target="_blank" class="btn btn-rose">Book</a>
+
+<section class="contact-section" id="contact">
+  <div class="section-center">
+    <p class="sub">צרי קשר</p>
+    <h2>שמחה לשמוע ממך</h2>
   </div>
-  <div class="cta-block">
-    <h2>Want to talk about your needs?</h2>
-    <a href="contact.html" class="btn btn-white">Make an Enquiry</a>
+  <div class="contact-inner">
+
+    <div class="contact-details">
+      <h3>בואי נדבר!</h3>
+      <p>מוזמנת לפנות אלי בכל שאלה, לתאם תור או לקבל מידע על טיפולים. כאן בשבילך.</p>
+
+      <div class="detail-row">
+        <div class="detail-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.79a19.79 19.79 0 01-2.95-8.72 2 2 0 011.72-2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <a href="tel:052-7884725" style="font-weight:600;font-family:var(--ff-b);font-size:15px" dir="ltr">052-7884725</a>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </div>
+        <a href="https://wa.me/972527884725" target="_blank" rel="noopener" style="font-weight:600;font-family:var(--ff-b);font-size:15px">שלחי הודעה בוואטסאפ</a>
+      </div>
+
+      <div class="detail-row" style="align-items:flex-start">
+        <div class="detail-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div style="font-family:var(--ff-b)">
+          <div style="font-weight:600;font-size:15px">המשביר 1, חולון</div>
+          <div style="font-size:13px;color:var(--grey)">מתחם ״הפרימיום סנטר״, קומה 2</div>
+        </div>
+      </div>
+
+      <div class="hours-box">
+        <h4>שעות פעילות</h4>
+        <table>
+          <tr><td>ראשון–חמישי</td><td>לפי תיאום אישי</td></tr>
+          <tr><td>שישי</td><td>09:00–13:00</td></tr>
+          <tr><td>שבת</td><td>סגור</td></tr>
+        </table>
+      </div>
+
+      <div class="social-icons">
+        <a href="https://www.instagram.com/mayan_vaknin_?igsh=MWMwOHZ0ZWFuNGN2ag" class="soc-icon" aria-label="אינסטגרם" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/share/1Cy7gD1GKu/?mibextid=wwXIfr" class="soc-icon" aria-label="פייסבוק" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@mayanvaknin03?_r=1&_t=ZS-96i6REDYQvV" class="soc-icon" aria-label="טיקטוק" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.24 8.24 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      <h3>שלחי לי הודעה</h3>
+      <!-- ⚠️ ФОРМА: той самий ключ з web3forms.com -->
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY" />
+        <input type="hidden" name="redirect" value="" />
+        <input type="hidden" name="subject"    value="הודעה חדשה מהאתר — מעיין קוסמטיקה" />
+        <input type="hidden" name="from_name"  value="מעיין קוסמטיקה אתר" />
+        <div class="form-row">
+          <label for="c-name">שם מלא *</label>
+          <input type="text" id="c-name" name="name" required placeholder="השם שלך" />
+        </div>
+        <div class="form-row">
+          <label for="c-phone">טלפון *</label>
+          <input type="tel" id="c-phone" name="phone" required placeholder="050-0000000" dir="ltr" style="text-align:right" />
+        </div>
+        <div class="form-row">
+          <label for="c-msg">הודעה</label>
+          <textarea id="c-msg" name="message" placeholder="איך אני יכולה לעזור?"></textarea>
+        </div>
+        <a href="#" class="btn btn-rose" style="display:block;text-align:center" onclick="document.getElementById('contactForm').requestSubmit();return false;">שלחי הודעה ←</a>
+        <button type="submit" style="display:none"></button>
+        <div class="form-success" id="contactSuccess">תודה! קיבלתי את הודעתך ואחזור אלייך בקרוב 🌸</div>
+      </form>
+    </div>
+
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+
+
+
 <footer class="site-footer">
   <div class="footer-top">
     <div class="footer-logo-wrap">
-      <img src="https://likhaaesthetic.ie/wp-content/themes/wondr/img/logo.svg" alt="Likha"
-           onerror="this.outerHTML='<span class=\'footer-logo-text\'>LIKHA</span>'" />
-      <p>We believe beauty is for everyone — non-surgical treatments, affordable, effective, natural-looking results.</p>
+      <img src="img/logo.png" alt="מעיין קוסמטיקה" style="height:52px;width:auto;filter:brightness(0) invert(1);margin-bottom:16px;display:block" />
+      <p>קוסמטיקאית קלינית בחולון. טיפולי עור מתקדמים בהתאמה אישית — כי כל אחת ראויה להרגיש יפה ובטוחה בעור שלה.</p>
+      <p style="margin-top:8px;font-size:12px;opacity:.6">המשביר 1, חולון | הפרימיום סנטר, קומה 2</p>
     </div>
     <div class="footer-nav-cols">
       <div class="footer-col">
-        <span class="footer-col-head">Explore</span>
+        <span class="footer-col-head">ניווט</span>
         <ul>
-          <li><a href="treatments.html">Treatments</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="about.html">Reviews</a></li>
-          <li><a href="products.html">Store</a></li>
+          <li><a href="#services">טיפולים</a></li>
+          <li><a href="#about">אודות</a></li>
+          <li><a href="#products">מוצרים</a></li>
+          <li><a href="#contact">צרי קשר</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <span class="footer-col-head">The Clinic</span>
+        <span class="footer-col-head">הקליניקה</span>
         <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="about.html">Awards</a></li>
-          <li><a href="about.html">Clinic of the Year</a></li>
-          <li><a href="about.html">Patient Excellence</a></li>
+          <li><a href="#about">מי אני</a></li>
+          <li><a href="#services">כל הטיפולים</a></li>
+          <li><a href="#products">מוצרי GIGI</a></li>
+          <li><a href="#contact">כתובת ושעות</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <span class="footer-col-head">Let's Talk</span>
+        <span class="footer-col-head">יצירת קשר</span>
         <ul>
-          <li><a href="contact.html">Make an Enquiry</a></li>
-          <li><a href="https://likha.myaestheticrecord.com/book/appointments/bBQyDNe8pm7oPzox9jGXORxW6aK54J/clinics" target="_blank">Book Appointment</a></li>
-          <li><a href="about.html">About Dr. Juliah</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="tel:052-7884725">052-7884725</a></li>
+          <li><a href="https://wa.me/972527884725" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="#" onclick="openPopup();return false;">קביעת תור</a></li>
+          <li><a href="#contact">שלחי הודעה</a></li>
         </ul>
       </div>
     </div>
   </div>
 
   <div class="footer-social">
-    <span>Elsewhere</span>
-    <a href="https://www.facebook.com/LikhaAestheticClinic/" target="_blank" aria-label="Facebook">
-      <svg width="8" height="14" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7.12 0H5.18C4.32 0 3.5.34 2.89.95 2.28 1.55 1.94 2.38 1.94 3.24v1.94H0v2.59h1.94v5.18h2.59V7.77h1.94l.65-2.59H4.53V3.24c0-.17.07-.34.19-.46.12-.12.29-.19.46-.19H7.12V0Z" fill="#EAA098"/>
-      </svg>
+    <span>עקבי אחרינו</span>
+    <a href="https://www.instagram.com/mayan_vaknin_?igsh=MWMwOHZ0ZWFuNGN2ag" target="_blank" rel="noopener" aria-label="אינסטגרם">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EAA098" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.75" fill="#EAA098" stroke="none"/></svg>
     </a>
-    <a href="https://www.instagram.com/likha_aesthetic/" target="_blank" aria-label="Instagram">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="1" width="12" height="12" rx="3" stroke="#EAA098" stroke-width="1.5"/>
-        <circle cx="7" cy="7" r="2.5" stroke="#EAA098" stroke-width="1.5"/>
-        <circle cx="10.5" cy="3.5" r="0.75" fill="#EAA098"/>
-      </svg>
+    <a href="https://www.facebook.com/share/1Cy7gD1GKu/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="פייסבוק">
+      <svg width="8" height="13" viewBox="0 0 8 13" fill="none"><path d="M7.12 0H5.18C4.32 0 3.5.34 2.89.95 2.28 1.55 1.94 2.38 1.94 3.24v1.94H0v2.59h1.94v5.18h2.59V7.77h1.94l.65-2.59H4.53V3.24c0-.17.07-.34.19-.46.12-.12.29-.19.46-.19H7.12V0Z" fill="#EAA098"/></svg>
     </a>
-    <a href="https://www.linkedin.com/in/dr-juliah-tbarani/" target="_blank" aria-label="LinkedIn">
-      <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 4.5h2V12H1V4.5ZM2 1a1.25 1.25 0 1 1 0 2.5A1.25 1.25 0 0 1 2 1ZM5 4.5h1.9v1s.6-1 2.1-1C11 4.5 12 5.8 12 8v4h-2V8.3c0-1-.4-1.8-1.4-1.8-1.3 0-1.6 1-1.6 1.8V12H5V4.5Z" fill="#EAA098"/>
-      </svg>
+    <a href="https://www.tiktok.com/@mayanvaknin03?_r=1&_t=ZS-96i6REDYQvV" target="_blank" rel="noopener" aria-label="טיקטוק">
+      <svg width="13" height="14" viewBox="0 0 24 24" fill="#EAA098" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.24 8.24 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z"/></svg>
     </a>
   </div>
 
   <div class="footer-legal">
-    <p>&copy; Likha Aesthetic Clinic</p>
+    <p>&copy; 2026 מעיין קוסמטיקה. כל הזכויות שמורות.</p>
     <ul>
-      <li><a href="contact.html">Contact Likha</a></li>
-      <li><a href="#">Privacy Policy</a></li>
-      <li><a href="#">Terms &amp; Conditions</a></li>
+      <li><a href="#" onclick="openModal('privacyModal');return false;">מדיניות פרטיות</a></li>
+      <li><a href="#" onclick="openModal('termsModal');return false;">תנאי שימוש</a></li>
     </ul>
+  </div>
+  <div style="text-align:center;padding:10px 40px 18px;font-size:11px;color:rgba(255,255,255,.25);font-family:var(--ff-b)">
+    בניית אתר: Aiterra פתרונות טכנולוגיים | מיכאל 052-6780739 | אריק 054-2404452
   </div>
 </footer>
 
+
 <script>
-  const menuBtn  = document.getElementById('menuBtn');
-  const overlay  = document.getElementById('navOverlay');
-  const closeBtn = document.getElementById('navClose');
-  menuBtn.addEventListener('click',  () => overlay.classList.add('open'));
-  closeBtn.addEventListener('click', () => overlay.classList.remove('open'));
-  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
+/* ── Cookie ──────────────────────────────── */
+(function(){
+  var b = document.getElementById('cookieBanner');
+  if(!b) return;
+  if(localStorage.getItem('ck')) b.classList.add('hidden');
+  document.getElementById('cookieAccept').onclick = function(){
+    localStorage.setItem('ck','1'); b.classList.add('hidden');
+  };
+})();
+
+/* ── Popup ───────────────────────────────── */
+function openPopup(){
+  document.getElementById('popupOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePopup(){
+  document.getElementById('popupOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+if(document.getElementById('popupClose')) {
+  document.getElementById('popupClose').onclick = closePopup;
+}
+document.getElementById('popupOverlay').onclick = function(e){ if(e.target===this) closePopup(); };
+if(!sessionStorage.getItem('ps')){
+  setTimeout(function(){ openPopup(); sessionStorage.setItem('ps','1'); }, 6000);
+}
+
+/* ── Modals ──────────────────────────────── */
+function openModal(id){ document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(id){ document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
+document.querySelectorAll('.modal-overlay').forEach(function(el){
+  el.onclick = function(e){ if(e.target===this){ this.classList.remove('open'); document.body.style.overflow=''; }};
+});
+
+/* ── Mobile nav ──────────────────────────── */
+var navOverlay = document.getElementById('navOverlay');
+document.getElementById('menuBtn').onclick  = function(){ navOverlay.classList.add('open'); document.body.style.overflow='hidden'; };
+document.getElementById('navClose').onclick = function(){ navOverlay.classList.remove('open'); document.body.style.overflow=''; };
+
+/* ── Forms (Web3Forms AJAX) ──────────────── */
+function setupForm(formId, successId){
+  var form=document.getElementById(formId);
+  if(!form) return;
+  form.onsubmit=function(e){
+    e.preventDefault();
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){ form.style.display='none'; document.getElementById(successId).classList.add('show'); }
+        else { alert('אירעה שגיאה — אנא נסי שנית.'); }
+      }).catch(function(){ alert('אירעה שגיאה — אנא נסי שנית.'); });
+  };
+}
+setupForm('popupForm','popupSuccess');
+setupForm('contactForm','contactSuccess');
+
+/* ── Smooth scroll ───────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.onclick=function(e){
+    var href = this.getAttribute('href');
+    if(href !== '#' && href.startsWith('#')) {
+      var t=document.querySelector(href);
+      if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+    }
+  };
+});
+
+/* ── Lightbox ────────────────────────────── */
+var lbImgs = Array.from(document.querySelectorAll('.portfolio-item img')).map(function(i){ return i.src; });
+var lbIdx = 0;
+var lb = document.getElementById('lb');
+function openLb(i){ lbIdx=i; document.getElementById('lb-img').src=lbImgs[i]; lb.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeLb(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+document.getElementById('lb-close').onclick = closeLb;
+lb.onclick = function(e){ if(e.target===this) closeLb(); };
+document.getElementById('lb-next').onclick = function(){ lbIdx=(lbIdx-1+lbImgs.length)%lbImgs.length; document.getElementById('lb-img').src=lbImgs[lbIdx]; };
+document.getElementById('lb-prev').onclick = function(){ lbIdx=(lbIdx+1)%lbImgs.length; document.getElementById('lb-img').src=lbImgs[lbIdx]; };
+
+/* ── Escape key ──────────────────────────── */
+document.onkeydown=function(e){
+  if(e.key==='Escape'){
+    closePopup(); closeLb();
+    if(navOverlay) { navOverlay.classList.remove('open'); }
+    document.querySelectorAll('.modal-overlay.open').forEach(function(m){
+      m.classList.remove('open'); document.body.style.overflow='';
+    });
+  }
+  if(e.key==='ArrowLeft')  { if(lb.classList.contains('open')) document.getElementById('lb-next').click(); }
+  if(e.key==='ArrowRight') { if(lb.classList.contains('open')) document.getElementById('lb-prev').click(); }
+};
 </script>
 </body>
 </html>

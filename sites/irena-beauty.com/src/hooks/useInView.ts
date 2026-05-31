@@ -10,6 +10,10 @@ interface Options {
 const useIsomorphicLayoutEffect =
   typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
+// Set by HomePage after the page has been in view for a couple of seconds.
+// On back-navigation all useInView hooks read this and skip the hidden→visible animation.
+export const PAGE_LOADED_SESSION_KEY = 'irena-page-loaded';
+
 export function useInView<T extends HTMLElement = HTMLDivElement>({
   threshold = 0.05,
   rootMargin = '0px 0px 0px 0px',
@@ -18,10 +22,19 @@ export function useInView<T extends HTMLElement = HTMLDivElement>({
   const ref = useRef<T>(null);
   const [inView, setInView] = useState(false);
 
-  // On mount (e.g. back navigation), if element is already in viewport — show immediately without animation
+  // On mount: if page was already fully loaded once this session, show immediately.
+  // Also handles the normal case: element already in viewport on mount.
   useIsomorphicLayoutEffect(() => {
     const el = ref.current;
     if (!el || !once) return;
+
+    try {
+      if (sessionStorage.getItem(PAGE_LOADED_SESSION_KEY)) {
+        setInView(true);
+        return;
+      }
+    } catch {}
+
     const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) {
       setInView(true);

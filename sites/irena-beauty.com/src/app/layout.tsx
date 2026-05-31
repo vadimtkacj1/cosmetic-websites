@@ -1,4 +1,5 @@
 import React from 'react';
+import Script from 'next/script';
 import { cookies } from 'next/headers';
 import '../styles/index.css';
 import { dirFor, LOCALE_COOKIE, normalizeLocale } from '@/lib/i18n/config';
@@ -34,8 +35,11 @@ export default async function RootLayout({
   const locale = normalizeLocale((await cookies()).get(LOCALE_COOKIE)?.value);
   return (
     <html lang={locale} dir={dirFor(locale)}>
-      <body>{children}
-</body>
+      <body>{children}</body>
+      <Script
+        src="https://cdn.jsdelivr.net/npm/sienna-accessibility/dist/sienna-accessibility.umd.js"
+        strategy="lazyOnload"
+      />
     </html>
   );
 }

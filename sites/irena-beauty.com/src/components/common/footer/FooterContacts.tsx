@@ -8,7 +8,7 @@ const ContactRow = ({ icon, label, value, href }: ContactRowProps) => (
   <div className="flex flex-row gap-[12px] items-start">
     <Image src={icon} alt={label} width={24} height={24} className="w-[24px] h-[24px] mt-1 flex-shrink-0" />
     <div className="flex flex-col gap-[4px]">
-      <span className="text-[15px] font-normal leading-snug text-text-secondary" style={{ fontFamily: 'Nunito Sans' }}>
+      <span className="text-[15px] font-normal leading-snug text-white/60" style={{ fontFamily: 'Nunito Sans' }}>
         {label}
       </span>
       <a

@@ -11,6 +11,9 @@ export function useParallax<T extends HTMLElement = HTMLDivElement>(speed: numbe
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
+    // Disable on mobile — scroll listeners cause re-renders and visual glitches
+    if (window.matchMedia('(max-width: 767px)').matches) return;
+
     const el = ref.current;
     if (!el) return;
 

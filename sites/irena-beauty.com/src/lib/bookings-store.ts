@@ -15,6 +15,7 @@ export interface Booking {
   phone: string
   date: string
   time: string
+  treatment?: string
   createdAt: string
   /** Which salon / site instance (matches `tenants` keys in messenger-tenants.json). */
   tenantId: string
@@ -33,6 +34,7 @@ function normalizeBooking(raw: unknown): Booking | null {
     phone: typeof o.phone === 'string' ? o.phone : '',
     date: typeof o.date === 'string' ? o.date : '',
     time: typeof o.time === 'string' ? o.time : '',
+    treatment: typeof o.treatment === 'string' ? o.treatment : undefined,
     createdAt: typeof o.createdAt === 'string' ? o.createdAt : new Date().toISOString(),
     tenantId,
   }
@@ -57,15 +59,17 @@ export function writeBookings(bookings: Booking[]): void {
 export function addBooking(input: {
   name: string
   phone: string
-  date: string
-  time: string
+  date?: string
+  time?: string
+  treatment?: string
 }): Booking {
   const booking: Booking = {
     id: randomUUID(),
     name: input.name.trim(),
     phone: input.phone.trim(),
-    date: input.date,
-    time: input.time,
+    date: input.date ?? '',
+    time: input.time ?? '',
+    treatment: input.treatment,
     createdAt: new Date().toISOString(),
     tenantId: deploymentTenantId(),
   }

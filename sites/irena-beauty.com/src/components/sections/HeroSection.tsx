@@ -82,7 +82,7 @@ export default function HeroSection() {
               </div>
 
               {/* Social links */}
-              <div className="flex flex-row gap-[20px] items-center justify-center md:justify-start">
+              <div className="flex flex-row gap-[28px] items-center justify-center md:justify-start">
                 <a
                   href="https://www.instagram.com/beautyiren/"
                   target="_blank"
@@ -90,7 +90,7 @@ export default function HeroSection() {
                   aria-label="Instagram"
                   className="text-text-primary opacity-70 hover:opacity-100 transition-opacity"
                 >
-                  <svg viewBox="0 0 24 24" width={24} height={24} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                  <svg viewBox="0 0 24 24" width={38} height={38} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
@@ -101,7 +101,7 @@ export default function HeroSection() {
                   aria-label="Phone"
                   className="text-text-primary opacity-70 hover:opacity-100 transition-opacity"
                 >
-                  <svg viewBox="0 0 24 24" width={24} height={24} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                  <svg viewBox="0 0 24 24" width={38} height={38} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.42 2 2 0 0 1 3.62 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z" />
                   </svg>
                 </a>
@@ -112,7 +112,7 @@ export default function HeroSection() {
                   aria-label="Facebook"
                   className="text-text-primary opacity-70 hover:opacity-100 transition-opacity"
                 >
-                  <svg viewBox="0 0 24 24" width={24} height={24} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                  <svg viewBox="0 0 24 24" width={38} height={38} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                   </svg>
                 </a>
@@ -123,7 +123,7 @@ export default function HeroSection() {
                   aria-label="Waze"
                   className="text-text-primary opacity-70 hover:opacity-100 transition-opacity"
                 >
-                  <svg viewBox="0 0 24 24" width={24} height={24} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                  <svg viewBox="0 0 24 24" width={38} height={38} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="10" r="7" />
                     <circle cx="10" cy="9" r="1" fill="currentColor" stroke="none" />
                     <circle cx="14" cy="9" r="1" fill="currentColor" stroke="none" />

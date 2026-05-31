@@ -15,7 +15,7 @@ const FooterBrand = () => {
       height={50}
       className="w-[56px] sm:w-[64px] md:w-[72px] h-auto"
     />
-    <p className="text-[15px] sm:text-base font-normal leading-normal text-text-secondary" style={{ fontFamily: 'Nunito Sans' }}>
+    <p className="text-[15px] sm:text-base font-normal leading-normal text-white/70" style={{ fontFamily: 'Nunito Sans' }}>
       {footer.brandText}
     </p>
     <FooterSocialIcons />

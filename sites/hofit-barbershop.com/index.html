@@ -1,31 +1,34 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Laser Hair Removal | Premium Aesthetic Treatments | SEV</title>
-  <meta name="description" content="SEV Laser offers professional laser hair removal, facials, and skin treatments for smooth, glowing results." />
+  <title>הסרת שיער בלייזר קר | קוסמטיקס חופית | חולון</title>
+  <meta name="description" content="קליניקת קוסמטיקס חופית בחולון — הסרת שיער בלייזר קר, מיצוק עור בטכנולוגיית RF, מיקרובליידינג ועיצוב גבות. תיאום תורים: 054-2186634" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <!-- Lenis smooth scroll -->
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 
   <style>
+    /* ─── FONTS ──────────────────────────────────────────────────── */
+    @font-face {
+      font-family: 'VarelaRound';
+      src: url('fonts/VarelaRound-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
     /* ─── RESET & BASE ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'VarelaRound', sans-serif;
       font-size: 16px;
       line-height: 1.6;
       color: #2d2d2d;
       background: #fff;
+      direction: rtl;
     }
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
@@ -52,8 +55,7 @@
       color: var(--white);
       font-size: 12px;
       font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      letter-spacing: 0.08em;
       padding: 10px 0;
       overflow: hidden;
       position: relative;
@@ -61,19 +63,13 @@
     .sev-ticker__track {
       display: flex;
       white-space: nowrap;
-      animation: tickerScroll 18s linear infinite;
+      animation: tickerScroll 20s linear infinite;
     }
-    .sev-ticker__item {
-      padding: 0 40px;
-      flex-shrink: 0;
-    }
-    .sev-ticker__item span {
-      color: #c9a87c;
-      margin: 0 8px;
-    }
+    .sev-ticker__item { padding: 0 40px; flex-shrink: 0; }
+    .sev-ticker__item span { color: #c9a87c; margin: 0 8px; }
     @keyframes tickerScroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0%   { transform: translateX(50%); }
+      100% { transform: translateX(0%); }
     }
 
     /* ─── HEADER ────────────────────────────────────────────────── */
@@ -85,9 +81,7 @@
       box-shadow: 0 2px 20px rgba(82,67,61,0.08);
       transition: box-shadow var(--transition), background var(--transition);
     }
-    .lzr-header.scrolled {
-      box-shadow: 0 4px 32px rgba(82,67,61,0.15);
-    }
+    .lzr-header.scrolled { box-shadow: 0 4px 32px rgba(82,67,61,0.15); }
     .lzr-header__inner {
       max-width: 1280px;
       margin: 0 auto;
@@ -101,21 +95,16 @@
 
     /* Logo */
     .lzr-logo { display: flex; align-items: center; flex-shrink: 0; }
-    .lzr-logo svg { width: 47px; height: 64px; transition: transform var(--transition); }
-    .lzr-logo:hover svg { transform: scale(1.05); }
+    .lzr-logo img { height: 56px; width: auto; transition: transform var(--transition); }
+    .lzr-logo:hover img { transform: scale(1.05); }
 
     /* Nav */
     .lzr-nav { flex: 1; display: flex; justify-content: center; }
-    .lzr-menu {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .lzr-menu { display: flex; align-items: center; gap: 8px; }
     .lzr-item > a {
       font-size: 13px;
       font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      letter-spacing: 0.04em;
       color: var(--brown);
       padding: 10px 14px;
       border-radius: 6px;
@@ -129,116 +118,25 @@
       content: '';
       position: absolute;
       bottom: 4px;
-      left: 14px;
       right: 14px;
+      left: 14px;
       height: 2px;
       background: var(--brown);
       transform: scaleX(0);
       transition: transform var(--transition);
       border-radius: 2px;
+      transform-origin: right;
     }
     .lzr-item > a:hover::after,
     .lzr-item.active > a::after { transform: scaleX(1); }
     .lzr-item > a:hover { color: var(--brown-light); }
-    .lzr-item.lzr-has-mega > a::before {
-      content: '';
-      display: inline-block;
-      width: 8px; height: 5px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 5'%3E%3Cpath d='M1 1l3 3 3-3' stroke='%2352433D' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat;
-      margin-left: 2px;
-      order: 1;
-      transition: transform var(--transition);
-    }
-    .lzr-item.lzr-has-mega:hover > a::before { transform: rotate(180deg); }
-
-    /* Mega Menu */
-    .lzr-mega {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: var(--white);
-      box-shadow: 0 24px 64px rgba(82,67,61,0.16);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-12px);
-      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
-      border-top: 2px solid var(--beige);
-    }
-    .lzr-item.lzr-has-mega:hover .lzr-mega {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    .lzr-mega__inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 40px 32px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    .mega-card {
-      border-radius: var(--radius);
-      overflow: hidden;
-      position: relative;
-      height: 240px;
-      cursor: pointer;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .mega-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-    .mega-card__bg {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .mega-card:hover .mega-card__bg { transform: scale(1.06); }
-    .mega-card__overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(82,67,61,0.75) 0%, transparent 55%);
-    }
-    .mega-card__label {
-      position: absolute;
-      bottom: 20px; left: 20px;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    /* Locations mega */
-    .lzr-mega--locations .lzr-mega__inner {
-      grid-template-columns: repeat(5, 1fr);
-      padding: 32px;
-    }
-    .mega-state h4 {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--brown);
-      margin-bottom: 8px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--beige-dark);
-    }
-    .mega-state a {
-      display: block;
-      font-size: 12px;
-      color: var(--text);
-      padding: 3px 0;
-      transition: color var(--transition), padding-left var(--transition);
-    }
-    .mega-state a:hover { color: var(--brown); padding-left: 6px; }
 
     /* Backdrop */
     .lzr-backdrop {
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background: rgba(0,0,0,0.4);
       z-index: 999;
-      opacity: 0;
-      visibility: hidden;
+      opacity: 0; visibility: hidden;
       transition: opacity var(--transition), visibility var(--transition);
       backdrop-filter: blur(2px);
     }
@@ -246,16 +144,6 @@
 
     /* Header Actions */
     .lzr-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-    .lzr-actions .btn-search {
-      width: 40px; height: 40px;
-      border: none; background: transparent;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 50%;
-      transition: background var(--transition);
-      color: var(--brown);
-    }
-    .lzr-actions .btn-search:hover { background: var(--beige); }
 
     /* Mobile Toggle */
     .lzr-mobile-btn {
@@ -266,6 +154,8 @@
       padding: 8px;
       border-radius: 6px;
       transition: background var(--transition);
+      background: none;
+      border: none;
     }
     .lzr-mobile-btn:hover { background: var(--beige); }
     .lzr-mobile-btn span {
@@ -287,24 +177,19 @@
       gap: 8px;
       padding: 14px 28px;
       border-radius: 50px;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'VarelaRound', sans-serif;
       font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      font-weight: 400;
       cursor: pointer;
       transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
       border: 2px solid transparent;
     }
     .btn-light:hover, .btn-brown:hover, .white-button:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
     .btn-light:active, .btn-brown:active, .white-button:active { transform: translateY(0); box-shadow: none; }
-
     .btn-light { background: #fff; color: var(--brown); border-color: #fff; }
     .btn-light:hover { background: var(--beige); border-color: var(--beige); }
-
     .btn-brown { background: var(--brown); color: #fff; border-color: var(--brown); }
     .btn-brown:hover { background: var(--brown-light); border-color: var(--brown-light); }
-
     .white-button { background: #fff; color: var(--brown); }
     .white-button:hover { background: var(--beige); }
 
@@ -314,9 +199,8 @@
       padding: 10px 20px;
       border-radius: 50px;
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      font-weight: 400;
+      font-family: 'VarelaRound', sans-serif;
       background: var(--brown);
       color: #fff;
       border: 2px solid var(--brown);
@@ -330,16 +214,15 @@
       padding: 10px 20px;
       border-radius: 50px;
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      font-weight: 400;
+      font-family: 'VarelaRound', sans-serif;
       background: transparent;
-      color: var(--brown);
-      border: 2px solid var(--brown);
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.7);
       transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
       cursor: pointer;
     }
-    .book-now-compact-outline:hover { background: var(--brown); color: #fff; transform: translateY(-2px); }
+    .book-now-compact-outline:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); }
 
     .btn-book-header {
       background: var(--brown);
@@ -347,27 +230,21 @@
       padding: 12px 24px;
       border-radius: 50px;
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-weight: 400;
+      font-family: 'VarelaRound', sans-serif;
       transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
     }
     .btn-book-header:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(82,67,61,0.3); background: var(--brown-light); }
 
     /* ─── CONTAINER ─────────────────────────────────────────────── */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
 
     /* ─── SECTION COMMON ─────────────────────────────────────────── */
     section { overflow: clip; }
     .section-title, h2.title {
       font-size: clamp(28px, 4vw, 52px);
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      font-weight: 400;
+      letter-spacing: 0.02em;
       color: var(--brown);
       line-height: 1.1;
     }
@@ -375,31 +252,25 @@
 
     /* ─── REVEAL ON SCROLL ───────────────────────────────────────── */
     .reveal {
-      opacity: 0;
-      transform: translateY(40px);
+      opacity: 0; transform: translateY(40px);
       transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-left {
-      opacity: 0;
-      transform: translateX(-40px);
+      opacity: 0; transform: translateX(-40px);
       transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
     }
     .reveal-left.visible { opacity: 1; transform: translateX(0); }
     .reveal-right {
-      opacity: 0;
-      transform: translateX(40px);
+      opacity: 0; transform: translateX(40px);
       transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
     }
     .reveal-right.visible { opacity: 1; transform: translateX(0); }
     .reveal-scale {
-      opacity: 0;
-      transform: scale(0.92);
+      opacity: 0; transform: scale(0.92);
       transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
     }
     .reveal-scale.visible { opacity: 1; transform: scale(1); }
-
-    /* Stagger delays */
     .delay-1 { transition-delay: 0.1s; }
     .delay-2 { transition-delay: 0.2s; }
     .delay-3 { transition-delay: 0.3s; }
@@ -408,7 +279,7 @@
     /* ─── HERO ───────────────────────────────────────────────────── */
     .hero {
       min-height: 100svh;
-      background: url('https://sevlaser.com/wp-content/uploads/2025/11/01_SECTION-1_Hero-1.jpg') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=80') center/cover no-repeat;
       display: flex;
       align-items: flex-end;
       position: relative;
@@ -424,15 +295,11 @@
       );
     }
     .hero .container { position: relative; z-index: 1; padding-bottom: 80px; }
-    .hero .meta {
-      max-width: 620px;
-    }
+    .hero .meta { max-width: 620px; margin: 0 auto; text-align: center; }
     .hero .captions { margin-bottom: 36px; }
     .hero .title {
       font-size: clamp(40px, 6vw, 88px);
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      font-weight: 400;
       color: #fff;
       line-height: 1.0;
       margin-bottom: 16px;
@@ -453,13 +320,12 @@
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
+      justify-content: center;
       opacity: 0;
       transform: translateY(30px);
       animation: heroFadeUp 1s cubic-bezier(0.4,0,0.2,1) 0.8s forwards;
     }
-    @keyframes heroFadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes heroFadeUp { to { opacity: 1; transform: translateY(0); } }
 
     /* ─── OUR APPROACH ───────────────────────────────────────────── */
     .our-approach { padding: 80px 0; }
@@ -484,27 +350,13 @@
     }
     .col:hover .col-icon { transform: scale(1.1) rotate(8deg); background: var(--brown-light); }
     .col-icon svg { width: 26px; height: 26px; fill: #fff; }
-    .col h3 {
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--brown);
-    }
-    .col p {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--text);
-      line-height: 1.65;
-    }
+    .col h3 { font-size: 14px; font-weight: 400; letter-spacing: 0.04em; color: var(--brown); }
+    .col p { font-size: 14px; font-weight: 400; color: var(--text); line-height: 1.65; }
 
     /* ─── OUR TREATMENTS ─────────────────────────────────────────── */
     .our-treatments { padding: 80px 0; }
     .our-treatments .title { margin-bottom: 48px; }
-    .our-treatments .list {
-      display: grid;
-      gap: 24px;
-    }
+    .our-treatments .list { display: grid; gap: 24px; }
     .our-treatments .list.list-4 { grid-template-columns: repeat(4, 1fr); }
     .our-treatments .list.list-3 { grid-template-columns: repeat(3, 1fr); }
     .our-treatments .item {
@@ -519,21 +371,19 @@
     .our-treatments .item img {
       width: 100%; height: 100%;
       object-fit: cover;
-      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.8s cubic-bezier(0.4,0,0.2,1);
     }
     .our-treatments .item:hover img { transform: scale(1.08); }
     .our-treatments .item .caption {
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0; right: 0; left: 0;
       padding: 28px 24px 24px;
       background: linear-gradient(to top, rgba(40,28,24,0.85) 0%, transparent 100%);
-      transform: translateY(0);
     }
     .item-title {
       font-size: 17px;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      font-weight: 400;
+      letter-spacing: 0.04em;
       color: #fff;
       margin-bottom: 8px;
     }
@@ -581,17 +431,13 @@
     .comparison-table thead tr th {
       padding: 20px 32px;
       text-align: center;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      font-weight: 400;
+      letter-spacing: 0.04em;
       font-size: 15px;
       color: var(--brown);
       border-bottom: 2px solid var(--beige-dark);
     }
-    .comparison-table thead th.highlighted {
-      background: var(--brown);
-      color: #fff;
-    }
+    .comparison-table thead th.highlighted { background: var(--brown); color: #fff; }
     .comparison-table tbody tr {
       border-bottom: 1px solid var(--beige);
       transition: background var(--transition);
@@ -600,109 +446,86 @@
     .comparison-table tbody tr td {
       padding: 18px 32px;
       text-align: center;
-      font-weight: 500;
+      font-weight: 400;
       color: var(--text);
     }
-    .comparison-table tbody tr td:first-child {
-      text-align: left;
-      font-weight: 600;
-    }
-    .comparison-table tbody tr td.highlighted {
-      background: rgba(82,67,61,0.05);
-    }
+    .comparison-table tbody tr td:first-child { text-align: right; font-weight: 400; }
+    .comparison-table tbody tr td.highlighted { background: rgba(82,67,61,0.05); }
     .check-icon { color: #2e9e5b; font-size: 20px; }
     .cross-icon { color: #c0392b; font-size: 20px; }
 
     /* ─── TESTIMONIALS ───────────────────────────────────────────── */
-    .testimonials { padding: 80px 0; overflow: hidden; }
+    .testimonials { padding: 80px 0; }
     .testimonials .container { margin-bottom: 48px; }
-    .new-celebrity-carousel { padding-bottom: 60px; }
-    .new-celebrity-carousel .swiper-wrapper { align-items: stretch; }
-    .new-celebrity-carousel .swiper-slide {
+    .reviews-scroll-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 24px;
+    }
+    .reviews-scroll-track {
+      flex: 1;
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 4px 4px 16px;
+    }
+    .reviews-scroll-track::-webkit-scrollbar { display: none; }
+    .review-photo-card {
+      flex: 0 0 270px;
+      scroll-snap-align: start;
       border-radius: var(--radius);
       overflow: hidden;
-      min-height: 420px;
-      display: flex;
-      align-items: flex-end;
-      position: relative;
+      box-shadow: 0 2px 18px rgba(82,67,61,0.12);
+      background: #fff;
     }
-    .swiper-slide.with-image {
-      background-size: cover;
-      background-position: center top;
-    }
-    .swiper-slide.with-image::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(40,28,24,0.82) 0%, rgba(40,28,24,0.1) 55%, transparent 100%);
-    }
-    .slide-content {
-      position: relative; z-index: 1;
-      padding: 32px;
+    .review-photo-card img {
       width: 100%;
+      height: auto;
+      display: block;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
     }
-    .slide-quote {
-      font-size: 15px;
-      font-style: italic;
-      color: rgba(255,255,255,0.9);
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-    .slide-author {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #c9a87c;
-    }
-    .swiper-slide.with-review {
-      background: var(--beige);
-      flex-direction: column;
+    .reviews-nav {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1.5px solid var(--brown-light);
+      background: #fff;
+      color: var(--brown);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
       justify-content: center;
-      padding: 40px 36px;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+      box-shadow: 0 2px 8px rgba(82,67,61,0.10);
     }
-    .review-stars {
-      font-size: 18px;
-      color: #c9a87c;
-      margin-bottom: 16px;
-      letter-spacing: 2px;
-    }
-    .text-review {
-      font-size: 15px;
-      color: var(--text);
-      line-height: 1.7;
-      font-style: italic;
-      margin-bottom: 20px;
-    }
-    .review-location {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--brown-light);
-    }
-    .swiper-pagination-bullet {
-      background: var(--brown-light);
-      opacity: 0.4;
-      transition: opacity var(--transition), transform var(--transition);
-    }
+    .reviews-nav:hover { background: var(--brown); color: #fff; border-color: var(--brown); }
+    .swiper-pagination-bullet { background: var(--brown-light); opacity: 0.4; transition: opacity var(--transition), transform var(--transition); }
     .swiper-pagination-bullet-active { opacity: 1; transform: scale(1.3); }
-    .new-celebrity-carousel .swiper-pagination { bottom: 12px; }
+    @media (max-width: 640px) {
+      .reviews-nav { display: none; }
+      .reviews-scroll-wrap { padding: 0; }
+      .reviews-scroll-track { padding: 4px 20px 16px; gap: 12px; }
+      .review-photo-card { flex: 0 0 82vw; }
+    }
+    @media (min-width: 641px) and (max-width: 1023px) {
+      .review-photo-card { flex: 0 0 310px; }
+    }
 
     /* ─── INTRODUCTORY OFFERS ─────────────────────────────────────── */
     .offers-provide { padding: 80px 0; }
     .offers-provide .title { margin-bottom: 48px; }
-    .offers-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-    .offer-card {
-      border-radius: var(--radius);
-      overflow: hidden;
-      position: relative;
-      height: 400px;
-      cursor: pointer;
-    }
+    .offers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .offer-card { border-radius: var(--radius); overflow: hidden; position: relative; height: 400px; cursor: pointer; }
     .offer-card-bg {
       width: 100%; height: 100%;
       background-size: cover;
@@ -718,14 +541,10 @@
       padding: 36px;
       transition: background var(--transition);
     }
-    .offer-card:hover .offer-card-overlay {
-      background: linear-gradient(to top, rgba(40,28,24,0.85) 0%, transparent 55%);
-    }
+    .offer-card:hover .offer-card-overlay { background: linear-gradient(to top, rgba(40,28,24,0.85) 0%, transparent 55%); }
     .offer-card-label {
       font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
+      font-weight: 400;
       color: #fff;
       transform: translateY(6px);
       transition: transform var(--transition);
@@ -747,12 +566,7 @@
       transition: transform 0.7s cubic-bezier(0.4,0,0.2,1);
     }
     .beforeAfterTreatment .swiper-slide:hover img { transform: scale(1.05); }
-    .ba-nav {
-      display: flex;
-      gap: 12px;
-      justify-content: flex-end;
-      padding: 0 32px;
-    }
+    .ba-nav { display: flex; gap: 12px; justify-content: flex-start; padding: 0 32px; }
     .ba-btn {
       width: 44px; height: 44px;
       border-radius: 50%;
@@ -766,37 +580,181 @@
     .ba-btn:hover { background: var(--brown); color: #fff; transform: scale(1.08); }
     .ba-btn svg { width: 16px; height: 16px; }
 
-    /* ─── LOCATIONS ───────────────────────────────────────────────── */
+    /* ─── CONTACT ─────────────────────────────────────────────────── */
     .locations { padding: 80px 0; }
     .locations .title { margin-bottom: 48px; }
-    .sidebar-branch-menu {
+    .contact-grid {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 32px;
     }
-    .sidebar-branch-menu > li > a {
-      display: block;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--brown);
-      margin-bottom: 10px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--brown-light);
+    .contact-card {
+      background: #fff;
+      border-radius: var(--radius);
+      border: 1.5px solid var(--beige-dark);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: box-shadow var(--transition), transform var(--transition);
     }
-    .sidebar-branch-menu li ul li a {
-      display: block;
-      font-size: 13px;
-      color: var(--text);
-      padding: 4px 0;
-      transition: color var(--transition), padding-left var(--transition);
+    .contact-card:hover { box-shadow: var(--shadow); transform: translateY(-4px); }
+    .contact-card__icon {
+      width: 52px; height: 52px;
+      background: var(--brown);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
     }
-    .sidebar-branch-menu li ul li a:hover { color: var(--brown); padding-left: 8px; }
+    .contact-card__icon svg { width: 24px; height: 24px; fill: #fff; }
+    .contact-card h3 { font-size: 15px; font-weight: 400; color: var(--brown); }
+    .contact-card p, .contact-card address { font-size: 14px; font-style: normal; color: var(--text); line-height: 1.75; }
+    .contact-card a { color: var(--brown); font-weight: 400; }
+    .contact-card a:hover { color: var(--brown-light); }
+    .hours-list { display: flex; flex-direction: column; gap: 6px; }
+    .hours-row { display: flex; justify-content: space-between; font-size: 14px; color: var(--text); border-bottom: 1px solid var(--beige-dark); padding-bottom: 6px; }
+    .hours-row:last-child { border-bottom: none; }
 
-    /* ─── MORE WAYS TO SEV ────────────────────────────────────────── */
-    .more-ways { background: var(--white); }
-    .more-ways .list.list-3 .item { aspect-ratio: 4/5; }
+    /* ─── CONTACT FORM ───────────────────────────────────────────── */
+    .contact-form-wrap {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 56px rgba(82,67,61,0.18);
+      max-width: 820px;
+      margin-inline: auto;
+    }
+    .cf-side {
+      background: var(--brown);
+      padding: 48px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+    }
+    .cf-side h3 {
+      font-size: 22px;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.4;
+    }
+    .cf-side-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .cf-side-item svg {
+      width: 20px; height: 20px;
+      fill: rgba(255,255,255,0.7);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .cf-side-item span {
+      font-size: 13px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+    .cf-side-item a { color: rgba(255,255,255,0.85); }
+    .cf-body {
+      background: #fff;
+      padding: 40px 36px 36px;
+    }
+    .cf-body h4 {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--brown);
+      margin-bottom: 24px;
+      text-align: right;
+    }
+    .cf-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .cf-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .cf-field.full { grid-column: 1 / -1; }
+    .cf-field label {
+      font-size: 12px;
+      color: var(--brown-light);
+      text-align: right;
+    }
+    .cf-field input,
+    .cf-field textarea,
+    .cf-field select {
+      font-family: 'VarelaRound', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      background: var(--beige);
+      border: 1.5px solid transparent;
+      border-radius: 10px;
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color var(--transition), background var(--transition);
+      direction: rtl;
+      width: 100%;
+      appearance: none;
+    }
+    .cf-field input:focus,
+    .cf-field textarea:focus,
+    .cf-field select:focus {
+      border-color: var(--brown-light);
+      background: #fff;
+    }
+    .cf-field textarea { resize: vertical; min-height: 90px; }
+    .cf-select-wrap { position: relative; }
+    .cf-select-wrap::after {
+      content: '▾';
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--brown-light);
+      pointer-events: none;
+      font-size: 12px;
+    }
+    .cf-submit {
+      margin-top: 20px;
+    }
+    .cf-submit button {
+      font-family: 'VarelaRound', sans-serif;
+      font-size: 14px;
+      width: 100%;
+      background: #25D366;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .cf-submit button:hover { background: #1ebe5d; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.35); }
+    .cf-submit button svg { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
+    .cf-success {
+      display: none;
+      text-align: center;
+      color: #1ebe5d;
+      font-size: 14px;
+      padding: 12px 0 0;
+    }
+    @media (max-width: 700px) {
+      .contact-form-wrap { grid-template-columns: 1fr; }
+      .cf-side { padding: 32px 24px; gap: 20px; }
+      .cf-body { padding: 28px 20px 24px; }
+    }
+    @media (max-width: 460px) {
+      .cf-row { grid-template-columns: 1fr; }
+    }
+
 
     /* ─── FOOTER ─────────────────────────────────────────────────── */
     .new-footer {
@@ -812,16 +770,10 @@
     }
     .by-the-grace-banner .footer-wordmark {
       font-size: clamp(22px, 3vw, 36px);
-      font-weight: 900;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      font-weight: 400;
+      letter-spacing: 0.12em;
       color: rgba(255,255,255,0.65);
       margin-bottom: 16px;
-    }
-    .by-the-grace-banner .footer-cross {
-      font-size: 40px;
-      color: rgba(255,255,255,0.3);
-      display: block;
     }
     .footer-navigation-menu { margin-bottom: 48px; }
     .footer-nav-menu {
@@ -833,23 +785,14 @@
     }
     .footer-nav-menu a {
       font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      font-weight: 400;
+      letter-spacing: 0.04em;
       color: rgba(255,255,255,0.65);
       transition: color var(--transition);
     }
     .footer-nav-menu a:hover { color: #fff; }
-    .bottom-warp {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .social {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
+    .bottom-warp { display: flex; align-items: center; justify-content: center; }
+    .social { display: flex; gap: 16px; align-items: center; }
     .social a {
       width: 42px; height: 42px;
       border-radius: 50%;
@@ -865,49 +808,70 @@
       font-size: 11px;
       color: rgba(255,255,255,0.35);
       margin-top: 40px;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
     }
 
-    /* ─── BOOK NOW FLOATING BUTTON ────────────────────────────────── */
-    .book-now-button {
+    /* ─── WHATSAPP FLOATING WIDGET ─────────────────────────────────── */
+    .wa-widget {
       position: fixed;
-      bottom: 32px;
-      right: 32px;
-      z-index: 800;
+      bottom: 28px;
+      left: 28px;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       opacity: 0;
-      transform: scale(0.8) rotate(-10deg);
-      transition: opacity 0.5s, transform 0.5s;
+      transform: translateY(16px);
+      transition: opacity 0.4s, transform 0.4s;
+      pointer-events: none;
     }
-    .book-now-button.visible { opacity: 1; transform: scale(1) rotate(0deg); }
-    .book-now-button a {
-      display: flex; align-items: center; justify-content: center;
-      width: 92px; height: 92px;
+    .wa-widget.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .wa-widget__tooltip {
+      background: #fff;
+      color: #1a1a1a;
+      font-family: 'VarelaRound', sans-serif;
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 20px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.14);
+      white-space: nowrap;
+      pointer-events: none;
     }
-    .book-now-button svg {
-      width: 92px; height: 92px;
-      animation: spinSlow 14s linear infinite;
-    }
-    @keyframes spinSlow { to { transform: rotate(360deg); } }
-    .book-now-button .center-arrow {
-      position: absolute;
-      width: 32px; height: 32px;
-      background: var(--brown);
+    .wa-widget__btn {
+      width: 60px;
+      height: 60px;
+      background: #25D366;
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.45);
+      transition: transform 0.25s, box-shadow 0.25s;
+      flex-shrink: 0;
     }
-    .book-now-button .center-arrow svg { width: 14px; height: 14px; fill: #fff; animation: none; }
+    .wa-widget__btn:hover,
+    .wa-widget__btn:focus-visible {
+      transform: scale(1.1);
+      box-shadow: 0 6px 24px rgba(37,211,102,0.55);
+      outline: 3px solid #128C7E;
+      outline-offset: 3px;
+    }
+    .wa-widget__btn svg { width: 32px; height: 32px; fill: #fff; }
+    @media (max-width: 480px) {
+      .wa-widget { bottom: 20px; left: 16px; }
+      .wa-widget__tooltip { display: none; }
+    }
 
     /* ─── SWIPER OVERRIDES ────────────────────────────────────────── */
     .swiper { overflow: hidden; }
 
     /* ─── MOBILE MENU OVERLAY ─────────────────────────────────────── */
     .mobile-menu-overlay {
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background: var(--white);
       z-index: 1100;
-      transform: translateX(100%);
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateX(-100%);
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
       overflow-y: auto;
       padding: 100px 32px 40px;
     }
@@ -915,15 +879,13 @@
     .mobile-menu-overlay .mob-nav a {
       display: block;
       font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      font-weight: 400;
       color: var(--brown);
       padding: 16px 0;
       border-bottom: 1px solid var(--beige-dark);
-      transition: color var(--transition), padding-left var(--transition);
+      transition: color var(--transition), padding-right var(--transition);
     }
-    .mobile-menu-overlay .mob-nav a:hover { color: var(--brown-light); padding-left: 12px; }
+    .mobile-menu-overlay .mob-nav a:hover { color: var(--brown-light); padding-right: 12px; }
     .mobile-menu-overlay .mob-cta { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; }
 
     /* ─── RESPONSIVE ──────────────────────────────────────────────── */
@@ -933,7 +895,7 @@
       .our-approach .cols { grid-template-columns: repeat(2, 1fr); }
       .our-treatments .list.list-4 { grid-template-columns: repeat(2, 1fr); }
       .our-treatments .list.list-3 { grid-template-columns: repeat(2, 1fr); }
-      .sidebar-branch-menu { grid-template-columns: repeat(3, 1fr); }
+      .contact-grid { grid-template-columns: repeat(2, 1fr); }
       .offers-grid { grid-template-columns: 1fr; }
       .offer-card { height: 320px; }
     }
@@ -944,219 +906,163 @@
       .our-approach .cols { grid-template-columns: 1fr; }
       .our-treatments .list.list-4, .our-treatments .list.list-3 { grid-template-columns: 1fr; }
       .table-sev .top { flex-direction: column; align-items: flex-start; }
-      .sidebar-branch-menu { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .contact-grid { grid-template-columns: 1fr; }
       .hero .title { font-size: clamp(32px, 9vw, 56px); }
-      .book-now-button { bottom: 20px; right: 20px; }
+      .wa-widget { bottom: 20px; left: 16px; }
       .hero .buttons { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
-<!-- ─── ANNOUNCEMENT TICKER ──────────────────────────────────────── -->
 <div class="sev-ticker">
   <div class="sev-ticker__track">
-    <span class="sev-ticker__item">LIMITED TIME: 20% OFF WITH CODE <strong>TOUCHGRASS</strong> <span>✦</span></span>
-    <span class="sev-ticker__item">LIMITED TIME: 20% OFF WITH CODE <strong>TOUCHGRASS</strong> <span>✦</span></span>
-    <span class="sev-ticker__item">LIMITED TIME: 20% OFF WITH CODE <strong>TOUCHGRASS</strong> <span>✦</span></span>
-    <span class="sev-ticker__item">LIMITED TIME: 20% OFF WITH CODE <strong>TOUCHGRASS</strong> <span>✦</span></span>
-    <span class="sev-ticker__item">LIMITED TIME: 20% OFF WITH CODE <strong>TOUCHGRASS</strong> <span>✦</span></span>
-    <span class="sev-ticker__item">LIMITED TIME: 20% OFF WITH CODE <strong>TOUCHGRASS</strong> <span>✦</span></span>
+    <span class="sev-ticker__item">הסרת שיער בלייזר קר <span>✦</span></span>
+    <span class="sev-ticker__item">מיצוק עור RF — גלי רדיו <span>✦</span></span>
+    <span class="sev-ticker__item">מיקרובליידינג ועיצוב גבות <span>✦</span></span>
+    <span class="sev-ticker__item">4.8 ★ — 18 ביקורות בגוגל <span>✦</span></span>
+    <span class="sev-ticker__item">קליניקת יופי | חולון — פרימיום סנטר <span>✦</span></span>
+    <span class="sev-ticker__item">הסרת שיער בלייזר קר <span>✦</span></span>
+    <span class="sev-ticker__item">מיצוק עור RF — גלי רדיו <span>✦</span></span>
+    <span class="sev-ticker__item">מיקרובליידינג ועיצוב גבות <span>✦</span></span>
+    <span class="sev-ticker__item">4.8 ★ — 18 ביקורות בגוגל <span>✦</span></span>
+    <span class="sev-ticker__item">קליניקת יופי | חולון — פרימיום סנטר <span>✦</span></span>
   </div>
 </div>
 
-<!-- ─── HEADER ───────────────────────────────────────────────────── -->
 <div class="lzr-backdrop" id="backdrop"></div>
 <div class="lzr-header" id="lzrHeader">
   <div class="lzr-header__inner">
 
-    <!-- Mobile hamburger -->
-    <button class="lzr-mobile-btn" id="mobileBtn" aria-label="Toggle menu">
+    <button class="lzr-mobile-btn" id="mobileBtn" aria-label="פתח תפריט">
       <span></span><span></span><span></span>
     </button>
 
-    <!-- Logo -->
-    <a href="/" class="lzr-logo" aria-label="SEV Laser">
-      <svg viewBox="0 0 47 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M23.5 0C10.52 0 0 10.52 0 23.5S10.52 47 23.5 47 47 36.48 47 23.5 36.48 0 23.5 0zm0 43C12.73 43 4 34.27 4 23.5S12.73 4 23.5 4 43 12.73 43 23.5 34.27 43 23.5 43z" fill="#52433D"/>
-        <path d="M14 31.5c0 2.5 2.24 4.5 5 4.5h10c2.76 0 5-2 5-4.5S31.76 27 29 27H19c-1.1 0-2-.9-2-2s.9-2 2-2h8v-4H19c-2.76 0-5 2-5 4.5S16.24 29 19 29h10c1.1 0 2 .9 2 2s-.9 2-2 2H19c-.55 0-1-.45-1-1h-4z" fill="#52433D"/>
-        <path d="M23.5 48L18 64h11L23.5 48z" fill="#52433D" opacity="0.3"/>
-      </svg>
+    <a href="/" class="lzr-logo" aria-label="קוסמטיקס חופית">
+      <img src="img/logo.PNG" alt="קוסמטיקס חופית" />
     </a>
 
-    <!-- Navigation -->
     <nav class="lzr-nav">
       <ul class="lzr-menu">
-        <!-- Treatments mega -->
-        <li class="lzr-item lzr-has-mega">
-          <a href="/services/">Treatments</a>
-          <div class="lzr-mega">
-            <div class="lzr-mega__inner">
-              <a href="/laser-hair-removal/" class="mega-card">
-                <img class="mega-card__bg" src="https://sevlaser.com/wp-content/uploads/2026/01/Laser-2.webp" alt="Laser Hair Removal" />
-                <div class="mega-card__overlay"></div>
-                <span class="mega-card__label">Laser Hair Removal</span>
-              </a>
-              <a href="/laser-facial/" class="mega-card">
-                <img class="mega-card__bg" src="https://sevlaser.com/wp-content/uploads/2025/11/Laser-Facial.webp" alt="Laser Facial" />
-                <div class="mega-card__overlay"></div>
-                <span class="mega-card__label">Laser Facial</span>
-              </a>
-              <a href="/services/injectables/" class="mega-card">
-                <img class="mega-card__bg" src="https://sevlaser.com/wp-content/uploads/2026/01/Botox-1.webp" alt="Cosmetic Injections" />
-                <div class="mega-card__overlay"></div>
-                <span class="mega-card__label">Cosmetic Injections</span>
-              </a>
-              <a href="/services/skin-and-body/skinpen-microneedling/" class="mega-card">
-                <img class="mega-card__bg" src="https://sevlaser.com/wp-content/uploads/2026/01/skinpen.png" alt="SkinPen Microneedling" />
-                <div class="mega-card__overlay"></div>
-                <span class="mega-card__label">SkinPen Microneedling</span>
-              </a>
-            </div>
-          </div>
-        </li>
-        <li class="lzr-item"><a href="/pricing/">Pricing</a></li>
-        <!-- Locations mega -->
-        <li class="lzr-item lzr-has-mega">
-          <a href="/locations/">Our Locations</a>
-          <div class="lzr-mega lzr-mega--locations">
-            <div class="lzr-mega__inner">
-              <div class="mega-state"><h4>Arizona</h4><a href="#">Chandler</a><a href="#">Gilbert</a><a href="#">Glendale</a><a href="#">Mesa</a><a href="#">Peoria</a><a href="#">Phoenix</a><a href="#">Scottsdale</a><a href="#">Tempe</a></div>
-              <div class="mega-state"><h4>California</h4><a href="#">Beverly Hills</a><a href="#">Burbank</a><a href="#">Chino Hills</a><a href="#">Clovis</a><a href="#">Encino</a><a href="#">Fresno</a><a href="#">Irvine</a></div>
-              <div class="mega-state"><h4>Florida</h4><a href="#">Boca Raton</a><a href="#">Coral Gables</a><a href="#">Doral</a><a href="#">Fort Lauderdale</a><a href="#">Jupiter</a><a href="#">Miami Beach</a></div>
-              <div class="mega-state"><h4>Texas</h4><a href="#">Austin</a><a href="#">Dallas</a><a href="#">Fort Worth</a><a href="#">Houston</a><a href="#">Katy</a><a href="#">Plano</a><a href="#">San Antonio</a></div>
-              <div class="mega-state"><h4>New York</h4><a href="#">Central Park</a><a href="#">Chelsea</a><a href="#">Midtown</a><a href="#">Upper East Side</a><a href="#">Williamsburg</a></div>
-            </div>
-          </div>
-        </li>
-        <li class="lzr-item"><a href="/about/">About Us</a></li>
+        <li class="lzr-item"><a href="#services">שירותים</a></li>
+        <li class="lzr-item"><a href="#about">אודות</a></li>
+        <li class="lzr-item"><a href="#reviews">ביקורות</a></li>
+        <li class="lzr-item"><a href="#contact">צור קשר</a></li>
       </ul>
     </nav>
 
-    <!-- Actions -->
     <div class="lzr-actions">
-      <button class="btn-search" aria-label="Search">
-        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      </button>
-      <a href="https://sevlaser.zenoti.com/webstoreNew/services" class="btn-book-header">Book Now</a>
+      <a href="https://wa.me/972542186634" class="btn-book-header" target="_blank" rel="noopener">קביעת תור</a>
     </div>
 
-  </div><!-- /.lzr-header__inner -->
-</div><!-- /.lzr-header -->
-
-<!-- Mobile Menu Overlay -->
-<div class="mobile-menu-overlay" id="mobileMenu">
-  <nav class="mob-nav">
-    <a href="/services/">Treatments</a>
-    <a href="/pricing/">Pricing</a>
-    <a href="/locations/">Our Locations</a>
-    <a href="/about/">About Us</a>
-  </nav>
-  <div class="mob-cta">
-    <a href="https://sevlaser.zenoti.com/webstoreNew/services" class="btn-brown">Book an Appointment</a>
-    <a href="/services/" class="btn-outline" style="border:2px solid var(--brown);color:var(--brown);padding:14px 28px;border-radius:50px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-align:center;">Explore Treatments</a>
   </div>
 </div>
 
-<!-- ─── HERO ─────────────────────────────────────────────────────── -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+  <nav class="mob-nav">
+    <a href="#services">שירותים</a>
+    <a href="#about">אודות</a>
+    <a href="#reviews">ביקורות</a>
+    <a href="#contact">צור קשר</a>
+  </nav>
+  <div class="mob-cta">
+    <a href="https://wa.me/972542186634" class="btn-brown" target="_blank" rel="noopener">קביעת תור בוואטסאפ</a>
+    <a href="tel:054-2186634" class="btn-outline" style="border:2px solid var(--brown);color:var(--brown);padding:14px 28px;border-radius:50px;font-size:13px;font-weight:400;text-align:center;">התקשרי — 054-2186634</a>
+  </div>
+</div>
+
 <section class="hero">
   <div class="container">
     <div class="meta">
       <div class="captions">
-        <div class="title">CONFIDENCE <br class="mobile" /> STARTS HERE</div>
-        <h1 class="desc">Advanced aesthetics <br class="mobile" /> accessible to all</h1>
+        <div class="title">תרגישי יפה,<br>תרגישי את עצמך</div>
+        <h1 class="desc">הסרת שיער בלייזר קר, מיצוק עור RF<br>ומיקרובליידינג — בהתאמה אישית לכל לקוחה</h1>
       </div>
       <div class="buttons">
-        <a href="/services/" class="btn-light">Explore Treatments</a>
-        <a href="https://sevlaser.zenoti.com/webstoreNew/services" class="btn-brown">Book an Appointment</a>
+        <a href="#services" class="btn-light">לכל השירותים</a>
+        <a href="https://wa.me/972542186634" class="btn-brown" target="_blank" rel="noopener">קביעת תור</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── OUR APPROACH ──────────────────────────────────────────────── -->
-<section class="our-approach brown-bg">
+<section class="our-approach brown-bg" id="about">
   <div class="container">
-    <h2 class="title reveal">OUR APPROACH</h2>
+    <h2 class="title reveal">למה לבחור בחופית?</h2>
     <div class="cols">
       <div class="col reveal delay-1">
         <div class="col-icon">
           <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
         </div>
-        <h3>Clinically-Proven Treatments</h3>
-        <p>Every treatment we offer is backed by clinical research and delivered by trained aesthetic professionals.</p>
+        <h3>ניסיון וידע מקצועי</h3>
+        <p>מעל 4.5 שנות ניסיון בתחום האסתטיקה, עם הכשרה מעמיקה ועדכון שוטף בטכנולוגיות החדישות ביותר.</p>
       </div>
       <div class="col reveal delay-2">
         <div class="col-icon">
           <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         </div>
-        <h3>Dedicated Expert Team</h3>
-        <p>Our licensed specialists are passionate about helping you look and feel your absolute best.</p>
+        <h3>יחס אישי וחמים</h3>
+        <p>כל לקוחה מקבלת תשומת לב מלאה, ייעוץ מותאם אישית ותוצאות שמדברות בעד עצמן.</p>
       </div>
       <div class="col reveal delay-3">
         <div class="col-icon">
           <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
         </div>
-        <h3>For All Skin Tones</h3>
-        <p>Our advanced technology is safe and effective across all skin tones and types.</p>
+        <h3>לנשים וילדות בביטחון</h3>
+        <p>סביבה בטוחה, מקצועית ומותאמת לכל גיל. כל ילדה ונערה ראויה להרגיש יפה ובנוח.</p>
       </div>
       <div class="col reveal delay-4">
         <div class="col-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
         </div>
-        <h3>Transparent Pricing</h3>
-        <p>No surprises. All our pricing is available online. First treatment is always free.</p>
+        <h3>טכנולוגיה מתקדמת</h3>
+        <p>לייזר קר, RF לגלי רדיו ומכשור חדיש לתוצאות טבעיות, בטוחות ואפקטיביות לכל סוגי העור.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── OUR TREATMENTS ─────────────────────────────────────────────── -->
-<section class="our-treatments">
+<section class="our-treatments" id="services">
   <div class="container">
-    <h2 class="title reveal">Our Treatments</h2>
+    <h2 class="title reveal">השירותים שלנו</h2>
     <div class="list list-4">
       <div class="item reveal-scale delay-1">
-        <img src="https://sevlaser.com/wp-content/uploads/2025/11/LHR.webp" alt="Laser Hair Removal" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80" alt="הסרת שיער בלייזר קר" loading="lazy" />
         <div class="caption">
-          <div class="item-title">Laser Hair Removal</div>
-          <div class="text">Permanently reduce unwanted hair with our FDA-cleared laser technology.</div>
+          <div class="item-title">הסרת שיער בלייזר קר</div>
+          <div class="text">הסרה יעילה ובטוחה בטכנולוגיית לייזר קר — מתאים לכל סוגי העור, מינימום כאב, תוצאות ארוכות טווח.</div>
           <div class="buttons">
-            <a href="/laser-hair-removal/" class="book-now-compact-outline">Learn more</a>
-            <a href="https://sevlaser.zenoti.com/webstoreNew/services" class="book-now-compact">Book now</a>
+            <a href="https://wa.me/972542186634" class="book-now-compact" target="_blank" rel="noopener">קביעת תור</a>
           </div>
         </div>
       </div>
       <div class="item reveal-scale delay-2">
-        <img src="https://sevlaser.com/wp-content/uploads/2025/11/Laser-Facial.webp" alt="Laser Facial" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&q=80" alt="מיצוק עור RF" loading="lazy" />
         <div class="caption">
-          <div class="item-title">Laser Facial</div>
-          <div class="text">Reveal brighter, smoother skin with our signature laser facial treatment.</div>
+          <div class="item-title">מיצוק עור RF</div>
+          <div class="text">טיפול לא פולשני בגלי רדיו לחידוש העור, מיצוק והצרת נפח — תוצאות טבעיות ובריאות לאורך זמן.</div>
           <div class="buttons">
-            <a href="/laser-facial/" class="book-now-compact-outline">Learn more</a>
-            <a href="https://sevlaser.zenoti.com/webstoreNew/services" class="book-now-compact">Book now</a>
+            <a href="https://wa.me/972542186634" class="book-now-compact" target="_blank" rel="noopener">קביעת תור</a>
           </div>
         </div>
       </div>
       <div class="item reveal-scale delay-3">
-        <img src="https://sevlaser.com/wp-content/uploads/2025/11/SkinPen.webp" alt="SkinPen Microneedling" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="מיקרובליידינג" loading="lazy" />
         <div class="caption">
-          <div class="item-title">SkinPen Microneedling</div>
-          <div class="text">Stimulate collagen production and improve texture with SkinPen microneedling.</div>
+          <div class="item-title">מיקרובליידינג</div>
+          <div class="text">עיצוב גבות בשיטת מיקרובליידינג לתוצאה טבעית, מדויקת ועמידה — מותאמת לצורת הפנים האישית.</div>
           <div class="buttons">
-            <a href="/services/skin-and-body/skinpen-microneedling/" class="book-now-compact-outline">Learn more</a>
-            <a href="https://sevlaser.zenoti.com/webstoreNew/services" class="book-now-compact">Book now</a>
+            <a href="https://wa.me/972542186634" class="book-now-compact" target="_blank" rel="noopener">קביעת תור</a>
           </div>
         </div>
       </div>
       <div class="item reveal-scale delay-4">
-        <img src="https://sevlaser.com/wp-content/uploads/2025/11/Injections.webp" alt="Cosmetic Injections" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80" alt="עיצוב גבות" loading="lazy" />
         <div class="caption">
-          <div class="item-title">Cosmetic Injections</div>
-          <div class="text">Subtle, natural-looking results with expert Botox and filler treatments.</div>
+          <div class="item-title">עיצוב גבות</div>
+          <div class="text">שרטוט, פיסול ועיצוב גבות מקצועי המדגיש את מסגרת הפנים ומעניק מראה מטופח וטבעי.</div>
           <div class="buttons">
-            <a href="/services/injectables/" class="book-now-compact-outline">Learn more</a>
-            <a href="https://sevlaser.zenoti.com/webstoreNew/services" class="book-now-compact">Book now</a>
+            <a href="https://wa.me/972542186634" class="book-now-compact" target="_blank" rel="noopener">קביעת תור</a>
           </div>
         </div>
       </div>
@@ -1164,45 +1070,44 @@
   </div>
 </section>
 
-<!-- ─── HOW WE COMPARE ─────────────────────────────────────────────── -->
 <section class="table-sev brown-bg">
   <div class="container">
     <div class="top">
-      <h2 class="title reveal">HOW WE COMPARE</h2>
-      <a href="/pricing/" class="white-button reveal delay-2">View Pricing</a>
+      <h2 class="title reveal">למה חופית?</h2>
+      <a href="https://wa.me/972542186634" class="white-button reveal delay-2" target="_blank" rel="noopener">קביעת תור</a>
     </div>
     <div class="table-container reveal">
       <table class="comparison-table">
         <thead>
           <tr>
             <th></th>
-            <th class="highlighted">SEV</th>
-            <th>Others</th>
+            <th class="highlighted">קוסמטיקס חופית</th>
+            <th>קליניקות אחרות</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>First Treatment Free</td>
+            <td>ניסיון מקצועי של מעל 4.5 שנים</td>
             <td class="highlighted"><span class="check-icon">✓</span></td>
             <td><span class="cross-icon">✗</span></td>
           </tr>
           <tr>
-            <td>Prices Available Online</td>
+            <td>יחס אישי, חם ומלווה לכל לקוחה</td>
             <td class="highlighted"><span class="check-icon">✓</span></td>
             <td><span class="cross-icon">✗</span></td>
           </tr>
           <tr>
-            <td>Plans &amp; Memberships</td>
+            <td>טכנולוגיית לייזר קר מתקדמת לכל סוגי העור</td>
             <td class="highlighted"><span class="check-icon">✓</span></td>
             <td><span class="cross-icon">✗</span></td>
           </tr>
           <tr>
-            <td>Treatment Packages</td>
+            <td>טיפולים מותאמים ורגישים לנערות וילדות</td>
             <td class="highlighted"><span class="check-icon">✓</span></td>
-            <td><span class="check-icon">✓</span></td>
+            <td><span class="cross-icon">✗</span></td>
           </tr>
           <tr>
-            <td>Single Session Pricing <em style="font-weight:400;color:var(--brown-light)">(Starting at $29)</em></td>
+            <td>דירוג 4.8 ★ בגוגל מפות (18 ביקורות)</td>
             <td class="highlighted"><span class="check-icon">✓</span></td>
             <td><span class="cross-icon">✗</span></td>
           </tr>
@@ -1212,99 +1117,72 @@
   </div>
 </section>
 
-<!-- ─── TESTIMONIALS ──────────────────────────────────────────────── -->
-<section class="testimonials">
+<section class="testimonials" id="reviews">
   <div class="container">
-    <h2 class="title reveal">Testimonials<br class="mobile" /> and Reviews</h2>
+    <h2 class="title reveal">ביקורות ועדויות מהשטח</h2>
   </div>
-  <div class="swiper new-celebrity-carousel">
-    <div class="swiper-wrapper">
-      <!-- Celebrity slide -->
-      <div class="swiper-slide with-image" style="background-image:url('https://sevlaser.com/wp-content/uploads/2025/07/rita.jpg')">
-        <div class="slide-content">
-          <div class="slide-quote">"SEV has completely transformed my confidence. The results are incredible."</div>
-          <div class="slide-author">— Rita Ora</div>
-        </div>
-      </div>
-      <!-- Review slide -->
-      <div class="swiper-slide with-review">
-        <div class="review-stars">★★★★★</div>
-        <div class="text-review">"I've been coming to SEV for two years and I couldn't be happier. The staff is professional and the results speak for themselves."</div>
-        <div class="review-location">Alondra F. — Fort Worth, TX</div>
-      </div>
-      <!-- Celebrity slide -->
-      <div class="swiper-slide with-image" style="background-image:url('https://sevlaser.com/wp-content/uploads/2025/07/Chloe.jpg')">
-        <div class="slide-content">
-          <div class="slide-quote">"The best investment I've made for my skin. SEV is unmatched."</div>
-          <div class="slide-author">— Khloé Kardashian</div>
-        </div>
-      </div>
-      <!-- Review slide -->
-      <div class="swiper-slide with-review">
-        <div class="review-stars">★★★★★</div>
-        <div class="text-review">"Amazing experience every single time. My skin has never looked better and the team always makes me feel welcome."</div>
-        <div class="review-location">Elease P. — Chevy Chase, MD</div>
-      </div>
-      <!-- Celebrity slide -->
-      <div class="swiper-slide with-image" style="background-image:url('https://sevlaser.com/wp-content/uploads/2025/07/Lori.jpg')">
-        <div class="slide-content">
-          <div class="slide-quote">"SEV is my go-to for all my beauty needs. Highly recommend!"</div>
-          <div class="slide-author">— Lori Harvey</div>
-        </div>
-      </div>
-      <!-- Review slide -->
-      <div class="swiper-slide with-review">
-        <div class="review-stars">★★★★★</div>
-        <div class="text-review">"I was nervous at first but the team put me at ease immediately. The laser treatments are so effective and the pricing is totally transparent."</div>
-        <div class="review-location">Olivia R. — Central Park, NYC</div>
-      </div>
-      <!-- Celebrity slide -->
-      <div class="swiper-slide with-image" style="background-image:url('https://sevlaser.com/wp-content/uploads/2025/07/Kim.jpg')">
-        <div class="slide-content">
-          <div class="slide-quote">"SEV delivers results that actually last. It's the real deal."</div>
-          <div class="slide-author">— Kim Kardashian</div>
-        </div>
-      </div>
-      <!-- Review slide -->
-      <div class="swiper-slide with-review">
-        <div class="review-stars">★★★★★</div>
-        <div class="text-review">"The free first treatment sold me — and the results kept me coming back. Best decision I've made for my skincare routine."</div>
-        <div class="review-location">Laure T. — Roseville, CA</div>
-      </div>
-      <!-- Celebrity slide -->
-      <div class="swiper-slide with-image" style="background-image:url('https://sevlaser.com/wp-content/uploads/2025/07/Eva.jpg')">
-        <div class="slide-content">
-          <div class="slide-quote">"Professional, effective, and accessible. SEV is beauty done right."</div>
-          <div class="slide-author">— Eva Longoria Bastón</div>
-        </div>
-      </div>
-      <!-- Review slide -->
-      <div class="swiper-slide with-review">
-        <div class="review-stars">★★★★★</div>
-        <div class="text-review">"SEV in Alpharetta is wonderful. Professional staff, clean facility, and my laser results have been life-changing."</div>
-        <div class="review-location">China M. — Alpharetta, GA</div>
-      </div>
+  <div class="reviews-scroll-wrap">
+    <button class="reviews-nav reviews-nav--prev" aria-label="הקודם">&#8250;</button>
+    <div class="reviews-scroll-track" id="reviewsTrack">
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.04.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.04%20%281%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.04%20%282%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.04%20%283%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.04%20%284%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.04%20%285%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.03.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.03%20%281%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.03%20%282%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.03%20%283%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.03%20%284%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.03%20%285%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.03%20%286%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.02.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.02%20%281%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.02%20%282%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.02%20%283%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.02%20%284%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.02%20%285%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.01.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.01%20%281%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.01%20%282%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.01%20%283%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.01%20%284%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.00.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.00%20%281%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.00%20%282%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.34.59.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.34.59%20%281%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.34.59%20%282%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
     </div>
-    <div class="swiper-pagination"></div>
+    <button class="reviews-nav reviews-nav--next" aria-label="הבא">&#8249;</button>
   </div>
 </section>
 
-<!-- ─── INTRODUCTORY OFFERS ────────────────────────────────────────── -->
 <section class="offers-provide brown-bg">
   <div class="container">
-    <h2 class="title reveal">EXPLORE OUR <br class="mobile" /> INTRODUCTORY OFFERS</h2>
+    <h2 class="title reveal">סיפור המותג</h2>
     <div class="offers-section">
       <div class="offers-grid">
         <div class="offer-card reveal-scale delay-1">
-          <div class="offer-card-bg" style="background-image:url('https://sevlaser.com/wp-content/uploads/2025/11/FirstLaserTreatmentFree.webp')"></div>
+          <div class="offer-card-bg" style="background-image:url('https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800&q=80')"></div>
           <div class="offer-card-overlay">
-            <div class="offer-card-label">Free Laser Session</div>
+            <div class="offer-card-label">חופית יחזקאל — מומחית לאסתטיקה</div>
           </div>
         </div>
-        <div class="offer-card reveal-scale delay-2">
-          <div class="offer-card-bg" style="background-image:url('https://sevlaser.com/wp-content/uploads/2025/11/FreeLipFlip.webp')"></div>
-          <div class="offer-card-overlay">
-            <div class="offer-card-label">Free Lip Flip</div>
+        <div class="offer-card reveal-scale delay-2" style="display:flex;align-items:center;justify-content:center;background:#fff;border-radius:var(--radius);">
+          <div style="padding:40px;max-height:400px;overflow-y:auto;">
+            <p style="font-size:15px;line-height:1.9;color:var(--text);">
+              נעים מאוד, אני חופית — טכנאית לייזר ומומחית לטיפולי עור עם ניסיון של כ-4 וחצי שנים בתחום האסתטיקה, אמא ל-3 ילדים ואישה שחיה ונושמת את עולם היופי והטיפוח.
+              <br><br>
+              גדלתי בתוך עולם הקוסמטיקה והאסתטיקה, כשאמא שלי עוסקת בתחום כבר מעל 35 שנה, כך שמגיל צעיר הקליניקות היו עבורי ממש בית. מתוך אהבה גדולה לתחום והרצון לעזור לנשים וילדות להרגיש יפות, בטוחות וזוהרות בעור שלהן — בחרתי להפוך את התשוקה שלי למקצוע.
+              <br><br>
+              עם השנים הבנתי עד כמה המודעות של נערות וילדות לטיפוח ואסתטיקה גדלה, וכמה חשוב להעניק להן יחס מקצועי, עדין ומותאם לגיל שלהן. לכן, אחד הדברים שהכי חשובים לי בקליניקה הוא לגרום לכל ילדה ונערה להרגיש בנוח, בטוחה ויפה — תוך שמירה על תוצאות טבעיות והתאמה אישית לכל אחת.
+              <br><br>
+              את הדרך שלי התחלתי בקליניקה קטנה של 10 מטר יחד עם אמא שלי, ולאורך השנים, עם התמדה, השקעה ואהבה אמיתית למקצוע — זכיתי לעבור לקליניקת החלומות שלי ❤
+            </p>
+            <br>
+            <a href="https://wa.me/972542186634" class="btn-brown" target="_blank" rel="noopener">קביעת תור ישיר</a>
           </div>
         </div>
       </div>
@@ -1312,228 +1190,193 @@
   </div>
 </section>
 
-<!-- ─── BEFORE & AFTER GALLERY ─────────────────────────────────────── -->
 <section class="beforeAfterTreatment">
   <div class="top">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
-      <h2 class="title reveal">BEFORE &amp; AFTER GALLERY</h2>
+      <h2 class="title reveal">תוצאות לפני ואחרי</h2>
       <div class="ba-nav">
-        <button class="ba-btn" id="baPrev" aria-label="Previous">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <button class="ba-btn" id="baNext" aria-label="Next">
+        <button class="ba-btn" id="baPrev" aria-label="הקודם">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="ba-btn" id="baNext" aria-label="הבא">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
       </div>
     </div>
   </div>
   <div class="swiper beforeAfterSwiper" style="padding:0 32px 60px;">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="https://sevlaser.com/wp-content/uploads/2025/10/SKINPEN_09.webp" alt="Before After" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="https://sevlaser.com/wp-content/uploads/2025/12/BA_HOMEPAGE_00.webp" alt="Before After" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="https://sevlaser.com/wp-content/uploads/2025/12/BA_HOMEPAGE_01.webp" alt="Before After" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="https://sevlaser.com/wp-content/uploads/2025/12/BA_HOMEPAGE_02.webp" alt="Before After" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="https://sevlaser.com/wp-content/uploads/2025/12/BA_HOMEPAGE_03.webp" alt="Before After" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="https://sevlaser.com/wp-content/uploads/2025/12/BA_HOMEPAGE_04.webp" alt="Before After" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="https://sevlaser.com/wp-content/uploads/2025/12/BA_HOMEPAGE_05.webp" alt="Before After" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="https://sevlaser.com/wp-content/uploads/2025/12/BA_HOMEPAGE_06.webp" alt="Before After" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="https://sevlaser.com/wp-content/uploads/2025/12/BA_HOMEPAGE_07.webp" alt="Before After" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="https://sevlaser.com/wp-content/uploads/2025/12/BA_HOMEPAGE_08.webp" alt="Before After" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="https://sevlaser.com/wp-content/uploads/2025/12/BA_HOMEPAGE_09.webp" alt="Before After" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="https://sevlaser.com/wp-content/uploads/2025/12/BA_HOMEPAGE_10.webp" alt="Before After" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="https://sevlaser.com/wp-content/uploads/2025/12/BA_HOMEPAGE_11.webp" alt="Before After" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="https://sevlaser.com/wp-content/uploads/2025/12/BA_HOMEPAGE_12.webp" alt="Before After" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="https://sevlaser.com/wp-content/uploads/2025/12/BA_HOMEPAGE_13.png" alt="Before After" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&q=80" alt="לפני ואחרי טיפול קוסמטי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=500&q=80" alt="לפני ואחרי טיפול קוסמטי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=500&q=80" alt="לפני ואחרי טיפול קוסמטי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=500&q=80" alt="לפני ואחרי טיפול קוסמטי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&q=80" alt="לפני ואחרי טיפול קוסמטי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=500&q=80" alt="לפני ואחרי טיפול קוסמטי" loading="lazy" /></div>
     </div>
     <div class="swiper-pagination"></div>
   </div>
 </section>
 
-<!-- ─── LOCATIONS ─────────────────────────────────────────────────── -->
-<section class="locations brown-bg">
+<section class="locations brown-bg" id="contact">
   <div class="container">
-    <h2 class="title reveal">OVER 70 LOCATIONS NATIONWIDE</h2>
-    <ul class="sidebar-branch-menu">
-      <li class="reveal delay-1">
-        <a href="/locations/arizona/">Arizona</a>
-        <ul>
-          <li><a href="#">Chandler</a></li><li><a href="#">Gilbert</a></li>
-          <li><a href="#">Glendale</a></li><li><a href="#">Mesa</a></li>
-          <li><a href="#">Peoria</a></li><li><a href="#">Phoenix</a></li>
-          <li><a href="#">Scottsdale</a></li><li><a href="#">Tempe</a></li>
-        </ul>
-      </li>
-      <li class="reveal delay-2">
-        <a href="/locations/california/">California</a>
-        <ul>
-          <li><a href="#">Beverly Hills</a></li><li><a href="#">Burbank</a></li>
-          <li><a href="#">Chino Hills</a></li><li><a href="#">Clovis</a></li>
-          <li><a href="#">Encino</a></li><li><a href="#">Fresno</a></li>
-          <li><a href="#">Irvine</a></li><li><a href="#">Long Beach</a></li>
-        </ul>
-      </li>
-      <li class="reveal delay-3">
-        <a href="/locations/florida/">Florida</a>
-        <ul>
-          <li><a href="#">Boca Raton</a></li><li><a href="#">Coral Gables</a></li>
-          <li><a href="#">Doral</a></li><li><a href="#">Fort Lauderdale</a></li>
-          <li><a href="#">Jupiter</a></li><li><a href="#">Miami Beach</a></li>
-          <li><a href="#">Orlando</a></li>
-        </ul>
-      </li>
-      <li class="reveal delay-4">
-        <a href="/locations/texas/">Texas</a>
-        <ul>
-          <li><a href="#">Austin</a></li><li><a href="#">Dallas</a></li>
-          <li><a href="#">Fort Worth</a></li><li><a href="#">Houston</a></li>
-          <li><a href="#">Katy</a></li><li><a href="#">Plano</a></li>
-          <li><a href="#">San Antonio</a></li>
-        </ul>
-      </li>
-      <li class="reveal delay-1">
-        <a href="/locations/new-york/">New York</a>
-        <ul>
-          <li><a href="#">Central Park</a></li><li><a href="#">Chelsea</a></li>
-          <li><a href="#">Midtown</a></li><li><a href="#">Upper East Side</a></li>
-          <li><a href="#">Williamsburg</a></li>
-        </ul>
-      </li>
-      <li class="reveal delay-2">
-        <a href="/locations/">More States</a>
-        <ul>
-          <li><a href="#">Georgia</a></li><li><a href="#">Illinois</a></li>
-          <li><a href="#">Maryland</a></li><li><a href="#">Massachusetts</a></li>
-          <li><a href="#">Nevada</a></li><li><a href="#">Ohio</a></li>
-          <li><a href="#">Pennsylvania</a></li><li><a href="#">Virginia</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</section>
+    <h2 class="title reveal">פרטי התקשרות והגעה</h2>
+    <div class="contact-grid">
+      <div class="contact-card reveal delay-1">
+        <div class="contact-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <h3>מיקום הקליניקה</h3>
+        <address>
+          המשביר 1, חולון<br>
+          מתחם הפרימיום סנטר<br><br>
+          <a href="https://share.google/wjw0vTX00JkgpX3pw" target="_blank" rel="noopener">ניווט באמצעות גוגל מפות ←</a>
+        </address>
+      </div>
+      <div class="contact-card reveal delay-2">
+        <div class="contact-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+        </div>
+        <h3>שעות פעילות</h3>
+        <div class="hours-list">
+          <div class="hours-row"><span>ראשון–חמישי</span><span>09:00–20:00</span></div>
+          <div class="hours-row"><span>שישי</span><span>09:00–13:00</span></div>
+          <div class="hours-row"><span>שבת</span><span>סגור</span></div>
+        </div>
+      </div>
+      <div class="contact-card reveal delay-3">
+        <div class="contact-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </div>
+        <h3>ערוצי תקשורת</h3>
+        <p>
+          <a href="tel:054-2186634">📞 טלפון לקביעת תורים: 054-2186634</a><br>
+          <a href="https://wa.me/972542186634" target="_blank" rel="noopener">💬 הודעה ישירה בוואטסאפ</a><br>
+          <a href="mailto:Hofit12m@gmail.com">✉ מייל: Hofit12m@gmail.com</a><br>
+          <a href="https://www.instagram.com/hofit_cosmetics_clinic?igsh=MTNqeDhrcnF0MnZ4eQ" target="_blank" rel="noopener">📸 אינסטגרם: @hofit_cosmetics_clinic</a>
+        </p>
+      </div>
+    </div>
 
-<!-- ─── MORE WAYS TO SEV ───────────────────────────────────────────── -->
-<section class="our-treatments more-ways">
-  <div class="container">
-    <h2 class="title reveal">MORE WAYS TO SEV</h2>
-    <div class="list list-3">
-      <div class="item reveal-scale delay-1">
-        <img src="https://sevlaser.com/wp-content/uploads/2025/06/App_Icon.jpg" alt="The SEV App" loading="lazy" />
-        <div class="caption">
-          <div class="item-title">The SEV App</div>
-          <div class="text">Book appointments, manage your plan, and access exclusive offers on the go.</div>
-          <div class="buttons">
-            <a href="#" class="book-now-compact">Download the App</a>
-          </div>
+    <div class="contact-form-wrap reveal">
+
+      <div class="cf-side">
+        <h3>הדלת שלנו תמיד פתוחה בפנייך</h3>
+        <div class="cf-side-item">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span><a href="tel:054-2186634">054-2186634</a></span>
+        </div>
+        <div class="cf-side-item">
+          <svg viewBox="0 0 32 32"><path d="M16 1C7.716 1 1 7.716 1 16c0 2.628.676 5.098 1.858 7.254L1 31l7.95-1.832A14.94 14.94 0 0016 31c8.284 0 15-6.716 15-15S24.284 1 16 1zm6.74 19.14c-.37-.185-2.188-1.08-2.528-1.202-.34-.123-.587-.185-.834.185-.247.37-.957 1.202-1.172 1.449-.216.247-.432.277-.802.092-.37-.185-1.562-.576-2.976-1.836-1.1-.981-1.843-2.193-2.059-2.563-.216-.37-.023-.57.162-.754.167-.165.37-.432.555-.648.185-.216.247-.37.37-.617.123-.247.062-.463-.031-.648-.092-.185-.834-2.01-1.143-2.752-.3-.722-.607-.624-.834-.635l-.71-.012c-.247 0-.648.092-.988.463s-1.295 1.265-1.295 3.086 1.326 3.58 1.511 3.827c.185.247 2.61 3.985 6.327 5.59.884.381 1.573.609 2.11.78.886.282 1.693.242 2.33.147.71-.106 2.188-.895 2.497-1.759.308-.864.308-1.604.216-1.759-.092-.154-.34-.247-.71-.432z"/></svg>
+          <span><a href="https://wa.me/972542186634" target="_blank" rel="noopener">מענה מהיר בוואטסאפ</a></span>
+        </div>
+        <div class="cf-side-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>המשביר 1, חולון<br>מתחם הפרימיום סנטר</span>
+        </div>
+        <div class="cf-side-item">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+          <span>א׳–ה׳: 09:00–20:00<br>ו׳: 09:00–13:00</span>
         </div>
       </div>
-      <div class="item reveal-scale delay-2">
-        <img src="https://sevlaser.com/wp-content/uploads/2025/11/TheSEVSuite.webp" alt="The SEV Suite" loading="lazy" />
-        <div class="caption">
-          <div class="item-title">The SEV Suite</div>
-          <div class="text">Unlock premium benefits and exclusive member perks with our SEV Suite membership.</div>
-          <div class="buttons">
-            <a href="#" class="book-now-compact">Join Now</a>
+
+      <div class="cf-body">
+        <h4>שלחי הודעה ישירה לחופית</h4>
+        <form id="contactForm" novalidate>
+          <div class="cf-row">
+            <div class="cf-field">
+              <label for="cf-name">שם מלא *</label>
+              <input type="text" id="cf-name" name="name" placeholder="שם מלא" required />
+            </div>
+            <div class="cf-field">
+              <label for="cf-phone">טלפון *</label>
+              <input type="tel" id="cf-phone" name="phone" placeholder="05X-XXXXXXX" required />
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="item reveal-scale delay-3">
-        <img src="https://sevlaser.com/wp-content/uploads/2025/11/Referrals.webp" alt="Refer a Friend" loading="lazy" />
-        <div class="caption">
-          <div class="item-title">Refer a Friend</div>
-          <div class="text">Share the SEV love and earn credits for every friend you refer to us.</div>
-          <div class="buttons">
-            <a href="#" class="book-now-compact">Refer a Friend</a>
+          <div class="cf-row">
+            <div class="cf-field full">
+              <label for="cf-service">טיפול מבוקש</label>
+              <div class="cf-select-wrap">
+                <select id="cf-service" name="service">
+                  <option value="">בחרי טיפול (אופציונלי)</option>
+                  <option>הסרת שיער בלייזר קר</option>
+                  <option>מיצוק עור RF</option>
+                  <option>מיקרובליידינג</option>
+                  <option>עיצוב גבות</option>
+                </select>
+              </div>
+            </div>
           </div>
-        </div>
+          <div class="cf-row">
+            <div class="cf-field full">
+              <label for="cf-msg">הודעה</label>
+              <textarea id="cf-msg" name="message" placeholder="כתבי את פנייתך כאן..."></textarea>
+            </div>
+          </div>
+          <div class="cf-submit">
+            <button type="submit">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 1C7.716 1 1 7.716 1 16c0 2.628.676 5.098 1.858 7.254L1 31l7.95-1.832A14.94 14.94 0 0016 31c8.284 0 15-6.716 15-15S24.284 1 16 1zm6.74 19.14c-.37-.185-2.188-1.08-2.528-1.202-.34-.123-.587-.185-.834.185-.247.37-.957 1.202-1.172 1.449-.216.247-.432.277-.802.092-.37-.185-1.562-.576-2.976-1.836-1.1-.981-1.843-2.193-2.059-2.563-.216-.37-.023-.57.162-.754.167-.165.37-.432.555-.648.185-.216.247-.37.37-.617.123-.247.062-.463-.031-.648-.092-.185-.834-2.01-1.143-2.752-.3-.722-.607-.624-.834-.635l-.71-.012c-.247 0-.648.092-.988.463s-1.295 1.265-1.295 3.086 1.326 3.58 1.511 3.827c.185.247 2.61 3.985 6.327 5.59.884.381 1.573.609 2.11.78.886.282 1.693.242 2.33.147.71-.106 2.188-.895 2.497-1.759.308-.864.308-1.604.216-1.759-.092-.154-.34-.247-.71-.432z"/></svg>
+              שליחת הודעה לוואטסאפ
+            </button>
+          </div>
+          <p class="cf-success" id="cfSuccess">ההודעה נשלחה! נחזור אלייך בהקדם</p>
+        </form>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ─── FOOTER ────────────────────────────────────────────────────── -->
 <footer class="new-footer">
   <div class="new-footer__container">
     <div class="new-footer__content">
       <div class="by-the-grace-banner">
-        <div class="footer-wordmark">By the Grace of...</div>
-        <span class="footer-cross">✝</span>
+        <div class="footer-wordmark">קוסמטיקס חופית — חולון</div>
       </div>
       <div class="container">
         <div class="footer-navigation-menu">
           <ul class="footer-nav-menu">
-            <li><a href="#">Appointment Info</a></li>
-            <li><a href="#">Pre and Post Care</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="/about/">About Us</a></li>
-            <li><a href="#">Become an Ambassador</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">The SEV Suite</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Shipping</a></li>
-            <li><a href="#">Press</a></li>
-            <li><a href="#">CA Residents</a></li>
-            <li><a href="#">Customer Care</a></li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Privacy Notice</a></li>
+            <li><a href="#services">הסרת שיער בלייזר</a></li>
+            <li><a href="#services">מיצוק עור RF</a></li>
+            <li><a href="#services">מיקרובליידינג</a></li>
+            <li><a href="#services">עיצוב גבות</a></li>
+            <li><a href="#about">אודות חופית</a></li>
+            <li><a href="#reviews">ביקורות</a></li>
+            <li><a href="#contact">צור קשר</a></li>
+            <li><a href="tel:054-2186634">054-2186634</a></li>
           </ul>
         </div>
         <div class="bottom-warp">
-          <div class="get-touch">
-            <div class="social">
-              <!-- Instagram -->
-              <a href="https://instagram.com/sevlaser" target="_blank" rel="noopener" aria-label="Instagram">
-                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-              </a>
-              <!-- TikTok -->
-              <a href="https://tiktok.com/@sevlaser" target="_blank" rel="noopener" aria-label="TikTok">
-                <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.19 8.19 0 004.79 1.54V6.78a4.85 4.85 0 01-1.02-.09z"/></svg>
-              </a>
-              <!-- Facebook -->
-              <a href="https://facebook.com/sevlaser" target="_blank" rel="noopener" aria-label="Facebook">
-                <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              </a>
-              <!-- Pinterest -->
-              <a href="https://pinterest.com/sevlaser" target="_blank" rel="noopener" aria-label="Pinterest">
-                <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
-              </a>
-              <!-- YouTube -->
-              <a href="https://youtube.com/sevlaser" target="_blank" rel="noopener" aria-label="YouTube">
-                <svg viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-              </a>
-              <!-- Twitter/X -->
-              <a href="https://twitter.com/sevlaser" target="_blank" rel="noopener" aria-label="Twitter">
-                <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              </a>
-            </div>
+          <div class="social">
+            <a href="https://www.instagram.com/hofit_cosmetics_clinic?igsh=MTNqeDhrcnF0MnZ4eQ" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://wa.me/972542186634" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="https://share.google/wjw0vTX00JkgpX3pw" target="_blank" rel="noopener" aria-label="Google">
+              <svg viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
+            </a>
           </div>
         </div>
       </div>
-      <p class="footer-copyright">© 2025 SEV Laser. All rights reserved.</p>
+      <p class="footer-copyright">© כל הזכויות שמורות • 2026 • עוצב ופותח על ידי <a href="https://aiterra.co.il/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.55);text-decoration:underline;transition:color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Aiterra</a></p>
     </div>
   </div>
 </footer>
 
-<!-- ─── FLOATING BOOK NOW BUTTON ───────────────────────────────────── -->
-<div class="book-now-button" id="bookNowBtn">
-  <a href="https://sevlaser.zenoti.com/webstoreNew/services" aria-label="Book Now">
-    <svg viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="46" cy="46" r="44" fill="#52433D"/>
-      <defs>
-        <path id="textCircle" d="M 46,46 m -34,0 a 34,34 0 1,1 68,0 a 34,34 0 1,1 -68,0" />
-      </defs>
-      <text font-family="Montserrat,sans-serif" font-size="9.5" font-weight="700" fill="white" letter-spacing="3.5">
-        <textPath href="#textCircle">BOOK NOW • BOOK NOW • BOOK NOW •</textPath>
-      </text>
+<div class="wa-widget" id="waWidget" role="complementary" aria-label="צור קשר בוואטסאפ">
+  <span class="wa-widget__tooltip" aria-hidden="true">לקביעת תור בוואטסאפ</span>
+  <a class="wa-widget__btn"
+     href="https://wa.me/972542186634"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="פתחי שיחת וואטסאפ עם קוסמטיקס חופית לקביעת תור">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <path d="M16 1C7.716 1 1 7.716 1 16c0 2.628.676 5.098 1.858 7.254L1 31l7.95-1.832A14.94 14.94 0 0016 31c8.284 0 15-6.716 15-15S24.284 1 16 1zm0 27.333a12.29 12.29 0 01-6.268-1.716l-.449-.267-4.717 1.088 1.116-4.6-.294-.472A12.267 12.267 0 013.667 16C3.667 9.188 9.188 3.667 16 3.667S28.333 9.188 28.333 16 22.812 28.333 16 28.333zm6.74-9.193c-.37-.185-2.188-1.08-2.528-1.202-.34-.123-.587-.185-.834.185-.247.37-.957 1.202-1.172 1.449-.216.247-.432.277-.802.092-.37-.185-1.562-.576-2.976-1.836-1.1-.981-1.843-2.193-2.059-2.563-.216-.37-.023-.57.162-.754.167-.165.37-.432.555-.648.185-.216.247-.37.37-.617.123-.247.062-.463-.031-.648-.092-.185-.834-2.01-1.143-2.752-.3-.722-.607-.624-.834-.635l-.71-.012c-.247 0-.648.092-.988.463s-1.295 1.265-1.295 3.086 1.326 3.58 1.511 3.827c.185.247 2.61 3.985 6.327 5.59.884.381 1.573.609 2.11.78.886.282 1.693.242 2.33.147.71-.106 2.188-.895 2.497-1.759.308-.864.308-1.604.216-1.759-.092-.154-.34-.247-.71-.432z"/>
     </svg>
-    <span class="center-arrow">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </span>
   </a>
 </div>
 
-<!-- ─── SCRIPTS ────────────────────────────────────────────────────── -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
 (function () {
@@ -1544,7 +1387,7 @@
     const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
     function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
-  } catch(e) { /* Lenis not loaded, native scroll works fine */ }
+  } catch(e) {}
 
   /* ── Header scroll state ─────────────────────────── */
   const header = document.getElementById('lzrHeader');
@@ -1552,10 +1395,10 @@
     header.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
-  /* ── Floating Book Now button ─────────────────────── */
-  const bookBtn = document.getElementById('bookNowBtn');
+  /* ── WhatsApp floating widget ───────────────────────── */
+  const waWidget = document.getElementById('waWidget');
   window.addEventListener('scroll', () => {
-    bookBtn.classList.toggle('visible', window.scrollY > 400);
+    waWidget.classList.toggle('visible', window.scrollY > 300);
   }, { passive: true });
 
   /* ── Mobile Menu ─────────────────────────────────── */
@@ -1578,41 +1421,34 @@
   mobileBtn.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMobile() : openMobile());
   backdrop.addEventListener('click', closeMobile);
 
-  /* ── Mega menu backdrop ───────────────────────────── */
-  document.querySelectorAll('.lzr-has-mega').forEach(item => {
-    item.addEventListener('mouseenter', () => backdrop.classList.add('active'));
-    item.addEventListener('mouseleave', () => {
-      if (!mobileMenu.classList.contains('open')) backdrop.classList.remove('active');
-    });
-  });
+  /* ── Close mobile on nav link click ─────────────── */
+  document.querySelectorAll('.mob-nav a').forEach(a => a.addEventListener('click', closeMobile));
 
-  /* ── Reveal on scroll (IntersectionObserver) ─────── */
+  /* ── Reveal on scroll ────────────────────────────── */
   const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => observer.observe(el));
 
-  /* ── Testimonials Swiper ─────────────────────────── */
-  new Swiper('.new-celebrity-carousel', {
-    slidesPerView: 1.15,
-    spaceBetween: 20,
-    centeredSlides: false,
-    loop: true,
-    autoplay: { delay: 4500, disableOnInteraction: false, pauseOnMouseEnter: true },
-    pagination: { el: '.new-celebrity-carousel .swiper-pagination', clickable: true },
-    breakpoints: {
-      640:  { slidesPerView: 2, spaceBetween: 24 },
-      1024: { slidesPerView: 3, spaceBetween: 28 },
-      1280: { slidesPerView: 3.5, spaceBetween: 32 }
-    }
-  });
+  /* ── Reviews scroll ─────────────────────────── */
+  const reviewsTrack = document.getElementById('reviewsTrack');
+  if (reviewsTrack) {
+    const cardWidth = () => (reviewsTrack.querySelector('.review-photo-card')?.offsetWidth || 286) + 16;
+    document.querySelector('.reviews-nav--prev').addEventListener('click', () => {
+      reviewsTrack.scrollBy({ left: cardWidth(), behavior: 'smooth' });
+    });
+    document.querySelector('.reviews-nav--next').addEventListener('click', () => {
+      reviewsTrack.scrollBy({ left: -cardWidth(), behavior: 'smooth' });
+    });
+  }
 
   /* ── Before & After Gallery Swiper ──────────────── */
-  const baSwiper = new Swiper('.beforeAfterSwiper', {
+  new Swiper('.beforeAfterSwiper', {
     slidesPerView: 1.2,
     spaceBetween: 20,
     loop: true,
+    rtl: true,
     autoplay: { delay: 3500, disableOnInteraction: false },
     pagination: { el: '.beforeAfterSwiper .swiper-pagination', clickable: true },
     navigation: { prevEl: '#baPrev', nextEl: '#baNext' },
@@ -1631,7 +1467,7 @@
   }
 
   /* ── Stagger reveal children ─────────────────────── */
-  document.querySelectorAll('.our-approach .cols, .our-treatments .list, .sidebar-branch-menu').forEach(parent => {
+  document.querySelectorAll('.our-approach .cols, .our-treatments .list').forEach(parent => {
     Array.from(parent.children).forEach((child, i) => {
       if (!child.classList.contains('reveal') && !child.classList.contains('reveal-scale')) {
         child.classList.add('reveal');
@@ -1640,6 +1476,34 @@
       }
     });
   });
+
+  /* ── Contact Form → WhatsApp ─────────────────────── */
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name    = document.getElementById('cf-name').value.trim();
+      const phone   = document.getElementById('cf-phone').value.trim();
+      const service = document.getElementById('cf-service').value;
+      const msg     = document.getElementById('cf-msg').value.trim();
+
+      if (!name || !phone) {
+        alert('אנא מלאי שם וטלפון');
+        return;
+      }
+
+      let text = `שלום, שמי ${name}, טלפון: ${phone}.`;
+      if (service) text += ` טיפול מבוקש: ${service}.`;
+      if (msg)     text += ` ${msg}`;
+
+      const waUrl = 'https://wa.me/972542186634?text=' + encodeURIComponent(text);
+      window.open(waUrl, '_blank', 'noopener');
+
+      contactForm.reset();
+      const success = document.getElementById('cfSuccess');
+      if (success) { success.style.display = 'block'; setTimeout(() => { success.style.display = 'none'; }, 5000); }
+    });
+  }
 
 })();
 </script>

@@ -73,7 +73,7 @@ export default function DiscountPopup() {
             className="inline-flex items-center justify-center px-3 py-[3px] rounded-full mb-4"
             style={{ background: 'rgba(194,160,90,0.10)', border: '1px solid rgba(194,160,90,0.25)' }}
           >
-            <span className="text-[9px] tracking-[0.22em] uppercase font-semibold" style={{ fontFamily: 'Nunito Sans', color: '#a07c34' }}>
+            <span className="text-[13px] tracking-[0.12em] uppercase font-semibold" style={{ fontFamily: 'Nunito Sans', color: '#a07c34' }}>
               {popup.badge}
             </span>
           </div>
@@ -113,7 +113,7 @@ export default function DiscountPopup() {
 
           {/* Description */}
           <p
-            className="text-[12.5px] leading-relaxed mb-5"
+            className="text-[16px] leading-relaxed mb-5"
             style={{ fontFamily: 'Nunito Sans', color: '#7a6a55' }}
           >
             {popup.description}
