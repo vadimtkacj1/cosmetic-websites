@@ -1,0 +1,33 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            cd ~/cosmetic-websites
+            git pull
+
+            # Статичні сайти — просто копіюємо
+            cp -r sites/maayan-cosmetics.com/. /var/www/maayan-cosmetics.com/
+            cp -r sites/hofit-barbershop.com/. /var/www/hofit-barbershop.com/
+
+            # Next.js — білд і перезапуск
+            cp -r sites/irena-beauty.com/. /var/www/irena-beauty.com/
+            cd /var/www/irena-beauty.com
+            npm install
+            npm run build
+            pm2 restart irena-beauty.com
+
+            echo "✓ Деплой завершено"
