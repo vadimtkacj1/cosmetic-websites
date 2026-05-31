@@ -16,7 +16,7 @@ echo "╚═══════════════════════�
 # ── 1. Статичні сайти ─────────────────────────────────────────
 echo ""
 echo "► [1/5] Копіюємо статичні сайти..."
-for DOMAIN in maayan-cosmetics.com hofit-barbershop.com; do
+for DOMAIN in maayan-cosmetics.com hofit-cosmetics.com; do
   rm -rf "$WWW_DIR/$DOMAIN"
   cp -r "$REPO_DIR/sites/$DOMAIN" "$WWW_DIR/$DOMAIN"
   echo "  ✓ $DOMAIN"
@@ -48,7 +48,7 @@ pm2 startup | tail -1 | bash || true
 # ── 4. Nginx конфіги ──────────────────────────────────────────
 echo ""
 echo "► [4/5] Налаштування Nginx..."
-for DOMAIN in irena-beauty.com maayan-cosmetics.com hofit-barbershop.com; do
+for DOMAIN in irena-beauty.com maayan-cosmetics.com hofit-cosmetics.com; do
   cp "$REPO_DIR/deploy/nginx/sites/$DOMAIN.conf" "/etc/nginx/sites-available/$DOMAIN.conf"
   ln -sf "/etc/nginx/sites-available/$DOMAIN.conf" "/etc/nginx/sites-enabled/$DOMAIN.conf"
   echo "  ✓ $DOMAIN"
@@ -70,5 +70,5 @@ echo "╔═══════════════════════�
 echo "║  ✓ Готово! Сайти доступні:               ║"
 echo "║    http://irena-beauty.com               ║"
 echo "║    http://maayan-cosmetics.com           ║"
-echo "║    http://hofit-barbershop.com           ║"
+echo "║    http://hofit-cosmetics.com            ║"
 echo "╚══════════════════════════════════════════╝"

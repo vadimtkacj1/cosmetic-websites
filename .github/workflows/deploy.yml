@@ -21,7 +21,7 @@ jobs:
 
             # Статичні сайти — просто копіюємо
             cp -r sites/maayan-cosmetics.com/. /var/www/maayan-cosmetics.com/
-            cp -r sites/hofit-barbershop.com/. /var/www/hofit-barbershop.com/
+            cp -r sites/hofit-cosmetics.com/. /var/www/hofit-cosmetics.com/
 
             # Next.js — білд і перезапуск
             cp -r sites/irena-beauty.com/. /var/www/irena-beauty.com/
