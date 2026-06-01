@@ -489,60 +489,36 @@
     .check-icon { color: #2e9e5b; font-size: 20px; font-weight: bold; }
     .cross-icon { color: #c0392b; font-size: 20px; font-weight: bold; }
 
-    /* Трансформація таблиці на мобільних в красиві RTL-картки */
+    /* Full table on mobile — scaled to fit */
     @media (max-width: 768px) {
-      .table-container { box-shadow: none; background: transparent; }
-      .comparison-table, .comparison-table thead, .comparison-table tbody, .comparison-table th, .comparison-table td, .comparison-table tr { 
-        display: block; 
-      }
-      .comparison-table thead { display: none; }
-      
-      .comparison-table tbody tr {
-        background: #fff;
-        border: 1.5px solid var(--beige-dark);
+      .table-container {
         border-radius: var(--radius);
-        margin-bottom: 20px;
-        padding: 16px;
         box-shadow: var(--shadow);
+        background: #fff;
+        overflow: hidden;
       }
-      .comparison-table tbody tr:hover { background: #fff; }
-      
+      .comparison-table {
+        font-size: 11px;
+        table-layout: fixed;
+        width: 100%;
+      }
+      .comparison-table thead tr th {
+        padding: 14px 8px;
+        font-size: 11px;
+        white-space: normal;
+        word-break: break-word;
+      }
+      .comparison-table thead th:first-child { width: 60%; }
+      .comparison-table thead th:nth-child(2),
+      .comparison-table thead th:nth-child(3) { width: 20%; }
       .comparison-table tbody tr td {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 8px;
-        border-bottom: 1px solid var(--beige);
-        text-align: left;
+        padding: 14px 8px;
+        font-size: 11px;
+        word-break: break-word;
+        line-height: 1.45;
       }
-      .comparison-table tbody tr td:last-child { border-bottom: none; }
-      
-      .comparison-table tbody tr td:first-child {
-        text-align: right;
-        font-weight: 600;
-        color: var(--brown);
-        font-size: 15px;
-        border-bottom: 2px solid var(--beige-dark);
-        padding-bottom: 10px;
-        margin-bottom: 4px;
-      }
-      
-      .comparison-table tbody tr td:nth-child(2)::before {
-        content: "קוסמטיקס חופית:";
-        font-weight: 600;
-        color: var(--brown-light);
-      }
-      .comparison-table tbody tr td:nth-child(3)::before {
-        content: "רוב הקליניקות:";
-        font-weight: 400;
-        color: #777;
-      }
-      
-      .comparison-table tbody tr td.highlighted {
-        background: var(--beige);
-        border-radius: 6px;
-        padding-inline: 12px;
-      }
+      .comparison-table tbody tr td:first-child { text-align: right; }
+      .check-icon, .cross-icon { font-size: 16px; }
     }
 
     /* ─── TESTIMONIALS ───────────────────────────────────────────── */
@@ -1521,26 +1497,52 @@
 <section class="brand-story brown-bg" id="about">
   <div class="container">
     <h2 class="title reveal">אודותי</h2>
-    <div class="bs-grid">
+    
+    <!-- Флекс-контейнер с выравниванием и gap между фото и текстом -->
+    <div class="bs-grid" style="display: flex; flex-wrap: wrap-reverse; justify-content: center; gap: 40px; align-items: center; max-width: 1100px; margin: 0 auto;">
 
-      <div class="bs-text reveal-right">
+      <!-- Блок с текстом (flex: 1 позволяет ему занимать оставшееся пространство) -->
+      <div class="bs-text reveal-right" style="direction: rtl; text-align: right; flex: 1; min-width: 280px;">
+        <!-- Этот текст виден всегда -->
         <p>נעים מאוד, אני חופית — טכנאית לייזר ומומחית לטיפולי עור עם ניסיון של כ-4 וחצי שנים בתחום האסתטיקה, אמא ל-3 ילדים ואישה שחיה ונושמת את עולם היופי והטיפוח.</p>
-        <p>גדלתי בתוך עולם הקוסמטיקה והאסתטיקה, כשאמא שלי עוסקת בתחום כבר מעל 35 שנה, כך שמגיל צעיר הקליניקות היו עבורי ממש בית. מתוך אהבה גדולה לתחום והרצון לעזור לנשים וילדות להרגיש יפות, בטוחות וזוהרות בעור שלהן — בחרתי להפוך את התשוקה שלי למקצוע.</p>
-        <p>With השנים הבנתי עד כמה המודעות של נערות וילדות לטיפוח ואסתטיקה גדלה, וכמה חשוב להעניק להן יחס מקצועי, עדין ומותאם לגיל שלהן. לכן, אחד הדברים שהכי חשובים לי בקליניקה הוא לגרום לכל ילדה ונערה להרגיש בנוח, בטוחה ויפה — תוך שמירה על תוצאות טבעיות והתאמה אישית לכל אחת.</p>
-        <p>את הדרך שלי התחלתי בקליניקה קטנה של 10 מטר יחד עם אמא שלי, ולאורך השנים, עם התמדה, השקעה ואהבה אמיתית למקצוע — זכיתי לעבור לקליניקת החלומות שלי ❤</p>
-        <a href="https://wa.me/972542186634" class="btn-brown" target="_blank" rel="noopener">קביעת תור ישיר</a>
+        <p>גדלתי בתוך עולם הקוסมטיקה והאסתטיקה, כשאמא שלי עוסקת בתחום כבר מעל 35 שנה, כך שמגיל צעיר הקлиניקות היו עבורי ממש בית. מתוך אהבה גדולה לתחום והרצון לעזור לנשים וילדות להרגיש יפות, בטוחות וזוהרות בעור שלהן — בחרתי להפוך את התשוקה שלי למקצוע.</p>
+        
+        <!-- Скрытая часть текста -->
+        <div id="more-text" style="display: none; margin-top: 1em;">
+          <p>עם השנים הבנתי עד כמה המודעות של נערות וילדות לטיפוח ואסתטיקה גדלה, וכמה חשוב להעניק להן יחס מקצועי, עדין ומותאם לגיל שלהן. לכן, אחד הדברים שהכי חשובים לי בקליניקה הוא לגרום לכל ילדה ונערה להרגיש בנוח, בטוחה ויפה — תוך שמירה על תוצאות טבעיות והתאמה אישית לכל אחת.</p>
+          <p>את הדרך שלי התחלתי בקליניקה קטנה של 10 מטר יחד עם אמא שלי, ולאורך השנים, עם התמדה, השקעה ואהבה אמיתית למקצוע — זכיתי לעבור לקליניקת החלומות שלי ❤</p>
+        </div>
+
+        <!-- Кнопка קרא עוד -->
+        <button id="read-more-btn" class="btn-brown" style="cursor: pointer; border: none; font-family: inherit; margin-top: 15px;">קרא עוד</button>
       </div>
 
-      <div class="bs-img reveal-left">
-        <picture>
+      <!-- Блок с картинкой (увеличили max-width до 400px) -->
+      <div class="bs-img reveal-left" style="width: 100%; max-width: 400px; height: auto !important; overflow: visible !important; flex-shrink: 0; display: flex; justify-content: center;">
+        <picture style="width: 100%; height: auto !important; display: block; overflow: visible !important;">
           <source media="(max-width: 900px)" srcset="img/Mobile.png" />
-          <img src="img/Desktop.png" alt="חופית יחזקאל — מומחית לאסתטיקה" loading="lazy" />
+          <img src="img/Desktop.png" alt="חופית יחזקאל — מומחית לאסתטיקה" loading="lazy" style="width: 100%; height: auto !important; display: block; max-height: none !important; object-fit: contain;" />
         </picture>
       </div>
 
     </div>
   </div>
 </section>
+
+<!-- Скрипт для раскрытия текста -->
+<script>
+  document.getElementById('read-more-btn').addEventListener('click', function() {
+    const moreText = document.getElementById('more-text');
+    
+    if (moreText.style.display === "none") {
+      moreText.style.display = "block";
+      this.textContent = "הצג פחות";
+    } else {
+      moreText.style.display = "none";
+      this.textContent = "קרא עוד";
+    }
+  });
+</script>
 
 <section class="eos-section">
   <div class="container">
