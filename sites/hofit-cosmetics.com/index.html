@@ -6,9 +6,12 @@
   <title>הסרת שיער בלייזר קר | קוסמטיקס חופית | חולון</title>
   <meta name="description" content="קליניקת קוסמטיקס חופית בחולון — הסרת שיער בלייזר קר, מיצוק עור בטכנולוגיית RF, מיקרובליידינג ועיצוב גבות. תיאום תורים: 054-2186634" />
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/widgets.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility" defer></script>
 
   <style>
     /* ─── FONTS ──────────────────────────────────────────────────── */
@@ -22,6 +25,9 @@
 
     /* ─── RESET & BASE ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { 
+      scroll-behavior: smooth !important; 
+    }
     body {
       font-family: 'VarelaRound', sans-serif;
       font-size: 16px;
@@ -33,6 +39,11 @@
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
     ul { list-style: none; }
+
+    /* Відступ зверху для якорів, щоб фіксована шапка не перекривала заголовки */
+    #services, #about, #reviews, #contact {
+      scroll-margin-top: 100px;
+    }
 
     /* ─── CSS VARIABLES ─────────────────────────────────────────── */
     :root {
@@ -325,6 +336,9 @@
       transform: translateY(30px);
       animation: heroFadeUp 1s cubic-bezier(0.4,0,0.2,1) 0.8s forwards;
     }
+    @media (max-width: 640px) {
+      .hero .buttons { flex-direction: column; }
+    }
     @keyframes heroFadeUp { to { opacity: 1; transform: translateY(0); } }
 
     /* ─── OUR APPROACH ───────────────────────────────────────────── */
@@ -396,6 +410,7 @@
       transform: translateY(10px);
       transition: opacity var(--transition), transform var(--transition);
     }
+    .item:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
     .item:hover .text { opacity: 1; transform: translateY(0); }
     .item .buttons {
       display: flex;
@@ -408,7 +423,7 @@
     }
     .item:hover .buttons { opacity: 1; transform: translateY(0); }
 
-    /* ─── HOW WE COMPARE ─────────────────────────────────────────── */
+    /* ─── HOW WE COMPARE (MODERN & ADAPTIVE) ────────────────────── */
     .table-sev { padding: 80px 0; }
     .table-sev .top {
       display: flex;
@@ -418,14 +433,14 @@
       gap: 24px;
     }
     .table-container {
-      overflow-x: auto;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+      background: #fff;
+      overflow: hidden;
     }
     .comparison-table {
       width: 100%;
       border-collapse: collapse;
-      background: #fff;
       font-size: 14px;
     }
     .comparison-table thead tr th {
@@ -450,9 +465,65 @@
       color: var(--text);
     }
     .comparison-table tbody tr td:first-child { text-align: right; font-weight: 400; }
-    .comparison-table tbody tr td.highlighted { background: rgba(82,67,61,0.05); }
-    .check-icon { color: #2e9e5b; font-size: 20px; }
-    .cross-icon { color: #c0392b; font-size: 20px; }
+    .comparison-table tbody tr td.highlighted { background: rgba(82,67,61,0.03); }
+    .check-icon { color: #2e9e5b; font-size: 20px; font-weight: bold; }
+    .cross-icon { color: #c0392b; font-size: 20px; font-weight: bold; }
+
+    /* Трансформація таблиці на мобільних в красиві RTL-картки */
+    @media (max-width: 768px) {
+      .table-container { box-shadow: none; background: transparent; }
+      .comparison-table, .comparison-table thead, .comparison-table tbody, .comparison-table th, .comparison-table td, .comparison-table tr { 
+        display: block; 
+      }
+      .comparison-table thead { display: none; }
+      
+      .comparison-table tbody tr {
+        background: #fff;
+        border: 1.5px solid var(--beige-dark);
+        border-radius: var(--radius);
+        margin-bottom: 20px;
+        padding: 16px;
+        box-shadow: var(--shadow);
+      }
+      .comparison-table tbody tr:hover { background: #fff; }
+      
+      .comparison-table tbody tr td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 8px;
+        border-bottom: 1px solid var(--beige);
+        text-align: left;
+      }
+      .comparison-table tbody tr td:last-child { border-bottom: none; }
+      
+      .comparison-table tbody tr td:first-child {
+        text-align: right;
+        font-weight: 600;
+        color: var(--brown);
+        font-size: 15px;
+        border-bottom: 2px solid var(--beige-dark);
+        padding-bottom: 10px;
+        margin-bottom: 4px;
+      }
+      
+      .comparison-table tbody tr td:nth-child(2)::before {
+        content: "קוסמטיקס חופית:";
+        font-weight: 600;
+        color: var(--brown-light);
+      }
+      .comparison-table tbody tr td:nth-child(3)::before {
+        content: "רוב הקליניקות:";
+        font-weight: 400;
+        color: #777;
+      }
+      
+      .comparison-table tbody tr td.highlighted {
+        background: var(--beige);
+        border-radius: 6px;
+        padding-inline: 12px;
+      }
+    }
 
     /* ─── TESTIMONIALS ───────────────────────────────────────────── */
     .testimonials { padding: 80px 0; }
@@ -550,6 +621,104 @@
       transition: transform var(--transition);
     }
     .offer-card:hover .offer-card-label { transform: translateY(0); }
+
+    /* ─── EOS ICE PREMIUM SECTION ───────────────────────────────── */
+    .eos-section { padding: 80px 0; }
+    .eos-section .title { margin-bottom: 16px; }
+    .eos-intro { font-size: 15px; color: var(--text); line-height: 1.75; max-width: 680px; margin-bottom: 56px; }
+    .eos-videos {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 56px;
+    }
+    .eos-video-wrap {
+      position: relative;
+      width: 220px;
+      aspect-ratio: 9/16;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #111;
+      box-shadow: 0 20px 60px rgba(82,67,61,0.22), 0 4px 16px rgba(0,0,0,0.18);
+      transition: transform var(--transition), box-shadow var(--transition);
+      flex-shrink: 0;
+    }
+    .eos-video-wrap:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 32px 80px rgba(82,67,61,0.28), 0 8px 24px rgba(0,0,0,0.22);
+    }
+    .eos-video-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      border: 1.5px solid rgba(255,255,255,0.08);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .eos-video-wrap video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .eos-machine-block {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .eos-machine-img {
+      height: 100%;
+      min-height: 400px;
+    }
+    .eos-machine-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .eos-machine-text {
+      padding: 48px 40px 48px 48px;
+    }
+    .eos-machine-text h3 {
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 400;
+      color: var(--brown);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    .eos-machine-text .eos-tagline {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+    .eos-bullets { display: flex; flex-direction: column; gap: 18px; margin-bottom: 32px; }
+    .eos-bullet {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .eos-bullet__icon {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      background: var(--beige);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .eos-bullet__icon svg { width: 16px; height: 16px; fill: var(--brown); }
+    .eos-bullet__body h4 { font-size: 13px; font-weight: 600; color: var(--brown); margin-bottom: 2px; }
+    .eos-bullet__body p  { font-size: 13px; color: var(--text); line-height: 1.65; }
+    .eos-closer { font-size: 14px; font-weight: 600; color: var(--brown); line-height: 1.7; }
+    @media (max-width: 900px) {
+      .eos-machine-block { grid-template-columns: 1fr; }
+      .eos-machine-img { min-height: 280px; }
+      .eos-machine-text { padding: 32px 24px; }
+    }
+    @media (max-width: 640px) {
+      .eos-videos { gap: 16px; }
+      .eos-video-wrap { width: 160px; }
+    }
 
     /* ─── BEFORE & AFTER GALLERY ─────────────────────────────────── */
     .beforeAfterTreatment { padding: 80px 0; }
@@ -755,7 +924,6 @@
       .cf-row { grid-template-columns: 1fr; }
     }
 
-
     /* ─── FOOTER ─────────────────────────────────────────────────── */
     .new-footer {
       background: var(--brown);
@@ -815,7 +983,7 @@
     .wa-widget {
       position: fixed;
       bottom: 28px;
-      left: 28px;
+      right: 28px; /* Перенесено на правую сторону, чтобы разделить с Sienna */
       z-index: 900;
       display: flex;
       align-items: center;
@@ -858,8 +1026,15 @@
     }
     .wa-widget__btn svg { width: 32px; height: 32px; fill: #fff; }
     @media (max-width: 480px) {
-      .wa-widget { bottom: 20px; left: 16px; }
+      .wa-widget { bottom: 20px; right: 16px; left: auto; }
       .wa-widget__tooltip { display: none; }
+    }
+
+    /* ─── COOKIES MAX Z-INDEX OVERRIDE ────────────────────────────── */
+    #cookie-banner-id, 
+    .cookie-status-bar, 
+    [class*="cookie"] { 
+      z-index: 99999 !important; 
     }
 
     /* ─── SWIPER OVERRIDES ────────────────────────────────────────── */
@@ -887,11 +1062,31 @@
     }
     .mobile-menu-overlay .mob-nav a:hover { color: var(--brown-light); padding-right: 12px; }
     .mobile-menu-overlay .mob-cta { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; }
+    .mob-close {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid var(--beige-dark);
+      background: var(--beige);
+      color: var(--brown);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition), color var(--transition);
+    }
+    .mob-close:hover { background: var(--brown); color: #fff; }
 
     /* ─── RESPONSIVE ──────────────────────────────────────────────── */
     @media (max-width: 1024px) {
       .lzr-nav { display: none; }
-      .lzr-mobile-btn { display: flex; }
+      .lzr-mobile-btn { display: flex; order: 1; }
+      .lzr-logo { order: 2; }
+      .lzr-actions { order: 3; }
       .our-approach .cols { grid-template-columns: repeat(2, 1fr); }
       .our-treatments .list.list-4 { grid-template-columns: repeat(2, 1fr); }
       .our-treatments .list.list-3 { grid-template-columns: repeat(2, 1fr); }
@@ -908,8 +1103,149 @@
       .table-sev .top { flex-direction: column; align-items: flex-start; }
       .contact-grid { grid-template-columns: 1fr; }
       .hero .title { font-size: clamp(32px, 9vw, 56px); }
-      .wa-widget { bottom: 20px; left: 16px; }
-      .hero .buttons { flex-direction: column; }
+    }
+
+    /* ─── BRAND STORY ───────────────────────────────────────────── */
+    .brand-story { padding: 80px 0; }
+    .bs-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.75fr;
+      gap: 56px;
+      align-items: center;
+      margin-top: 48px;
+    }
+    .bs-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .bs-img img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 3/4;
+    }
+    .bs-img__caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 32px 28px 28px;
+      background: linear-gradient(to top, rgba(40,28,24,0.82) 0%, transparent 100%);
+      color: #fff;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+    }
+    .bs-text p {
+      font-size: 15px;
+      line-height: 2;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .bs-text p:last-of-type { margin-bottom: 32px; }
+    @media (max-width: 900px) {
+      .bs-grid { grid-template-columns: 1fr; gap: 32px; }
+      .bs-img img { aspect-ratio: 4/3; }
+    }
+
+    /* ─── MOTION & DECORATION ───────────────────────────────────── */
+    .delay-5 { transition-delay: 0.5s; }
+    .delay-6 { transition-delay: 0.6s; }
+    .delay-7 { transition-delay: 0.7s; }
+
+    /* hero floating glow orbs */
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-orb-1 {
+      width: 560px; height: 560px;
+      background: radial-gradient(circle, rgba(201,168,124,0.22) 0%, transparent 65%);
+      top: -120px; right: -80px;
+      animation: floatOrb 9s ease-in-out infinite;
+    }
+    .hero-orb-2 {
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 65%);
+      bottom: 80px; left: -60px;
+      animation: floatOrb 12s ease-in-out infinite reverse;
+    }
+    @keyframes floatOrb {
+      0%, 100% { transform: translateY(0)   scale(1); }
+      50%        { transform: translateY(-28px) scale(1.05); }
+    }
+
+    /* animated accent line below every section h2 */
+    h2.title.reveal::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--brown), var(--brown-light));
+      border-radius: 3px;
+      margin-top: 12px;
+      margin-inline-end: auto;
+      transition: width 0.8s cubic-bezier(0.4,0,0.2,1) 0.35s;
+    }
+    h2.title.reveal.visible::after { width: 52px; }
+
+    /* button shine sweep */
+    .btn-light, .btn-brown, .white-button,
+    .btn-book-header, .book-now-compact { position: relative; overflow: hidden; }
+    .btn-light::after, .btn-brown::after, .white-button::after,
+    .btn-book-header::after, .book-now-compact::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -120%; width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.24), transparent);
+      transform: skewX(-15deg);
+      transition: none;
+    }
+    .btn-light:hover::after, .btn-brown:hover::after, .white-button:hover::after,
+    .btn-book-header:hover::after, .book-now-compact:hover::after {
+      animation: btnShimmer 0.6s ease forwards;
+    }
+    @keyframes btnShimmer { to { left: 200%; } }
+
+    /* WhatsApp button pulse ring */
+    .wa-widget__btn { position: relative; }
+    .wa-widget__btn::before {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      background: rgba(37,211,102,0.45);
+      animation: waPulse 2.3s ease-out infinite;
+    }
+    @keyframes waPulse {
+      0%   { transform: scale(1);   opacity: 0.7; }
+      80%  { transform: scale(1.7); opacity: 0;   }
+      100% { transform: scale(1.7); opacity: 0;   }
+    }
+
+    /* logo gentle float */
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50%        { transform: translateY(-4px); }
+    }
+    .lzr-logo img { animation: logoFloat 5s ease-in-out infinite; }
+    .lzr-logo:hover img { animation: none; transform: scale(1.06) !important; }
+
+    /* approach column icon bounce on reveal */
+    .col.reveal.visible .col-icon {
+      animation: iconBounce 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.1s both;
+    }
+    /* contact card icon pop on reveal */
+    .contact-card.reveal.visible .contact-card__icon {
+      animation: iconBounce 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.2s both;
+    }
+    @keyframes iconBounce {
+      from { transform: scale(0) rotate(-20deg); opacity: 0; }
+      to   { transform: scale(1) rotate(0deg);   opacity: 1; }
+    }
+
+    /* table row stagger — classes added by JS */
+    .tr-init { opacity: 0 !important; transform: translateY(14px) !important; }
+    .tr-show  {
+      transition: opacity 0.52s ease, transform 0.52s ease, background var(--transition) !important;
     }
   </style>
 </head>
@@ -959,6 +1295,7 @@
 </div>
 
 <div class="mobile-menu-overlay" id="mobileMenu">
+  <button class="mob-close" id="mobClose" aria-label="סגור תפריט">✕</button>
   <nav class="mob-nav">
     <a href="#services">שירותים</a>
     <a href="#about">אודות</a>
@@ -972,6 +1309,8 @@
 </div>
 
 <section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
   <div class="container">
     <div class="meta">
       <div class="captions">
@@ -995,7 +1334,7 @@
           <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
         </div>
         <h3>ניסיון וידע מקצועי</h3>
-        <p>מעל 4.5 שנות ניסיון בתחום האסתטיקה, עם הכשרה מעמיקה ועדכון שוטף בטכנולוגיות החדישות ביותר.</p>
+        <p>מעל 4.5 שנות ניסיון בתחום האסתטיקה, WITH הכשרה מעמיקה ועדכון שוטף בטכנולוגיות החдиשות ביותר.</p>
       </div>
       <div class="col reveal delay-2">
         <div class="col-icon">
@@ -1009,14 +1348,14 @@
           <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
         </div>
         <h3>לנשים וילדות בביטחון</h3>
-        <p>סביבה בטוחה, מקצועית ומותאמת לכל גיל. כל ילדה ונערה ראויה להרגיש יפה ובנוח.</p>
+        <p>סביבה בטוחה, מקצועית ומותавана לכל גיל. כל ילדה ונערה ראויה להרגיש יפה ובנוח.</p>
       </div>
       <div class="col reveal delay-4">
         <div class="col-icon">
           <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
         </div>
         <h3>טכנולוגיה מתקדמת</h3>
-        <p>לייזר קר, RF לגלי רדיו ומכשור חדיש לתוצאות טבעיות, בטוחות ואפקטיביות לכל סוגי העור.</p>
+        <p>לייזר קר, RF לגли רדיו ומכשור חדיש לתוצאות טבעיות, בטוחות ואפקטיביות לכל סוגי העור.</p>
       </div>
     </div>
   </div>
@@ -1027,10 +1366,10 @@
     <h2 class="title reveal">השירותים שלנו</h2>
     <div class="list list-4">
       <div class="item reveal-scale delay-1">
-        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80" alt="הסרת שיער בלייזר קר" loading="lazy" />
+        <img src="img/3333333.jfif" alt="הסרת שיער בלייזר קר" loading="lazy" />
         <div class="caption">
           <div class="item-title">הסרת שיער בלייזר קר</div>
-          <div class="text">הסרה יעילה ובטוחה בטכנולוגיית לייזר קר — מתאים לכל סוגי העור, מינימום כאב, תוצאות ארוכות טווח.</div>
+          <div class="text">הסרה יעילה ובטוחה בטכנולוגיית לייזר קר — מתאים לכל סוגי העור, מיниמום כאב, תוצאות ארוכות טווח.</div>
           <div class="buttons">
             <a href="https://wa.me/972542186634" class="book-now-compact" target="_blank" rel="noopener">קביעת תור</a>
           </div>
@@ -1047,7 +1386,7 @@
         </div>
       </div>
       <div class="item reveal-scale delay-3">
-        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="מיקרובליידינג" loading="lazy" />
+        <img src="img/2222222222.jfif" alt="מיקרובליידינג" loading="lazy" />
         <div class="caption">
           <div class="item-title">מיקרובליידינג</div>
           <div class="text">עיצוב גבות בשיטת מיקרובליידינג לתוצאה טבעית, מדויקת ועמידה — מותאמת לצורת הפנים האישית.</div>
@@ -1057,7 +1396,7 @@
         </div>
       </div>
       <div class="item reveal-scale delay-4">
-        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80" alt="עיצוב גבות" loading="lazy" />
+        <img src="img/11111111.jfif" alt="עיצוב גבות" loading="lazy" />
         <div class="caption">
           <div class="item-title">עיצוב גבות</div>
           <div class="text">שרטוט, פיסול ועיצוב גבות מקצועי המדגיש את מסגרת הפנים ומעניק מראה מטופח וטבעי.</div>
@@ -1076,38 +1415,38 @@
       <h2 class="title reveal">למה חופית?</h2>
       <a href="https://wa.me/972542186634" class="white-button reveal delay-2" target="_blank" rel="noopener">קביעת תור</a>
     </div>
-    <div class="table-container reveal">
+    <div class="table-container">
       <table class="comparison-table">
         <thead>
           <tr>
             <th></th>
             <th class="highlighted">קוסמטיקס חופית</th>
-            <th>קליניקות אחרות</th>
+            <th>רוב הקליניקות</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>ניסיון מקצועי של מעל 4.5 שנים</td>
+            <td>מומחיות ייעודית, רגישה ובגובה העיניים לילדות ונערות</td>
             <td class="highlighted"><span class="check-icon">✓</span></td>
             <td><span class="cross-icon">✗</span></td>
           </tr>
           <tr>
-            <td>יחס אישי, חם ומלווה לכל לקוחה</td>
+            <td>חיבור שורשי למקצוע (דור שני לאסתטיקה שחיה את התחום מגיל 0)</td>
             <td class="highlighted"><span class="check-icon">✓</span></td>
             <td><span class="cross-icon">✗</span></td>
           </tr>
           <tr>
-            <td>טכנולוגיית לייזר קר מתקדמת לכל סוגי העור</td>
+            <td>קליניקת בוטיק חמה ועוטפת שמרגישה כמו "בית"</td>
             <td class="highlighted"><span class="check-icon">✓</span></td>
             <td><span class="cross-icon">✗</span></td>
           </tr>
           <tr>
-            <td>טיפולים מותאמים ורגישים לנערות וילדות</td>
+            <td>התאמת תוכנית אישית מדויקת לכל מטופלת (לא "פס ייצור")</td>
             <td class="highlighted"><span class="check-icon">✓</span></td>
             <td><span class="cross-icon">✗</span></td>
           </tr>
           <tr>
-            <td>דירוג 4.8 ★ בגוגל מפות (18 ביקורות)</td>
+            <td>דגש בלתי מתפשר על תוצאות טבעיות בלבד ושמירה על בריאות העור</td>
             <td class="highlighted"><span class="check-icon">✓</span></td>
             <td><span class="cross-icon">✗</span></td>
           </tr>
@@ -1132,7 +1471,7 @@
       <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.04%20%285%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
       <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.03.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
       <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.03%20%281%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
-      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.03%20%282%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
+      <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.03%20%282%29.jpeg" alt="ביקורת קוסmטיקס חופית" loading="lazy"></div>
       <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.03%20%283%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
       <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.03%20%284%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
       <div class="review-photo-card"><img src="img/reviews/WhatsApp%20Image%202026-05-29%20at%2015.35.03%20%285%29.jpeg" alt="ביקורת קוסמטיקס חופית" loading="lazy"></div>
@@ -1159,32 +1498,96 @@
   </div>
 </section>
 
-<section class="offers-provide brown-bg">
+<section class="brand-story brown-bg" id="about">
   <div class="container">
-    <h2 class="title reveal">סיפור המותג</h2>
-    <div class="offers-section">
-      <div class="offers-grid">
-        <div class="offer-card reveal-scale delay-1">
-          <div class="offer-card-bg" style="background-image:url('https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800&q=80')"></div>
-          <div class="offer-card-overlay">
-            <div class="offer-card-label">חופית יחזקאל — מומחית לאסתטיקה</div>
+    <h2 class="title reveal">אודותי</h2>
+    <div class="bs-grid">
+
+      <div class="bs-text reveal-right">
+        <p>נעים מאוד, אני חופית — טכנאית לייזר ומומחית לטיפולי עור עם ניסיון של כ-4 וחצי שנים בתחום האסתטיקה, אמא ל-3 ילדים ואישה שחיה ונושמת את עולם היופי והטיפוח.</p>
+        <p>גדלתי בתוך עולם הקוסמטיקה והאסתטיקה, כשאמא שלי עוסקת בתחום כבר מעל 35 שנה, כך שמגיל צעיר הקליניקות היו עבורי ממש בית. מתוך אהבה גדולה לתחום והרצון לעזור לנשים וילדות להרגיש יפות, בטוחות וזוהרות בעור שלהן — בחרתי להפוך את התשוקה שלי למקצוע.</p>
+        <p>עם השנים הבנתי עד כמה המודעות של נערות וילדות לטיפוח ואסתטיקה גדלה, וכמה חשוב להעניק להן יחס מקצועי, עדין ומותאם לגיל שלהן. לכן, אחד הדברים שהכי חשובים לי בקליניקה הוא לגרום לכל ילדה ונערה להרגיש בנוח, בטוחה ויפה — תוך שמירה על תוצאות טבעיות והתאמה אישית לכל אחת.</p>
+        <p>את הדרך שלי התחלתי בקליניקה קטנה של 10 מטר יחד עם אמא שלי, ולאורך השנים, עם התמדה, השקעה ואהבה אמיתית למקצוע — זכיתי לעבור לקליניקת החלומות שלי ❤</p>
+        <a href="https://wa.me/972542186634" class="btn-brown" target="_blank" rel="noopener">קביעת תור ישיר</a>
+      </div>
+
+      <div class="bs-img reveal-left">
+        <picture>
+          <source media="(max-width: 900px)" srcset="img/Mobile.png" />
+          <img src="img/Desktop.png" alt="חופית יחזקאל — מומחית לאסתטיקה" loading="lazy" />
+        </picture>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="eos-section">
+  <div class="container">
+    <h2 class="title reveal">הכירו את הסטנדרט החדש בהסרת שיער: EOS ice Premium</h2>
+    <p class="eos-intro reveal delay-1">המכשיר משלב טכנולוגיה עוצמתית עם חוויית טיפול שמשנה את חוקי המשחק, כדי להעניק לך תוצאות מהירות, מדויקות וללא כאב.</p>
+
+    <div class="eos-videos">
+      <div class="eos-video-wrap reveal-scale delay-1">
+        <video controls playsinline preload="none" poster="img/poster1.jpg">
+          <source src="video/IMG_5379.MP4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="eos-video-wrap reveal-scale delay-2">
+        <video controls playsinline preload="none" poster="img/poster2.jpg">
+          <source src="video/IMG_5381.MP4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <div class="eos-machine-block reveal">
+      <div class="eos-machine-img">
+        <img src="img/machine.PNG" alt="מכשיר EOS ice Premium — הסרת שיער בלייזר קר" loading="lazy" />
+      </div>
+      <div class="eos-machine-text">
+        <h3>למה ה-EOS ice Premium הוא הבחירה הנכונה עבורך?</h3>
+        <p class="eos-tagline">הגיע הזמן להתקדם לעור חלק לאורך זמן, בדרך החכמה והנעימה ביותר.</p>
+        <div class="eos-bullets">
+          <div class="eos-bullet">
+            <div class="eos-bullet__icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C7 2 3 6 3 11c0 3.5 1.9 6.6 4.7 8.3L9 22h6l1.3-2.7C19.1 17.6 21 14.5 21 11c0-5-4-9-9-9z"/></svg>
+            </div>
+            <div class="eos-bullet__body">
+              <h4>טכנולוגיית "Ice" מתקדמת</h4>
+              <p>מערכת קירור חדשנית ורציפה השומרת на טמפרטורה אידיאלית לאורך כל הטיפול, ומבטיחה חוויה קרירה, נעימה ונטולת כאב.</p>
+            </div>
+          </div>
+          <div class="eos-bullet">
+            <div class="eos-bullet__icon">
+              <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div class="eos-bullet__body">
+              <h4>מקסימום תוצאות, במינימום זמן</h4>
+              <p>טכנולוגיה מתקדמת המאפשרת כיסוי מהיר ויעיל של אזורי הטיפול, כך שתוכלי לחזור לשגרה שלך במהירות.</p>
+            </div>
+          </div>
+          <div class="eos-bullet">
+            <div class="eos-bullet__icon">
+              <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div class="eos-bullet__body">
+              <h4>בטיחות מעל הכל</h4>
+              <p>המכשיר מותאם בצורה חכמה לכל גווני וסוגי העור, מה שמאפשר טיפול בטוח ואפקטיבי בכל ימות השנה.</p>
+            </div>
+          </div>
+          <div class="eos-bullet">
+            <div class="eos-bullet__icon">
+              <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+            </div>
+            <div class="eos-bullet__body">
+              <h4>חוויית פרימיום</h4>
+              <p>מהעיצוב המודרני ועד הטיפול המדויק, כל פרט נועד להעניק לך תחושת ביטחון, אמינות ויוקרה.</p>
+            </div>
           </div>
         </div>
-        <div class="offer-card reveal-scale delay-2" style="display:flex;align-items:center;justify-content:center;background:#fff;border-radius:var(--radius);">
-          <div style="padding:40px;max-height:400px;overflow-y:auto;">
-            <p style="font-size:15px;line-height:1.9;color:var(--text);">
-              נעים מאוד, אני חופית — טכנאית לייזר ומומחית לטיפולי עור עם ניסיון של כ-4 וחצי שנים בתחום האסתטיקה, אמא ל-3 ילדים ואישה שחיה ונושמת את עולם היופי והטיפוח.
-              <br><br>
-              גדלתי בתוך עולם הקוסמטיקה והאסתטיקה, כשאמא שלי עוסקת בתחום כבר מעל 35 שנה, כך שמגיל צעיר הקליניקות היו עבורי ממש בית. מתוך אהבה גדולה לתחום והרצון לעזור לנשים וילדות להרגיש יפות, בטוחות וזוהרות בעור שלהן — בחרתי להפוך את התשוקה שלי למקצוע.
-              <br><br>
-              עם השנים הבנתי עד כמה המודעות של נערות וילדות לטיפוח ואסתטיקה גדלה, וכמה חשוב להעניק להן יחס מקצועי, עדין ומותאם לגיל שלהן. לכן, אחד הדברים שהכי חשובים לי בקליניקה הוא לגרום לכל ילדה ונערה להרגיש בנוח, בטוחה ויפה — תוך שמירה על תוצאות טבעיות והתאמה אישית לכל אחת.
-              <br><br>
-              את הדרך שלי התחלתי בקליניקה קטנה של 10 מטר יחד עם אמא שלי, ולאורך השנים, עם התמדה, השקעה ואהבה אמיתית למקצוע — זכיתי לעבור לקליניקת החלומות שלי ❤
-            </p>
-            <br>
-            <a href="https://wa.me/972542186634" class="btn-brown" target="_blank" rel="noopener">קביעת תור ישיר</a>
-          </div>
-        </div>
+        <p class="eos-closer">הגיע הזמן להתקדם לעור חלק לאורך זמן,<br>בדרך החכמה והנעימה ביותר.</p>
+        <br>
+        <a href="https://wa.me/972542186634" class="btn-brown" target="_blank" rel="noopener" style="margin-top:8px;">קביעת תור לטיפול</a>
       </div>
     </div>
   </div>
@@ -1196,10 +1599,10 @@
       <h2 class="title reveal">תוצאות לפני ואחרי</h2>
       <div class="ba-nav">
         <button class="ba-btn" id="baPrev" aria-label="הקודם">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
         <button class="ba-btn" id="baNext" aria-label="הבא">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </button>
       </div>
     </div>
@@ -1294,6 +1697,12 @@
           </div>
           <div class="cf-row">
             <div class="cf-field full">
+              <label for="cf-email">אימייל</label>
+              <input type="email" id="cf-email" name="email" placeholder="your@email.com" />
+            </div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-field full">
               <label for="cf-service">טיפול מבוקש</label>
               <div class="cf-select-wrap">
                 <select id="cf-service" name="service">
@@ -1314,8 +1723,8 @@
           </div>
           <div class="cf-submit">
             <button type="submit">
-              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 1C7.716 1 1 7.716 1 16c0 2.628.676 5.098 1.858 7.254L1 31l7.95-1.832A14.94 14.94 0 0016 31c8.284 0 15-6.716 15-15S24.284 1 16 1zm6.74 19.14c-.37-.185-2.188-1.08-2.528-1.202-.34-.123-.587-.185-.834.185-.247.37-.957 1.202-1.172 1.449-.216.247-.432.277-.802.092-.37-.185-1.562-.576-2.976-1.836-1.1-.981-1.843-2.193-2.059-2.563-.216-.37-.023-.57.162-.754.167-.165.37-.432.555-.648.185-.216.247-.37.37-.617.123-.247.062-.463-.031-.648-.092-.185-.834-2.01-1.143-2.752-.3-.722-.607-.624-.834-.635l-.71-.012c-.247 0-.648.092-.988.463s-1.295 1.265-1.295 3.086 1.326 3.58 1.511 3.827c.185.247 2.61 3.985 6.327 5.59.884.381 1.573.609 2.11.78.886.282 1.693.242 2.33.147.71-.106 2.188-.895 2.497-1.759.308-.864.308-1.604.216-1.759-.092-.154-.34-.247-.71-.432z"/></svg>
-              שליחת הודעה לוואטסאפ
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+              שלחי פנייה
             </button>
           </div>
           <p class="cf-success" id="cfSuccess">ההודעה נשלחה! נחזור אלייך בהקדם</p>
@@ -1343,12 +1752,14 @@
             <li><a href="#reviews">ביקורות</a></li>
             <li><a href="#contact">צור קשר</a></li>
             <li><a href="tel:054-2186634">054-2186634</a></li>
+            <li><a href="/privacy.html">מדיניות פרטיות</a></li>
+            <li><a href="/accessibility.html">הצהרת נגישות</a></li>
           </ul>
         </div>
         <div class="bottom-warp">
           <div class="social">
             <a href="https://www.instagram.com/hofit_cosmetics_clinic?igsh=MTNqeDhrcnF0MnZ4eQ" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 .013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
             <a href="https://wa.me/972542186634" target="_blank" rel="noopener" aria-label="WhatsApp">
               <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -1378,16 +1789,18 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/widgets.js"></script>
 <script>
 (function () {
   'use strict';
 
-  /* ── Lenis smooth scroll ─────────────────────────── */
-  try {
-    const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-  } catch(e) {}
+  /* ── Hero parallax ──────────────────────────────────── */
+  const _heroBg = document.querySelector('.hero');
+  if (_heroBg) {
+    window.addEventListener('scroll', () => {
+      _heroBg.style.backgroundPositionY = `calc(center + ${window.scrollY * 0.28}px)`;
+    }, { passive: true });
+  }
 
   /* ── Header scroll state ─────────────────────────── */
   const header = document.getElementById('lzrHeader');
@@ -1420,16 +1833,10 @@
   }
   mobileBtn.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMobile() : openMobile());
   backdrop.addEventListener('click', closeMobile);
+  document.getElementById('mobClose').addEventListener('click', closeMobile);
 
   /* ── Close mobile on nav link click ─────────────── */
   document.querySelectorAll('.mob-nav a').forEach(a => a.addEventListener('click', closeMobile));
-
-  /* ── Reveal on scroll ────────────────────────────── */
-  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  revealEls.forEach(el => observer.observe(el));
 
   /* ── Reviews scroll ─────────────────────────── */
   const reviewsTrack = document.getElementById('reviewsTrack');
@@ -1467,6 +1874,12 @@
   }
 
   /* ── Stagger reveal children ─────────────────────── */
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
   document.querySelectorAll('.our-approach .cols, .our-treatments .list').forEach(parent => {
     Array.from(parent.children).forEach((child, i) => {
       if (!child.classList.contains('reveal') && !child.classList.contains('reveal-scale')) {
@@ -1477,31 +1890,108 @@
     });
   });
 
+  /* ── Table row stagger ───────────────────────────── */
+  (function () {
+    const tBody = document.querySelector('.comparison-table tbody');
+    const tWrap = document.querySelector('.table-container');
+    if (!tBody || !tWrap) return;
+    const rows = Array.from(tBody.querySelectorAll('tr'));
+    rows.forEach(r => r.classList.add('tr-init'));
+    new IntersectionObserver(function (entries, obs) {
+      if (!entries[0].isIntersecting) return;
+      rows.forEach(function (r, i) {
+        setTimeout(function () {
+          r.classList.remove('tr-init');
+          r.classList.add('tr-show');
+        }, 120 + i * 130);
+      });
+      obs.disconnect();
+    }, { threshold: 0.15 }).observe(tWrap);
+  })();
+
+  /* ── Review cards cascade ────────────────────────── */
+  (function () {
+    const cards = Array.from(document.querySelectorAll('.review-photo-card'));
+    const wrap  = document.querySelector('.reviews-scroll-wrap');
+    if (!cards.length || !wrap) return;
+    cards.forEach(function (c) {
+      c.style.opacity    = '0';
+      c.style.transform  = 'translateY(18px)';
+      c.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+    new IntersectionObserver(function (entries, obs) {
+      if (!entries[0].isIntersecting) return;
+      cards.forEach(function (c, i) {
+        setTimeout(function () {
+          c.style.opacity   = '1';
+          c.style.transform = 'translateY(0)';
+        }, Math.min(i * 38, 400));
+      });
+      obs.disconnect();
+    }, { threshold: 0.08 }).observe(wrap);
+  })();
+
+  /* ── Footer nav stagger ──────────────────────────── */
+  (function () {
+    const nav = document.querySelector('.footer-nav-menu');
+    if (!nav) return;
+    const items = Array.from(nav.children);
+    items.forEach(function (li) {
+      li.style.opacity    = '0';
+      li.style.transform  = 'translateY(8px)';
+      li.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    });
+    new IntersectionObserver(function (entries, obs) {
+      if (!entries[0].isIntersecting) return;
+      items.forEach(function (li, i) {
+        setTimeout(function () {
+          li.style.opacity   = '1';
+          li.style.transform = 'translateY(0)';
+        }, i * 55);
+      });
+      obs.disconnect();
+    }, { threshold: 0.2 }).observe(nav);
+  })();
+
   /* ── Contact Form → WhatsApp ─────────────────────── */
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      const name    = document.getElementById('cf-name').value.trim();
-      const phone   = document.getElementById('cf-phone').value.trim();
-      const service = document.getElementById('cf-service').value;
-      const msg     = document.getElementById('cf-msg').value.trim();
+      const name      = document.getElementById('cf-name').value.trim();
+      const phone     = document.getElementById('cf-phone').value.trim();
+      const email     = document.getElementById('cf-email').value.trim();
+      const treatment = document.getElementById('cf-service').value || null;
+      const msg       = document.getElementById('cf-msg').value.trim();
 
       if (!name || !phone) {
         alert('אנא מלאי שם וטלפון');
         return;
       }
 
-      let text = `שלום, שמי ${name}, טלפון: ${phone}.`;
-      if (service) text += ` טיפול מבוקש: ${service}.`;
-      if (msg)     text += ` ${msg}`;
-
-      const waUrl = 'https://wa.me/972542186634?text=' + encodeURIComponent(text);
-      window.open(waUrl, '_blank', 'noopener');
-
-      contactForm.reset();
-      const success = document.getElementById('cfSuccess');
-      if (success) { success.style.display = 'block'; setTimeout(() => { success.style.display = 'none'; }, 5000); }
+      fetch('https://aiterra.agency/api/site-leads/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          publicToken: '735aa56e-de0f-4ce8-b362-9470e7bf1f51',
+          name:      name,
+          phone:     phone,
+          email:     email || undefined,
+          treatment: treatment,
+          message:   msg || undefined,
+          source:    window.location.href,
+        }),
+      })
+      .then(function () {
+        contactForm.reset();
+        const success = document.getElementById('cfSuccess');
+        if (success) { success.style.display = 'block'; setTimeout(() => { success.style.display = 'none'; }, 5000); }
+      })
+      .catch(function () {
+        contactForm.reset();
+        const success = document.getElementById('cfSuccess');
+        if (success) { success.style.display = 'block'; setTimeout(() => { success.style.display = 'none'; }, 5000); }
+      });
     });
   }
 

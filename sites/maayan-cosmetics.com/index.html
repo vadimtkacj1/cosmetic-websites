@@ -7,6 +7,7 @@
   <meta name="description" content="מעיין ועקנין — קוסמטיקאית קלינית בחולון. טיפולי עור מתקדמים: אקנה, פיגמנטציה, מזוטרפיה, מיצוק עור ועוד." />
 
 
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
   <link rel="stylesheet" href="css/style.css" />
 
   <!-- ═══════════════════════════════════════════════════════════════
@@ -30,6 +31,89 @@
   </style>
 
   <style>
+  /* ══════════════════════════════════════════
+      ANIMATIONS
+  ══════════════════════════════════════════ */
+
+  /* Keyframes */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(36px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-48px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(48px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes revealLine {
+    from { width: 0; }
+    to   { width: 48px; }
+  }
+
+  /* Hero entrance animations (on load) */
+  .hero-title-1 {
+    animation: fadeInLeft 0.9s cubic-bezier(.22,.68,0,1.2) 0.15s both;
+  }
+  .hero-title-2 {
+    animation: fadeInRight 0.9s cubic-bezier(.22,.68,0,1.2) 0.3s both;
+  }
+
+  /* ── Portrait glamour ── */
+  @keyframes heroPortraitIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  }
+  @keyframes heroFloat {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+    50%       { transform: translate(-50%, -50%) translateY(-16px); }
+  }
+  @keyframes ringRotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes glowPulse {
+    0%, 100% {
+      box-shadow: 0 0 0 10px rgba(234,160,152,.10), 0 0 50px rgba(234,160,152,.18), 0 20px 60px rgba(0,0,0,.10);
+    }
+    50% {
+      box-shadow: 0 0 0 20px rgba(234,160,152,.18), 0 0 90px rgba(234,160,152,.38), 0 28px 80px rgba(0,0,0,.14);
+    }
+  }
+  .hero-portrait-outer {
+    animation:
+      heroPortraitIn 1.1s cubic-bezier(.22,.68,0,1.2) 0.1s both,
+      heroFloat 5.5s ease-in-out 1.4s infinite;
+  }
+  .hero-portrait-outer::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 53% 53% 53% 53% / 44% 44% 58% 58%;
+    background: conic-gradient(
+      from 0deg,
+      rgba(234,160,152,0)   0deg,
+      #EAA098              80deg,
+      #f7e0dd             150deg,
+      rgba(109,164,201,.7) 200deg,
+      #6DA4C9             260deg,
+      #EAA098             320deg,
+      rgba(234,160,152,0) 360deg
+    );
+    animation: ringRotate 8s linear 1.4s infinite;
+    z-index: -1;
+  }
+  .hero-portrait {
+    animation: glowPulse 4s ease-in-out 1.4s infinite;
+  }
+
+
   /* ── RTL global ── */
   html { direction: rtl; }
   body { direction: rtl; text-align: right; font-family: 'Varela Round', sans-serif; }
@@ -45,6 +129,22 @@
   /* ── Footer legal: flip text-align of last child link ── */
   .hours-table tr td:last-child { text-align: left; }
 
+  /* ── Scroll animations ── */
+  .sr {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity .65s ease, transform .65s ease;
+  }
+  .sr-left  { opacity: 0; transform: translateX(-44px); transition: opacity .65s ease, transform .65s ease; }
+  .sr-right { opacity: 0; transform: translateX( 44px); transition: opacity .65s ease, transform .65s ease; }
+  .sr-scale { opacity: 0; transform: scale(.94);         transition: opacity .6s  ease, transform .6s  ease; }
+  .sr.visible, .sr-left.visible, .sr-right.visible, .sr-scale.visible {
+    opacity: 1; transform: none;
+  }
+  /* stagger for grid children */
+  .sr-group > *         { opacity: 0; transform: translateY(28px); transition: opacity .55s ease, transform .55s ease; }
+  .sr-group > *.visible { opacity: 1; transform: none; }
+
   /* ── Responsive RTL hero fix ── */
   @media (max-width: 680px) {
     .hero-title-1 { right: 24px; left: auto; top: 40px; }
@@ -52,7 +152,41 @@
     .hero-awards  { right: 16px; left: auto; }
   }
   @media (max-width: 900px) {
-    .hero-portrait { transform: translate(30%, -50%); right: 50%; left: auto; }
+    .header-book { font-size: 10px; padding: 8px 14px; letter-spacing: 1px; }
+  }
+  @media (max-width: 480px) {
+    .header-book { font-size: 10px; padding: 7px 12px; }
+  }
+
+  /* ── Mobile: hero stacked layout ── */
+  @media (max-width: 600px) {
+    .hero { padding-top: 68px; }
+    .hero-container {
+      min-height: calc(100svh - 68px);
+      padding: 28px 20px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+    .hero-title {
+      position: static;
+      font-size: clamp(38px, 11vw, 56px);
+      text-align: center;
+      line-height: 0.95;
+    }
+    .hero-title-1 { right: auto !important; left: auto !important; top: auto !important; }
+    .hero-title-2 { left: auto !important; right: auto !important; bottom: auto !important; text-align: center; }
+    .hero-portrait-outer {
+      position: static !important;
+      width: 68% !important;
+      max-width: 240px !important;
+      transform: none !important;
+      animation: none !important;
+    }
+    .hero-portrait-outer::before { display: none; }
+    .hero-portrait { max-height: 260px; animation: none !important; }
   }
 
   /* ═══════════════════════════════════════
@@ -329,12 +463,12 @@
   ═══════════════════════════════════════ */
   /* ── Contact section ── */
   .contact-section {
-    padding: 100px 0 80px;
+    padding: 56px 0 80px;
     background: #fff;
   }
   .contact-section .section-center {
     text-align: center;
-    margin-bottom: 64px;
+    margin-bottom: 44px;
   }
   .contact-section .section-center h2 {
     font-family: var(--ff-h);
@@ -552,17 +686,51 @@
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('privacyModal')">&times;</button>
     <h2 id="privTitle">מדיניות פרטיות</h2>
-    <p><strong>עדכון אחרון: ינואר 2025</strong></p>
-    <h3>1. מידע שאנו אוספים</h3>
-    <p>אנו אוספים מידע שמסרת לנו ישירות — שם, מספר טלפון וכתובת דוא"ל — בעת מילוי טפסי יצירת קשר או קביעת תור. המידע משמש אך ורק ליצירת קשר ומתן השירות.</p>
-    <h3>2. שימוש במידע</h3>
-    <p>המידע משמש לתיאום תורים, מתן מידע על טיפולים ומוצרים ושיפור השירות. אנו לא מוכרים, משכירים או מעבירים מידע אישי לצדדים שלישיים ללא הסכמתך.</p>
-    <h3>3. קבצי עוגיות</h3>
-    <p>האתר משתמש בקבצי עוגיות לשיפור חוויית הגלישה. ניתן להגדיר את הדפדפן לדחות עוגיות, אם כי הדבר עלול לפגוע בפונקציונליות.</p>
-    <h3>4. אבטחת מידע</h3>
-    <p>אנו נוקטים אמצעי אבטחה סבירים להגנה על המידע. אין ביכולתנו להבטיח אבטחה מוחלטת של מידע המועבר דרך האינטרנט.</p>
-    <h3>5. זכויות המשתמש</h3>
-    <p>יש לך הזכות לעיין במידע הנשמר אודותייך, לבקש תיקון או מחיקתו. לפניות: טלפון 052-7884725.</p>
+    <p><strong>נוסח זה עודכן לאחרונה במאי 2026.</strong></p>
+
+    <p>מפעילת האתר מכבדת את פרטיותם של המשתמשים ומחויבת להגן עליה בהתאם לחוק הגנת הפרטיות, תשמ"א-1981 ותקנותיו (כולל תקנות אבטחת מידע).</p>
+
+    <h3>1. המידע שנאסף באתר</h3>
+    <p>במהלך השימוש באתר, עשויים להיאסף שני סוגי מידע:</p>
+    <p><strong>מידע אישי שנמסר מרצון:</strong> בעת מילוי טפסי יצירת קשר, הרשמה למועדון לקוחות, קביעת תורים או רכישה, המשתמש עשוי להתבקש למסור פרטים כגון: שם מלא, מספר טלפון, כתובת דואר אלקטרוני, וכתובת מגורים. מסירת המידע אינה חובה על פי חוק, אך ללא מסירתו לא ניתן יהיה לספק את השירות המבוקש.</p>
+    <p><strong>מידע טכני וסטטיסטי (אנונימי):</strong> במהלך הגלישה, נאסף באופן אוטומטי מידע על הרגלי הגלישה של המשתמש, כגון: כתובת IP, סוג הדפדפן, דפים בהם ביקרת, משך השהות באתר, ומקור ההגעה לאתר. מידע זה אינו מזהה את המשתמש באופן אישי.</p>
+
+    <h3>2. המטרה לשמה נאסף המידע</h3>
+    <p>המידע שנאסף ישמש אך ורק למטרות הבאות:</p>
+    <ul style="list-style:disc;padding-right:20px;margin:8px 0">
+      <li>מתן השירותים המוצעים באתר (מענה לפניות, תיאום תורים, אספקת מוצרים).</li>
+      <li>תפעולו התקין, שיפורו, וייעולו של האתר וחוויית המשתמש.</li>
+      <li>שירות לקוחות וקשר רציף עם המשתמש.</li>
+      <li><strong>דיוור ישיר ופרסום (חוק הספאם):</strong> העסק יהיה רשאי לשלוח למשתמש מידע שיווקי, מבצעים ועדכונים באמצעות דוא"ל, SMS או וואטסאפ, רק במידה והמשתמש נתן לכך את הסכמתו המפורשת (למשל, על ידי סימון V בתיבה ייעודית). המשתמש רשאי להסיר את עצמו מרשימת התפוצה בכל עת באמצעות לחיצה על קישור "הסר" או פנייה ישירה לעסק.</li>
+    </ul>
+
+    <h3>3. העברת מידע לצדדים שלישיים</h3>
+    <p>העסק לא ימכור, לא ישכיר ולא יעביר את המידע האישי של המשתמשים לצדדים שלישיים, למעט במקרים הבאים:</p>
+    <ul style="list-style:disc;padding-right:20px;margin:8px 0">
+      <li>לספקי שירותים וקבלני משנה הפועלים מטעם העסק (כגון חברות סליקה, חברות שליחויות, או חברות ניהול מערכות מידע ואוטומציה), וזאת רק לצורך השלמת השירות המבוקש.</li>
+      <li>במקרה של מחלוקת משפטית או הליכים משפטיים בין המשתמש לבין העסק.</li>
+      <li>על פי צו שיפוטי או דרישה חוקית של רשות מוסמכת.</li>
+    </ul>
+
+    <h3>4. שימוש ב-Cookies (עוגיות) וטכנולוגיות מעקב</h3>
+    <p>האתר משתמש בקבצי Cookie (עוגיות) וטכנולוגיות מעקב דומות (כגון Google Analytics, Meta Pixel) לצורך תפעולו השוטף, לאימות פרטים, להתאמת האתר להעדפות האישיות של המשתמש ולצרכי אבטחת מידע ושיווק מחדש (Remarketing).</p>
+    <p>המשתמש יכול לשנות את הגדרות הדפדפן שלו כך שיחסום קבלת קבצי Cookie או ימחק אותם, אך הדבר עלול לפגוע באפשרות להשתמש בחלק מתכונות האתר.</p>
+
+    <h3>5. אבטחת מידע</h3>
+    <p>מפעילת האתר נוקטת באמצעי אבטחה טכנולוגיים וארגוניים מקובלים ומתאימים כדי להגן על המידע האישי מפני גישה ללא הרשאה, שימוש לרעה או חשיפה. יחד עם זאת, אף מערכת אינה חסינה לחלוטין, והעסק אינו יכול להבטיח חסינות מוחלטת מפני פריצות או גישה זדונית.</p>
+
+    <h3>6. זכות לעיין במידע ותיקונו</h3>
+    <p>על פי חוק הגנת הפרטיות, תשמ"א-1981, כל אדם זכאי לעיין במידע שעליו המוחזק במאגר מידע. אם מצאת שהמידע עליך אינו מדויק או מעודכן, הנך רשאי לפנות אלינו בבקשה לתקן את המידע או למחוק אותו לחלוטין (במידה ואין חובה חוקית אחרת לשמור אותו).</p>
+
+    <h3>פרטי התקשרות ובירורים</h3>
+    <p>לכל שאלה, בירור, בקשה לעיון או מחיקת מידע, או פניות בנושא תנאי השימוש ומדיניות הפרטיות, ניתן לפנות ישירות לבעלת האתר:</p>
+    <ul style="list-style:none;padding:0;margin:8px 0;line-height:2">
+      <li><strong>שם בעלת האתר:</strong> מעיין ועקנין</li>
+      <li><strong>כתובת פיזית:</strong> המשביר 1, חולון, ישראל</li>
+      <li><strong>טלפון:</strong> <a href="tel:0527884725" dir="ltr">052-7884725</a></li>
+      <li><strong>אתר אינטרנט:</strong> <a href="https://maayan-cosmetics.com" target="_blank" rel="noopener">maayan-cosmetics.com</a></li>
+    </ul>
+
     <button class="btn" style="margin-top:16px" onclick="closeModal('privacyModal')">סגירה</button>
   </div>
 </div>
@@ -571,21 +739,116 @@
 <div id="termsModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('termsModal')">&times;</button>
-    <h2 id="termsTitle">תנאי שימוש</h2>
-    <p><strong>עדכון אחרון: ינואר 2025</strong></p>
-    <h3>1. כללי</h3>
-    <p>השימוש באתר מהווה הסכמה לתנאי השימוש. האתר מופעל על ידי מעיין ועקנין, קוסמטיקאית קלינית.</p>
-    <h3>2. השירותים המוצעים</h3>
-    <p>האתר מספק מידע על טיפולי עור ומוצרי קוסמטיקה. המידע הינו לצורכי מידע כללי ואינו מהווה ייעוץ רפואי.</p>
-    <h3>3. קביעת תורים</h3>
-    <p>קביעת תור דרך האתר הינה בגדר בקשה בלבד. התור יאושר לאחר קבלת אישור מפורש מהקליניקה. ביטול יש לבצע לפחות 24 שעות מראש.</p>
-    <h3>4. תוכן האתר</h3>
-    <p>כל תכני האתר — תמונות, טקסטים ועיצוב — הינם קניין רוחני של הקליניקה. אין להעתיק, לשכפל או להשתמש ללא אישור בכתב.</p>
-    <h3>5. אחריות</h3>
-    <p>הקליניקה אינה אחראית לנזקים שעלולים להיגרם מהסתמכות על מידע באתר. תוצאות הטיפולים עשויות להשתנות בין אנשים שונים.</p>
-    <h3>6. שינויים בתנאים</h3>
-    <p>הקליניקה שומרת לעצמה את הזכות לשנות את תנאי השימוש בכל עת. המשך השימוש מהווה הסכמה לתנאים המעודכנים.</p>
+    <h2 id="termsTitle">תנאי שימוש ומדיניות פרטיות</h2>
+    <p><strong>נוסח זה עודכן לאחרונה במאי 2026.</strong></p>
+
+    <p>ברוכים הבאים לאתר האינטרנט של מעיין ועקנין (להלן: "העסק" ו/או "מפעילת האתר"), הפועל בכתובת הדיגיטלית: <a href="https://maayan-cosmetics.com" target="_blank" rel="noopener">https://maayan-cosmetics.com/</a> (להלן: "האתר").</p>
+    <p>השימוש באתר, בתכנים הכלולים בו ובשירותים השונים המוצעים דרכו כפוף לקריאתם וקבלתם המלאה של תנאי שימוש ומדיניות פרטיות אלה (להלן: "התקנון"). הגלישה באתר ו/או ביצוע פעולות בו מהווים הסכמה מצדך (להלן: "המשתמש" ו/או "הלקוח") לכל התנאים המפורטים בתקנון זה. אם אינך מסכים לתנאים אלו, כולם או חלקם, הנך מתבקש שלא לעשות כל שימוש באתר.</p>
+
+    <h3>חלק א': תנאי השימוש באתר</h3>
+
+    <h3>1. כללי וכשירות משפטית</h3>
+    <ul style="list-style:disc;padding-right:20px;margin:8px 0">
+      <li>האתר מציע מידע, תכנים, ואפשרות ליצירת קשר ו/או הזמנת שירותים ומוצרים בתחום היופי והקוסמטיקה.</li>
+      <li>השימוש באתר מותר לכל אזרח בגיר (מעל גיל 18) הכשיר לבצע פעולות משפטיות מחייבות. במידה והמשתמש קטין, השימוש באתר ייחשב כאילו קיבל את אישור ההורים או האפוטרופוס החוקי שלו.</li>
+      <li>מפעילת האתר שומרת לעצמה את הזכות לעדכן או לשנות את התקנון מעת לעת, לפי שיקול דעתה הבלעדי וללא צורך במתן הודעה מוקדמת. הנוסח המחייב הוא הנוסח המפורסם באתר בעת השימוש.</li>
+    </ul>
+
+    <h3>2. קניין רוחני</h3>
+    <ul style="list-style:disc;padding-right:20px;margin:8px 0">
+      <li>כל זכויות היוצרים והקניין הרוחני באתר- לרבות עיצוב האתר, קוד מקור, טקסטים, תמונות, סרטונים, לוגואים, סימני מסחר, ותכנים מקצועיים (להלן: "התוכן") – שייכים באופן בלעדי למעיין או לצדדים שלישיים שהעניקו לה רישיון שימוש בהם.</li>
+      <li>אין להעתיק, לשכפל, להפיץ, למכור, לתרגם, לשדר או לעשות כל שימוש מסחרי או אחר בתוכן מתוך האתר ללא קבלת אישור בכתב ומראש ממפעילת האתר.</li>
+    </ul>
+
+    <h3>3. אחריות ושימוש באתר</h3>
+    <ul style="list-style:disc;padding-right:20px;margin:8px 0">
+      <li>התוכן והמידע המוצגים באתר מוצעים כפי שהם ("As Is"). מפעילת האתר משקיעה מאמצים רבים כדי להבטיח שהמידע יהיה מדויק ומעודכן, אך ייתכנו שגיאות או אי-דיוקים. המידע באתר אינו מהווה ייעוץ רפואי או תחליף לייעוץ מקצועי פרטני, וכל הסתמכות עליו היא באחריות המשתמש בלבד.</li>
+      <li>העסק לא יישא באחריות לכל נזק ישיר, עקיף, תוצאתי או מיוחד שייגרם למשתמש או לצד שלישי כתוצאה משימוש באתר, מהפרעות בפעילותו, או מתוכנות זדוניות (וירוסים) שעשויות לעבור דרך רשת האינטרנט.</li>
+    </ul>
+
+    <h3>חלק ב': מדיניות הפרטיות (Privacy Policy)</h3>
+
+    <p>מפעילת האתר מכבדת את פרטיותם של המשתמשים ומחויבת להגן עליה בהתאם לחוק הגנת הפרטיות, תשמ"א-1981 ותקנותיו (כולל תקנות אבטחת מידע).</p>
+
+    <h3>1. המידע שנאסף באתר</h3>
+    <p>במהלך השימוש באתר, עשויים להיאסף שני סוגי מידע:</p>
+    <p><strong>מידע אישי שנמסר מרצון:</strong> בעת מילוי טפסי יצירת קשר, הרשמה למועדון לקוחות, קביעת תורים או רכישה, המשתמש עשוי להתבקש למסור פרטים כגון: שם מלא, מספר טלפון, כתובת דואר אלקטרוני, וכתובת מגורים. מסירת המידע אינה חובה על פי חוק, אך ללא מסירתו לא ניתן יהיה לספק את השירות המבוקש.</p>
+    <p><strong>מידע טכני וסטטיסטי (אנונימי):</strong> במהלך הגלישה, נאסף באופן אוטומטי מידע על הרגלי הגלישה של המשתמש, כגון: כתובת IP, סוג הדפדפן, דפים בהם ביקרת, משך השהות באתר, ומקור ההגעה לאתר. מידע זה אינו מזהה את המשתמש באופן אישי.</p>
+
+    <h3>2. המטרה לשמה נאסף המידע</h3>
+    <p>המידע שנאסף ישמש אך ורק למטרות הבאות:</p>
+    <ul style="list-style:disc;padding-right:20px;margin:8px 0">
+      <li>מתן השירותים המוצעים באתר (מענה לפניות, תיאום תורים, אספקת מוצרים).</li>
+      <li>תפעולו התקין, שיפורו, וייעולו של האתר וחוויית המשתמש.</li>
+      <li>שירות לקוחות וקשר רציף עם המשתמש.</li>
+      <li><strong>דיוור ישיר ופרסום (חוק הספאם):</strong> העסק יהיה רשאי לשלוח למשתמש מידע שיווקי, מבצעים ועדכונים באמצעות דוא"ל, SMS או וואטסאפ, רק במידה והמשתמש נתן לכך את הסכמתו המפורשת (למשל, על ידי סימון V בתיבה ייעודית). המשתמש רשאי להסיר את עצמו מרשימת התפוצה בכל עת באמצעות לחיצה על קישור "הסר" או פנייה ישירה לעסק.</li>
+    </ul>
+
+    <h3>3. העברת מידע לצדדים שלישיים</h3>
+    <p>העסק לא ימכור, לא ישכיר ולא יעביר את המידע האישי של המשתמשים לצדדים שלישיים, למעט במקרים הבאים:</p>
+    <ul style="list-style:disc;padding-right:20px;margin:8px 0">
+      <li>לספקי שירותים וקבלני משנה הפועלים מטעם העסק (כגון חברות סליקה, חברות שליחויות, או חברות ניהול מערכות מידע ואוטומציה), וזאת רק לצורך השלמת השירות המבוקש.</li>
+      <li>במקרה של מחלוקת משפטית או הליכים משפטיים בין המשתמש לבין העסק.</li>
+      <li>על פי צו שיפוטי או דרישה חוקית של רשות מוסמכת.</li>
+    </ul>
+
+    <h3>4. שימוש ב-Cookies (עוגיות) וטכנולוגיות מעקב</h3>
+    <p>האתר משתמש בקבצי Cookie (עוגיות) וטכנולוגיות מעקב דומות (כגון Google Analytics, Meta Pixel) לצורך תפעולו השוטף, לאימות פרטים, להתאמת האתר להעדפות האישיות של המשתמש ולצרכי אבטחת מידע ושיווק מחדש (Remarketing).</p>
+    <p>המשתמש יכול לשנות את הגדרות הדפדפן שלו כך שיחסום קבלת קבצי Cookie או ימחק אותם, אך הדבר עלול לפגוע באפשרות להשתמש בחלק מתכונות האתר.</p>
+
+    <h3>5. אבטחת מידע</h3>
+    <p>מפעילת האתר נוקטת באמצעי אבטחה טכנולוגיים וארגוניים מקובלים ומתאימים כדי להגן על המידע האישי מפני גישה ללא הרשאה, שימוש לרעה או חשיפה. יחד עם זאת, אף מערכת אינה חסינה לחלוטין, והעסק אינו יכול להבטיח חסינות מוחלטת מפני פריצות או גישה זדונית.</p>
+
+    <h3>6. זכות לעיין במידע ותיקונו</h3>
+    <p>על פי חוק הגנת הפרטיות, תשמ"א-1981, כל אדם זכאי לעיין במידע שעליו המוחזק במאגר מידע. אם מצאת שהמידע עליך אינו מדויק או מעודכן, הנך רשאי לפנות אלינו בבקשה לתקן את המידע או למחוק אותו לחלוטין (במידה ואין חובה חוקית אחרת לשמור אותו).</p>
+
+    <h3>חלק ג': פרטי התקשרות ובירורים</h3>
+    <p>לכל שאלה, בירור, בקשה לעיון או מחיקת מידע, או פניות בנושא תנאי השימוש ומדיניות הפרטיות, ניתן לפנות ישירות לבעלת האתר:</p>
+    <ul style="list-style:none;padding:0;margin:8px 0;line-height:2">
+      <li><strong>שם בעלת האתר:</strong> מעיין ועקנין</li>
+      <li><strong>כתובת פיזית:</strong> המשביר 1, חולון, ישראל</li>
+      <li><strong>טלפון:</strong> <a href="tel:0527884725" dir="ltr">052-7884725</a></li>
+      <li><strong>אתר אינטרנט:</strong> <a href="https://maayan-cosmetics.com" target="_blank" rel="noopener">https://maayan-cosmetics.com</a></li>
+    </ul>
+
     <button class="btn" style="margin-top:16px" onclick="closeModal('termsModal')">סגירה</button>
+  </div>
+</div>
+
+
+<div id="accessibilityModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="accessTitle">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('accessibilityModal')">&times;</button>
+    <h2 id="accessTitle">הצהרת נגישות</h2>
+    <p><strong>הצהרת הנגישות עודכנה לאחרונה במאי 2026.</strong></p>
+
+    <p>מעיין ועקנין (להלן: "העסק") רואה בחשיבות עליונה את מתן השירות השוויוני, המכובד, הנגיש והמקצועי לכלל לקוחותיה, לרבות אנשים עם מוגבלות. אנו פועלים מתוך תפיסת עולם לפיה יש לאפשר לכל אדם, באשר הוא, ליהנות מהשירותים ומהמידע המוצעים באתר האינטרנט ובקליניקה באופן עצמאי ומלא.</p>
+    <p>הצהרה זו נועדה לפרט את התאמות הנגישות שבוצעו באתר ובקליניקה הפיזית, וכן לספק פרטי קשר לכל שאלה או בקשה בנושא זה.</p>
+
+    <h3>נגישות אתר האינטרנט</h3>
+    <p>אתר האינטרנט של העסק, הפועל בכתובת <a href="https://maayan-cosmetics.com/" target="_blank" rel="noopener">https://maayan-cosmetics.com/</a>, נבנה והותאם ככל הניתן בהתאם להוראות תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), תשנ"ג-2013, ועל פי התקן הישראלי (ת"י 5568) המבוסס על הנחיות WCAG 2.0 לרמה AA.</p>
+
+    <h3>התאמות הנגישות המרכזיות באתר</h3>
+    <ul style="list-style:disc;padding-right:20px;margin:8px 0">
+      <li><strong>ניווט מקלדת:</strong> האתר תומך בניווט מלא באמצעות המקלדת (שימוש במקש Tab, חיצים ו-Enter) עבור משתמשים שאינם יכולים להשתמש בעכבר.</li>
+      <li><strong>תאימות לקוראי מסך:</strong> האתר מותאם לעבודה עם קוראי מסך מקובלים עבור גולשים עם לקות ראייה או עיוורון.</li>
+      <li><strong>תוספי נגישות:</strong> באתר מותקן רכיב נגישות (תפריט נגישות) המאפשר למשתמשים לשנות את חוויית הגלישה בהתאם לצרכיהם (הגדלת/הקטנת גופנים, שינוי ניגודיות צבעים, הדגשת קישורים, חסימת אנימציות ועוד).</li>
+      <li><strong>תגיות אלט (Alt Text):</strong> הוספת תיאור טקסטואלי לתמונות ורכיבים גרפיים באתר, ככל הניתן, לטובת גולשים המשתמשים בעזרים טכנולוגיים.</li>
+      <li><strong>מבנה ברור:</strong> האתר מעוצב עם היררכיית כותרות ברורה ותוכן קריא ומובן.</li>
+    </ul>
+
+    <h3>פרטי רכז הנגישות ופניות בנושא נגישות</h3>
+    <p>למרות מאמצינו הרבים להנגיש את כלל הדפים והרכיבים באתר ובקליניקה, ייתכן שיתגלו חלקים מסוימים שטרם הונגשו כראוי או שנמצאים תחת תהליכי הנגשה.</p>
+    <p>אם במהלך הגלישה באתר או במהלך הביקור בקליניקה נתקלתם בקושי, בתקלה, או במידע שאינו נגיש עבורכם, אנו מתנצלים על כך ונשמח מאוד אם תפנו אלינו כדי שנוכל לתקן ולשפר את הטעון שיפור.</p>
+    <p>ניתן לפנות ישירות לבעלת העסק האחראית על נושא הנגישות:</p>
+    <ul style="list-style:none;padding:0;margin:8px 0;line-height:2">
+      <li><strong>שם:</strong> מעיין ועקנין</li>
+      <li><strong>טלפון / וואטסאפ:</strong> <a href="tel:0527884725" dir="ltr">052-7884725</a></li>
+      <li><strong>כתובת פיזית:</strong> המשביר 1, חולון, ישראל</li>
+    </ul>
+    <p>באפשרותכם לפנות אלינו בכל אחד מאמצעי ההתקשרות לעיל, ואנו נטפל בפנייתכם בהקדם האפשרי ובמלוא הרצינות.</p>
+
+    <button class="btn" style="margin-top:16px" onclick="closeModal('accessibilityModal')">סגירה</button>
   </div>
 </div>
 
@@ -598,7 +861,7 @@
 
 
 <div class="nav-overlay" id="navOverlay">
-  <button class="nav-overlay-close" id="navClose" aria-label="סגור תפריט">&times;</button>
+  <button class="nav-overlay-close" id="navClose">&times;</button>
   <a href="#services"   onclick="navOverlay.classList.remove('open'); document.body.style.overflow='';">טיפולים</a>
   <a href="#about"      onclick="navOverlay.classList.remove('open'); document.body.style.overflow='';">אודות</a>
   <a href="#products"  onclick="navOverlay.classList.remove('open'); document.body.style.overflow='';">מוצרים</a>
@@ -616,15 +879,15 @@
         <a href="#products">מוצרים</a>
         <a href="#contact">צרי קשר</a>
       </nav>
+      <button class="menu-btn" id="menuBtn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="6"  cy="6"  r="2" fill="#231F20"/><circle cx="6"  cy="18" r="2" fill="#231F20"/><circle cx="18" cy="6"  r="2" fill="#231F20"/><circle cx="18" cy="18" r="2" fill="#231F20"/><circle cx="12" cy="12" r="2" fill="#231F20"/></svg>
+      </button>
     </div>
     <a href="#hero" class="header-logo" aria-label="מעיין קוסמטיקה">
       <img src="img/logo.png" alt="מעיין קוסמטיקה" style="height:70px;width:auto" />
     </a>
     <div class="header-right">
       <button onclick="openPopup()" class="header-book">קביעת תור</button>
-      <button class="menu-btn" id="menuBtn" aria-label="פתח תפריט">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="6"  cy="6"  r="2" fill="#231F20"/><circle cx="6"  cy="18" r="2" fill="#231F20"/><circle cx="18" cy="6"  r="2" fill="#231F20"/><circle cx="18" cy="18" r="2" fill="#231F20"/><circle cx="12" cy="12" r="2" fill="#231F20"/></svg>
-      </button>
     </div>
   </div>
 </header>
@@ -633,8 +896,10 @@
 <section class="hero" id="hero">
   <div class="hero-container">
     <h1 class="hero-title hero-title-1">מעיין<br>ועקנין</h1>
-    <div class="hero-portrait">
-      <div style="width:100%;min-height:62vh;background:#FAF2F0;display:flex;align-items:center;justify-content:center;color:#EAA098;font-family:var(--ff-h);font-size:18px">תמונה תוחלף</div>
+    <div class="hero-portrait-outer">
+      <div class="hero-portrait">
+        <img src="img/hero-pct.png" alt="מעיין ועקנין — קוסמטיקאית קלינית" />
+      </div>
     </div>
     <h1 class="hero-title hero-title-2">קוסמטיקה<br>קלינית</h1>
   </div>
@@ -642,13 +907,13 @@
 
 
 <section class="tagline-section">
-  <button onclick="openPopup()" class="tagline-link" style="background:none;border:none;cursor:pointer;width:100%">
+  <button onclick="openPopup()" class="tagline-link sr" style="background:none;border:none;cursor:pointer;width:100%">
     כי כל עור הוא עולם בפני עצמו
   </button>
 </section>
 
 
-<div class="quick-nav">
+<div class="quick-nav sr-group">
   <button onclick="openPopup()" class="quick-nav-item" style="border:none;background:none;cursor:pointer;text-align:right">
     <span>קביעת</span>
     <strong>תור</strong>
@@ -669,11 +934,11 @@
 
 
 <section class="treatments-home" id="services">
-  <div class="section-center">
+  <div class="section-center sr">
     <h2>הטיפולים שלי</h2>
     <p class="sub">טכנולוגיות מתקדמות, חומרים איכותיים, תוצאות אמיתיות</p>
   </div>
-  <div class="treatment-circles">
+  <div class="treatment-circles sr-group">
 
     <!-- הסרת פיגמנטציה -->
     <a href="#" onclick="openPopup();return false;" class="treatment-circle">
@@ -838,7 +1103,7 @@
 
 <section class="bio-section" id="about">
   <div class="bio-grid">
-    <div class="bio-text">
+    <div class="bio-text sr-right">
       <span class="doctor-label">מעיין ועקנין — קוסמטיקאית קלינית</span>
       <h2>הקליניקה שלי נולדה מתוך אהבה</h2>
       <p>נעים מאוד, אני מעיין ועקנין — קוסמטיקאית קלינית המתמחה בטיפולי עור מתקדמים בהתאמה אישית.</p>
@@ -847,7 +1112,7 @@
       <p>בקליניקה שלי חשוב לי להעניק לא רק תוצאות — אלא גם חוויה, יחס אישי, מקצועיות ואווירה נעימה שגורמת לך להרגיש בבית.</p>
       <button onclick="openPopup()" class="btn">לקביעת תור ←</button>
     </div>
-    <div class="bio-portrait-wrap">
+    <div class="bio-portrait-wrap sr-left">
       <img src="img/Picture Of Maayan White BG.png" alt="מעיין ועקנין — קוסמטיקאית קלינית" style="width:100%;max-width:460px;display:block;margin:0 auto" />
     </div>
   </div>
@@ -863,25 +1128,22 @@
 </div>
 
 <section class="portfolio-section" id="portfolio">
-  <div class="portfolio-head">
+  <div class="portfolio-head sr">
     <p>הגלריה שלי</p>
     <h2>תוצאות אמיתיות</h2>
   </div>
-  <div class="portfolio-grid">
-    <div class="portfolio-item" onclick="openLb(0)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07.jpeg"   alt="תוצאה 1"  loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(1)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07 (1).jpeg" alt="תוצאה 2" loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(2)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07 (2).jpeg" alt="תוצאה 3" loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(3)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07 (3).jpeg" alt="תוצאה 4" loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(4)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07 (4).jpeg" alt="תוצאה 5" loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(5)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08.jpeg"    alt="תוצאה 6"  loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(6)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08 (1).jpeg" alt="תוצאה 7" loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(7)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08 (2).jpeg" alt="תוצאה 8" loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(8)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08 (3).jpeg" alt="תוצאה 9" loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(9)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08 (4).jpeg" alt="תוצאה 10" loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(10)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08 (5).jpeg" alt="תוצאה 11" loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(11)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08 (6).jpeg" alt="תוצאה 12" loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(12)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08 (7).jpeg" alt="תוצאה 13" loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(13)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.09.jpeg"    alt="תוצאה 14"  loading="lazy"/></div>
+  <div class="portfolio-grid sr-group">
+    <div class="portfolio-item" onclick="openLb(0)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07.jpeg"         alt="תוצאה 1"  loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(1)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07 (1).jpeg"     alt="תוצאה 2"  loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(2)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07 (2).jpeg"     alt="תוצאה 3"  loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(3)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07 (3).jpeg"     alt="תוצאה 4"  loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(4)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07 (4).jpeg"     alt="תוצאה 5"  loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(5)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08.jpeg"         alt="תוצאה 6"  loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(6)"><img src="img/WhatsApp Image 2026-06-01 at 10.47.11.jpeg"         alt="תוצאה 7"  loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(7)"><img src="img/WhatsApp Image 2026-06-01 at 10.48.57.jpeg"         alt="תוצאה 8"  loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(8)"><img src="img/WhatsApp Image 2026-06-01 at 10.49.37.jpeg"         alt="תוצאה 9"  loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(9)"><img src="img/WhatsApp Image 2026-06-01 at 10.50.34.jpeg"         alt="תוצאה 10" loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(10)"><img src="img/WhatsApp Image 2026-06-01 at 10.52.57.jpeg"        alt="תוצאה 11" loading="lazy"/></div>
   </div>
   <div class="portfolio-cta">
     <button onclick="openPopup()" class="btn" style="border-color:#fff;color:#fff;background:transparent;margin-top:0">קביעת תור ←</button>
@@ -890,34 +1152,34 @@
 
 
 <section class="my-pick-section" id="products">
-  <div class="my-pick-head">
+  <div class="my-pick-head sr">
     <h2>מוצרי GIGI</h2>
     <p>״הטוב ביותר לעורך — זמין אצלי בקליניקה״</p>
     <span class="rose-line"></span>
   </div>
-  <div class="my-pick-grid">
+  <div class="my-pick-grid sr-group">
     <div class="pick-card">
-      <div style="width:100%;height:160px;background:#FAF2F0;display:flex;align-items:center;justify-content:center;color:#EAA098;font-size:13px;font-family:var(--ff-b)">GIGI</div>
+      <img src="img/gigi-vitamin-e.jpg" alt="GIGI Vitamin E Moisturizing Cream" loading="lazy" />
       <h3>Vitamin E Moisturizing Cream</h3>
       <p>קרם לחות עשיר בויטמין E לעור יבש ורגיש</p>
     </div>
     <div class="pick-card">
-      <div style="width:100%;height:160px;background:#FAF2F0;display:flex;align-items:center;justify-content:center;color:#EAA098;font-size:13px;font-family:var(--ff-b)">GIGI</div>
+      <img src="img/gigi-carotene-butter.jpg" alt="GIGI Carotene Butter Cream" loading="lazy" />
       <h3>Carotene Butter Cream</h3>
       <p>קרם בטר קרוטן מזין המחזיר את זוהר העור</p>
     </div>
     <div class="pick-card">
-      <div style="width:100%;height:160px;background:#FAF2F0;display:flex;align-items:center;justify-content:center;color:#EAA098;font-size:13px;font-family:var(--ff-b)">GIGI</div>
+      <img src="img/gigi-solar-spf50.jpg" alt="GIGI Solar Energy SPF 50" loading="lazy" />
       <h3>Solar Energy SPF 50</h3>
       <p>הגנת שמש מקצועית, קלה ומרגישה טוב</p>
     </div>
     <div class="pick-card">
-      <div style="width:100%;height:160px;background:#FAF2F0;display:flex;align-items:center;justify-content:center;color:#EAA098;font-size:13px;font-family:var(--ff-b)">GIGI</div>
+      <img src="img/gigi-bio-placenta.png" alt="GIGI Bio Placenta Serum" loading="lazy" />
       <h3>Bio Placenta Serum</h3>
       <p>סרום מחזיר נעורים לעור בוגר</p>
     </div>
     <div class="pick-card">
-      <div style="width:100%;height:160px;background:#FAF2F0;display:flex;align-items:center;justify-content:center;color:#EAA098;font-size:13px;font-family:var(--ff-b)">GIGI</div>
+      <img src="img/gigi-eye-cream.jpg" alt="GIGI Nutri-Peptide Eye Cream" loading="lazy" />
       <h3>Nutri-Peptide Eye Cream</h3>
       <p>קרם עיניים עתיר פפטידים נגד קמטוטים</p>
     </div>
@@ -931,13 +1193,13 @@
 
 
 <section class="contact-section" id="contact">
-  <div class="section-center">
+  <div class="section-center sr">
     <p class="sub">צרי קשר</p>
     <h2>שמחה לשמוע ממך</h2>
   </div>
   <div class="contact-inner">
 
-    <div class="contact-details">
+    <div class="contact-details sr-right">
       <h3>בואי נדבר!</h3>
       <p>מוזמנת לפנות אלי בכל שאלה, לתאם תור או לקבל מידע על טיפולים. כאן בשבילך.</p>
 
@@ -983,7 +1245,7 @@
       </div>
     </div>
 
-    <div class="contact-form-wrap">
+    <div class="contact-form-wrap sr-left">
       <h3>שלחי לי הודעה</h3>
       <!-- ⚠️ ФОРМА: той самий ключ з web3forms.com -->
       <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
@@ -1069,12 +1331,12 @@
   <div class="footer-legal">
     <p>&copy; 2026 מעיין קוסמטיקה. כל הזכויות שמורות.</p>
     <ul>
-      <li><a href="#" onclick="openModal('privacyModal');return false;">מדיניות פרטיות</a></li>
-      <li><a href="#" onclick="openModal('termsModal');return false;">תנאי שימוש</a></li>
+      <li><a href="terms.html">מדיניות פרטיות ותנאי שימוש</a></li>
+      <li><a href="accessibility.html">הצהרת נגישות</a></li>
     </ul>
   </div>
   <div style="text-align:center;padding:10px 40px 18px;font-size:11px;color:rgba(255,255,255,.25);font-family:var(--ff-b)">
-    בניית אתר: Aiterra פתרונות טכנולוגיים | מיכאל 052-6780739 | אריק 054-2404452
+    בניית אתר: <a href="https://www.aiterra.co.il" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);text-decoration:underline;transition:color .2s" onmouseover="this.style.color='#EAA098'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Aiterra פתרונות טכנולוגיים</a>
   </div>
 </footer>
 
@@ -1119,13 +1381,34 @@ var navOverlay = document.getElementById('navOverlay');
 document.getElementById('menuBtn').onclick  = function(){ navOverlay.classList.add('open'); document.body.style.overflow='hidden'; };
 document.getElementById('navClose').onclick = function(){ navOverlay.classList.remove('open'); document.body.style.overflow=''; };
 
-/* ── Forms (Web3Forms AJAX) ──────────────── */
+/* ── Forms (Web3Forms AJAX + CRM) ───────── */
+var CRM_TOKEN = '2a5f396b-f6d7-4c14-a530-144f2be74558';
+var CRM_URL   = 'https://aiterra.agency/api/site-leads/submit';
+
+function sendToCRM(fd){
+  var payload = {
+    publicToken: CRM_TOKEN,
+    name:    fd.get('name')      || '',
+    phone:   fd.get('phone')     || '',
+    email:   fd.get('email')     || '',
+    message: fd.get('treatment') ? 'טיפול: ' + fd.get('treatment') : (fd.get('message') || ''),
+    source:  window.location.href
+  };
+  fetch(CRM_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  }).catch(function(){});
+}
+
 function setupForm(formId, successId){
   var form=document.getElementById(formId);
   if(!form) return;
   form.onsubmit=function(e){
     e.preventDefault();
-    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+    var fd = new FormData(form);
+    sendToCRM(fd);
+    fetch(form.action,{method:'POST',body:fd,headers:{'Accept':'application/json'}})
       .then(function(r){
         if(r.ok){ form.style.display='none'; document.getElementById(successId).classList.add('show'); }
         else { alert('אירעה שגיאה — אנא נסי שנית.'); }
@@ -1141,7 +1424,12 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
     var href = this.getAttribute('href');
     if(href !== '#' && href.startsWith('#')) {
       var t=document.querySelector(href);
-      if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+      if(t){
+        e.preventDefault();
+        navOverlay.classList.remove('open');
+        document.body.style.overflow='';
+        t.scrollIntoView({behavior:'smooth'});
+      }
     }
   };
 });
@@ -1156,6 +1444,29 @@ document.getElementById('lb-close').onclick = closeLb;
 lb.onclick = function(e){ if(e.target===this) closeLb(); };
 document.getElementById('lb-next').onclick = function(){ lbIdx=(lbIdx-1+lbImgs.length)%lbImgs.length; document.getElementById('lb-img').src=lbImgs[lbIdx]; };
 document.getElementById('lb-prev').onclick = function(){ lbIdx=(lbIdx+1)%lbImgs.length; document.getElementById('lb-img').src=lbImgs[lbIdx]; };
+
+/* ── Scroll reveal ───────────────────────── */
+(function(){
+  var delay = [0, 80, 160, 240, 320, 400, 480, 560, 640, 720, 800];
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target;
+      if(el.classList.contains('sr-group')){
+        Array.from(el.children).forEach(function(child, i){
+          setTimeout(function(){ child.classList.add('visible'); }, delay[i] || i*80);
+        });
+      } else {
+        el.classList.add('visible');
+      }
+      io.unobserve(el);
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.sr, .sr-left, .sr-right, .sr-scale, .sr-group').forEach(function(el){
+    io.observe(el);
+  });
+})();
 
 /* ── Escape key ──────────────────────────── */
 document.onkeydown=function(e){

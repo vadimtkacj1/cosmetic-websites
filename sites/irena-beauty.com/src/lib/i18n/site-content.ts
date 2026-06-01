@@ -96,6 +96,19 @@ export interface SiteContent {
     callCta: string
     openMaps: string
   }
+  leadForm: {
+    title: string
+    subtitle: string
+    namePlaceholder: string
+    phonePlaceholder: string
+    emailPlaceholder: string
+    messagePlaceholder: string
+    submitCta: string
+    sending: string
+    successTitle: string
+    successText: string
+    errorGeneric: string
+  }
   footer: {
     brandText: string
     navTitle: string
@@ -332,6 +345,19 @@ export const SITE_CONTENT_RU: SiteContent = {
     callCta: 'ПОЗВОНИТЬ',
     openMaps: 'Открыть в Google Maps',
   },
+  leadForm: {
+    title: 'Оставить заявку',
+    subtitle: 'Напишите свои контакты — я свяжусь с вами в ближайшее время.',
+    namePlaceholder: 'Ваше имя *',
+    phonePlaceholder: 'Телефон',
+    emailPlaceholder: 'Email',
+    messagePlaceholder: 'Ваш вопрос или пожелание',
+    submitCta: 'ОТПРАВИТЬ',
+    sending: 'Отправка...',
+    successTitle: 'Заявка принята!',
+    successText: 'Я свяжусь с вами в ближайшее время.',
+    errorGeneric: 'Не удалось отправить. Попробуйте ещё раз.',
+  },
   footer: {
     brandText:
       'Студия красоты Ирэны - место, где каждая женщина чувствует заботу, комфорт и доверие. Перманентный макияж и ногтевой сервис в Холоне.',
@@ -560,6 +586,19 @@ export const SITE_CONTENT_HE: SiteContent = {
     whatsappCta: 'כתבו בוואטסאפ',
     callCta: 'התקשרו',
     openMaps: 'פתחו ב-Google Maps',
+  },
+  leadForm: {
+    title: 'השאירו פרטים',
+    subtitle: 'כתבו את הפרטים שלכם ואצור איתכם קשר בהקדם.',
+    namePlaceholder: 'שם מלא *',
+    phonePlaceholder: 'טלפון',
+    emailPlaceholder: 'אימייל',
+    messagePlaceholder: 'שאלה או בקשה',
+    submitCta: 'שלח',
+    sending: 'שולח...',
+    successTitle: 'הטופס נשלח!',
+    successText: 'אצור איתך קשר בהקדם.',
+    errorGeneric: 'שליחה נכשלה. נסו שוב.',
   },
   footer: {
     brandText:

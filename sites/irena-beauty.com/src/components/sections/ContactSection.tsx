@@ -1,7 +1,140 @@
 'use client';
+import { useState } from 'react';
 import { useParallax } from '@/hooks/useParallax';
 import { useInView } from '@/hooks/useInView';
 import { useSiteContent } from '@/components/i18n/LocaleProvider';
+
+const LEAD_API = 'https://aiterra.agency/api/site-leads/submit';
+const PUBLIC_TOKEN = 'dba801b5-aca9-4535-b03c-97be900fe9be';
+
+function LeadForm() {
+  const { leadForm } = useSiteContent();
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const { ref, inView } = useInView<HTMLDivElement>();
+
+  const inputCls =
+    'w-full bg-secondary-light border border-transparent focus:border-primary-background focus:outline-none px-[16px] py-[13px] text-[15px] text-text-primary placeholder:text-text-secondary transition-colors duration-200';
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!name.trim()) return;
+    setStatus('sending');
+    try {
+      const res = await fetch(LEAD_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          publicToken: PUBLIC_TOKEN,
+          name: name.trim(),
+          phone: phone.trim() || undefined,
+          email: email.trim() || undefined,
+          message: message.trim() || undefined,
+          source: window.location.href,
+        }),
+      });
+      if (!res.ok) throw new Error('bad response');
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    }
+  }
+
+  return (
+    <div
+      ref={ref}
+      className={`bg-secondary-background p-[20px] sm:p-[30px] md:p-[40px] transition-all duration-1000 ease-out ${
+        inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+      }`}
+    >
+      <div className="max-w-[720px]">
+        <h3
+          className="text-[22px] sm:text-[27px] md:text-3xl font-semibold leading-5xl text-text-primary mb-[8px]"
+          style={{ fontFamily: 'Nunito Sans' }}
+        >
+          {leadForm.title}
+        </h3>
+        <p
+          className="text-[15px] sm:text-base font-normal text-text-secondary mb-[28px]"
+          style={{ fontFamily: 'Nunito Sans' }}
+        >
+          {leadForm.subtitle}
+        </p>
+
+        {status === 'success' ? (
+          <div className="flex flex-col gap-[8px]">
+            <p
+              className="text-[20px] font-semibold text-primary-background"
+              style={{ fontFamily: 'Nunito Sans' }}
+            >
+              {leadForm.successTitle}
+            </p>
+            <p className="text-[15px] text-text-secondary" style={{ fontFamily: 'Nunito Sans' }}>
+              {leadForm.successText}
+            </p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} noValidate>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-[12px] mb-[12px]">
+              <input
+                type="text"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                placeholder={leadForm.namePlaceholder}
+                required
+                className={inputCls}
+                style={{ fontFamily: 'Nunito Sans' }}
+              />
+              <input
+                type="tel"
+                value={phone}
+                onChange={e => setPhone(e.target.value)}
+                placeholder={leadForm.phonePlaceholder}
+                className={inputCls}
+                style={{ fontFamily: 'Nunito Sans' }}
+              />
+              <input
+                type="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder={leadForm.emailPlaceholder}
+                className={`${inputCls} sm:col-span-2`}
+                style={{ fontFamily: 'Nunito Sans' }}
+              />
+              <textarea
+                value={message}
+                onChange={e => setMessage(e.target.value)}
+                placeholder={leadForm.messagePlaceholder}
+                rows={3}
+                className={`${inputCls} resize-none sm:col-span-2`}
+                style={{ fontFamily: 'Nunito Sans' }}
+              />
+            </div>
+            {status === 'error' && (
+              <p
+                className="text-[13px] text-red-500 mb-[10px]"
+                style={{ fontFamily: 'Nunito Sans' }}
+              >
+                {leadForm.errorGeneric}
+              </p>
+            )}
+            <button
+              type="submit"
+              disabled={status === 'sending' || !name.trim()}
+              className="inline-flex items-center justify-center bg-primary-background text-text-white px-[32px] py-[14px] hover:opacity-90 hover:-translate-y-0.5 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0 text-[15px] font-normal tracking-wide"
+              style={{ fontFamily: 'Nunito Sans' }}
+            >
+              {status === 'sending' ? leadForm.sending : leadForm.submitCta}
+            </button>
+          </form>
+        )}
+      </div>
+    </div>
+  );
+}
 
 const MAPS_QUERY = 'Sokol+41+Holon+Israel';
 const PHONE_HREF = 'tel:+972539594370';
@@ -155,6 +288,9 @@ export default function ContactSection() {
               {contact.subtitle}
             </p>
           </div>
+
+          {/* Lead form */}
+          <LeadForm />
 
           {/* Body */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-[16px] sm:gap-[20px] md:gap-[24px] w-full">

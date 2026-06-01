@@ -14,6 +14,9 @@ export const metadata = {
     default: 'GlamNails',
     template: 'GlamNails | %s',
   },
+  icons: {
+    icon: '/favicon.ico',
+  },
   description: 'Experience luxury nail care at GlamNails. Expert manicures, pedicures, and artistic nail designs. Book your appointment today for professional nail services, relaxing spa treatments, and stunning nail art in a welcoming atmosphere.',
   keywords: 'nail salon, manicure, pedicure, nail art, gel nails, acrylic nails, nail spa, nail designs, professional nail care, nail technician, beauty salon',
   

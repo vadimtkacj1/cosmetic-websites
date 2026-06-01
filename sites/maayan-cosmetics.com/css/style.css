@@ -57,6 +57,8 @@ ul { list-style: none; }
 .header-left {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
 }
 .header-book {
   font-size: 12px;
@@ -172,18 +174,24 @@ ul { list-style: none; }
   right: 60px;
   text-align: right;
 }
-.hero-portrait {
+.hero-portrait-outer {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-38%, -50%);
+  transform: translate(-50%, -50%);
   width: 40vw;
   max-width: 540px;
   z-index: 1;
 }
+.hero-portrait {
+  border-radius: 50% 50% 50% 50% / 42% 42% 58% 58%;
+  overflow: hidden;
+  position: relative;
+}
 .hero-portrait img {
   width: 100%;
   height: auto;
+  display: block;
 }
 .hero-awards {
   position: absolute;
@@ -430,7 +438,7 @@ ul { list-style: none; }
 
 /* ── MY PICK ── */
 .my-pick-section {
-  padding: 90px 0;
+  padding: 90px 0 48px;
   background: #fff;
 }
 .my-pick-head {
@@ -750,7 +758,7 @@ address { font-style: normal; color: var(--grey); line-height: 1.9; font-size: 1
 @media (max-width: 900px) {
   .hero-container { padding: 50px 30px; }
   .hero-title { font-size: clamp(48px, 9vw, 90px); }
-  .hero-portrait { width: 50vw; transform: translate(-30%, -50%); }
+  .hero-portrait-outer { width: 50vw; }
   .nav-links { display: none; }
   .menu-btn  { display: flex; }
   .bio-grid { grid-template-columns: 1fr; gap: 40px; padding: 0 24px; }
@@ -777,9 +785,11 @@ address { font-style: normal; color: var(--grey); line-height: 1.9; font-size: 1
   .my-pick-grid { grid-template-columns: 1fr 1fr; }
   .footer-nav-cols { grid-template-columns: 1fr 1fr; }
   .awards-grid { grid-template-columns: 1fr; }
-  .header-inner { padding: 0 20px; }
+  .header-inner { padding: 0 16px; }
   .footer-top { padding: 0 24px 50px; }
   .footer-social, .footer-legal { padding-left: 24px; padding-right: 24px; }
   .page-hero-content { padding: 0 24px 40px; }
   .treatments-list-section .container { padding: 0 20px; }
+  .site-header { height: 68px; }
+  .menu-btn { width: 40px; height: 40px; }
 }

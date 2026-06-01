@@ -1,0 +1,85 @@
+/* ============================================================
+   COOKIES BANNER — hofit-cosmetics.com
+   ============================================================ */
+
+.cookies-banner {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 800;
+  background: #3a302b;
+  color: rgba(255,255,255,0.90);
+  transform: translateY(100%);
+  transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 -4px 28px rgba(0,0,0,0.22);
+}
+.cookies-banner.show { transform: translateY(0); }
+
+.cookies-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cookies-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.cookies-text {
+  flex: 1;
+  min-width: 220px;
+  font-family: 'VarelaRound', sans-serif;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.cookies-text strong { font-size: 13px; }
+.cookies-text a { color: #c9a87c; text-decoration: underline; transition: color 0.2s; }
+.cookies-text a:hover { color: #fff; }
+
+.cookies-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.cookies-btn-accept {
+  padding: 10px 22px;
+  background: #52433D;
+  color: #fff;
+  border: 2px solid #8B7355;
+  border-radius: 50px;
+  font-family: 'VarelaRound', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+.cookies-btn-accept:hover { background: #8B7355; transform: translateY(-1px); }
+.cookies-btn-accept:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+.cookies-btn-decline {
+  padding: 10px 18px;
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+  border: 1.5px solid rgba(255,255,255,0.28);
+  border-radius: 50px;
+  font-family: 'VarelaRound', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.cookies-btn-decline:hover { color: #fff; border-color: rgba(255,255,255,0.65); }
+.cookies-btn-decline:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+@media (max-width: 640px) {
+  .cookies-inner { padding: 14px 16px; gap: 12px; }
+  .cookies-text { font-size: 12px; }
+  .cookies-btn-accept, .cookies-btn-decline { padding: 9px 16px; font-size: 12px; }
+}
