@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="css/widgets.css" />
   <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility" defer></script>
 
+  <link rel="stylesheet" href="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.css">
+
   <style>
     /* ─── FONTS ──────────────────────────────────────────────────── */
     @font-face {
@@ -25,9 +27,27 @@
 
     /* ─── RESET & BASE ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { 
-      scroll-behavior: smooth !important; 
+    
+    /* Специфические стили для интеграции плавного скролла Lenis */
+    html {
+      scroll-behavior: auto !important;
     }
+    html.lenis, html.lenis body {
+      height: auto;
+    }
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      scroll-navigation: contain;
+    }
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+    .lenis.lenis-scrolling iframe {
+      pointer-events: none;
+    }
+
     body {
       font-family: 'VarelaRound', sans-serif;
       font-size: 16px;
@@ -780,8 +800,8 @@
     .contact-card a { color: var(--brown); font-weight: 400; }
     .contact-card a:hover { color: var(--brown-light); }
     .hours-list { display: flex; flex-direction: column; gap: 6px; }
-    .hours-row { display: flex; justify-content: space-between; font-size: 14px; color: var(--text); border-bottom: 1px solid var(--beige-dark); padding-bottom: 6px; }
-    .hours-row:last-child { border-bottom: none; }
+    .hours-list .hours-row { display: flex; justify-content: space-between; font-size: 14px; color: var(--text); border-bottom: 1px solid var(--beige-dark); padding-bottom: 6px; }
+    .hours-list .hours-row:last-child { border-bottom: none; }
 
     /* ─── CONTACT FORM ───────────────────────────────────────────── */
     .contact-form-wrap {
@@ -1369,7 +1389,7 @@
         <img src="img/3333333.jfif" alt="הסרת שיער בלייזר קר" loading="lazy" />
         <div class="caption">
           <div class="item-title">הסרת שיער בלייזר קר</div>
-          <div class="text">הסרה יעילה ובטוחה בטכנולוגיית לייזר קר — מתאים לכל סוגי העור, מיниמום כאב, תוצאות ארוכות טווח.</div>
+          <div class="text">הסרה יעילה ובטוחה בטכנולוגיית לייזר קר — מתאים לכל סוגי העור, מינימום כאב, תוצאות ארוכות טווח.</div>
           <div class="buttons">
             <a href="https://wa.me/972542186634" class="book-now-compact" target="_blank" rel="noopener">קביעת תור</a>
           </div>
@@ -1506,7 +1526,7 @@
       <div class="bs-text reveal-right">
         <p>נעים מאוד, אני חופית — טכנאית לייזר ומומחית לטיפולי עור עם ניסיון של כ-4 וחצי שנים בתחום האסתטיקה, אמא ל-3 ילדים ואישה שחיה ונושמת את עולם היופי והטיפוח.</p>
         <p>גדלתי בתוך עולם הקוסמטיקה והאסתטיקה, כשאמא שלי עוסקת בתחום כבר מעל 35 שנה, כך שמגיל צעיר הקליניקות היו עבורי ממש בית. מתוך אהבה גדולה לתחום והרצון לעזור לנשים וילדות להרגיש יפות, בטוחות וזוהרות בעור שלהן — בחרתי להפוך את התשוקה שלי למקצוע.</p>
-        <p>עם השנים הבנתי עד כמה המודעות של נערות וילדות לטיפוח ואסתטיקה גדלה, וכמה חשוב להעניק להן יחס מקצועי, עדין ומותאם לגיל שלהן. לכן, אחד הדברים שהכי חשובים לי בקליניקה הוא לגרום לכל ילדה ונערה להרגיש בנוח, בטוחה ויפה — תוך שמירה על תוצאות טבעיות והתאמה אישית לכל אחת.</p>
+        <p>With השנים הבנתי עד כמה המודעות של נערות וילדות לטיפוח ואסתטיקה גדלה, וכמה חשוב להעניק להן יחס מקצועי, עדין ומותאם לגיל שלהן. לכן, אחד הדברים שהכי חשובים לי בקליניקה הוא לגרום לכל ילדה ונערה להרגיש בנוח, בטוחה ויפה — תוך שמירה על תוצאות טבעיות והתאמה אישית לכל אחת.</p>
         <p>את הדרך שלי התחלתי בקליניקה קטנה של 10 מטר יחד עם אמא שלי, ולאורך השנים, עם התמדה, השקעה ואהבה אמיתית למקצוע — זכיתי לעבור לקליניקת החלומות שלי ❤</p>
         <a href="https://wa.me/972542186634" class="btn-brown" target="_blank" rel="noopener">קביעת תור ישיר</a>
       </div>
@@ -1790,9 +1810,48 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="js/widgets.js"></script>
+
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
 <script>
 (function () {
   'use strict';
+
+  /* ── Инициализация плавного скролла Lenis ────────────────── */
+const lenis = new Lenis({
+    duration: 1.8,          // Увеличили время дотягивания (было 1.2) — скролл стал длиннее и мягче
+    lerp: 0.05,             // Коэффициент замедления (чем меньше, тем плавнее и "маслянистее" ход)
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+    direction: 'vertical',  
+    gestureDirection: 'vertical',
+    smooth: true,
+    mouseMultiplier: 0.9,   // Чуть снизили резкость колесика мыши для кинематографичного эффекта
+    smoothTouch: false,     // На смартфонах оставляем родной отзывчивый скролл, чтобы не было задержек
+    touchMultiplier: 1.5,
+    infinite: false,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Синхронизация Lenis с кликами по якорным ссылкам для идеального перехода
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        // Вычисляем отступ с учетом фиксированной шапки (scroll-margin-top)
+        const offset = targetEl.offsetTop - 100; 
+        lenis.scrollTo(offset);
+      }
+    });
+  });
 
   /* ── Hero parallax ──────────────────────────────────── */
   const _heroBg = document.querySelector('.hero');
@@ -1824,12 +1883,14 @@
     mobileMenu.classList.add('open');
     backdrop.classList.add('active');
     document.body.style.overflow = 'hidden';
+    lenis.stop(); // Останавливаем плавный скролл при открытом меню
   }
   function closeMobile() {
     mobileBtn.classList.remove('open');
     mobileMenu.classList.remove('open');
     backdrop.classList.remove('active');
     document.body.style.overflow = '';
+    lenis.start(); // Включаем обратно
   }
   mobileBtn.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMobile() : openMobile());
   backdrop.addEventListener('click', closeMobile);
