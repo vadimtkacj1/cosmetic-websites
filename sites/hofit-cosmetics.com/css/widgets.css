@@ -5,7 +5,7 @@
 .cookies-banner {
   position: fixed;
   bottom: 0; left: 0; right: 0;
-  z-index: 800;
+  z-index: 999999;
   background: #3a302b;
   color: rgba(255,255,255,0.90);
   transform: translateY(100%);
@@ -79,7 +79,7 @@
 .cookies-btn-decline:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 
 @media (max-width: 640px) {
-  .cookies-inner { padding: 14px 16px; gap: 12px; }
+  .cookies-inner { padding: 14px 16px 14px 72px; gap: 12px; }
   .cookies-text { font-size: 12px; }
   .cookies-btn-accept, .cookies-btn-decline { padding: 9px 16px; font-size: 12px; }
 }
