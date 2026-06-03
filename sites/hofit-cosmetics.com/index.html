@@ -310,10 +310,13 @@
     /* ─── HERO ───────────────────────────────────────────────────── */
     .hero {
       min-height: 100svh;
-      background: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=80') center/cover no-repeat;
+      background: url('img/hero-desktop.png') center/cover no-repeat;
       display: flex;
       align-items: flex-end;
       position: relative;
+    }
+    @media (max-width: 640px) {
+      .hero { background-image: url('img/hero-mobile.png'); }
     }
     .hero::before {
       content: '';
@@ -1408,7 +1411,7 @@
 <section class="table-sev brown-bg">
   <div class="container">
     <div class="top">
-      <h2 class="title reveal">למה חופית?</h2>
+      <h2 class="title reveal">במה אני מיוחדת?</h2>
       <a href="https://wa.me/972542186634" class="white-button reveal delay-2" target="_blank" rel="noopener">קביעת תור</a>
     </div>
     <div class="table-container">
