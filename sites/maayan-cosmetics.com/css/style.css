@@ -757,7 +757,6 @@ address { font-style: normal; color: var(--grey); line-height: 1.9; font-size: 1
 }
 @media (max-width: 900px) {
   .hero-container { padding: 50px 30px; }
-  .hero-title { font-size: clamp(48px, 9vw, 90px); }
   .hero-portrait-outer { width: 50vw; }
   .nav-links { display: none; }
   .menu-btn  { display: flex; }
