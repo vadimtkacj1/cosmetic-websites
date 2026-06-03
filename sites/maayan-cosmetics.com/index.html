@@ -9,7 +9,18 @@
 
   <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
   <link rel="stylesheet" href="css/style.css?v=2" />
-  <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility" defer></script>
+  <script
+    data-account="YOUR_USERWAY_ID"
+    data-position="right"
+    data-size="medium"
+    data-color="#EAA098"
+    src="https://cdn.userway.org/widget.js"
+    async>
+  </script>
+  <style>
+    /* force UserWay button to bottom-right, not header */
+    #userwayAccessibilityIcon { position: fixed !important; bottom: 24px !important; right: 24px !important; top: auto !important; left: auto !important; z-index: 9999 !important; }
+  </style>
 
   <style>
   /* ══════════════════════════════════════════
