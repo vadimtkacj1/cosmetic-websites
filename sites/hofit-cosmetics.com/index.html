@@ -1097,8 +1097,11 @@
       .container { padding: 0 20px; }
       .lzr-header__inner { height: 68px; padding: 0 20px; }
       section { padding: 56px 0 !important; }
-      section.hero { padding: 0 !important; }
-      .hero .container { padding-bottom: 36px; }
+      section.hero { padding: 0 !important; align-items: center; }
+      .hero .container { padding-top: 20px; padding-bottom: 20px; }
+      .hero .buttons { flex-direction: column; align-items: center; }
+      .hero .buttons .btn-light,
+      .hero .buttons .btn-brown { width: auto; min-width: 220px; }
       .our-approach .cols { grid-template-columns: 1fr; }
       .our-treatments .list.list-4, .our-treatments .list.list-3 { grid-template-columns: 1fr; }
       .table-sev .top { flex-direction: column; align-items: flex-start; }
