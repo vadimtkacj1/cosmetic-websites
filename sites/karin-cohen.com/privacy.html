@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>תנאי שימוש ומדיניות פרטיות | קוסמטיקס חופית | חולון</title>
+  <meta name="description" content="תנאי שימוש ומדיניות פרטיות של קוסמטיקס חופית — קליניקת יופי בחולון." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="stylesheet" href="css/widgets.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility" defer></script>
+
+  <style>
+    @font-face {
+      font-family: 'VarelaRound';
+      src: url('fonts/VarelaRound-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'VarelaRound', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #2d2d2d;
+      background: #fff;
+      direction: rtl;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    :root {
+      --brown:       #52433D;
+      --brown-light: #8B7355;
+      --beige:       #F5EFE8;
+      --beige-dark:  #EDE3D8;
+      --white:       #ffffff;
+      --text:        #3d3329;
+      --radius:      12px;
+      --transition:  0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow:      0 8px 32px rgba(82,67,61,0.12);
+    }
+
+    /* ─── HEADER ─────────────────────────────────────── */
+    .lzr-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(82,67,61,0.08);
+    }
+    .lzr-header__inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .lzr-logo img { height: 56px; width: auto; }
+    .lzr-nav { flex: 1; display: flex; justify-content: center; }
+    .lzr-menu { display: flex; align-items: center; gap: 8px; }
+    .lzr-item > a {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--brown);
+      padding: 10px 14px;
+      border-radius: 6px;
+      transition: color var(--transition);
+    }
+    .lzr-item > a:hover { color: var(--brown-light); }
+    .btn-book-header {
+      background: var(--brown);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-family: 'VarelaRound', sans-serif;
+      transition: background var(--transition);
+      display: inline-flex;
+      align-items: center;
+    }
+    .btn-book-header:hover { background: var(--brown-light); }
+
+    .lzr-mobile-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      background: none;
+      border: none;
+    }
+    .lzr-mobile-btn span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--brown);
+      border-radius: 2px;
+    }
+
+    /* ─── MOBILE MENU ────────────────────────────────── */
+    .mobile-menu-overlay {
+      position: fixed; inset: 0;
+      background: var(--white);
+      z-index: 1100;
+      transform: translateX(-100%);
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+      overflow-y: auto;
+      padding: 100px 32px 40px;
+    }
+    .mobile-menu-overlay.open { transform: translateX(0); }
+    .mobile-menu-overlay .mob-nav a {
+      display: block;
+      font-size: 22px;
+      color: var(--brown);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--beige-dark);
+    }
+    .mobile-menu-overlay .mob-cta { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; }
+    .lzr-backdrop {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 999;
+      opacity: 0; visibility: hidden;
+      transition: opacity var(--transition), visibility var(--transition);
+    }
+    .lzr-backdrop.active { opacity: 1; visibility: visible; }
+
+    /* ─── PAGE HERO ──────────────────────────────────── */
+    .page-hero {
+      background: var(--beige);
+      padding: 64px 0 56px;
+      text-align: center;
+      border-bottom: 1.5px solid var(--beige-dark);
+    }
+    .page-hero h1 {
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 400;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .page-hero p {
+      font-size: 14px;
+      color: var(--brown-light);
+    }
+
+    /* ─── CONTENT ────────────────────────────────────── */
+    .privacy-content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 32px 80px;
+    }
+
+    .privacy-part {
+      margin-bottom: 56px;
+    }
+
+    .part-title {
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--brown);
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--beige-dark);
+      margin-bottom: 28px;
+    }
+
+    .section-block {
+      margin-bottom: 32px;
+    }
+
+    .section-block h3 {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--brown);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-block h3::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 16px;
+      background: var(--brown-light);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .section-block p {
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .section-block p:last-child { margin-bottom: 0; }
+
+    .section-block ul {
+      list-style: disc;
+      padding-right: 20px;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.9;
+    }
+    .section-block ul li { margin-bottom: 6px; }
+
+    /* ─── CONTACT CARD ───────────────────────────────── */
+    .contact-block {
+      background: var(--beige);
+      border-radius: var(--radius);
+      border: 1.5px solid var(--beige-dark);
+      padding: 32px 28px;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 2;
+    }
+    .contact-block h3 {
+      font-size: 16px;
+      color: var(--brown);
+      margin-bottom: 14px;
+      font-weight: 400;
+    }
+    .contact-block a { color: var(--brown); }
+    .contact-block a:hover { color: var(--brown-light); }
+
+    .update-note {
+      margin-top: 48px;
+      font-size: 12px;
+      color: var(--brown-light);
+      text-align: center;
+      border-top: 1px solid var(--beige-dark);
+      padding-top: 24px;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    .new-footer {
+      background: var(--brown);
+      padding: 48px 0 32px;
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+    }
+    .footer-wordmark {
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 24px;
+    }
+    .footer-nav-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .footer-nav-menu a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
+      transition: color var(--transition);
+    }
+    .footer-nav-menu a:hover { color: #fff; }
+    .footer-copyright {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.04em;
+    }
+    .footer-copyright a { color: rgba(255,255,255,0.55); text-decoration: underline; }
+    .footer-copyright a:hover { color: #fff; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .lzr-nav { display: none; }
+      .lzr-mobile-btn { display: flex; }
+    }
+    @media (max-width: 640px) {
+      .lzr-header__inner { height: 68px; padding: 0 20px; }
+      .privacy-content { padding: 40px 20px 64px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="lzr-backdrop" id="backdrop"></div>
+
+<header class="lzr-header">
+  <div class="lzr-header__inner">
+    <button class="lzr-mobile-btn" id="mobileBtn" aria-label="פתח תפריט">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="/" class="lzr-logo" aria-label="קוסמטיקס חופית">
+      <img src="img/logo.PNG" alt="קוסמטיקס חופית" />
+    </a>
+    <nav class="lzr-nav">
+      <ul class="lzr-menu">
+        <li class="lzr-item"><a href="/#services">שירותים</a></li>
+        <li class="lzr-item"><a href="/#about">אודות</a></li>
+        <li class="lzr-item"><a href="/#reviews">ביקורות</a></li>
+        <li class="lzr-item"><a href="/#contact">צור קשר</a></li>
+      </ul>
+    </nav>
+    <div>
+      <a href="https://wa.me/972542186634" class="btn-book-header" target="_blank" rel="noopener">קביעת תור</a>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu-overlay" id="mobileMenu">
+  <nav class="mob-nav">
+    <a href="/#services">שירותים</a>
+    <a href="/#about">אודות</a>
+    <a href="/#reviews">ביקורות</a>
+    <a href="/#contact">צור קשר</a>
+  </nav>
+  <div class="mob-cta">
+    <a href="https://wa.me/972542186634" style="background:var(--brown);color:#fff;padding:14px 28px;border-radius:50px;font-size:13px;text-align:center;" target="_blank" rel="noopener">קביעת תור בוואטסאפ</a>
+  </div>
+</div>
+
+<div class="page-hero">
+  <div>
+    <h1>תנאי שימוש ומדיניות פרטיות</h1>
+    <p>עדכון אחרון: מאי 2026 &nbsp;|&nbsp; hofit-cosmetics.com</p>
+  </div>
+</div>
+
+<main class="privacy-content">
+
+  <p style="font-size:14px;color:var(--text);line-height:1.9;margin-bottom:48px;">
+    ברוכים הבאים לאתר האינטרנט של חופית יחזקאל (להלן: "העסק" ו/או "מפעילת האתר"), הפועל בכתובת הדיגיטלית:
+    <a href="https://hofit-cosmetics.com/" style="color:var(--brown);">https://hofit-cosmetics.com/</a> (להלן: "האתר").
+    השימוש באתר, בתכנים הכלולים בו ובשירותים השונים המוצעים דרכו כפוף לקריאתם וקבלתם המלאה של תנאי שימוש ומדיניות פרטיות אלה.
+    הגלישה באתר ו/או ביצוע פעולות בו מהווים הסכמה מצדך לכל התנאים המפורטים. אם אינך מסכים לתנאים אלו, כולם או חלקם, הנך מתבקש שלא לעשות כל שימוש באתר.
+  </p>
+
+  <!-- PART A -->
+  <div class="privacy-part">
+    <h2 class="part-title">חלק א׳ — תנאי השימוש באתר</h2>
+
+    <div class="section-block">
+      <h3>1. כללי וכשירות משפטית</h3>
+      <p>האתר מציע מידע, תכנים ואפשרות ליצירת קשר ו/או הזמנת שירותים ומוצרים בתחום היופי והקוסמטיקה.</p>
+      <p>השימוש באתר מותר לכל אזרח בגיר (מעל גיל 18) הכשיר לבצע פעולות משפטיות מחייבות. במידה והמשתמש קטין, השימוש באתר ייחשב כאילו קיבל את אישור ההורים או האפוטרופוס החוקי שלו.</p>
+      <p>מפעילת האתר שומרת לעצמה את הזכות לעדכן או לשנות את התקנון מעת לעת, לפי שיקול דעתה הבלעדי וללא צורך במתן הודעה מוקדמת. הנוסח המחייב הוא הנוסח המפורסם באתר בעת השימוש.</p>
+    </div>
+
+    <div class="section-block">
+      <h3>2. קניין רוחני</h3>
+      <p>כל זכויות היוצרים והקניין הרוחני באתר — לרבות עיצוב האתר, קוד מקור, טקסטים, תמונות, סרטונים, לוגואים, סימני מסחר ותכנים מקצועיים — שייכים באופן בלעדי לחופית או לצדדים שלישיים שהעניקו לה רישיון שימוש בהם.</p>
+      <p>אין להעתיק, לשכפל, להפיץ, למכור, לתרגם, לשדר או לעשות כל שימוש מסחרי או אחר בתוכן מתוך האתר ללא קבלת אישור בכתב ומראש ממפעילת האתר.</p>
+    </div>
+
+    <div class="section-block">
+      <h3>3. אחריות ושימוש באתר</h3>
+      <p>התוכן והמידע המוצגים באתר מוצעים כפי שהם ("As Is"). מפעילת האתר משקיעה מאמצים רבים כדי להבטיח שהמידע יהיה מדויק ומעודכן, אך ייתכנו שגיאות או אי-דיוקים.</p>
+      <p>המידע באתר אינו מהווה ייעוץ רפואי או תחליף לייעוץ מקצועי פרטני, וכל הסתמכות עליו היא באחריות המשתמש בלבד.</p>
+      <p>העסק לא יישא באחריות לכל נזק ישיר, עקיף, תוצאתי או מיוחד שייגרם למשתמש או לצד שלישי כתוצאה משימוש באתר, מהפרעות בפעילותו, או מתוכנות זדוניות שעשויות לעבור דרך רשת האינטרנט.</p>
+    </div>
+  </div>
+
+  <!-- PART B -->
+  <div class="privacy-part">
+    <h2 class="part-title">חלק ב׳ — מדיניות הפרטיות</h2>
+
+    <p style="font-size:14px;color:var(--text);line-height:1.9;margin-bottom:28px;">
+      מפעילת האתר מכבדת את פרטיותם של המשתמשים ומחויבת להגן עליה בהתאם לחוק הגנת הפרטיות, תשמ"א-1981 ותקנותיו.
+    </p>
+
+    <div class="section-block">
+      <h3>1. המידע שנאסף באתר</h3>
+      <p><strong>מידע אישי שנמסר מרצון:</strong> בעת מילוי טפסי יצירת קשר, הרשמה למועדון לקוחות, קביעת תורים או רכישה, עשויים להיאסף פרטים כגון: שם מלא, מספר טלפון, כתובת דואר אלקטרוני וכתובת מגורים. מסירת המידע אינה חובה על פי חוק, אך ללא מסירתו לא ניתן יהיה לספק את השירות המבוקש.</p>
+      <p><strong>מידע טכני וסטטיסטי (אנונימי):</strong> במהלך הגלישה נאסף באופן אוטומטי מידע כגון: כתובת IP, סוג הדפדפן, דפים בהם ביקרת, משך השהות באתר ומקור ההגעה. מידע זה אינו מזהה את המשתמש באופן אישי.</p>
+    </div>
+
+    <div class="section-block">
+      <h3>2. המטרה לשמה נאסף המידע</h3>
+      <p>המידע שנאסף ישמש אך ורק למטרות הבאות:</p>
+      <ul>
+        <li>מתן השירותים המוצעים באתר (מענה לפניות, תיאום תורים, אספקת מוצרים)</li>
+        <li>תפעולו התקין, שיפורו וייעולו של האתר וחוויית המשתמש</li>
+        <li>שירות לקוחות וקשר רציף עם המשתמש</li>
+        <li>דיוור ישיר ופרסום — רק לאחר קבלת הסכמה מפורשת של המשתמש. המשתמש רשאי להסיר את עצמו מרשימת התפוצה בכל עת</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h3>3. העברת מידע לצדדים שלישיים</h3>
+      <p>העסק לא ימכור, לא ישכיר ולא יעביר את המידע האישי של המשתמשים לצדדים שלישיים, למעט במקרים הבאים:</p>
+      <ul>
+        <li>לספקי שירותים הפועלים מטעם העסק (כגון חברות סליקה, שליחויות או ניהול מערכות מידע) — לצורך השלמת השירות המבוקש בלבד</li>
+        <li>במקרה של מחלוקת משפטית בין המשתמש לבין העסק</li>
+        <li>על פי צו שיפוטי או דרישה חוקית של רשות מוסמכת</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h3>4. שימוש ב-Cookies וטכנולוגיות מעקב</h3>
+      <p>האתר משתמש בקבצי Cookie וטכנולוגיות מעקב דומות (כגון Google Analytics, Meta Pixel) לצורך תפעולו השוטף, אימות פרטים, התאמת האתר להעדפות האישיות ולצרכי שיווק מחדש (Remarketing).</p>
+      <p>המשתמש יכול לשנות את הגדרות הדפדפן שלו כך שיחסום קבלת קבצי Cookie, אך הדבר עלול לפגוע בחלק מתכונות האתר.</p>
+    </div>
+
+    <div class="section-block">
+      <h3>5. אבטחת מידע</h3>
+      <p>מפעילת האתר נוקטת באמצעי אבטחה טכנולוגיים וארגוניים מקובלים כדי להגן על המידע האישי מפני גישה ללא הרשאה, שימוש לרעה או חשיפה. יחד עם זאת, אף מערכת אינה חסינה לחלוטין, והעסק אינו יכול להבטיח חסינות מוחלטת מפני פריצות או גישה זדונית.</p>
+    </div>
+
+    <div class="section-block">
+      <h3>6. זכות לעיין במידע ותיקונו</h3>
+      <p>על פי חוק הגנת הפרטיות, תשמ"א-1981, כל אדם זכאי לעיין במידע שעליו המוחזק במאגר מידע. אם המידע עליך אינו מדויק או מעודכן, הנך רשאי לפנות אלינו בבקשה לתקן את המידע או למחוק אותו לחלוטין (במידה ואין חובה חוקית אחרת לשמור אותו).</p>
+    </div>
+  </div>
+
+  <!-- PART C -->
+  <div class="privacy-part">
+    <h2 class="part-title">חלק ג׳ — פרטי התקשרות ובירורים</h2>
+    <div class="contact-block">
+      <h3>לכל שאלה, בירור או בקשה לעיון ומחיקת מידע:</h3>
+      <p>
+        <strong>שם בעלת האתר:</strong> חופית יחזקאל<br>
+        <strong>כתובת פיזית:</strong> המשביר 1, חולון, ישראל<br>
+        <strong>טלפון:</strong> <a href="tel:054-2186634">054-2186634</a><br>
+        <strong>וואטסאפ:</strong> <a href="https://wa.me/972542186634" target="_blank" rel="noopener">לחצי כאן לפתיחת שיחה</a><br>
+        <strong>אתר אינטרנט:</strong> <a href="https://hofit-cosmetics.com/" target="_blank" rel="noopener">https://hofit-cosmetics.com/</a>
+      </p>
+    </div>
+  </div>
+
+  <p class="update-note">נוסח זה עודכן לאחרונה במאי 2026.</p>
+
+</main>
+
+<footer class="new-footer">
+  <div style="max-width:1280px;margin:0 auto;padding:0 32px;">
+    <div class="footer-wordmark">קוסמטיקס חופית — חולון</div>
+    <ul class="footer-nav-menu">
+      <li><a href="/#services">שירותים</a></li>
+      <li><a href="/#about">אודות</a></li>
+      <li><a href="/#reviews">ביקורות</a></li>
+      <li><a href="/#contact">צור קשר</a></li>
+      <li><a href="/privacy.html">מדיניות פרטיות</a></li>
+      <li><a href="/accessibility.html">הצהרת נגישות</a></li>
+    </ul>
+    <p class="footer-copyright">© כל הזכויות שמורות • 2026 • עוצב ופותח על ידי <a href="https://aiterra.co.il/" target="_blank" rel="noopener">Aiterra</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const mobileBtn  = document.getElementById('mobileBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const backdrop   = document.getElementById('backdrop');
+
+  function open()  { mobileBtn.classList.add('open'); mobileMenu.classList.add('open'); backdrop.classList.add('active'); document.body.style.overflow = 'hidden'; }
+  function close() { mobileBtn.classList.remove('open'); mobileMenu.classList.remove('open'); backdrop.classList.remove('active'); document.body.style.overflow = ''; }
+
+  mobileBtn.addEventListener('click', () => mobileMenu.classList.contains('open') ? close() : open());
+  backdrop.addEventListener('click', close);
+  document.querySelectorAll('.mob-nav a').forEach(a => a.addEventListener('click', close));
+})();
+</script>
+<script src="js/widgets.js"></script>
+
+</body>
+</html>

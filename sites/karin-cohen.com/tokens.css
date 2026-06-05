@@ -1,0 +1,201 @@
+/* ============================================================================
+   Karin Academy — Colors & Type
+   Source of truth: karin-academy-design (Relume export, 2026-05-29)
+   Theme: light · Headings: Fraunces 700 · Body: Inter 400
+   ============================================================================ */
+
+/* ---------- Fonts ---------- */
+/* Fraunces + Inter loaded via Google Fonts <link> in HTML */
+@font-face {
+  font-family: "Varela Round";
+  src: url("fonts/VarelaRound-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  /* ===================== COLOR — BASE PALETTES ===================== */
+
+  /* Neutral — shade-0 (darkest) … shade-7 (lightest) per DESIGN.md.
+     Exposed here with semantic light→dark naming used in globals.css. */
+  --color-white:            #ffffff;
+  --color-neutral-lightest: #f2f2f2;
+  --color-neutral-lighter:  #d9dad9;
+  --color-neutral-light:    #b4b5b4;
+  --color-neutral:          #828483;
+  --color-neutral-dark:     #505352;
+  --color-neutral-darker:   #1e2220;
+  --color-neutral-darkest:  #060a08;  /* near-black ink — primary text */
+
+  /* Can Can — PRIMARY brand palette (soft rose) */
+  --color-can-can-lightest: #fbf5f7;
+  --color-can-can-lighter:  #f7ebf0;
+  --color-can-can-light:    #e4bacd;
+  --color-can-can:          #d99db8;  /* primary brand shade */
+  --color-can-can-dark:     #ad7d93;
+  --color-can-can-darker:   #563e49;
+  --color-can-can-darkest:  #412f37;
+
+  /* Amber — accent palette */
+  --color-amber-lightest:   #fff8e6;
+  --color-amber-lighter:    #fff2cd;
+  --color-amber-light:      #ffd351;
+  --color-amber:            #ffc107;
+  --color-amber-dark:       #cc9a05;
+  --color-amber-darker:     #664d02;
+  --color-amber-darkest:    #4c3902;
+
+  /* Danube — accent palette (blue) */
+  --color-danube-lightest:  #f0f3fa;
+  --color-danube-lighter:   #e1e8f6;
+  --color-danube-light:     #98b0e2;
+  --color-danube:           #6c8fd6;
+  --color-danube-dark:      #5672ab;
+  --color-danube-darker:    #2b3955;
+  --color-danube-darkest:   #202a40;
+
+  /* De York — accent palette (green) */
+  --color-de-york-lightest: #f1f9f6;
+  --color-de-york-lighter:  #e4f3ed;
+  --color-de-york-light:    #a1d7c0;
+  --color-de-york:          #7ac6a6;
+  --color-de-york-dark:     #619e84;
+  --color-de-york-darker:   #304f42;
+  --color-de-york-darkest:  #243b31;
+
+  /* Alpha tints of the ink — used for borders, secondary buttons, hovers */
+  --color-ink-5:   color-mix(in srgb, var(--color-neutral-darkest), transparent 95%);
+  --color-ink-10:  color-mix(in srgb, var(--color-neutral-darkest), transparent 90%);
+  --color-ink-15:  color-mix(in srgb, var(--color-neutral-darkest), transparent 85%);
+  --color-ink-20:  color-mix(in srgb, var(--color-neutral-darkest), transparent 80%);
+  --color-ink-60:  color-mix(in srgb, var(--color-neutral-darkest), transparent 40%);
+  --color-white-10: color-mix(in srgb, var(--color-white), transparent 90%);
+  --color-white-20: color-mix(in srgb, var(--color-white), transparent 80%);
+  --color-white-60: color-mix(in srgb, var(--color-white), transparent 40%);
+
+  /* ===================== SEMANTIC TOKENS ===================== */
+  --fg-1: var(--color-neutral-darkest);   /* primary text / ink            */
+  --fg-2: var(--color-neutral-dark);       /* secondary text                */
+  --fg-3: var(--color-neutral);            /* muted / captions              */
+  --bg-1: var(--color-white);              /* base page background          */
+  --bg-2: var(--color-can-can-lightest);   /* tinted section background     */
+  --bg-3: var(--color-can-can-light);      /* brand section background      */
+  --border: var(--color-ink-15);           /* hairline dividers / borders   */
+  --brand: var(--color-can-can);           /* primary brand color           */
+  --brand-strong: var(--color-can-can-dark);
+
+  /* ===================== TYPOGRAPHY ===================== */
+  --font-heading: "Fraunces", "Varela Round", Georgia, serif;
+  --font-body:    "Inter", "Varela Round", -apple-system, BlinkMacSystemFont, sans-serif;
+  --weight-heading: 700;
+  --weight-body: 400;
+
+  /* Desktop type scale (≥992px). Mobile scale below via media query. */
+  --text-h1: 5.25rem;   --text-h1-lh: 1.1;  /* 84px */
+  --text-h2: 3.75rem;   --text-h2-lh: 1.2;  /* 60px */
+  --text-h3: 3rem;      --text-h3-lh: 1.2;  /* 48px */
+  --text-h4: 2.5rem;    --text-h4-lh: 1.2;  /* 40px */
+  --text-h5: 2rem;      --text-h5-lh: 1.2;  /* 32px */
+  --text-h6: 1.625rem;  --text-h6-lh: 1.2;  /* 26px */
+  --text-large:   1.625rem; --text-large-lh: 1.6;  /* 26px */
+  --text-medium:  1.25rem;  --text-medium-lh: 1.6; /* 20px */
+  --text-regular: 1.125rem; --text-regular-lh: 1.6;/* 18px */
+  --text-small:   1rem;     --text-small-lh: 1.6;  /* 16px */
+  --text-tiny:    0.75rem;  --text-tiny-lh: 1.6;   /* 12px */
+  --tracking-heading: 0.01em;
+
+  /* ===================== RADII ===================== */
+  --radius-button:   0.75rem;  /* 12px */
+  --radius-tag:      0.375rem; /* 6px  */
+  --radius-input:    0.75rem;  /* 12px */
+  --radius-card:     1rem;     /* 16px */
+  --radius-image:    1rem;     /* 16px */
+  --radius-checkbox: 0.25rem;  /* 4px  */
+  --radius-full:     9999px;
+
+  /* ===================== ELEVATION ===================== */
+  /* "elevate" button shadow — layered insets give a soft pressed-key look */
+  --shadow-elevate:
+    inset 0 -2px 1px 0 var(--color-ink-20),
+    inset 0 32px 24px 0 rgba(255,255,255,0.05),
+    inset 0 1px 1px 1px var(--color-white-20),
+    inset 0 0 0 1px var(--color-ink-15),
+    0 1px 2px 0 var(--color-ink-5);
+  --shadow-elevate-hover:
+    inset 0 -2px 1px 0 var(--color-ink-20),
+    inset 0 32px 24px 0 rgba(255,255,255,0.05),
+    inset 0 1px 1px 1px var(--color-white-20),
+    inset 0 0 0 1px var(--color-ink-15),
+    0 2px 4px 0 var(--color-ink-5);
+  --shadow-secondary:
+    0 1px 2px 0 var(--color-ink-5),
+    inset 0 -2px 1px 0 var(--color-ink-5),
+    inset 0 0 0 1px var(--color-ink-5);
+}
+
+/* Mobile type scale (<992px) */
+@media (max-width: 991px) {
+  :root {
+    --text-h1: 3rem;      /* 48px */
+    --text-h2: 2.75rem;   /* 44px */
+    --text-h3: 2rem;      /* 32px */
+    --text-h4: 1.5rem;    /* 24px */
+    --text-h5: 1.25rem;   /* 20px */
+    --text-h6: 1.125rem;  /* 18px */
+    --text-large:   1.125rem;
+    --text-medium:  1rem;
+    --text-regular: 0.875rem;
+    --text-small:   0.75rem;
+    --text-tiny:    0.625rem;
+  }
+}
+
+/* ============================================================================
+   COLOR SCHEMES — apply one class per section. All child text/border colors
+   inherit from the scheme. Mirrors globals.css @utility scheme-N.
+   ============================================================================ */
+.scheme-1 { /* Can Can Light — signature brand sections */
+  --scheme-bg: var(--color-can-can-light);
+  --scheme-fg: var(--color-can-can);
+  --scheme-text: var(--color-neutral-darkest);
+  --scheme-border: var(--color-ink-15);
+  background-color: var(--scheme-bg); color: var(--scheme-text);
+}
+.scheme-2 { /* Can Can Lightest — soft tinted sections */
+  --scheme-bg: var(--color-can-can-lightest);
+  --scheme-fg: var(--color-can-can-lighter);
+  --scheme-text: var(--color-neutral-darkest);
+  --scheme-border: var(--color-ink-15);
+  background-color: var(--scheme-bg); color: var(--scheme-text);
+}
+.scheme-3 { /* White — clean / content sections */
+  --scheme-bg: var(--color-white);
+  --scheme-fg: var(--color-neutral-lightest);
+  --scheme-text: var(--color-neutral-darkest);
+  --scheme-border: var(--color-ink-15);
+  background-color: var(--scheme-bg); color: var(--scheme-text);
+}
+.scheme-4 { /* Can Can Dark — footer / dark feature sections */
+  --scheme-bg: var(--color-can-can-dark);
+  --scheme-fg: var(--color-can-can);
+  --scheme-text: var(--color-white);
+  --scheme-border: var(--color-white-20);
+  background-color: var(--scheme-bg); color: var(--scheme-text);
+}
+
+/* ============================================================================
+   SEMANTIC ELEMENT STYLES — opt in by importing this file and using the
+   classes/elements below. Headings default to Fraunces, body to Inter.
+   ============================================================================ */
+.ka-h1 { font-family: var(--font-heading); font-weight: var(--weight-heading); font-size: var(--text-h1); line-height: var(--text-h1-lh); letter-spacing: var(--tracking-heading); }
+.ka-h2 { font-family: var(--font-heading); font-weight: var(--weight-heading); font-size: var(--text-h2); line-height: var(--text-h2-lh); letter-spacing: var(--tracking-heading); }
+.ka-h3 { font-family: var(--font-heading); font-weight: var(--weight-heading); font-size: var(--text-h3); line-height: var(--text-h3-lh); letter-spacing: var(--tracking-heading); }
+.ka-h4 { font-family: var(--font-heading); font-weight: var(--weight-heading); font-size: var(--text-h4); line-height: var(--text-h4-lh); letter-spacing: var(--tracking-heading); }
+.ka-h5 { font-family: var(--font-heading); font-weight: var(--weight-heading); font-size: var(--text-h5); line-height: var(--text-h5-lh); letter-spacing: var(--tracking-heading); }
+.ka-h6 { font-family: var(--font-heading); font-weight: var(--weight-heading); font-size: var(--text-h6); line-height: var(--text-h6-lh); letter-spacing: var(--tracking-heading); }
+.ka-text-large   { font-family: var(--font-body); font-size: var(--text-large);   line-height: var(--text-large-lh); }
+.ka-text-medium  { font-family: var(--font-body); font-size: var(--text-medium);  line-height: var(--text-medium-lh); }
+.ka-text-regular { font-family: var(--font-body); font-size: var(--text-regular); line-height: var(--text-regular-lh); }
+.ka-text-small   { font-family: var(--font-body); font-size: var(--text-small);   line-height: var(--text-small-lh); }
+.ka-text-tiny    { font-family: var(--font-body); font-size: var(--text-tiny);    line-height: var(--text-tiny-lh); }
+.ka-eyebrow      { font-family: var(--font-body); font-weight: 600; font-size: var(--text-regular); }

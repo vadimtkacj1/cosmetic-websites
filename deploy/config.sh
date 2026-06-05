@@ -16,4 +16,5 @@ declare -A SITES=(
   ["hofit-cosmetics.com"]="C:/Users/vadim/Downloads/maayan/sites/hofit-cosmetics.com"
   ["hofit-barbershop.com"]="C:/Users/vadim/Downloads/maayan/sites/hofit-barbershop.com"
   ["irena-beauty.com"]="C:/Users/vadim/Downloads/maayan/sites/irena-beauty.com"
+  ["karin-cohen.com"]="C:/Users/vadim/Downloads/maayan/sites/karin-cohen.com"
 )
