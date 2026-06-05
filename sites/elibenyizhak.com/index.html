@@ -7,7 +7,7 @@
   <meta name="description" content="סטודיו מוביל לעיצוב שיער בבת ים. מתמחים בפריצה אורגנית מאושרת ממשרד הבריאות, אומברה, בלייאז׳ וצביעה מקצועית.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
   <style>
     /* =========================================
        RESET & CUSTOM PROPERTIES
@@ -27,7 +27,7 @@
     html { scroll-behavior: smooth; overflow-x: hidden; }
 
     body {
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       background: var(--cream);
       color: var(--black);
       overflow-x: hidden;
@@ -107,6 +107,8 @@
       from { transform: rotate(0deg); }
       to   { transform: rotate(360deg); }
     }
+
+
     @keyframes countUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -161,7 +163,7 @@
       gap: 8px;
       padding: 14px 34px;
       border-radius: 300px;
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 15px;
       font-weight: 700;
       letter-spacing: 0;
@@ -281,7 +283,7 @@
     }
     .nav-mobile.open { transform: translateY(0); }
     .nav-mobile a {
-      font-family: 'Frank Ruhl Libre', serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 42px;
       font-weight: 700;
       letter-spacing: 0;
@@ -373,7 +375,7 @@
     }
 
     .hero-headline {
-      font-family: 'Frank Ruhl Libre', serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: clamp(64px, 11vw, 130px);
       line-height: 0.95;
       letter-spacing: 0;
@@ -402,7 +404,7 @@
     }
 
     .hero-sub {
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: clamp(16px, 2vw, 22px);
       color: var(--gray);
       margin-top: 28px;
@@ -423,30 +425,6 @@
       z-index: 1;
     }
 
-    .hero-scroll-hint {
-      position: absolute;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      opacity: 0;
-      animation: fadeIn 1s 1.8s ease forwards;
-      text-align: center;
-      direction: ltr;
-    }
-    .hero-scroll-hint span {
-      font-size: 11px;
-      letter-spacing: 0;
-      color: var(--gray);
-    }
-    .scroll-line {
-      width: 1px; height: 50px;
-      background: linear-gradient(to bottom, var(--black), transparent);
-      animation: float 2s ease-in-out infinite;
-    }
 
     /* =========================================
        FEATURES STRIP
@@ -484,7 +462,7 @@
     }
     .feature-icon-wrap img { width: 54px; }
     .feature-label {
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 20px;
       font-weight: 700;
       color: var(--black);
@@ -499,6 +477,17 @@
       background: var(--black);
       color: var(--cream);
       padding: 120px 40px;
+    }
+    .intro-bg {
+      position: absolute;
+      inset: -20% 0;
+      background-image: url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?fm=jpg&q=85&w=2400&auto=format&fit=crop&ixlib=rb-4.1.0');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+      will-change: transform;
+    }
+    .intro {
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -530,7 +519,7 @@
     .intro-badge a { color: var(--white); }
 
     .intro-headline {
-      font-family: 'Frank Ruhl Libre', serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: clamp(52px, 9vw, 110px);
       letter-spacing: 0;
       font-weight: 900;
@@ -563,7 +552,7 @@
     .intro-body {
       max-width: 620px;
       margin: 0 auto 48px;
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 20px;
       line-height: 1.75;
       opacity: 0.85;
@@ -592,7 +581,7 @@
       text-align: center;
     }
     .stat-num {
-      font-family: 'Frank Ruhl Libre', serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: clamp(44px, 6vw, 72px);
       font-weight: 900;
       color: var(--black);
@@ -600,7 +589,7 @@
       line-height: 1;
     }
     .stat-label {
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 15px;
       color: var(--black);
       opacity: 0.7;
@@ -634,7 +623,7 @@
       letter-spacing: 0;
     }
     .services-about-title {
-      font-family: 'Frank Ruhl Libre', serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: clamp(40px, 5.5vw, 76px);
       font-weight: 900;
       line-height: 1;
@@ -713,7 +702,7 @@
       bottom: 0; left: 0; right: 0;
       padding: 48px 18px 18px;
       color: var(--white);
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 17px;
       font-weight: 700;
       letter-spacing: 0;
@@ -774,7 +763,7 @@
       padding: 0 40px;
     }
     .testimonials-title {
-      font-family: 'Frank Ruhl Libre', serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: clamp(36px, 5vw, 64px);
       font-weight: 900;
       color: var(--white);
@@ -788,7 +777,7 @@
       transform: rotate(-1.5deg);
     }
     .testimonials-subtitle {
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 18px;
       color: rgba(255,255,255,0.45);
       margin-top: 12px;
@@ -836,7 +825,7 @@
     }
 
     .t-quote {
-      font-family: 'Frank Ruhl Libre', serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 18px;
       line-height: 1.7;
       color: var(--black);
@@ -845,7 +834,7 @@
     }
 
     .t-author {
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       font-weight: 700;
       font-size: 13px;
       letter-spacing: 0.05em;
@@ -857,7 +846,7 @@
       content: '"';
       position: absolute;
       top: 12px; left: 28px;
-      font-family: 'Frank Ruhl Libre', serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 130px;
       color: var(--yellow);
       opacity: 0.55;
@@ -909,7 +898,7 @@
     ========================================= */
     .locations { padding: 120px 40px; }
     .locations-title {
-      font-family: 'Frank Ruhl Libre', serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: clamp(44px, 7vw, 88px);
       font-weight: 900;
       letter-spacing: 0;
@@ -953,7 +942,7 @@
       position: absolute;
       bottom: 22px; right: 22px;
       color: var(--white);
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 20px;
       font-weight: 700;
       letter-spacing: 0;
@@ -1003,7 +992,7 @@
       align-items: center;
       gap: 22px;
       padding: 0 28px;
-      font-family: 'Frank Ruhl Libre', serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 22px;
       font-weight: 700;
       letter-spacing: 0;
@@ -1021,23 +1010,40 @@
     /* =========================================
        INSTAGRAM
     ========================================= */
-    .insta { padding: 120px 40px; }
+    .insta {
+      padding: 140px 40px;
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+    }
+    .insta-bg {
+      position: absolute;
+      inset: -20% 0;
+      background-image: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?fm=jpg&q=85&w=2400&auto=format&fit=crop&ixlib=rb-4.1.0');
+      background-size: cover;
+      background-position: center 35%;
+      opacity: 0.32;
+      will-change: transform;
+    }
     .insta-header {
       text-align: center;
       margin-bottom: 64px;
+      position: relative;
+      z-index: 1;
     }
     .insta-eyebrow {
       font-size: 12px;
       letter-spacing: 0;
       font-weight: 700;
-      color: var(--pink);
+      color: var(--yellow);
       margin-bottom: 16px;
     }
     .insta-title {
-      font-family: 'Frank Ruhl Libre', serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: clamp(44px, 7vw, 88px);
       font-weight: 900;
       letter-spacing: 0;
+      color: var(--white);
       margin-bottom: 28px;
     }
     .insta-cta-link {
@@ -1047,14 +1053,15 @@
       font-weight: 700;
       font-size: 15px;
       letter-spacing: 0;
-      color: var(--pink);
-      border: 2px solid var(--pink);
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.5);
       padding: 12px 28px;
       border-radius: 100px;
       transition: all 0.3s ease;
     }
     .insta-cta-link:hover {
       background: var(--pink);
+      border-color: var(--pink);
       color: var(--white);
     }
     .insta-cta-link svg {
@@ -1062,7 +1069,6 @@
       stroke: currentColor; stroke-width: 2; fill: none;
       flex-shrink: 0;
     }
-
     .insta-grid {
       max-width: 1100px;
       margin: 0 auto;
@@ -1123,7 +1129,7 @@
     }
     .footer-logo:hover { opacity: 0.7; }
     .footer-about {
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 16px;
       line-height: 1.65;
       opacity: 0.65;
@@ -1175,7 +1181,7 @@
     .footer-links a:hover::before { opacity: 1; transform: translateX(0); }
 
     .footer-book p {
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 16px;
       opacity: 0.65;
       line-height: 1.6;
@@ -1198,6 +1204,16 @@
       opacity: 0.45;
       flex-wrap: wrap;
       gap: 12px;
+    }
+    .footer-madeby a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, opacity 0.2s;
+    }
+    .footer-madeby a:hover {
+      border-bottom-color: currentColor;
+      opacity: 1;
     }
 
     /* =========================================
@@ -1253,7 +1269,17 @@
       .hero-sub { font-size: 15px; margin-top: 20px; }
       .hero-ctas { margin-top: 32px; gap: 10px; }
       .hero-ctas .btn { width: 100%; text-align: center; }
-      .hero-scroll-hint { display: none; }
+
+      .intro { padding: 64px 24px; }
+      .intro-badge { font-size: 12px; padding: 9px 14px; gap: 6px; }
+      .intro-headline { font-size: clamp(38px, 11vw, 52px); margin-bottom: 20px; }
+      .intro-divider { font-size: 11px; margin-bottom: 20px; }
+      .intro-body { font-size: 15px; margin-bottom: 32px; }
+      .intro-ctas { flex-direction: column; gap: 10px; }
+      .intro-ctas .btn { width: 100%; text-align: center; }
+
+      .insta { padding: 72px 24px; }
+      .insta-title { font-size: clamp(38px, 11vw, 52px); margin-bottom: 20px; }
       .services-about-eyebrow,
       .services-about-title,
       .services-about-body,
@@ -1305,7 +1331,7 @@
       color: #111;
       padding: 8px 14px;
       border-radius: 10px;
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 13px;
       font-weight: 600;
       white-space: nowrap;
@@ -1350,7 +1376,7 @@
     }
     .cookie-banner.visible { transform: translateY(0); }
     .cookie-text {
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 14px;
       line-height: 1.6;
       opacity: 0.85;
@@ -1364,7 +1390,7 @@
       color: #111;
       border: none;
       border-radius: 100px;
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 14px;
       font-weight: 700;
       cursor: pointer;
@@ -1377,7 +1403,7 @@
       color: rgba(255,255,255,0.55);
       border: 1px solid rgba(255,255,255,0.25);
       border-radius: 100px;
-      font-family: 'Heebo', sans-serif;
+      font-family: 'Varela Round', sans-serif;
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
@@ -1461,10 +1487,6 @@
     <a href="tel:0505931226" class="btn btn-dark btn-lg">קביעת תור</a>
   </div>
 
-  <div class="hero-scroll-hint" aria-hidden="true">
-    <span>גלול</span>
-    <div class="scroll-line"></div>
-  </div>
 </section>
 
 <!-- ===================== FEATURES ===================== -->
@@ -1493,6 +1515,7 @@
 
 <!-- ===================== INTRO / ABOUT ===================== -->
 <section class="intro" id="about">
+  <div class="intro-bg" aria-hidden="true"></div>
   <div class="intro-noise" aria-hidden="true"></div>
 
   <div class="reveal">
@@ -1658,10 +1681,12 @@
 
 <!-- ===================== INSTAGRAM ===================== -->
 <section class="insta">
+  <div class="insta-bg" aria-hidden="true"></div>
+
   <div class="insta-header reveal">
     <p class="insta-eyebrow">עקבו אחרינו</p>
     <h2 class="insta-title">עוד מהסטודיו</h2>
-    <a href="https://www.instagram.com/eli_ben_yitzhak/" target="_blank" rel="noopener" class="insta-cta-link">
+<a href="https://www.instagram.com/eli_ben_yitzhak/" target="_blank" rel="noopener" class="insta-cta-link">
       <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       עקבו באינסטגרם
     </a>
@@ -1721,6 +1746,7 @@
   <div class="footer-bottom">
     <span>© 2026 אלי בן יצחק. סטודיו עיצוב שיער מוביל בבת ים.</span>
     <span>נעשה באהבה ✂️ בבת ים, ישראל</span>
+    <span class="footer-madeby">נוצר על ידי <a href="https://aiterra.co.il/" target="_blank" rel="noopener">aiterra</a></span>
   </div>
 </footer>
 
@@ -1896,6 +1922,27 @@
     localStorage.setItem('cookie-consent', 'declined');
     closeCookies();
   });
+
+  /* --- PARALLAX BG --- */
+  (function () {
+    const parallaxItems = [
+      { bg: document.querySelector('.intro-bg'), speed: 0.45 },
+      { bg: document.querySelector('.insta-bg'), speed: 0.38 }
+    ].filter(item => item.bg);
+
+    function applyParallax() {
+      parallaxItems.forEach(({ bg, speed }) => {
+        const section = bg.closest('section');
+        const rect    = section.getBoundingClientRect();
+        const center  = rect.top + rect.height / 2 - window.innerHeight / 2;
+        bg.style.transform = `translateY(${center * speed * -1}px)`;
+      });
+    }
+
+    window.addEventListener('scroll', applyParallax, { passive: true });
+    window.addEventListener('resize', applyParallax, { passive: true });
+    applyParallax();
+  })();
 </script>
 </body>
 </html>
