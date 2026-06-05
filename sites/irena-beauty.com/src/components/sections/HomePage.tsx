@@ -11,7 +11,6 @@ import Footer from'@/components/common/Footer';
 import WhatsAppButton from'@/components/common/WhatsAppButton';
 import DiscountPopup from'@/components/common/DiscountPopup';
 import CookieBanner from'@/components/common/CookieBanner';
-import { BookingProvider } from '@/components/booking/BookingContext';
 import { PAGE_LOADED_SESSION_KEY } from '@/hooks/useInView';
 
 export default function HomePage() {
@@ -25,7 +24,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <BookingProvider>
+    <>
       <Header />
       <main>
         <HeroSection />
@@ -39,6 +38,6 @@ export default function HomePage() {
       <WhatsAppButton />
       <DiscountPopup />
       <CookieBanner />
-    </BookingProvider>
+    </>
   )
 }

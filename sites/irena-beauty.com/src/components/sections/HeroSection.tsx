@@ -3,14 +3,13 @@
 import Button from '@/components/ui/Button';
 import { useParallax } from '@/hooks/useParallax';
 import { useLocale } from '@/components/i18n/LocaleProvider';
-import { useBooking } from '@/components/booking/BookingContext';
 
 export default function HeroSection() {
   const { ref: bgRef, offset } = useParallax<HTMLDivElement>(0.18);
   const { content, dir } = useLocale();
   const hero = content.hero;
   const isRtl = dir === 'rtl';
-  const { openBooking } = useBooking();
+  const scrollToContact = () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
 
   const scrimDirection = isRtl ? 'to left' : 'to right';
   const imagePath = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/Transparent BG.png`;
@@ -73,7 +72,7 @@ export default function HeroSection() {
                   }}
                 />
                 <button
-                  onClick={openBooking}
+                  onClick={scrollToContact}
                   className="w-full sm:w-auto px-[28px] py-[14px] rounded-xl uppercase tracking-wider text-sm font-medium bg-transparent text-text-primary hover:bg-text-primary hover:text-white transition-all duration-200 focus:outline-none"
                   style={{ fontFamily: 'Nunito Sans', border: '2px solid #1d1d1e' }}
                 >

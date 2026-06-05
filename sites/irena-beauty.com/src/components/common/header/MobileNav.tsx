@@ -2,13 +2,15 @@
 import Button from '../../ui/Button';
 import NavLink from './NavLink';
 import Logo from './Logo';
-import { useBooking } from '@/components/booking/BookingContext';
 import { useLocale } from '@/components/i18n/LocaleProvider';
 import LanguageSwitcher from '@/components/i18n/LanguageSwitcher';
 
 const MobileNav = ({ open, onClose }: { open: boolean; onClose?: () => void }) => {
-  const { openBooking } = useBooking();
   const { content: { nav, actions }, dir } = useLocale();
+  const scrollToContact = () => {
+    onClose?.();
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
   <nav
     dir={dir}
@@ -41,7 +43,7 @@ const MobileNav = ({ open, onClose }: { open: boolean; onClose?: () => void }) =
         margin="mt-2"
         position="relative"
         layout_gap="gap-0"
-        onClick={openBooking}
+        onClick={scrollToContact}
         text_font_size="text-base"
         text_font_family="Nunito Sans"
         text_font_weight="font-normal"

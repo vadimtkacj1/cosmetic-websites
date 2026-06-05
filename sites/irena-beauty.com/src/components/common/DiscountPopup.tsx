@@ -1,13 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { useBooking } from '@/components/booking/BookingContext';
 import { useLocale } from '@/components/i18n/LocaleProvider';
 
 const SESSION_KEY = 'discount_popup_dismissed';
 
 export default function DiscountPopup() {
   const [visible, setVisible] = useState(false);
-  const { openBooking } = useBooking();
   const { content, dir } = useLocale();
   const popup = content.discountPopup;
 
@@ -24,7 +22,7 @@ export default function DiscountPopup() {
 
   const handleBook = () => {
     close();
-    openBooking();
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   if (!visible) return null;

@@ -1,6 +1,5 @@
 'use client';
 import Button from '@/components/ui/Button';
-import { useBooking } from '@/components/booking/BookingContext';
 import { useSiteContent } from '@/components/i18n/LocaleProvider';
 
 interface PricingItem {
@@ -79,7 +78,7 @@ const PricingBlock = ({
   currency: string;
 }) => {
   const isImageLeft = category.imagePosition === 'left';
-  const { openBooking } = useBooking();
+  const scrollToContact = () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
 
   return (
     <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6">
@@ -148,7 +147,7 @@ const PricingBlock = ({
               layout_gap="gap-0"
               variant="filled"
               size="md"
-              onClick={openBooking}
+              onClick={scrollToContact}
             />
           </div>
         </div>

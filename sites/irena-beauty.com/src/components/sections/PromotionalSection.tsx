@@ -3,7 +3,6 @@ import Image from'next/image';
  import Button from'@/components/ui/Button';
 import Reveal from '@/components/ui/Reveal';
 import { useParallax } from '@/hooks/useParallax';
-import { useBooking } from '@/components/booking/BookingContext';
 import { useSiteContent } from '@/components/i18n/LocaleProvider';
 
 interface PromoCardProps {
@@ -16,7 +15,7 @@ interface PromoCardProps {
 
 const PromoCard = ({ image, title, imagePosition, imageAlt, cta }: PromoCardProps) => {
   const { ref, offset } = useParallax<HTMLDivElement>(0.08);
-  const { openBooking } = useBooking();
+  const scrollToContact = () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   return (
   <div className="flex flex-col sm:flex-row justify-start items-center bg-secondary-background w-full overflow-hidden">
     {imagePosition === 'left' && (
@@ -55,7 +54,7 @@ const PromoCard = ({ image, title, imagePosition, imageAlt, cta }: PromoCardProp
           layout_gap="gap-0"
           variant="primary"
           size="md"
-          onClick={openBooking}
+          onClick={scrollToContact}
         />
       </div>
     </div>

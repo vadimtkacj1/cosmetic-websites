@@ -1,12 +1,11 @@
 'use client';
 import Button from '../../ui/Button';
-import { useBooking } from '@/components/booking/BookingContext';
 import { useSiteContent } from '@/components/i18n/LocaleProvider';
 import LanguageSwitcher from '@/components/i18n/LanguageSwitcher';
 
 const DesktopActions = () => {
-  const { openBooking } = useBooking();
   const { actions } = useSiteContent();
+  const scrollToContact = () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   return (
   <div className="hidden lg:flex flex-row gap-[12px] items-center ms-[36px]">
     <LanguageSwitcher />
@@ -19,7 +18,7 @@ const DesktopActions = () => {
       margin="ms-[20px]"
       position="relative"
       layout_gap="gap-0"
-      onClick={openBooking}
+      onClick={scrollToContact}
       text_font_size="text-base"
       text_font_family="Nunito Sans"
       text_font_weight="font-normal"

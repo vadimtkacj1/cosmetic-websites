@@ -1,8 +1,6 @@
 'use client';
 import Image from'next/image';
 import Reveal from '@/components/ui/Reveal';
-import { useBooking } from '@/components/booking/BookingContext';
-
 import { useSiteContent } from '@/components/i18n/LocaleProvider';
 
 interface FeatureCardProps {
@@ -44,8 +42,8 @@ const FEATURE_ICONS = [
 ]
 
 export default function WhyChooseUsSection() {
-  const { openBooking } = useBooking();
   const { why } = useSiteContent();
+  const scrollToContact = () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   const features: FeatureCardProps[] = why.features.map((f, i) => ({
     icon: FEATURE_ICONS[i] ?? FEATURE_ICONS[0],
     title: f.title,
@@ -88,7 +86,7 @@ export default function WhyChooseUsSection() {
 
                 <button
                   type="button"
-                  onClick={openBooking}
+                  onClick={scrollToContact}
                   className="flex flex-row justify-center items-center bg-primary-background px-[14px] py-[14px] rounded-xl hover:opacity-90 transition-opacity"
                 >
                   <span className="text-[15px] sm:text-[15px] md:text-base font-normal leading-relaxed text-start text-text-white" style={{ fontFamily: 'Nunito Sans' }}>
