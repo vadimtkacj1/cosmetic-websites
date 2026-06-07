@@ -18,9 +18,9 @@
   --text:          #333333;
   --white:         #ffffff;
   --heading-font:  'Frank Ruhl Libre', serif;
-  --subtitle-font: 'Rubik', sans-serif;
-  --body-font:     'Rubik', sans-serif;
-  --varela-font:   'VarelaRound', 'Rubik', sans-serif;
+  --subtitle-font: 'VarelaRound', sans-serif;
+  --body-font:     'VarelaRound', sans-serif;
+  --varela-font:   'VarelaRound', sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
