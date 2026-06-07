@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="From window cleaning to gutter cleaning and beyond, Men In Kilts delivers exceptional exterior cleaning services. Request a free estimate!">
+  <meta property="og:title" content="Window Cleaning & More">
+  <meta property="og:site_name" content="Men In Kilts">
+  <meta property="og:url" content="https://www.meninkilts.com">
+  <meta property="og:image" content="https://octanecdn.com/meninkiltscom/meninkiltscom_363525624.svg">
+  <title>Window Cleaning & More | Men In Kilts</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; color: #222; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* NAV */
+    .nav { background: #fff; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eee; }
+    .nav img { height: 50px; }
+    .nav-links { display: flex; gap: 24px; font-size: 14px; font-weight: 600; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+        url('https://transform.octanecdn.com/crop/1920x1080/https://octanecdn.com/meninkiltscom/meninkiltscom_697762748.jpg?focal=36,33') center/cover no-repeat;
+    }
+    .hero-content { max-width: 700px; padding: 40px 20px; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 32px; }
+    .btn { display: inline-block; background: #c8a84b; color: #fff; padding: 14px 36px; border-radius: 4px; font-weight: 700; font-size: 1rem; letter-spacing: .5px; transition: background .2s; }
+    .btn:hover { background: #b0913c; }
+
+    /* TAGLINE */
+    .tagline { text-align: center; padding: 60px 20px 40px; }
+    .tagline img { margin: 0 auto 20px; height: 60px; }
+    .tagline h2 { font-size: 1.8rem; max-width: 700px; margin: 0 auto 12px; }
+    .tagline p { color: #555; font-size: 1rem; }
+
+    /* SERVICES */
+    .services { padding: 40px 20px 60px; max-width: 1100px; margin: 0 auto; }
+    .services h2 { text-align: center; font-size: 2rem; margin-bottom: 8px; }
+    .services h2 span { text-decoration: underline; }
+    .tab-btns { display: flex; justify-content: center; gap: 0; margin-bottom: 32px; border: 2px solid #333; width: fit-content; margin: 0 auto 32px; border-radius: 4px; overflow: hidden; }
+    .tab-btn { padding: 10px 32px; font-weight: 700; font-size: .95rem; cursor: pointer; background: #fff; border: none; letter-spacing: 1px; }
+    .tab-btn.active { background: #333; color: #fff; }
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+    .service-card { border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; }
+    .service-card-body { padding: 20px; }
+    .service-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .service-card p { font-size: .9rem; color: #555; margin-bottom: 12px; }
+    .service-card a { font-size: .85rem; font-weight: 700; color: #c8a84b; text-decoration: underline; }
+
+    /* WHY US */
+    .why-us { background: #f5f5f5; padding: 60px 20px; }
+    .why-us-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .why-us h2 { font-size: 2rem; margin-bottom: 8px; }
+    .why-us .eyebrow { font-style: italic; color: #c8a84b; font-size: 1rem; margin-bottom: 4px; }
+    .why-grid { display: flex; flex-direction: column; gap: 24px; }
+    .why-item { display: flex; gap: 16px; align-items: flex-start; }
+    .why-item img { width: 40px; flex-shrink: 0; }
+    .why-item h4 { font-size: .95rem; font-weight: 700; margin-bottom: 4px; }
+    .why-item p { font-size: .9rem; color: #555; }
+    .promise-box { background: #1a1a1a; color: #fff; border-radius: 8px; padding: 28px; margin-top: 24px; }
+    .promise-box img { height: 40px; margin-bottom: 16px; }
+    .promise-box p { font-size: .95rem; line-height: 1.7; }
+    .promise-box a { display: inline-block; margin-top: 16px; color: #c8a84b; font-weight: 700; text-decoration: underline; }
+
+    /* ABOUT TEXT */
+    .about-text { max-width: 900px; margin: 0 auto; padding: 60px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .about-text img { border-radius: 8px; width: 100%; }
+    .about-text h2 { font-size: 1.8rem; margin-bottom: 12px; }
+    .about-text p { font-size: .95rem; color: #444; margin-bottom: 14px; }
+    .about-text blockquote { border-left: 4px solid #c8a84b; padding-left: 16px; font-style: italic; margin: 16px 0; color: #555; }
+    .about-text ul { padding-left: 20px; }
+    .about-text li { font-size: .9rem; color: #444; margin-bottom: 10px; }
+    .about-text li strong { color: #222; }
+
+    /* TOOLKIT */
+    .toolkit { background: #111; color: #fff; padding: 60px 20px; text-align: center; }
+    .toolkit .eyebrow { color: #c8a84b; font-style: italic; font-size: 1rem; }
+    .toolkit h2 { font-size: 2rem; margin-bottom: 32px; }
+    .toolkit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+    .toolkit-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 6px; }
+    .toolkit-card h3 { font-size: 1rem; margin-top: 12px; }
+
+    /* REVIEWS */
+    .reviews { padding: 60px 20px; text-align: center; background: #fff; }
+    .reviews .eyebrow { font-style: italic; color: #c8a84b; }
+    .reviews h2 { font-size: 2rem; margin-bottom: 8px; }
+    .rating-badge { display: inline-block; background: #1a1a1a; color: #fff; font-size: 2rem; font-weight: 800; padding: 12px 28px; border-radius: 8px; margin-bottom: 32px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
+    .review-card { background: #f5f5f5; border-radius: 8px; padding: 24px; text-align: left; }
+    .review-card p { font-size: .9rem; color: #444; margin-bottom: 16px; }
+    .review-card .reviewer { font-weight: 700; font-size: .9rem; }
+    .review-card .location { font-size: .85rem; color: #777; }
+
+    /* HOW IT WORKS */
+    .how { background: #f5f5f5; padding: 60px 20px; text-align: center; }
+    .how img.logo { height: 50px; margin: 0 auto 24px; }
+    .how .eyebrow { color: #c8a84b; font-style: italic; }
+    .how h2 { font-size: 2rem; margin-bottom: 40px; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; max-width: 900px; margin: 0 auto 32px; }
+    .step img { height: 56px; margin: 0 auto 16px; }
+    .step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: .9rem; color: #555; }
+
+    /* CTA BANNER */
+    .cta-banner { background: #1a1a1a; color: #fff; text-align: center; padding: 60px 20px; }
+    .cta-banner img { height: 50px; margin: 0 auto 16px; filter: invert(1); }
+    .cta-banner h2 { font-size: 2rem; margin-bottom: 24px; }
+    .cta-banner h2 strong { color: #c8a84b; }
+
+    /* FOOTER */
+    footer { background: #111; color: #aaa; padding: 48px 40px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    footer h4 { color: #fff; font-size: .8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+    footer h4 span { font-style: italic; color: #c8a84b; text-transform: none; letter-spacing: 0; font-size: 1rem; }
+    footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    footer li a { font-size: .9rem; color: #aaa; transition: color .2s; }
+    footer li a:hover { color: #fff; }
+
+    @media (max-width: 768px) {
+      .why-us-inner, .about-text { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <img src="https://transform.octanecdn.com/width/900/https://octanecdn.com/meninkiltscom/meninkiltscom_350627293.png?focal=50,43" alt="Men In Kilts logo">
+    <div class="nav-links">
+      <a href="https://www.meninkilts.com/residential/">Residential</a>
+      <a href="https://www.meninkilts.com/commercial/">Commercial</a>
+      <a href="https://www.meninkilts.com/why-us/">Why Us</a>
+      <a href="https://www.meninkilts.com/locations/">Locations</a>
+      <a href="https://www.meninkilts.com/schedule-estimate/" class="btn" style="padding:10px 20px;font-size:.9rem;">Request Estimate</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Make your home's exterior sparkle.</h1>
+      <p>Trust the job to your tough-to-tackle cleaning team.</p>
+      <a href="https://www.meninkilts.com/schedule-estimate/" class="btn">Request Estimate</a>
+    </div>
+  </section>
+
+  <!-- TAGLINE -->
+  <section class="tagline">
+    <img src="https://transform.octanecdn.com/width/900/https://octanecdn.com/meninkiltscom/meninkiltscom_350627293.png?focal=50,43" alt="Men In Kilts logo">
+    <h2>Our work is cleaning, but our mission is creating extraordinary experiences.</h2>
+    <p>When you spot the tartan, you know your home will be held to the highest standard.</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <h2>what <span>We Clean</span></h2>
+    <br>
+    <div class="tab-btns">
+      <button class="tab-btn active">RESIDENTIAL</button>
+      <button class="tab-btn">COMMERCIAL</button>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <img src="https://transform.octanecdn.com/crop/650x366/https://octanecdn.com/meninkiltscom/meninkiltscom_737591965.jpg" alt="Window Cleaning">
+        <div class="service-card-body">
+          <h3>Window Cleaning</h3>
+          <p>Squeaky clean. Never streaky. That's how we do windows!</p>
+          <a href="https://www.meninkilts.com/residential/window-cleaning/">More Window Cleaning</a>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://transform.octanecdn.com/crop/650x366/https://octanecdn.com/meninkiltscom/meninkiltscom_848002100.jpeg" alt="Gutter Cleaning">
+        <div class="service-card-body">
+          <h3>Gutter Cleaning</h3>
+          <p>Gutters so clean, you'll exclaim "Great Scot!"</p>
+          <a href="https://www.meninkilts.com/residential/gutter-cleaning/">More Gutter Cleaning</a>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://transform.octanecdn.com/crop/650x366/https://octanecdn.com/meninkiltscom/meninkiltscom_389278361.jpeg" alt="House Washing">
+        <div class="service-card-body">
+          <h3>House Washing</h3>
+          <p>Our soft-wash system blasts away dirt, not your siding.</p>
+          <a href="https://www.meninkilts.com/residential/house-washing/">More House Washing</a>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://transform.octanecdn.com/crop/650x366/https://octanecdn.com/meninkiltscom/meninkiltscom_544560039.jpeg" alt="Pressure Washing">
+        <div class="service-card-body">
+          <h3>Pressure Washing</h3>
+          <p>We'll give caked on dirt and grime the heave-ho!</p>
+          <a href="https://www.meninkilts.com/residential/pressure-washing/">More Pressure Washing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why-us">
+    <div class="why-us-inner">
+      <div>
+        <img src="https://transform.octanecdn.com/width/900/https://octanecdn.com/meninkiltscom/meninkiltscom_173125380.png?focal=50,15" alt="Men In Kilts team" style="border-radius:8px;">
+      </div>
+      <div>
+        <p class="eyebrow">why us</p>
+        <h2>What sets us apart</h2>
+        <div class="why-grid">
+          <div class="why-item">
+            <img src="https://octanecdn.com/meninkiltscom/meninkiltscom_212108641.svg" alt="">
+            <div>
+              <h4>Industry-leading techniques and equipment</h4>
+              <p>We know the best exterior cleaning techniques and have access to high-quality equipment that helps us deliver the best results.</p>
+              <br>
+              <h4>Fully trained team</h4>
+              <p>Our team is fully trained and committed to delivering the best customer experience every step of the way.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <img src="https://octanecdn.com/meninkiltscom/meninkiltscom_328580700.svg" alt="">
+            <div>
+              <h4>Free estimates</h4>
+              <p>We offer free, no-risk estimates so you know exactly what to expect when you schedule your project.</p>
+              <br>
+              <h4>Strict safety protocols</h4>
+              <p>We follow strict ladder safety protocols, including our three-point touch policy.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <img src="https://octanecdn.com/meninkiltscom/meninkiltscom_609736677.svg" alt="">
+            <div>
+              <h4>Comprehensive service</h4>
+              <p>From initial consultation to final inspection, we offer a full range of residential and commercial exterior cleaning services.</p>
+              <br>
+              <h4>High-grade products</h4>
+              <p>All the cleaning products and equipment we use are commercial-grade and designed to deliver the best clean.</p>
+            </div>
+          </div>
+        </div>
+        <div class="promise-box">
+          <img src="https://transform.octanecdn.com/width/900/https://octanecdn.com/meninkiltscom/meninkiltscom_397792962.png" alt="Plaid Promise">
+          <p>Our plaid promise is to make things right, right away. <strong>If you are ever dissatisfied with an area of service, simply let us know within 48 hours and we will re-clean at no additional charge.</strong></p>
+          <a href="https://www.meninkilts.com/why-us/">Why Men In Kilts</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT TEXT -->
+  <section class="about-text">
+    <img src="https://transform.octanecdn.com/crop/700x700/https://octanecdn.com/meninkiltscom/meninkiltscom_258393841.jpg" alt="Men In Kilts team member">
+    <div>
+      <h2>Superior Window Cleaning Services</h2>
+      <p><em>Professional gutter cleaning, pressure washing, house washing, and more</em></p>
+      <p>When you turn to our team of cleaning professionals, you can count on a higher level of clean. We use ladders and tools to get at those hard-to-reach spots — second and third-floor windows, gutters, and even those neglected nooks and crannies inside or outside your home or business.</p>
+      <blockquote>Don't put off your cleaning project any longer. Get the team that goes the extra mile to put a smile on your face. Schedule your appointment by calling <a href="tel:844-541-7164"><strong>844-541-7164</strong></a> today!</blockquote>
+      <p><strong>Better tools for better results</strong></p>
+      <ul>
+        <li><strong>Extreme close-up gutter cameras:</strong> Allow us to see the condition of your gutters with great detail — identifying deformities, clogs, and even critters!</li>
+        <li><strong>Gutter vacuums:</strong> Carbon fiber poles rigged to a high-quality wet/dry vacuum to remove even the smallest bits of debris from hard-to-reach spots.</li>
+        <li><strong>Professional grade pressure washers:</strong> Adjustable for different surface types — high pressure for driveways, soft-wash for home siding.</li>
+      </ul>
+      <br>
+      <a href="https://www.meninkilts.com/schedule-estimate/" class="btn">Request Estimate</a>
+    </div>
+  </section>
+
+  <!-- TOOLKIT -->
+  <section class="toolkit">
+    <p class="eyebrow">our toolkit</p>
+    <h2><strong>How we tackle your toughest cleaning jobs</strong></h2>
+    <div class="toolkit-grid">
+      <div class="toolkit-card">
+        <img src="https://transform.octanecdn.com/crop/650x366/https://octanecdn.com/meninkiltscom/meninkiltscom_737591965.jpg" alt="Window Cleaning Toolkit">
+        <h3>Window Cleaning Toolkit</h3>
+        <p style="font-size:.85rem;color:#aaa;margin-top:6px;">Professional scrubbers and squeegees remove grit and grime in no time</p>
+      </div>
+      <div class="toolkit-card">
+        <img src="https://transform.octanecdn.com/crop/650x366/https://octanecdn.com/meninkiltscom/meninkiltscom_848002100.jpeg" alt="Gutter Cleaning Toolkit">
+        <h3>Gutter Cleaning Toolkit</h3>
+        <p style="font-size:.85rem;color:#aaa;margin-top:6px;">Allows us to reach the highest and toughest places while keeping our boots on the ground</p>
+      </div>
+      <div class="toolkit-card">
+        <img src="https://transform.octanecdn.com/crop/650x366/https://octanecdn.com/meninkiltscom/meninkiltscom_389278361.jpeg" alt="House Washing Tools">
+        <h3>Low-Pressure House Washing Tools</h3>
+        <p style="font-size:.85rem;color:#aaa;margin-top:6px;">Protect your building's paint and siding from damage caused by high-pressure cleaning</p>
+      </div>
+      <div class="toolkit-card">
+        <img src="https://transform.octanecdn.com/crop/650x366/https://octanecdn.com/meninkiltscom/meninkiltscom_544560039.jpeg" alt="Pressure Washers">
+        <h3>Professional-Grade Pressure Washers</h3>
+        <p style="font-size:.85rem;color:#aaa;margin-top:6px;">Can be tuned to deliver the right amount of pressure for cleaning a variety of surfaces</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews">
+    <p class="eyebrow">our reviews</p>
+    <h2>Don't take our word for it</h2>
+    <div class="rating-badge">4.8 ★</div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <p>They were extremely courteous, professional, prompt, cooperative, thorough, and careful. They cleaned my windows, siding, and chimney perfectly. I plan to have them back regularly.</p>
+        <div class="reviewer">Carla R.</div>
+        <div class="location">Lexington, KY</div>
+      </div>
+      <div class="review-card">
+        <p>Service was best we've had from ANY company for years! Service providers were prompt, diligent, professional and friendly. Our house looks almost new again.</p>
+        <div class="reviewer">Mike S.</div>
+        <div class="location">Richmond, VA</div>
+      </div>
+      <div class="review-card">
+        <p>They really did a thorough job cleaning our 20 ft high windows (interior and exterior) + balcony windows and terrace. They were even able to remove some very old hard water stains.</p>
+        <div class="reviewer">Benoit P.</div>
+        <div class="location">Miami, FL</div>
+      </div>
+      <div class="review-card">
+        <p>Customer service with this company is #1. They were prompt, courteous, and thorough. We've had other window cleaner companies in the past but have never had this quality of work.</p>
+        <div class="reviewer">Judy C.</div>
+        <div class="location">Fort Collins, CO</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <img class="logo" src="https://octanecdn.com/meninkiltscom/meninkiltscom_180066339.svg" alt="Men In Kilts logo">
+    <p class="eyebrow">get started</p>
+    <h2>How it works when you work with us</h2>
+    <div class="steps">
+      <div class="step">
+        <img src="https://octanecdn.com/meninkiltscom/meninkiltscom_212695324.svg" alt="">
+        <h3>Schedule your free estimate.</h3>
+        <p>We'll visit your home or business, assess the situation and come up with the best solution for your situation.</p>
+      </div>
+      <div class="step">
+        <img src="https://octanecdn.com/meninkiltscom/meninkiltscom_841807635.svg" alt="">
+        <h3>Book your service.</h3>
+        <p>We'll show up on time and be ready to work. Plus, we'll send you updates from pre-appointment to completion.</p>
+      </div>
+      <div class="step">
+        <img src="https://octanecdn.com/meninkiltscom/meninkiltscom_208276505.svg" alt="">
+        <h3>Check our work.</h3>
+        <p>Your satisfaction is our priority. We conduct a post-service walk-through so you can make sure everything is handled to the highest standard.</p>
+      </div>
+    </div>
+    <a href="https://www.meninkilts.com/schedule-estimate/" class="btn">Request estimate</a>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <img src="https://octanecdn.com/meninkiltscom/meninkiltscom_180066339.svg" alt="Men In Kilts logo">
+    <h2>request an <strong>Estimate Online</strong></h2>
+    <a href="https://www.meninkilts.com/schedule-estimate/" class="btn">Request Estimate</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h4><span>why</span> <strong>Men in Kilts</strong></h4>
+        <ul>
+          <li><a href="https://www.meninkilts.com/residential/">Residential Services</a></li>
+          <li><a href="https://www.meninkilts.com/commercial/">Commercial Services</a></li>
+          <li><a href="https://www.meninkilts.com/why-us/before-and-after/">Before &amp; After Gallery</a></li>
+          <li><a href="https://www.meninkilts.com/why-us/">Why Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span>more</span> <strong>Resources</strong></h4>
+        <ul>
+          <li><a href="https://www.meninkilts.com/locations/">Locations</a></li>
+          <li><a href="https://www.meninkilts.com/faq/">FAQ</a></li>
+          <li><a href="https://men-in-kilts-careers.careerplug.com/jobs">Careers</a></li>
+          <li><a href="https://www.meninkilts.com/articles/blog/">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

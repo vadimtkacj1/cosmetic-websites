@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="שירותי ניקוי ופוליש מקצועיים לבית ולעסק — חלונות, ביובים, שטיפת לחץ, פוליש משטחים ועוד. בקש הצעת מחיר חינמית!">
+  <title>ניקוי ופוליש מקצועי | Cleaning & Polish</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700;900&family=Rubik:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ════════════════ HEADER ════════════════ -->
+<header class="site-header">
+  <div class="width-container">
+    <div class="header-row">
+
+      <div class="logo-column">
+        <a href="index.html" class="site-logo-text">Cleaning &amp; Polish</a>
+      </div>
+
+      <button class="menu-toggle" aria-label="תפריט">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="navigation-column">
+
+        <div class="location-finder">
+          <p class="finder-label">מצא את<span>הסניף הקרוב אליך</span></p>
+          <input type="text" placeholder="מיקוד" aria-label="מיקוד">
+          <button type="button">חפש!</button>
+        </div>
+
+        <div class="nav-col">
+          <a href="#estimate" class="btn btn-amber header-cta">בקש הצעת מחיר</a>
+
+          <nav class="main-nav" aria-label="ניווט ראשי">
+            <ul>
+              <li class="nav-item">
+                <a class="nav-link" href="#services">מגורים</a>
+                <div class="dropdown">
+                  <a href="#">ניקוי חלונות</a>
+                  <a href="#">שטיפה בלחץ</a>
+                  <a href="#">ניקוי ביובים</a>
+                  <a href="#">ניקוי חלונות פנימי</a>
+                  <a href="#">שטיפת בית</a>
+                  <a href="#">פינוי שלג</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#services">מסחרי</a>
+                <div class="dropdown">
+                  <a href="#">ניקוי חלונות</a>
+                  <a href="#">שטיפה בלחץ</a>
+                  <a href="#">ניקוי ביובים</a>
+                  <a href="#">שטיפת חוץ לבניינים</a>
+                  <a href="#">פינוי שלג</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#why-us">למה אנחנו</a>
+                <div class="dropdown">
+                  <a href="#">לפני ואחרי</a>
+                  <a href="#">בלוג</a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero" id="main">
+  <div class="hero-bg">
+    <picture>
+      <source media="(max-width:800px)"
+              srcset="https://transform.octanecdn.com/crop/800x800/https://octanecdn.com/meninkiltscom/meninkiltscom_697762748.jpg?focal=36,33">
+      <img src="https://transform.octanecdn.com/crop/1920x1080/https://octanecdn.com/meninkiltscom/meninkiltscom_697762748.jpg?focal=36,33"
+           alt="Men In Kilts team" loading="eager" fetchpriority="high">
+    </picture>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner width-container">
+    <div class="hero-content">
+      <h1>תן לחוץ של הבית שלך<br>לנצוץ.<span class="hero-sparkle">✦</span></h1>
+      <p>סמוך על צוות הניקוי שמתמודד<br>עם כל אתגר.</p>
+      <a href="#estimate" class="btn btn-amber">בקש הצעת מחיר</a>
+    </div>
+  </div>
+</section>
+<div class="hero-stripe"></div>
+
+<!-- ════════════════ TAGLINE ════════════════ -->
+<section class="tagline">
+  <div class="width-container">
+    <div class="tagline-inner">
+      <div class="tagline-text">
+        <h2>העבודה שלנו היא ניקוי ופוליש, אבל המשימה שלנו היא יצירת חוויות יוצאות דופן.</h2>
+        <p class="tagline-sub">כשאתם בוחרים בנו, אתם יודעים שהנכס שלכם יטופל בסטנדרט הגבוה ביותר — נקי ומבריק.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ WHAT WE CLEAN ════════════════ -->
+<section class="services-section" id="services">
+  <div class="width-container">
+    <div class="services-grid">
+
+      <!-- LEFT -->
+      <div class="services-left">
+        <div class="services-heading">
+          <span class="label-what">מה</span>
+          <strong>אנחנו מנקים</strong>
+        </div>
+
+        <div class="services-tabs">
+          <button class="tab-btn active" data-target="residential">מגורים</button>
+          <button class="tab-btn" data-target="commercial">מסחרי</button>
+        </div>
+
+        <!-- Residential -->
+        <div class="service-items active" id="residential">
+          <div class="service-item active"
+               data-img="https://transform.octanecdn.com/crop/800x600/https://octanecdn.com/meninkiltscom/meninkiltscom_124633539.png">
+            <div class="service-item-icon">
+              <img src="https://transform.octanecdn.com/crop/80x80/https://octanecdn.com/meninkiltscom/meninkiltscom_737591965.jpg" alt="ניקוי חלונות">
+            </div>
+            <div class="service-item-body">
+              <h3>ניקוי חלונות</h3>
+              <p>נקי לגמרי. ללא פסים. כך אנחנו עושים חלונות!</p>
+              <a href="#">עוד על ניקוי חלונות</a>
+            </div>
+          </div>
+          <div class="service-item"
+               data-img="https://transform.octanecdn.com/crop/800x600/https://octanecdn.com/meninkiltscom/meninkiltscom_848002100.jpeg">
+            <div class="service-item-icon">
+              <img src="https://transform.octanecdn.com/crop/80x80/https://octanecdn.com/meninkiltscom/meninkiltscom_848002100.jpeg" alt="ניקוי ביובים">
+            </div>
+            <div class="service-item-body">
+              <h3>ניקוי ביובים</h3>
+              <p>ביובים כל כך נקיים, תקרא: "מדהים!"</p>
+              <a href="#">עוד על ניקוי ביובים</a>
+            </div>
+          </div>
+          <div class="service-item"
+               data-img="https://transform.octanecdn.com/crop/800x600/https://octanecdn.com/meninkiltscom/meninkiltscom_389278361.jpeg">
+            <div class="service-item-icon">
+              <img src="https://transform.octanecdn.com/crop/80x80/https://octanecdn.com/meninkiltscom/meninkiltscom_389278361.jpeg" alt="שטיפת בית">
+            </div>
+            <div class="service-item-body">
+              <h3>שטיפת בית</h3>
+              <p>מערכת השטיפה הרכה שלנו מסירה לכלוך, לא את הציפוי.</p>
+              <a href="#">עוד על שטיפת בית</a>
+            </div>
+          </div>
+          <div class="service-item"
+               data-img="https://transform.octanecdn.com/crop/800x600/https://octanecdn.com/meninkiltscom/meninkiltscom_544560039.jpeg">
+            <div class="service-item-icon">
+              <img src="https://transform.octanecdn.com/crop/80x80/https://octanecdn.com/meninkiltscom/meninkiltscom_544560039.jpeg" alt="שטיפה בלחץ">
+            </div>
+            <div class="service-item-body">
+              <h3>שטיפה בלחץ</h3>
+              <p>אנחנו נסלק את הלכלוך המושרש בהצלחה!</p>
+              <a href="#">עוד על שטיפה בלחץ</a>
+            </div>
+          </div>
+          <div class="services-all-cta">
+            <a href="#" class="btn btn-green">כל שירותי המגורים</a>
+          </div>
+        </div>
+
+        <!-- Commercial -->
+        <div class="service-items" id="commercial">
+          <div class="service-item active"
+               data-img="https://transform.octanecdn.com/crop/800x600/https://octanecdn.com/meninkiltscom/meninkiltscom_747229345.jpg">
+            <div class="service-item-icon">
+              <img src="https://transform.octanecdn.com/crop/80x80/https://octanecdn.com/meninkiltscom/meninkiltscom_737591965.jpg" alt="ניקוי חלונות מסחרי">
+            </div>
+            <div class="service-item-body">
+              <h3>ניקוי חלונות מסחרי</h3>
+              <p>עסק מוצלח ראוי לחלונות מבריקים.</p>
+              <a href="#">ניקוי חלונות</a>
+            </div>
+          </div>
+          <div class="service-item"
+               data-img="https://transform.octanecdn.com/crop/800x600/https://octanecdn.com/meninkiltscom/meninkiltscom_848002100.jpeg">
+            <div class="service-item-icon">
+              <img src="https://transform.octanecdn.com/crop/80x80/https://octanecdn.com/meninkiltscom/meninkiltscom_848002100.jpeg" alt="ניקוי ביובים מסחרי">
+            </div>
+            <div class="service-item-body">
+              <h3>ניקוי ביובים מסחרי</h3>
+              <p>אל תתן לביובים חסומים לעכב את העסק שלך.</p>
+              <a href="#">עוד על ניקוי ביובים</a>
+            </div>
+          </div>
+          <div class="service-item"
+               data-img="https://transform.octanecdn.com/crop/800x600/https://octanecdn.com/meninkiltscom/meninkiltscom_389278361.jpeg">
+            <div class="service-item-icon">
+              <img src="https://transform.octanecdn.com/crop/80x80/https://octanecdn.com/meninkiltscom/meninkiltscom_389278361.jpeg" alt="שטיפת חוץ מסחרית">
+            </div>
+            <div class="service-item-body">
+              <h3>שטיפת חוץ מסחרית</h3>
+              <p>אנחנו נגרום לבניין שלך לנצוץ!</p>
+              <a href="#">שטיפת חוץ לבניינים</a>
+            </div>
+          </div>
+          <div class="service-item"
+               data-img="https://transform.octanecdn.com/crop/800x600/https://octanecdn.com/meninkiltscom/meninkiltscom_544560039.jpeg">
+            <div class="service-item-icon">
+              <img src="https://transform.octanecdn.com/crop/80x80/https://octanecdn.com/meninkiltscom/meninkiltscom_544560039.jpeg" alt="שטיפה בלחץ מסחרית">
+            </div>
+            <div class="service-item-body">
+              <h3>שטיפה בלחץ מסחרית</h3>
+              <p>נהפוך את העסק שלך מלוכלך לנקי בזמן שיא!</p>
+              <a href="#">עוד על שטיפה בלחץ</a>
+            </div>
+          </div>
+          <div class="services-all-cta">
+            <a href="#" class="btn btn-green">כל שירותי המסחר</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: showcase image -->
+      <div class="services-right">
+        <div class="services-image-wrap">
+          <img id="service-showcase-img"
+               src="https://transform.octanecdn.com/crop/800x600/https://octanecdn.com/meninkiltscom/meninkiltscom_124633539.png"
+               alt="Service in action">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ WHY US ════════════════ -->
+<section class="section why-section" id="why-us">
+  <div class="width-container">
+    <div class="why-grid why-grid--no-photo">
+      <div>
+        <span class="eyebrow">למה אנחנו</span>
+        <h2 class="section-h2">מה מייחד אותנו</h2>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-item-icon">
+              <img src="https://octanecdn.com/meninkiltscom/meninkiltscom_212108641.svg" alt="">
+            </div>
+            <div>
+              <h4>טכניקות וציוד מובילים בתעשייה</h4>
+              <p>אנחנו מכירים את שיטות הניקוי החיצוני הטובות ביותר ומשתמשים בציוד איכותי להשגת תוצאות מיטביות לביתך או לעסקך.</p>
+              <h4 class="why-h4-second">צוות מיומן במלואו</h4>
+              <p>הצוות שלנו עבר הכשרה מלאה ומחויב למתן חוויית לקוח מיטבית בכל שלב של הדרך.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon">
+              <img src="https://octanecdn.com/meninkiltscom/meninkiltscom_328580700.svg" alt="">
+            </div>
+            <div>
+              <h4>הצעות מחיר חינם</h4>
+              <p>אנחנו רוצים שתסמוך עלינו. לכן אנחנו מציעים הצעות מחיר חינמיות וללא סיכון, כדי שתדע בדיוק מה לצפות.</p>
+              <h4 class="why-h4-second">פרוטוקולי בטיחות קפדניים</h4>
+              <p>אנחנו מקפידים על פרוטוקולי בטיחות נוקשים, כולל מדיניות המגע בשלוש נקודות.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon">
+              <img src="https://octanecdn.com/meninkiltscom/meninkiltscom_609736677.svg" alt="">
+            </div>
+            <div>
+              <h4>שירות מקיף</h4>
+              <p>מהייעוץ הראשוני ועד לבדיקה הסופית, אנחנו מציעים מגוון מלא של שירותי ניקוי חיצוני לנכסי מגורים ומסחר.</p>
+              <h4 class="why-h4-second">מוצרים באיכות גבוהה</h4>
+              <p>כל מוצרי הניקוי והציוד שבהם אנחנו משתמשים הם ברמה מסחרית ומיועדים לניקוי הטוב ביותר.</p>
+            </div>
+          </div>
+        </div>
+        <div class="promise-box">
+          <p>ההבטחה שלנו היא לתקן כל בעיה מיד. <strong>אם אינך מרוצה מאזור כלשהו של השירות, פשוט הודע לנו תוך 48 שעות ואנחנו נחזור לנקות ולצחצח ללא תשלום נוסף.</strong></p>
+          <a href="#">למה לבחור בנו</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ ABOUT ════════════════ -->
+<section class="section about-section">
+  <div class="width-container">
+    <div class="about-grid about-grid--no-photo">
+      <div class="about-body">
+        <h2>שירותי ניקוי חלונות מעולים</h2>
+        <p class="subtitle">ניקוי ביובים מקצועי, שטיפה בלחץ, שטיפת בית ועוד</p>
+        <p>כשאתה פונה לצוות אנשי המקצוע שלנו בניקוי, תוכל לסמוך על רמה גבוהה יותר של ניקיון. ואנחנו מתכוונים לכך ממש. אנחנו לא מוגבלים לסידור הדברים ברמת הקרקע. אנחנו משתמשים בסולמות וכלים כדי להגיע למקומות הקשים לגישה — חלונות בקומה שנייה ושלישית, ביובים, ואפילו אותם פינות נשכחות בתוך הבית או מחוצה לו.</p>
+        <blockquote>
+          אל תדחה את פרויקט הניקוי שלך עוד יותר. קבל את הצוות שהולך מעל ומעבר כדי להעניק לך חיוך. קבע את הפגישה שלך בהתקשרות
+          <a href="tel:8445417164" dir="ltr"><strong>844-541-7164</strong></a> היום!
+        </blockquote>
+        <div class="about-hidden" style="display:none;">
+          <p><strong>כלים טובים יותר לתוצאות טובות יותר</strong></p>
+          <ul class="about-list">
+            <li><strong>מצלמות מיוחדות לביובים:</strong> מאפשרות לנו לראות את מצב הביובים ברמת פירוט גבוהה — זיהוי עיוותים, סתימות ואפילו יצורים חיים!</li>
+            <li><strong>שואבי אבק לביובים:</strong> מוטות סיבי פחמן המחוברים לשואב אבק איכותי רטוב/יבש להסרת אפילו פיסות זעירות של פסולת.</li>
+            <li><strong>מכונות שטיפה בלחץ מקצועיות:</strong> מתכווננות לסוגי משטחים שונים — לחץ גבוה לשבילים, שטיפה רכה לציפוי.</li>
+          </ul>
+          <p style="margin-top:12px;">בין אם מדובר בבית או בבניין דירות, אנחנו יכולים לנקות ולצחצח אותו! אנחנו מתמחים בניקוי ופוליש חיצוני הן לנכסים למגורים והן לנכסים מסחריים. בעלי בתים, ועדי בתים, קבלנים ומנהלי תחזוקה יכולים לסמוך על ערבות הניקוי שלנו תוך 48 שעות.</p>
+        </div>
+        <button class="read-more-btn">המשך לקרוא</button>
+        <a href="#estimate" class="btn btn-amber">בקש הצעת מחיר</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ TOOLKIT ════════════════ -->
+<section class="section toolkit-section">
+  <div class="width-container">
+    <span class="eyebrow">הכלים שלנו</span>
+    <h2 class="section-h2"><strong>כיצד אנחנו מתמודדים עם משימות הניקוי הקשות ביותר</strong></h2>
+    <p style="color:#9ab8be;font-size:.88rem;margin-top:6px;">המחויבות שלנו לחדשנות אומרת שביתך תמיד ינוקה עם הכלים והמוצרים האפקטיביים ביותר.</p>
+    <div class="toolkit-grid">
+      <div class="toolkit-card">
+        <img src="https://transform.octanecdn.com/crop/650x366/https://octanecdn.com/meninkiltscom/meninkiltscom_737591965.jpg" alt="ערכת ניקוי חלונות" loading="lazy">
+        <h3>ערכת ניקוי חלונות</h3>
+        <p>מגרדות וגומי מקצועיים מסירים לכלוך בזמן שיא</p>
+      </div>
+      <div class="toolkit-card">
+        <img src="https://transform.octanecdn.com/crop/650x366/https://octanecdn.com/meninkiltscom/meninkiltscom_848002100.jpeg" alt="ערכת ניקוי ביובים" loading="lazy">
+        <h3>ערכת ניקוי ביובים</h3>
+        <p>מאפשרת לנו להגיע למקומות הגבוהים והקשים ביותר תוך שמירה על הרגליים על הקרקע</p>
+      </div>
+      <div class="toolkit-card">
+        <img src="https://transform.octanecdn.com/crop/650x366/https://octanecdn.com/meninkiltscom/meninkiltscom_389278361.jpeg" alt="כלי שטיפת בית בלחץ נמוך" loading="lazy">
+        <h3>כלי שטיפת בית בלחץ נמוך</h3>
+        <p>להגן על הצבע והציפוי של הבניין מפני נזק הנגרם מניקוי בלחץ גבוה</p>
+      </div>
+      <div class="toolkit-card">
+        <img src="https://transform.octanecdn.com/crop/650x366/https://octanecdn.com/meninkiltscom/meninkiltscom_544560039.jpeg" alt="מכונות שטיפה בלחץ מקצועיות" loading="lazy">
+        <h3>מכונות שטיפה בלחץ מקצועיות</h3>
+        <p>ניתן לכוונן למתן כמות הלחץ הנכונה לניקוי מגוון משטחים</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ REVIEWS ════════════════ -->
+<section class="section reviews-section" id="reviews">
+  <div class="width-container">
+    <span class="eyebrow">הביקורות שלנו</span>
+    <h2 class="section-h2">לא צריך להאמין לנו — שמע מהלקוחות</h2>
+    <div class="rating-badge">
+      <span class="num">4.8</span>
+      <span class="stars">★★★★★</span>
+    </div>
+    <div class="reviews-track"></div>
+    <div class="reviews-nav">
+      <button class="reviews-nav-btn reviews-prev">&#8592;</button>
+      <button class="reviews-nav-btn reviews-next">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ HOW IT WORKS ════════════════ -->
+<section class="section how-section">
+  <div class="width-container">
+    <span class="eyebrow">בואו נתחיל</span>
+    <h2 class="section-h2">כיצד זה עובד כשעובדים איתנו</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-icon"><img src="https://octanecdn.com/meninkiltscom/meninkiltscom_212695324.svg" alt=""></div>
+        <h3>קבע הערכה חינמית.</h3>
+        <p>נבקר בביתך או בעסקך, נעריך את המצב ונמצא את הפתרון הטוב ביותר עבורך.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon"><img src="https://octanecdn.com/meninkiltscom/meninkiltscom_841807635.svg" alt=""></div>
+        <h3>הזמן את השירות שלך.</h3>
+        <p>נגיע בזמן ומוכנים לעבודה. בנוסף, נשלח לך עדכונים מהזמנת התור ועד לסיום כדי שתהיה תמיד מעודכן.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon"><img src="https://octanecdn.com/meninkiltscom/meninkiltscom_208276505.svg" alt=""></div>
+        <h3>בדוק את עבודתנו.</h3>
+        <p>שביעות הרצון שלך היא הקדימות שלנו. לכן אנחנו עורכים סיור לאחר השירות כדי שתוכל לוודא שהכל טופל בסטנדרט הגבוה ביותר.</p>
+      </div>
+    </div>
+    <a href="#estimate" class="btn btn-amber">בקש הצעת מחיר</a>
+  </div>
+</section>
+
+<!-- ════════════════ ESTIMATE CTA ════════════════ -->
+<section class="estimate-section" id="estimate">
+  <h2>בקש <span class="highlight">הצעת מחיר אונליין</span></h2>
+  <a href="#" class="btn btn-amber">בקש הצעת מחיר</a>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="site-footer" id="footer">
+  <div class="width-container">
+    <div class="footer-grid">
+      <div class="footer-brand footer-col">
+        <p class="footer-logo-text">Cleaning &amp; Polish</p>
+        <p>שירותי ניקוי ופוליש מקצועיים לבית ולעסק — חלונות, משטחים, שטיפת לחץ ופוליש לכל סוגי המשטחים.</p>
+        <div class="footer-phone">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+          <a href="tel:8445417164" dir="ltr">844-541-7164</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="YouTube">▶</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">◎</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4><em>למה</em> לבחור בנו</h4>
+        <ul>
+          <li><a href="#">שירותי מגורים</a></li>
+          <li><a href="#">שירותי מסחר</a></li>
+          <li><a href="#">גלריית לפני ואחרי</a></li>
+          <li><a href="#">למה אנחנו</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><em>עוד</em> משאבים</h4>
+        <ul>
+          <li><a href="#">סניפים</a></li>
+          <li><a href="#">שאלות נפוצות</a></li>
+          <li><a href="#">קריירה</a></li>
+          <li><a href="#">בלוג</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024 Cleaning &amp; Polish. כל הזכויות שמורות.</span>
+      <span>
+        <a href="#">מדיניות פרטיות</a> &nbsp;&middot;&nbsp;
+        <a href="#">תנאי שימוש</a> &nbsp;&middot;&nbsp;
+        <a href="#">מפת אתר</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

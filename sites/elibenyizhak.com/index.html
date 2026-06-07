@@ -5,10 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>אלי בן יצחק | סטודיו עיצוב שיער · בת ים</title>
   <meta name="description" content="סטודיו מוביל לעיצוב שיער בבת ים. מתמחים בפריצה אורגנית מאושרת ממשרד הבריאות, אומברה, בלייאז׳ וצביעה מקצועית.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <style>
+    @font-face {
+      font-family: 'Varela Round';
+      src: url('fonts/VarelaRound-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
     /* =========================================
        RESET & CUSTOM PROPERTIES
     ========================================= */
@@ -862,23 +868,33 @@
       margin-top: 48px;
     }
     .t-prev, .t-next {
-      width: 44px; height: 44px;
+      width: 62px; height: 62px;
       border-radius: 50%;
       background: var(--yellow);
-      border: none;
+      border: 2.5px solid var(--black);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+      transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
       flex-shrink: 0;
+      box-shadow: 3px 3px 0 var(--black);
     }
     .t-prev:hover, .t-next:hover {
-      background: var(--white);
-      transform: scale(1.1);
+      background: var(--pink);
+      transform: scale(1.12) translateY(-2px);
+      box-shadow: 4px 5px 0 var(--black);
     }
-    .t-prev svg, .t-next svg { width: 16px; fill: var(--black); transition: fill 0.3s; }
-    .t-prev:hover svg, .t-next:hover svg { fill: var(--black); }
+    .t-prev svg, .t-next svg {
+      width: 28px; height: 28px;
+      fill: none;
+      stroke: var(--black);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.3s;
+    }
+    .t-prev:hover svg, .t-next:hover svg { stroke: var(--white); }
 
     .t-dots { display: flex; gap: 8px; }
     .t-dot {
@@ -969,6 +985,172 @@
       transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
     }
     .loc-card:hover .loc-card-cta span { transform: translateY(0); }
+
+    /* =========================================
+       PORTFOLIO
+    ========================================= */
+    .portfolio {
+      padding: 120px 40px;
+      background: var(--cream);
+    }
+    .portfolio-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .portfolio-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--pink);
+      letter-spacing: 0;
+      margin-bottom: 16px;
+    }
+    .portfolio-title {
+      font-family: 'Varela Round', sans-serif;
+      font-size: clamp(44px, 7vw, 88px);
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+    .portfolio-title .ph {
+      display: inline-block;
+      background: var(--yellow);
+      padding: 4px 18px 0;
+      transform: rotate(-1.5deg);
+    }
+    .portfolio-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      columns: 3;
+      column-gap: 18px;
+    }
+    .portfolio-item {
+      break-inside: avoid;
+      margin-bottom: 18px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      background: #ddd;
+    }
+    .portfolio-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .portfolio-item:hover img { transform: scale(1.06); }
+    .portfolio-item-over {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 22px;
+    }
+    .portfolio-item:hover .portfolio-item-over { opacity: 1; }
+    .portfolio-item-over span {
+      background: var(--yellow);
+      color: var(--black);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 100px;
+      transform: translateY(10px);
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .portfolio-item:hover .portfolio-item-over span { transform: translateY(0); }
+    .portfolio-cta {
+      text-align: center;
+      margin-top: 52px;
+    }
+
+    /* lightbox */
+    .pf-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .pf-lightbox.open { opacity: 1; pointer-events: all; }
+    .pf-lightbox img {
+      max-width: 90vw;
+      max-height: 88vh;
+      border-radius: 16px;
+      object-fit: contain;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+      transform: scale(0.92);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .pf-lightbox.open img { transform: scale(1); }
+    .pf-lightbox-close {
+      position: absolute;
+      top: 22px; right: 28px;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--yellow);
+      border: 2px solid var(--black);
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+      color: var(--black);
+      font-weight: 700;
+    }
+    .pf-lightbox-close:hover { background: var(--pink); color: var(--white); }
+
+    /* video portfolio items */
+    .portfolio-item video {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .portfolio-item:hover video { transform: scale(1.06); }
+    .portfolio-item .play-icon {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .portfolio-item .play-icon svg {
+      width: 56px; height: 56px;
+      fill: rgba(255,255,255,0.9);
+      drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+      filter: drop-shadow(0 2px 10px rgba(0,0,0,0.6));
+    }
+    .portfolio-item.is-video:hover .play-icon { opacity: 0; }
+
+    /* video lightbox */
+    .pf-lightbox video {
+      max-width: 90vw;
+      max-height: 88vh;
+      border-radius: 16px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+      transform: scale(0.92);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      display: none;
+    }
+    .pf-lightbox.open video { transform: scale(1); }
+
+    @media (max-width: 860px) {
+      .portfolio-grid { columns: 2; }
+    }
+    @media (max-width: 520px) {
+      .portfolio { padding: 80px 24px; }
+      .portfolio-grid { columns: 1; }
+    }
 
     /* =========================================
        MARQUEE
@@ -1425,12 +1607,12 @@
 <nav class="nav" id="nav">
   <a href="#top">
     <img class="nav-logo"
-         src="https://birdsbarbershop.com/wp-content/uploads/2025/11/birds-barbershop-logo-black.svg"
+         src="assets/logo.png"
          alt="אלי בן יצחק">
   </a>
   <ul class="nav-links">
     <li><a href="#services">שירותים</a></li>
-    <li><a href="#locations">גלריה</a></li>
+    <li><a href="#portfolio">פורטפוליו</a></li>
     <li><a href="#about">אודות</a></li>
     <li><a href="#beats">צרו קשר</a></li>
   </ul>
@@ -1446,7 +1628,7 @@
 <!-- mobile full-screen nav -->
 <div class="nav-mobile" id="navMobile">
   <a href="#services" class="mobile-link">שירותים</a>
-  <a href="#locations" class="mobile-link">גלריה</a>
+  <a href="#portfolio" class="mobile-link">פורטפוליו</a>
   <a href="#about" class="mobile-link">אודות</a>
   <a href="#beats" class="mobile-link">צרו קשר</a>
   <a href="tel:0505931226" class="btn btn-dark btn-lg" style="margin-top:16px;">קביעת תור</a>
@@ -1460,16 +1642,16 @@
 
   <div class="hero-floats" aria-hidden="true">
     <div class="hero-float">
-      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/peace-shears.svg" alt="" draggable="false">
+      <img src="animation/scissors.svg" alt="" draggable="false">
     </div>
     <div class="hero-float">
-      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/hairdryer-daisy.svg" alt="" draggable="false">
+      <img src="animation/fan.svg" alt="" draggable="false">
     </div>
     <div class="hero-float">
-      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/checker-face.svg" alt="" draggable="false">
+      <img src="animation/spray%20bottle.svg" alt="" draggable="false">
     </div>
     <div class="hero-float">
-      <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/hair-pin.svg" alt="" draggable="false">
+      <img src="animation/oil.svg" alt="" draggable="false">
     </div>
   </div>
 
@@ -1494,19 +1676,19 @@
   <div class="features-inner">
     <div class="feature-item reveal d1">
       <div class="feature-icon-wrap">
-        <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/peace-shears.svg" alt="">
+        <img src="animation/scissors.svg" alt="">
       </div>
       <h3 class="feature-label">פריצה אורגנית<br>מאושרת</h3>
     </div>
     <div class="feature-item reveal d3">
       <div class="feature-icon-wrap">
-        <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/hairdryer-daisy.svg" alt="">
+        <img src="animation/fan.svg" alt="">
       </div>
       <h3 class="feature-label">אומברה<br>ובלייאז׳</h3>
     </div>
     <div class="feature-item reveal d5">
       <div class="feature-icon-wrap">
-        <img src="https://birdsbarbershop.com/wp-content/uploads/2026/01/checker-face.svg" alt="">
+        <img src="animation/oil.svg" alt="">
       </div>
       <h3 class="feature-label">חומרים<br>איכותיים בלבד</h3>
     </div>
@@ -1593,6 +1775,74 @@
   </div>
 </section>
 
+<!-- ===================== PORTFOLIO ===================== -->
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-header reveal">
+    <p class="portfolio-eyebrow">העבודות שלנו</p>
+    <h2 class="portfolio-title">פורטפוליו <span class="ph">מושלם</span></h2>
+  </div>
+
+  <div class="portfolio-grid">
+    <div class="portfolio-item reveal d1">
+      <img src="img/image (8).png" alt="עיצוב שיער" loading="lazy">
+      <div class="portfolio-item-over"><span>צפו בתמונה</span></div>
+    </div>
+    <div class="portfolio-item reveal d2">
+      <img src="img/image (9).png" alt="עיצוב שיער" loading="lazy">
+      <div class="portfolio-item-over"><span>צפו בתמונה</span></div>
+    </div>
+    <div class="portfolio-item reveal d3">
+      <img src="img/image (10).png" alt="עיצוב שיער" loading="lazy">
+      <div class="portfolio-item-over"><span>צפו בתמונה</span></div>
+    </div>
+    <div class="portfolio-item reveal d4">
+      <img src="img/image (11).png" alt="עיצוב שיער" loading="lazy">
+      <div class="portfolio-item-over"><span>צפו בתמונה</span></div>
+    </div>
+    <div class="portfolio-item reveal d5">
+      <img src="img/image (13).png" alt="עיצוב שיער" loading="lazy">
+      <div class="portfolio-item-over"><span>צפו בתמונה</span></div>
+    </div>
+    <div class="portfolio-item reveal d6">
+      <img src="img/image (14).png" alt="עיצוב שיער" loading="lazy">
+      <div class="portfolio-item-over"><span>צפו בתמונה</span></div>
+    </div>
+    <div class="portfolio-item reveal d7">
+      <img src="img/image (15).png" alt="עיצוב שיער" loading="lazy">
+      <div class="portfolio-item-over"><span>צפו בתמונה</span></div>
+    </div>
+    <div class="portfolio-item reveal d8">
+      <img src="img/image (16).png" alt="עיצוב שיער" loading="lazy">
+      <div class="portfolio-item-over"><span>צפו בתמונה</span></div>
+    </div>
+    <div class="portfolio-item is-video reveal d1" data-video="video/video1.mp4">
+      <video src="video/video1.mp4" muted loop playsinline preload="metadata"></video>
+      <div class="play-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="rgba(0,0,0,0.35)"/><polygon points="10,8 18,12 10,16" fill="white"/></svg>
+      </div>
+      <div class="portfolio-item-over"><span>צפו בסרטון</span></div>
+    </div>
+    <div class="portfolio-item is-video reveal d2" data-video="video/video2.mp4">
+      <video src="video/video2.mp4" muted loop playsinline preload="metadata"></video>
+      <div class="play-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="rgba(0,0,0,0.35)"/><polygon points="10,8 18,12 10,16" fill="white"/></svg>
+      </div>
+      <div class="portfolio-item-over"><span>צפו בסרטון</span></div>
+    </div>
+  </div>
+
+  <div class="portfolio-cta reveal">
+    <a href="https://www.instagram.com/eli_ben_yitzhak/" target="_blank" rel="noopener" class="btn btn-dark btn-lg">עוד עבודות באינסטגרם</a>
+  </div>
+</section>
+
+<!-- lightbox -->
+<div class="pf-lightbox" id="pfLightbox">
+  <button class="pf-lightbox-close" id="pfClose">✕</button>
+  <img id="pfLightboxImg" src="" alt="">
+  <video id="pfLightboxVid" controls playsinline></video>
+</div>
+
 <!-- ===================== TESTIMONIALS ===================== -->
 <section class="testimonials">
   <div class="testimonials-header reveal">
@@ -1603,7 +1853,7 @@
   <div class="testimonials-viewport">
     <div class="testimonials-track" id="tTrack">
       <div class="t-card">
-        <img class="t-icon" src="https://birdsbarbershop.com/wp-content/uploads/2026/01/lips.webp" alt="">
+        <img class="t-icon" src="animation/oil.svg" alt="">
         <div class="t-stars">
           <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -1615,7 +1865,7 @@
         <div class="t-author">— מיכל כ.</div>
       </div>
       <div class="t-card">
-        <img class="t-icon" src="https://birdsbarbershop.com/wp-content/uploads/2026/01/hair-pin.svg" alt="">
+        <img class="t-icon" src="animation/fan.svg" alt="">
         <div class="t-stars">
           <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -1627,7 +1877,7 @@
         <div class="t-author">— שרה ל.</div>
       </div>
       <div class="t-card">
-        <img class="t-icon" src="https://birdsbarbershop.com/wp-content/uploads/2026/01/record-and-drink.svg" alt="">
+        <img class="t-icon" src="animation/scissors.svg" alt="">
         <div class="t-stars">
           <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -1638,46 +1888,50 @@
         <p class="t-quote">״הכי טוב בבת ים. הצוות מקסים, השירות ברמה גבוהה והתוצאות מדהימות. אני לקוחה קבועה כבר שנים ולא מתכוונת לעזוב.״</p>
         <div class="t-author">— רחל מ.</div>
       </div>
+      <div class="t-card">
+        <img class="t-icon" src="animation/shaving.svg" alt="">
+        <div class="t-stars">
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="t-quote">״עשיתי בלייאז׳ אצל אלי ויצאתי עם שיער שלא הכרתי. הצבע מדויק, הטכניקה מקצועית ברמה אחרת. כבר קבעתי תור לפגישה הבאה!״</p>
+        <div class="t-author">— דנה א.</div>
+      </div>
+      <div class="t-card">
+        <img class="t-icon" src="animation/spray%20bottle.svg" alt="">
+        <div class="t-stars">
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="t-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="t-quote">״ביקרתי לראשונה לצביעת שורשים ופשוט התאהבתי בסטודיו. אלי ידע בדיוק מה מתאים לי, השירות חם ואישי. ממליצה לכל אחת!״</p>
+        <div class="t-author">— נועה ב.</div>
+      </div>
     </div>
   </div>
 
   <div class="testimonials-controls">
     <button class="t-prev" id="tPrev" aria-label="הקודם">
-      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
     </button>
     <div class="t-dots" id="tDots">
       <div class="t-dot active" data-i="0"></div>
       <div class="t-dot" data-i="1"></div>
       <div class="t-dot" data-i="2"></div>
+      <div class="t-dot" data-i="3"></div>
+      <div class="t-dot" data-i="4"></div>
     </div>
     <button class="t-next" id="tNext" aria-label="הבא">
-      <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
     </button>
   </div>
 </section>
 
-<!-- ===================== MARQUEE ===================== -->
-<div class="marquee-wrap" id="beats">
-  <div class="marquee-inner" aria-hidden="true">
-    <span class="marquee-item">פריצה אורגנית <span class="marquee-sep"></span></span>
-    <span class="marquee-item">אומברה ובלייאז׳ <span class="marquee-sep"></span></span>
-    <span class="marquee-item">צביעת שורשים <span class="marquee-sep"></span></span>
-    <span class="marquee-item">עיצוב שיער מקצועי <span class="marquee-sep"></span></span>
-    <span class="marquee-item">בת ים, ישראל <span class="marquee-sep"></span></span>
-    <span class="marquee-item">מסכות שיקום <span class="marquee-sep"></span></span>
-    <span class="marquee-item">אלי בן יצחק <span class="marquee-sep"></span></span>
-    <span class="marquee-item">050-5931226 <span class="marquee-sep"></span></span>
-    <!-- duplicate for seamless loop -->
-    <span class="marquee-item">פריצה אורגנית <span class="marquee-sep"></span></span>
-    <span class="marquee-item">אומברה ובלייאז׳ <span class="marquee-sep"></span></span>
-    <span class="marquee-item">צביעת שורשים <span class="marquee-sep"></span></span>
-    <span class="marquee-item">עיצוב שיער מקצועי <span class="marquee-sep"></span></span>
-    <span class="marquee-item">בת ים, ישראל <span class="marquee-sep"></span></span>
-    <span class="marquee-item">מסכות שיקום <span class="marquee-sep"></span></span>
-    <span class="marquee-item">אלי בן יצחק <span class="marquee-sep"></span></span>
-    <span class="marquee-item">050-5931226 <span class="marquee-sep"></span></span>
-  </div>
-</div>
 
 <!-- ===================== INSTAGRAM ===================== -->
 <section class="insta">
@@ -1699,7 +1953,7 @@
     <div>
       <a href="#top">
         <img class="footer-logo"
-             src="https://birdsbarbershop.com/wp-content/uploads/2025/11/birds-barbershop-logo-black.svg"
+             src="assets/logo.png"
              alt="אלי בן יצחק">
       </a>
       <p class="footer-about">סטודיו מוביל לעיצוב שיער בבת ים. מומחיות בפריצה אורגנית, אומברה ובלייאז׳. לגברים, נשים וילדים — כולם מוזמנים.</p>
@@ -1835,7 +2089,7 @@
   const tNext  = document.getElementById('tNext');
   let tCurrent = 0;
   let tTimer;
-  const TOTAL_SLIDES = 3;
+  const TOTAL_SLIDES = 5;
 
   function getCardWidth() {
     const card = tTrack.firstElementChild;
@@ -1943,6 +2197,52 @@
     window.addEventListener('resize', applyParallax, { passive: true });
     applyParallax();
   })();
+
+  /* --- PORTFOLIO LIGHTBOX --- */
+  const pfLightbox    = document.getElementById('pfLightbox');
+  const pfLightboxImg = document.getElementById('pfLightboxImg');
+  const pfLightboxVid = document.getElementById('pfLightboxVid');
+  const pfClose       = document.getElementById('pfClose');
+
+  document.querySelectorAll('.portfolio-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      pfLightboxImg.src = img.src;
+      pfLightboxImg.style.display = 'block';
+      pfLightboxVid.style.display = 'none';
+      pfLightbox.classList.add('open');
+      document.body.style.overflowY = 'hidden';
+    });
+  });
+
+  document.querySelectorAll('.portfolio-item.is-video').forEach(item => {
+    item.addEventListener('click', () => {
+      const src = item.dataset.video;
+      pfLightboxVid.src = src;
+      pfLightboxVid.style.display = 'block';
+      pfLightboxImg.style.display = 'none';
+      pfLightbox.classList.add('open');
+      document.body.style.overflowY = 'hidden';
+      pfLightboxVid.play();
+    });
+  });
+
+  function closeLightbox() {
+    pfLightbox.classList.remove('open');
+    document.body.style.overflowY = '';
+    pfLightboxVid.pause();
+    pfLightboxVid.src = '';
+  }
+
+  pfClose.addEventListener('click', closeLightbox);
+  pfLightbox.addEventListener('click', e => { if (e.target === pfLightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  /* --- VIDEO HOVER PLAY --- */
+  document.querySelectorAll('.portfolio-item.is-video video').forEach(vid => {
+    const item = vid.closest('.portfolio-item');
+    item.addEventListener('mouseenter', () => vid.play());
+    item.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
+  });
 </script>
 </body>
 </html>
