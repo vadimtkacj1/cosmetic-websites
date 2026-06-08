@@ -129,7 +129,7 @@ export default function UnleashingCreativitySection() {
                 style={{ transform: `translate3d(0, ${portraitOffset}px, 0) scale(1.05)` }}
               >
                 <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/clinic-bg.png`}
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/clinic-bg.webp`}
                   alt={about.name}
                   className="w-full h-full block object-cover object-top lg:h-auto lg:object-contain"
                 />

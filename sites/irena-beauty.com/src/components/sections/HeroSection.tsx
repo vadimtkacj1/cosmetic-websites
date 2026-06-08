@@ -12,7 +12,7 @@ export default function HeroSection() {
   const scrollToContact = () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
 
   const scrimDirection = isRtl ? 'to left' : 'to right';
-  const imagePath = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/Transparent BG.png`;
+  const imagePath = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/Transparent BG.webp`;
 
   return (
     <section id="hero" className="relative w-full bg-secondary-light overflow-hidden">

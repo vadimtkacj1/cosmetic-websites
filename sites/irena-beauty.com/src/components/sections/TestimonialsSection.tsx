@@ -37,7 +37,7 @@ const TestimonialCard = ({ image, name, location, testimonial, imageAlt }: Testi
 )
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
-const TESTIMONIAL_IMAGES = [`${BASE}/images/img_image_120x120.png`, `${BASE}/images/img_image_3.png`, `${BASE}/images/img_image_4.png`]
+const TESTIMONIAL_IMAGES = [`${BASE}/images/img_image_120x120.png`, `${BASE}/images/img_image_3.webp`, `${BASE}/images/img_image_4.webp`]
 
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0)

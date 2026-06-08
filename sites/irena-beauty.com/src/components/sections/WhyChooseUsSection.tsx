@@ -96,7 +96,7 @@ export default function WhyChooseUsSection() {
               </div>
               
               <Image
-                src="/images/img_image_31.png"
+                src="/images/img_image_31.webp"
                 alt="Book appointment illustration"
                 width={326}
                 height={382}

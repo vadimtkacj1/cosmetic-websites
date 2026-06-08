@@ -76,7 +76,7 @@ const PromoCard = ({ image, title, imagePosition, imageAlt, cta }: PromoCardProp
   );
 };
 
-const PROMO_IMAGES = ['/images/img_image_37.png', '/images/img_image_36.png']
+const PROMO_IMAGES = ['/images/img_image_37.webp', '/images/img_image_36.webp']
 const PROMO_POSITIONS = ['left', 'right'] as const
 
 export default function PromotionalSection() {

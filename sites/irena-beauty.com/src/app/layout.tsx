@@ -46,7 +46,7 @@ export default async function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
         />
-        <link rel="preload" as="image" href={`${basePath}/images/Transparent BG.png`} />
+        <link rel="preload" as="image" href={`${basePath}/images/Transparent BG.webp`} />
       </head>
       <body>{children}</body>
       <Script
