@@ -4,7 +4,7 @@ import { useParallax } from '@/hooks/useParallax';
 import { useInView } from '@/hooks/useInView';
 import { useSiteContent } from '@/components/i18n/LocaleProvider';
 
-const LEAD_API = 'https://aiterra.agency/api/site-leads/submit';
+const LEAD_API = '/api/lead';
 const PUBLIC_TOKEN = 'dba801b5-aca9-4535-b03c-97be900fe9be';
 
 function LeadForm() {
