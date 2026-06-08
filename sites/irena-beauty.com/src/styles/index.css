@@ -1,5 +1,5 @@
 @import './tailwind.css';
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+/* Google Fonts loaded via <link> tags in layout.tsx for better performance */
 
 @font-face {
   font-family: 'Varela Round';
@@ -14,7 +14,7 @@
 
 /* Global Base Styles */
 body {
-  font-family: 'Nunito', 'Playfair Display', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;

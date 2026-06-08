@@ -141,6 +141,7 @@ export default function HeroSection() {
             <img
               src={imagePath}
               alt="Nails and Beauty"
+              fetchPriority="high"
               className={`w-full h-full object-cover object-top ${isRtl ? 'scaleX(-1)' : ''}`}
             />
           </div>

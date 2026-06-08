@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>קארין כהן (Karin Cohen Academy) — אמנות הריסים ואקדמיה, חולון</title>
-<meta name="description" content="קארין אקדמי לריסים — 30 שנות ניסיון בקוסמטיקה ו-12 שנות התמחות בהלחמות ריסים מקצועיות. קורסים, טיפולים מקצועיים ומוצרים בחולון.">
+<meta name="description" content="קארין אקדמי לריסים — 30 שנות ניסיון בקוסמטיקה ו-12 שנות התמחות בהדבקות ריסים מקצועיות. קורסים, טיפולים מקצועיים ומוצרים בחולון.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="tokens.css">
@@ -55,41 +55,99 @@
     color: var(--luxury-gold) !important;
   }
   
-  /* ── Hero Scale & Video Height Fix ── */
+  /* ── Hero Fullscreen ─────────────────────────────── */
   .hero-section-premium {
-    padding-top: 80px; 
-    padding-bottom: 80px; 
-    background-color: var(--bg-hero-premium) !important;
-  }
-  .hero-grid {
-    align-items: center;
-    gap: 48px;
-  }
-  .hero-media {
+    min-height: 100svh;
+    background: url('assets/hero-lash.jpg') center center/cover no-repeat;
     display: flex;
+    align-items: center;
     justify-content: center;
+    position: relative;
+    padding: 0 !important;
   }
-  @media (max-width: 767px) {
-    .hero-grid {
-      display: flex;
-      flex-direction: column;
-    }
-    .hero-media { order: -1; }
-    .hero-copy  { order:  1; }
+  .hero-section-premium::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.25) 0%,
+      rgba(0,0,0,0.15) 50%,
+      rgba(82,67,61,0.65) 100%
+    );
   }
-  .hero-media-wrap {
-    width: 100%;
-    max-width: 380px;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: var(--radius-premium);
-    box-shadow: 0 24px 60px rgba(33, 31, 26, 0.14);
-    background-color: #000;
+  .hero-section-premium .container { position: relative; z-index: 1; }
+  .hero-meta { max-width: 620px; margin: 0 auto; text-align: center; }
+  .hero-captions { margin-bottom: 36px; }
+  .hero-main-title {
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 16px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroFadeUp 1s cubic-bezier(0.4,0,0.2,1) 0.3s forwards;
   }
-  .hero-media-wrap video {
-    width: 100% !important;
-    height: auto !important;
-    display: block;
+  .hero-sub {
+    font-size: clamp(17px, 2.5vw, 26px);
+    font-weight: 400;
+    color: rgba(255,255,255,0.88);
+    letter-spacing: 0.02em;
+    line-height: 1.55;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroFadeUp 1s cubic-bezier(0.4,0,0.2,1) 0.55s forwards;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroFadeUp 1s cubic-bezier(0.4,0,0.2,1) 0.8s forwards;
+  }
+  @media (max-width: 640px) {
+    .hero-btns { flex-direction: column; align-items: center; }
+    .hero-btns .btn-hero-light,
+    .hero-btns .btn-hero-pink { width: auto; min-width: 220px; }
+  }
+  @keyframes heroFadeUp { to { opacity: 1; transform: translateY(0); } }
+  .btn-hero-light, .btn-hero-pink {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 14px 28px;
+    border-radius: 32px;
+    font-size: 15px; font-weight: 600;
+    letter-spacing: 0.02em;
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'VarelaRound', sans-serif;
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s, background 0.35s;
+  }
+  .btn-hero-light { background: #fff; color: #ad7d93; border-color: #fff; }
+  .btn-hero-light:hover { background: #f5ede6; border-color: #f5ede6; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(82,67,61,0.18); }
+  .btn-hero-pink { background: #ad7d93; color: #fff; border-color: #ad7d93; }
+  .btn-hero-pink:hover { background: #9a6a80; border-color: #9a6a80; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(173,125,147,0.38); }
+  /* glowing orbs */
+  .hero-orb {
+    position: absolute; border-radius: 50%; pointer-events: none; z-index: 0;
+  }
+  .hero-orb-1 {
+    width: 560px; height: 560px;
+    background: radial-gradient(circle, rgba(173,125,147,0.22) 0%, transparent 65%);
+    top: -120px; right: -80px;
+    animation: floatOrb 9s ease-in-out infinite;
+  }
+  .hero-orb-2 {
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 65%);
+    bottom: 80px; left: -60px;
+    animation: floatOrb 12s ease-in-out infinite reverse;
+  }
+  @keyframes floatOrb {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.04); }
   }
   h1.display {
     font-family: 'VarelaRound', sans-serif;
@@ -437,7 +495,7 @@
 <!-- ================= NAV ================= -->
 <header class="nav scheme-1" id="top" style="box-shadow: 0 4px 24px rgba(33,31,26,0.04); background: #ffffff;">
   <div class="nav-inner">
-    <a href="#top" class="nav-logo" aria-label="אקדמיית קארין כהן — דף הבית"><img src="assets/logo-hofit.png" alt="אקדמיית קארין כהן"></a>
+    <a href="#top" class="nav-logo" aria-label="אקדמיית קארין כהן — דף הבית"><img src="assets/logo.png" alt="אקדמיית קארין כהן" style="height:56px; width:auto; display:block;"></a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#about" style="color: var(--luxury-ink); font-weight: 500;">עלי קצת</a>
       <a href="course-fusion.html" style="color: var(--luxury-ink); font-weight: 500;">קורסים</a>
@@ -456,7 +514,7 @@
 <!-- mobile drawer -->
 <div class="drawer" id="drawer">
   <div class="drawer-top">
-    <img src="assets/logo-hofit.png" alt="אקדמיית קארין כהן">
+    <img src="assets/logo.png" alt="אקדמיית קארין כהן" style="height:56px; width:auto; display:block;">
     <button class="nav-toggle" id="drawerClose" aria-label="Close menu"><span class="material-symbols-rounded">close</span></button>
   </div>
   <nav aria-label="Mobile">
@@ -473,56 +531,18 @@
 </div>
 
 <!-- ================= HERO ================= -->
-<section class="section hero scheme-1 hero-section-premium" data-screen-label="Hero">
+<section class="hero-section-premium" data-screen-label="Hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
   <div class="container">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow hero-instant-fade">קארין אקדמי לריסים · חולון</span>
-        <h1 class="display hero-instant-fade" style="animation-delay: 0.1s;">ריסים שנראים טבעיים וללא מאמץ — <span class="serif-em">שגורמים לכולם להסתובב.</span></h1>
-        <p class="text-medium muted measure hero-instant-fade" style="animation-delay: 0.2s; margin-top: 16px;">קארין כהן הינה קוסמטיקאית מומחית ומדריכה בעלת 30 שנות ניסיון בקוסמטיקה ו-12 שנות התמחות מקצועית בהלחמת ריסים.</p>
-        <div class="hero-actions hero-instant-fade" style="animation-delay: 0.3s; margin-top: 32px;">
-          <a href="#courses" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">הרשמה לקורס מקצועי <span class="material-symbols-rounded">arrow_forward</span></a>
-          <a href="#contact" class="btn btn-secondary" style="margin-inline-start: 12px;">הזמנת תור לטיפול</a>
-        </div>
-        <div class="hero-trust hero-instant-fade" style="animation-delay: 0.4s; margin-top: 36px;">
-
-          <!-- Google rating row -->
-          <a href="https://www.google.com/maps/place/?q=Hankin+66,Holon,Israel" target="_blank" rel="noopener" style="text-decoration:none; display:inline-flex; align-items:center; gap:10px; background:#fff; border:1px solid rgba(33,31,26,0.09); border-radius:14px; padding:10px 18px; box-shadow:0 2px 12px rgba(33,31,26,0.06); transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 20px rgba(33,31,26,0.12)'" onmouseout="this.style.boxShadow='0 2px 12px rgba(33,31,26,0.06)'">
-            <svg width="18" height="18" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.2 33.6 29.7 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 6 1.1 8.2 3l6-6C34.6 4.5 29.6 2 24 2 12 2 2 12 2 24s10 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15 16.1 19.1 13 24 13c3.1 0 6 1.1 8.2 3l6-6C34.6 4.5 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.5 0 10.5-1.8 14.4-4.9l-6.7-5.5C29.6 37.5 27 38.5 24 38.5c-5.7 0-10.5-3.5-12.3-8.5l-7 5.4C8.1 42 15.5 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.7c-.8 2.3-2.3 4.3-4.2 5.7l6.7 5.5C42.1 36.2 45 30.5 45 24c0-1.3-.2-2.7-.5-4z"/></svg>
-            <span class="stars" style="display:flex; gap:1px;">
-              <span class="material-symbols-rounded" style="font-size:17px;">star</span>
-              <span class="material-symbols-rounded" style="font-size:17px;">star</span>
-              <span class="material-symbols-rounded" style="font-size:17px;">star</span>
-              <span class="material-symbols-rounded" style="font-size:17px;">star</span>
-              <span class="material-symbols-rounded" style="font-size:17px; font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24 !important; color:var(--luxury-gold) !important;">star_half</span>
-            </span>
-            <span style="font-size:13px; color:var(--luxury-ink); line-height:1.3;"><b style="font-size:15px;">4.8</b> <span style="color:var(--luxury-muted); font-size:12px;">/ 5 · 18 חוות דעת</span></span>
-          </a>
-
-          <!-- Stats row -->
-          <div style="display:flex; gap:0; margin-top:20px; background:#fff; border:1px solid rgba(33,31,26,0.09); border-radius:14px; overflow:hidden; box-shadow:0 2px 12px rgba(33,31,26,0.06);">
-            <div style="flex:1; padding:16px 20px; text-align:center;">
-              <b style="font-size:24px; font-weight:700; color:var(--luxury-ink); display:block; line-height:1.1;">30</b>
-              <span style="font-size:11px; color:var(--luxury-muted); display:block; margin-top:3px; letter-spacing:0.03em;">שנה בקוסמטיקה</span>
-            </div>
-            <div style="width:1px; background:rgba(33,31,26,0.08); margin:12px 0;"></div>
-            <div style="flex:1; padding:16px 20px; text-align:center;">
-              <b style="font-size:24px; font-weight:700; color:var(--luxury-ink); display:block; line-height:1.1;">12</b>
-              <span style="font-size:11px; color:var(--luxury-muted); display:block; margin-top:3px; letter-spacing:0.03em;">שנה מומחית ריסים</span>
-            </div>
-            <div style="width:1px; background:rgba(33,31,26,0.08); margin:12px 0;"></div>
-            <div style="flex:1; padding:16px 20px; text-align:center;">
-              <b style="font-size:24px; font-weight:700; color:var(--accent-brand); display:block; line-height:1.1;">400+</b>
-              <span style="font-size:11px; color:var(--luxury-muted); display:block; margin-top:3px; letter-spacing:0.03em;">בוגרות מצליחות</span>
-            </div>
-          </div>
-
-        </div>
+    <div class="hero-meta">
+      <div class="hero-captions">
+        <div class="hero-main-title">ריסים שנראים טבעיים<br>וללא מאמץ</div>
+        <h1 class="hero-sub">קארין כהן — 30 שנות ניסיון בקוסמטיקה<br>ו-12 שנות התמחות מקצועית בהדבקת ריסים, חולון</h1>
       </div>
-      <div class="hero-media hero-instant-fade" style="animation-delay: 0.15s;">
-        <div class="hero-media-wrap">
-          <img src="assets/hero-lash.jpg" alt="הלחמת ריסים מקצועית — קארין כהן" style="width:100%; height:100%; object-fit:cover; display:block;">
-        </div>
+      <div class="hero-btns">
+        <a href="#courses" class="btn-hero-light">קורסים מקצועיים</a>
+        <a href="#contact" class="btn-hero-pink">הזמנת תור לטיפול</a>
       </div>
     </div>
   </div>
@@ -560,7 +580,7 @@
     
     <div class="cpc-grid">
       <div class="cpc reveal delay-1">
-        <img src="assets/course-1.jpg" alt="קורס הלחמת ריסים">
+        <img src="assets/course-1.jpg" alt="קורס הדבקת ריסים">
         <div class="cpc-body">
           <h3>קורס ריסים אקספרס</h3>
           <a href="course-fusion.html" class="btn btn-secondary btn-sm">לפרטים ורישום <span class="material-symbols-rounded">north_east</span></a>
@@ -575,9 +595,9 @@
         </div>
       </div>
       <div class="cpc reveal delay-3">
-        <img src="assets/course-3.jpg" alt="קורס הלחמת ריסים">
+        <img src="assets/course-3.jpg" alt="קורס הדבקת ריסים">
         <div class="cpc-body">
-          <h3>קורס הלחמת ריסים</h3>
+          <h3>קורס הדבקת ריסים</h3>
           <a href="course-fusion.html" class="btn btn-secondary btn-sm">לפרטים ורישום <span class="material-symbols-rounded">north_east</span></a>
         </div>
       </div>
@@ -600,11 +620,11 @@
       <article class="card reveal delay-1">
         <div class="card-body" style="padding: 32px;">
           <span class="tag">האקדמיה</span>
-          <h3 style="margin-top: 16px;">קורסי הלחמה ושזירת ריסים</h3>
+          <h3 style="margin-top: 16px;">קורסי הדבקה ושזירת ריסים</h3>
           <p class="text-regular muted" style="margin-top: 8px;">תוכניות הסמכה מקצועיות המותאמות לבניית קריירה עצמאית ומצליחה בתחום היופי.</p>
           <a href="#contact" class="btn btn-link" style="margin-top: 12px; display: inline-flex; align-items: center; gap: 4px; font-weight: 600; color: var(--accent-brand);">לפרטים ובירורים <span class="material-symbols-rounded">chevron_right</span></a>
         </div>
-        <img class="card-img" src="assets/course-2.jpg" alt="קורסי הלחמת ריסים מקצועיים" style="width:100%; aspect-ratio:16/10; object-fit:cover;">
+        <img class="card-img" src="assets/course-2.jpg" alt="קורסי הדבקת ריסים מקצועיים" style="width:100%; aspect-ratio:16/10; object-fit:cover;">
       </article>
       <article class="card reveal delay-2">
         <div class="card-body" style="padding: 32px;">
@@ -693,8 +713,8 @@
     </div>
     <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
       <div class="gallery-item reveal delay-1"><img src="assets/img/image%20(9).png" alt="לפני ואחרי — נארכת ריסים"></div>
-      <div class="gallery-item reveal delay-2"><img src="assets/img/image%20(14).png" alt="לפני ואחרי — הלחמת ריסים"></div>
-      <div class="gallery-item reveal delay-3"><img src="assets/img/image%20(10).png" alt="לפני ואחרי — הלחמת ריסים"></div>
+      <div class="gallery-item reveal delay-2"><img src="assets/img/image%20(14).png" alt="לפני ואחרי — הדבקת ריסים"></div>
+      <div class="gallery-item reveal delay-3"><img src="assets/img/image%20(10).png" alt="לפני ואחרי — הדבקת ריסים"></div>
       <div class="gallery-item reveal delay-1"><img src="assets/img/image%20(11).png" alt="לפני ואחרי — ריסים וגבות"></div>
       <div class="gallery-item reveal delay-2"><img src="assets/img/image%20(13).png" alt="לפני ואחרי — עיצוב גבות"></div>
       <div class="gallery-item reveal delay-3"><img src="assets/img/image%20(8).png" alt="עבודות נבחרות — ריסים וגבות"></div>
@@ -764,7 +784,7 @@
       <!-- Item 1 -->
       <div class="faq-item reveal delay-1" style="background: var(--bg-soft-smoke); border-radius: 14px; border: 1px solid rgba(33, 31, 26, 0.08); overflow: hidden;">
         <button class="faq-q" style="width: 100%; text-align: right; background: none; border: none; padding: 22px 24px; font-size: 16px; font-weight: 600; color: var(--luxury-ink); display: flex; justify-content: space-between; align-items: center; cursor: pointer; direction: rtl;">
-          <span>כמה זמן לוקח תור לעיצוב והלחמת ריסים?</span>
+          <span>כמה זמן לוקח תור לעיצוב והדבקת ריסים?</span>
           <span class="material-symbols-rounded" style="color: var(--accent-brand); font-size: 22px;">add</span>
         </button>
         <div class="faq-a" style="max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1); padding: 0 24px; color: var(--luxury-muted); line-height: 1.7; font-size: 14.5px; text-align: right;">
@@ -851,7 +871,7 @@
   <div class="container">
     <div class="footer-cols" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 48px;">
       <div class="footer-news reveal delay-1">
-        <img class="logo-alt mb-24" src="assets/logo-hofit.png" alt="קארין אקדמי לריסים" style="height: 76px; filter: brightness(0) invert(1);">
+        <img class="logo-alt mb-24" src="assets/logo.png" alt="קארין אקדמי לריסים" style="height:76px; width:auto; filter:brightness(0) invert(1);">
         <p class="text-regular mb-24" style="opacity:.8; max-width: 30rem; font-size:14.5px; line-height:1.65;">טיפים לטיפוח יופי, תאריכי קורסים חדשים באקדמיה ועדכוני מלאי מוצרים — ישירות לתיבת המייל שלך.</p>
         <form id="newsForm" novalidate>
           <input class="field" type="email" placeholder="כתובת האימייל שלך" required style="border: 1px solid rgba(255,255,255,0.12);">

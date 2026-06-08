@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>קורסי ריסים מקצועיים — האקדמיה של קארין כהן | חולון</title>
-<meta name="description" content="קורסי הלחמת ריסים מקצועיים עם קארין כהן — 30 שנות ניסיון, שיטה ייחודית ובלעדית, ליווי אישי וצמוד. התחילי לעבוד ולהרוויח תוך זמן קצר. חולון.">
+<meta name="description" content="קורסי הדבקת ריסים מקצועיים עם קארין כהן — 30 שנות ניסיון, שיטה ייחודית ובלעדית, ליווי אישי וצמוד. התחילי לעבוד ולהרוויח תוך זמן קצר. חולון.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="tokens.css">
@@ -144,32 +144,100 @@
   }
   .back-link:hover { color: var(--accent-brand); }
 
-  /* ── Hero ── */
+  /* ── Hero Fullscreen ─────────────────────────────── */
   .hero-section-premium {
-    padding-top: 80px;
-    padding-bottom: 80px;
-    background-color: var(--bg-hero-premium) !important;
+    min-height: 100svh;
+    background: url('assets/course-1.jpg') center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 !important;
   }
-  .hero-grid { align-items: center; gap: 48px; }
-  .hero-media { display: flex; justify-content: center; }
-  @media (max-width: 767px) {
-    .hero-grid {
-      display: flex;
-      flex-direction: column;
-    }
-    .hero-media { order: -1; }
-    .hero-copy  { order:  1; }
+  .hero-section-premium::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.25) 0%,
+      rgba(0,0,0,0.15) 50%,
+      rgba(82,67,61,0.65) 100%
+    );
   }
-  .hero-media-wrap {
-    width: 100%;
-    max-width: 380px;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: var(--radius-premium);
-    box-shadow: 0 24px 60px rgba(33, 31, 26, 0.14);
-    background-color: #000;
+  .hero-section-premium .container { position: relative; z-index: 1; }
+  .hero-meta { max-width: 620px; margin: 0 auto; text-align: center; }
+  .hero-captions { margin-bottom: 36px; }
+  .hero-main-title {
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 16px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroFadeUp 1s cubic-bezier(0.4,0,0.2,1) 0.3s forwards;
   }
-  .hero-media-wrap video { width: 100% !important; height: auto !important; display: block; }
+  .hero-sub {
+    font-size: clamp(17px, 2.5vw, 26px);
+    font-weight: 400;
+    color: rgba(255,255,255,0.88);
+    letter-spacing: 0.02em;
+    line-height: 1.55;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroFadeUp 1s cubic-bezier(0.4,0,0.2,1) 0.55s forwards;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroFadeUp 1s cubic-bezier(0.4,0,0.2,1) 0.8s forwards;
+  }
+  @media (max-width: 640px) {
+    .hero-btns { flex-direction: column; align-items: center; }
+    .hero-btns .btn-hero-light,
+    .hero-btns .btn-hero-pink { width: auto; min-width: 220px; }
+  }
+  @keyframes heroFadeUp { to { opacity: 1; transform: translateY(0); } }
+  .btn-hero-light, .btn-hero-pink {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 14px 28px;
+    border-radius: 32px;
+    font-size: 15px; font-weight: 600;
+    letter-spacing: 0.02em;
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'VarelaRound', sans-serif;
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s, background 0.35s;
+  }
+  .btn-hero-light { background: #fff; color: #ad7d93; border-color: #fff; }
+  .btn-hero-light:hover { background: #f5ede6; border-color: #f5ede6; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(82,67,61,0.18); }
+  .btn-hero-pink { background: #ad7d93; color: #fff; border-color: #ad7d93; }
+  .btn-hero-pink:hover { background: #9a6a80; border-color: #9a6a80; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(173,125,147,0.38); }
+  /* glowing orbs */
+  .hero-orb {
+    position: absolute; border-radius: 50%; pointer-events: none; z-index: 0;
+  }
+  .hero-orb-1 {
+    width: 560px; height: 560px;
+    background: radial-gradient(circle, rgba(173,125,147,0.22) 0%, transparent 65%);
+    top: -120px; right: -80px;
+    animation: floatOrb 9s ease-in-out infinite;
+  }
+  .hero-orb-2 {
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 65%);
+    bottom: 80px; left: -60px;
+    animation: floatOrb 12s ease-in-out infinite reverse;
+  }
+  @keyframes floatOrb {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.04); }
+  }
 
   /* ── Benefits grid ── */
   .benefits-grid {
@@ -470,7 +538,7 @@
 <!-- ================= NAV ================= -->
 <header class="nav scheme-1" id="top" style="box-shadow: 0 4px 24px rgba(33,31,26,0.04); background: #ffffff;">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="אקדמיית קארין כהן — דף הבית"><img src="assets/logo-hofit.png" alt="אקדמיית קארין כהן"></a>
+    <a href="index.html" class="nav-logo" aria-label="אקדמיית קארין כהן — דף הבית"><img src="assets/logo.png" alt="אקדמיית קארין כהן" style="height:56px; width:auto; display:block;"></a>
     <nav class="nav-links" aria-label="Primary">
       <a href="index.html#about" style="color: var(--luxury-ink); font-weight: 500;">עלי קצת</a>
       <a href="course-fusion.html" aria-current="page" style="color: var(--accent-brand); font-weight: 600;">קורסים</a>
@@ -489,7 +557,7 @@
 <!-- Mobile drawer -->
 <div class="drawer" id="drawer">
   <div class="drawer-top">
-    <img src="assets/logo-hofit.png" alt="אקדמיית קארין כהן">
+    <img src="assets/logo.png" alt="אקדמיית קארין כהן" style="height:56px; width:auto; display:block;">
     <button class="nav-toggle" id="drawerClose" aria-label="Close menu"><span class="material-symbols-rounded">close</span></button>
   </div>
   <nav aria-label="Mobile">
@@ -506,38 +574,21 @@
 </div>
 
 <!-- ================= HERO ================= -->
-<section class="section hero scheme-1 hero-section-premium" data-screen-label="Hero">
+<section class="hero-section-premium" data-screen-label="Hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
   <div class="container">
-    <a href="index.html" class="back-link hero-instant-fade">
-      <span class="material-symbols-rounded">arrow_back</span> חזרה לאקדמיה
-    </a>
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow hero-instant-fade">קורסי ריסים מקצועיים · קארין כהן</span>
-        <h1 class="display hero-instant-fade" style="animation-delay: 0.1s;">
-          רוצה לרכוש מקצוע מבוקש <span class="serif-em">ולהתחיל להרוויח?</span>
-        </h1>
-        <p class="text-medium muted measure hero-instant-fade" style="animation-delay: 0.2s; margin-top: 16px;">הלחמת ריסים הוא מהתחומים הצומחים ביותר בתחום היופי. אצלנו תלמדי שיטה ייחודית, תקבלי כלים מקצועיים ותצאי מוכנה לעבוד — גם ללא ניסיון קודם.</p>
-        <div class="hero-actions hero-instant-fade" style="animation-delay: 0.3s; margin-top: 32px;">
-          <a href="#contact" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">לפרטים ורישום <span class="material-symbols-rounded">arrow_forward</span></a>
-          <a href="tel:052-3980351" class="btn btn-secondary" style="margin-inline-start: 12px;">התקשרי אלינו</a>
-        </div>
-        <div class="hero-trust hero-instant-fade" style="animation-delay: 0.4s; margin-top: 40px; border-top: 1px solid rgba(33,31,26,0.08); padding-top: 28px;">
-          <div style="display: flex; gap: 32px;">
-            <div class="hero-stat"><b style="font-size: 22px; font-family: 'VarelaRound', sans-serif;">30 שנה</b><span style="display:block; font-size:12px; color: var(--luxury-muted);">בקוסמטיקה</span></div>
-            <span aria-hidden="true" style="border-inline-start: 1px solid rgba(33,31,26,0.1); height: 36px;"></span>
-            <div class="hero-stat"><b style="font-size: 22px; font-family: 'VarelaRound', sans-serif;">12 שנה</b><span style="display:block; font-size:12px; color: var(--luxury-muted);">מומחית ריסים</span></div>
-            <span aria-hidden="true" style="border-inline-start: 1px solid rgba(33,31,26,0.1); height: 36px;"></span>
-            <div class="hero-stat"><b style="font-size: 22px; font-family: 'VarelaRound', sans-serif;">עשרות</b><span style="display:block; font-size:12px; color: var(--luxury-muted);">בוגרות מצליחות</span></div>
-          </div>
-        </div>
+    <div class="hero-meta">
+      <a href="index.html" class="back-link hero-instant-fade" style="color:rgba(255,255,255,0.75); margin-bottom:28px; display:inline-flex;">
+        <span class="material-symbols-rounded">arrow_back</span> חזרה לאקדמיה
+      </a>
+      <div class="hero-captions">
+        <div class="hero-main-title">רוצה לרכוש מקצוע מבוקש<br>ולהתחיל להרוויח?</div>
+        <h1 class="hero-sub">קורסי ריסים מקצועיים בשיטה ייחודית של קארין כהן<br>גם ללא ניסיון קודם · חולון</h1>
       </div>
-      <div class="hero-media hero-instant-fade" style="animation-delay: 0.15s;">
-        <div class="hero-media-wrap">
-          <video autoplay muted loop playsinline>
-            <source src="assets/videos/Course Ad.mp4" type="video/mp4">
-          </video>
-        </div>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-hero-light">לפרטים ורישום</a>
+        <a href="tel:052-3980351" class="btn-hero-pink">התקשרי אלינו</a>
       </div>
     </div>
   </div>
@@ -611,12 +662,12 @@
     <div class="center mx-auto measure reveal" style="margin-bottom: 16px; text-align: center;">
       <span class="eyebrow" style="justify-content:center;">לבחירתך 3 מסלולים</span>
       <h2 class="mb-16">בחרי את המסלול שמתאים לך</h2>
-      <p class="text-medium muted reveal delay-1">אצלנו תרכשי את הטכניקות המתקדמות בהלחמה והרמת ריסים — ותצאי מוכנה לעבוד עם ביטחון מלא.</p>
+      <p class="text-medium muted reveal delay-1">אצלנו תרכשי את הטכניקות המתקדמות בהדבקה והרמת ריסים — ותצאי מוכנה לעבוד עם ביטחון מלא.</p>
     </div>
     <div class="tracks-grid">
 
       <div class="track-card reveal delay-1">
-        <div class="track-name">קורס הלחמת ריסים</div>
+        <div class="track-name">קורס הדבקת ריסים</div>
         <div class="track-duration">
           <span class="material-symbols-rounded">schedule</span> יומיים · 12 שעות
         </div>
@@ -634,7 +685,7 @@
 
       <div class="track-card popular reveal delay-2">
         <span class="track-badge">פופולרי במיוחד</span>
-        <div class="track-name">קורס פרימיום ALL IN ONE — הלחמה + הרמת ריסים</div>
+        <div class="track-name">קורס פרימיום ALL IN ONE — הדבקה + הרמת ריסים</div>
         <div class="track-duration">
           <span class="material-symbols-rounded">schedule</span> יומיים · 12 שעות
         </div>
@@ -786,7 +837,7 @@
             <input class="field" name="email" type="email" placeholder="אימייל" style="width:100%; padding:14px; border-radius:10px; border:1px solid rgba(33,31,26,0.12); background: #fafafa;">
             <select class="field" name="track" required style="width:100%; padding:14px; border-radius:10px; border:1px solid rgba(33,31,26,0.12); color:#555; background: #fafafa;">
               <option value="" disabled selected>באיזה מסלול את מעוניינת?</option>
-              <option>קורס הלחמת ריסים</option>
+              <option>קורס הדבקת ריסים</option>
               <option>קורס פרימיום ALL IN ONE</option>
               <option>קורס ריסים אקספרס</option>
               <option>עדיין לא החלטתי</option>
@@ -820,7 +871,7 @@
   <div class="container">
     <div class="footer-cols" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 48px;">
       <div class="footer-news reveal delay-1">
-        <img class="logo-alt mb-24" src="assets/logo-hofit.png" alt="קארין אקדמי לריסים" style="height: 76px; filter: brightness(0) invert(1);">
+        <img class="logo-alt mb-24" src="assets/logo.png" alt="קארין אקדמי לריסים" style="height:76px; width:auto; filter:brightness(0) invert(1);">
         <p class="text-regular mb-24" style="opacity:.8; max-width: 30rem; font-size:14.5px; line-height:1.65;">טיפים לטיפוח יופי, תאריכי קורסים חדשים באקדמיה ועדכוני מלאי מוצרים — ישירות לתיבת המייל שלך.</p>
         <form id="newsForm" novalidate>
           <input class="field" type="email" placeholder="כתובת האימייל שלך" required style="border: 1px solid rgba(255,255,255,0.12);">
