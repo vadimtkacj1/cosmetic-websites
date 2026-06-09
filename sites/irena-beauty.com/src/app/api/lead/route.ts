@@ -14,33 +14,14 @@ interface LeadBody {
   source?: string;
 }
 
-async function saveLocally(body: LeadBody): Promise<void> {
+async function saveLocalFallback(body: LeadBody): Promise<void> {
   const dataDir = getSalonDataDir();
-  const filePath = path.join(dataDir, 'site-leads.json');
+  const filePath = path.join(dataDir, 'site-leads-fallback.json');
   await mkdir(dataDir, { recursive: true });
   let leads: unknown[] = [];
-  try {
-    leads = JSON.parse(await readFile(filePath, 'utf-8'));
-  } catch {
-    leads = [];
-  }
-  leads.unshift({
-    id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
-    ...body,
-    createdAt: new Date().toISOString(),
-  });
+  try { leads = JSON.parse(await readFile(filePath, 'utf-8')); } catch { leads = []; }
+  leads.unshift({ ...body, savedAt: new Date().toISOString(), _fallback: true });
   await writeFile(filePath, JSON.stringify(leads, null, 2));
-}
-
-async function forwardToAiterra(body: LeadBody): Promise<void> {
-  const res = await fetch(LEAD_API, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) {
-    console.warn('[lead] aiterra returned', res.status);
-  }
 }
 
 export async function POST(req: NextRequest) {
@@ -56,16 +37,20 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    await saveLocally(body);
+    const res = await fetch(LEAD_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json().catch(() => null);
+    return NextResponse.json(data, { status: res.status });
   } catch (err) {
-    console.error('[lead] local save failed:', err);
-    return NextResponse.json({ error: 'save_failed' }, { status: 500 });
+    console.error('[lead] aiterra unreachable, saving locally:', err);
+    try {
+      await saveLocalFallback(body);
+    } catch (fsErr) {
+      console.error('[lead] local fallback also failed:', fsErr);
+    }
+    return NextResponse.json({ ok: true }, { status: 201 });
   }
-
-  // best-effort — don't block the response if aiterra is down
-  forwardToAiterra(body).catch((err) =>
-    console.warn('[lead] aiterra forward failed:', err)
-  );
-
-  return NextResponse.json({ ok: true }, { status: 201 });
 }
