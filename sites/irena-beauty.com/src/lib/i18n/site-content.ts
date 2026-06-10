@@ -101,7 +101,7 @@ export interface SiteContent {
     subtitle: string
     namePlaceholder: string
     phonePlaceholder: string
-    emailPlaceholder: string
+    servicesLabel: string
     messagePlaceholder: string
     submitCta: string
     sending: string
@@ -350,7 +350,7 @@ export const SITE_CONTENT_RU: SiteContent = {
     subtitle: 'Напишите свои контакты — я свяжусь с вами в ближайшее время.',
     namePlaceholder: 'Ваше имя *',
     phonePlaceholder: 'Телефон',
-    emailPlaceholder: 'Email',
+    servicesLabel: 'Услуги (по желанию)',
     messagePlaceholder: 'Ваш вопрос или пожелание',
     submitCta: 'ОТПРАВИТЬ',
     sending: 'Отправка...',
@@ -592,7 +592,7 @@ export const SITE_CONTENT_HE: SiteContent = {
     subtitle: 'כתבו את הפרטים שלכם ואצור איתכם קשר בהקדם.',
     namePlaceholder: 'שם מלא *',
     phonePlaceholder: 'טלפון',
-    emailPlaceholder: 'אימייל',
+    servicesLabel: 'שירותים (אופציונלי)',
     messagePlaceholder: 'שאלה או בקשה',
     submitCta: 'שלח',
     sending: 'שולח...',

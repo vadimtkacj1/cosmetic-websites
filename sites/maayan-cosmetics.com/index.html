@@ -654,11 +654,8 @@
     <h2 id="popupTitle">בואי נתחיל את המסע שלך</h2>
     <p>השאירי פרטים ואחזור אלייך בהקדם לתיאום התור המושלם ✨</p>
     <!-- ⚠️ ФОРМА: Зайди на https://web3forms.com → введи email власниці → отримай ключ → встав замість YOUR_WEB3FORMS_KEY -->
-    <form id="popupForm" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key"  value="YOUR_WEB3FORMS_KEY" />
-      <input type="hidden" name="redirect" value="" />
-      <input type="hidden" name="subject"     value="בקשת תור חדשה — מעיין קוסמטיקה" />
-      <input type="hidden" name="from_name"   value="מעיין קוסמטיקה אתר" />
+    <form id="popupForm">
+
       <div class="form-row">
         <label for="p-name">שם מלא *</label>
         <input type="text" id="p-name" name="name" required placeholder="השם שלך" />
@@ -685,8 +682,7 @@
           <option>אחר</option>
         </select>
       </div>
-      <a href="#" class="btn" style="display:block;text-align:center;cursor:pointer" onclick="this.closest('form').requestSubmit();return false;">קבעי תור עכשיו ←</a>
-      <button type="submit" class="btn" style="display:none"></button>
+      <button type="submit" class="btn" style="display:block;text-align:center;width:100%">קבעי תור עכשיו ←</button>
       <div class="form-success" id="popupSuccess">תודה! קיבלתי את פרטייך ואחזור אלייך בקרוב 🌸</div>
     </form>
   </div>
@@ -1259,11 +1255,8 @@
     <div class="contact-form-wrap sr-left">
       <h3>שלחי לי הודעה</h3>
       <!-- ⚠️ ФОРМА: той самий ключ з web3forms.com -->
-      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY" />
-        <input type="hidden" name="redirect" value="" />
-        <input type="hidden" name="subject"    value="הודעה חדשה מהאתר — מעיין קוסמטיקה" />
-        <input type="hidden" name="from_name"  value="מעיין קוסמטיקה אתר" />
+      <form id="contactForm">
+
         <div class="form-row">
           <label for="c-name">שם מלא *</label>
           <input type="text" id="c-name" name="name" required placeholder="השם שלך" />
@@ -1276,8 +1269,7 @@
           <label for="c-msg">הודעה</label>
           <textarea id="c-msg" name="message" placeholder="איך אני יכולה לעזור?"></textarea>
         </div>
-        <a href="#" class="btn btn-rose" style="display:block;text-align:center" onclick="document.getElementById('contactForm').requestSubmit();return false;">שלחי הודעה ←</a>
-        <button type="submit" style="display:none"></button>
+        <button type="submit" class="btn btn-rose" style="display:block;text-align:center;width:100%">שלחי הודעה ←</button>
         <div class="form-success" id="contactSuccess">תודה! קיבלתי את הודעתך ואחזור אלייך בקרוב 🌸</div>
       </form>
     </div>
@@ -1392,25 +1384,9 @@ var navOverlay = document.getElementById('navOverlay');
 document.getElementById('menuBtn').onclick  = function(){ navOverlay.classList.add('open'); document.body.style.overflow='hidden'; };
 document.getElementById('navClose').onclick = function(){ navOverlay.classList.remove('open'); document.body.style.overflow=''; };
 
-/* ── Forms (Web3Forms AJAX + CRM) ───────── */
-var CRM_TOKEN = '2a5f396b-f6d7-4c14-a530-144f2be74558';
+/* ── Forms (CRM) ─────────────────────────── */
+var CRM_TOKEN = 'a74d0846-9303-491d-9816-ff13d723d26d';
 var CRM_URL   = 'https://aiterra.agency/api/site-leads/submit';
-
-function sendToCRM(fd){
-  var payload = {
-    publicToken: CRM_TOKEN,
-    name:    fd.get('name')      || '',
-    phone:   fd.get('phone')     || '',
-    email:   fd.get('email')     || '',
-    message: fd.get('treatment') ? 'טיפול: ' + fd.get('treatment') : (fd.get('message') || ''),
-    source:  window.location.href
-  };
-  fetch(CRM_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  }).catch(function(){});
-}
 
 function setupForm(formId, successId){
   var form=document.getElementById(formId);
@@ -1418,12 +1394,21 @@ function setupForm(formId, successId){
   form.onsubmit=function(e){
     e.preventDefault();
     var fd = new FormData(form);
-    sendToCRM(fd);
-    fetch(form.action,{method:'POST',body:fd,headers:{'Accept':'application/json'}})
-      .then(function(r){
-        if(r.ok){ form.style.display='none'; document.getElementById(successId).classList.add('show'); }
-        else { alert('אירעה שגיאה — אנא נסי שנית.'); }
-      }).catch(function(){ alert('אירעה שגיאה — אנא נסי שנית.'); });
+    var payload = {
+      publicToken: CRM_TOKEN,
+      name:    fd.get('name')      || '',
+      phone:   fd.get('phone')     || '',
+      message: fd.get('treatment') ? 'טיפול: ' + fd.get('treatment') : (fd.get('message') || ''),
+      source:  window.location.href
+    };
+    fetch(CRM_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function(r){
+      if(r.ok){ form.style.display='none'; document.getElementById(successId).classList.add('show'); }
+      else { alert('אירעה שגיאה — אנא נסי שנית.'); }
+    }).catch(function(){ alert('אירעה שגיאה — אנא נסי שנית.'); });
   };
 }
 setupForm('popupForm','popupSuccess');

@@ -1481,6 +1481,134 @@
     }
 
     /* =========================================
+       CONTACT
+    ========================================= */
+    .contact {
+      padding: 120px 40px;
+      background: var(--cream);
+    }
+    .contact-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--pink);
+      letter-spacing: 0;
+      margin-bottom: 16px;
+    }
+    .contact-title {
+      font-family: 'Varela Round', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: 0;
+      margin-bottom: 28px;
+    }
+    .contact-title span { color: var(--pink); }
+    .contact-body {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--gray);
+      margin-bottom: 40px;
+    }
+    .contact-items { display: flex; flex-direction: column; gap: 18px; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .contact-item-icon {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-item-icon svg {
+      width: 20px; height: 20px;
+      stroke: var(--black);
+      stroke-width: 2;
+      fill: none;
+    }
+    .contact-item a { color: var(--black); }
+    .contact-item a:hover { color: var(--pink); }
+
+    .contact-form {
+      background: var(--black);
+      border-radius: 28px;
+      padding: 52px 48px;
+    }
+    .contact-form-title {
+      font-family: 'Varela Round', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--cream);
+      margin-bottom: 32px;
+      letter-spacing: 0;
+    }
+    .form-field {
+      margin-bottom: 20px;
+    }
+    .form-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(247,241,234,0.6);
+      margin-bottom: 8px;
+      letter-spacing: 0;
+    }
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      font-family: 'Varela Round', sans-serif;
+      font-size: 15px;
+      color: var(--cream);
+      outline: none;
+      transition: border-color 0.25s ease, background 0.25s ease;
+      direction: rtl;
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder { color: rgba(247,241,234,0.3); }
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--yellow);
+      background: rgba(255,255,255,0.1);
+    }
+    .form-field textarea { resize: vertical; min-height: 110px; }
+    .form-submit { width: 100%; margin-top: 8px; }
+    .contact-success {
+      display: none;
+      text-align: center;
+      padding: 28px 0 8px;
+      color: var(--yellow);
+      font-family: 'Varela Round', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 860px) {
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 520px) {
+      .contact { padding: 80px 24px; }
+      .contact-form { padding: 36px 24px; }
+    }
+
+    /* =========================================
        WHATSAPP WIDGET
     ========================================= */
     .wa-float {
@@ -1932,6 +2060,57 @@
   </div>
 </section>
 
+
+<!-- ===================== CONTACT ===================== -->
+<section class="contact" id="beats">
+  <div class="contact-inner">
+    <div class="reveal">
+      <p class="contact-eyebrow">צרו קשר</p>
+      <h2 class="contact-title">בואו <span>נדבר</span></h2>
+      <p class="contact-body">מוזמנים לפנות אלינו בכל שאלה, לתאם תור או לקבל מידע על השירותים שלנו.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.11 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012.22 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <a href="tel:0505931226">050-5931226</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <span>רחוב דניאל 70, בת ים</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <a href="https://www.instagram.com/eli_ben_yitzhak/" target="_blank" rel="noopener">@eli_ben_yitzhak</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal d2">
+      <h3 class="contact-form-title">שלחו הודעה</h3>
+      <form id="contactForm">
+        <div class="form-field">
+          <label for="cf-name">שם מלא *</label>
+          <input type="text" id="cf-name" name="name" required placeholder="השם שלכם">
+        </div>
+        <div class="form-field">
+          <label for="cf-phone">טלפון *</label>
+          <input type="tel" id="cf-phone" name="phone" required placeholder="050-0000000">
+        </div>
+        <div class="form-field">
+          <label for="cf-msg">הודעה</label>
+          <textarea id="cf-msg" name="message" placeholder="איך נוכל לעזור?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-yellow btn-lg form-submit">שלחו הודעה</button>
+      </form>
+      <p class="contact-success" id="contactSuccess">תודה! נחזור אליכם בהקדם ✂</p>
+    </div>
+  </div>
+</section>
 
 <!-- ===================== INSTAGRAM ===================== -->
 <section class="insta">
