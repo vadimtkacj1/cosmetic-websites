@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -79,7 +79,7 @@
     color: var(--accent-brand) !important;
     font-weight: 700 !important;
     font-size: 13px !important;
-    letter-spacing: 0.06em !important;
+    letter-spacing: normal !important;
     text-transform: uppercase;
     margin-bottom: 12px;
     display: inline-flex;
@@ -181,7 +181,7 @@
     font-size: clamp(17px, 2.5vw, 26px);
     font-weight: 400;
     color: rgba(255,255,255,0.88);
-    letter-spacing: 0.02em;
+    letter-spacing: normal;
     line-height: 1.55;
     opacity: 0;
     transform: translateY(30px);
@@ -207,7 +207,7 @@
     padding: 14px 28px;
     border-radius: 32px;
     font-size: 15px; font-weight: 600;
-    letter-spacing: 0.02em;
+    letter-spacing: normal;
     border: 2px solid transparent;
     cursor: pointer;
     text-decoration: none;
@@ -266,7 +266,7 @@
     box-shadow: 0 8px 32px rgba(173,125,147,0.1);
   }
   .benefit-num {
-    position: absolute; top: 20px; left: 20px;
+    position: absolute; top: 20px; inset-inline-start: 20px;
     font-size: 11px; font-weight: 700; letter-spacing: .06em;
     color: var(--accent-brand); opacity: .4;
   }
@@ -318,40 +318,84 @@
     border-radius: var(--radius-premium);
     background: #ffffff;
     border: 1px solid rgba(33,31,26,0.07);
-    padding: 36px 28px;
+    padding: 0 0 28px;
     display: flex; flex-direction: column;
-    position: relative;
-    box-shadow: 0 8px 24px rgba(33,31,26,0.04);
+    position: relative; overflow: hidden;
+    box-shadow: 0 8px 32px rgba(33,31,26,0.05);
     transition: transform .35s cubic-bezier(0.16,1,0.3,1), box-shadow .35s;
   }
-  .track-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(33,31,26,0.08); }
+  .track-card:hover { transform: translateY(-5px); box-shadow: 0 22px 44px rgba(33,31,26,0.09); }
   .track-card.popular {
-    border-color: var(--accent-brand);
-    border-width: 1.5px;
-    box-shadow: 0 16px 36px rgba(173,125,147,0.1);
+    border-color: transparent;
+    box-shadow: 0 20px 52px rgba(173,125,147,0.2);
+    transform: scale(1.015);
   }
-  .track-badge {
-    position: absolute; top: -13px; right: 24px;
-    background: var(--accent-brand); color: #fff;
-    font-size: 11px; font-weight: 700; letter-spacing: .07em;
-    padding: 4px 16px; border-radius: 30px;
-    text-transform: uppercase;
+  .track-card.popular:hover {
+    transform: translateY(-5px) scale(1.015);
+    box-shadow: 0 28px 60px rgba(173,125,147,0.26);
   }
+
+  /* ── Card header strip ── */
+  .track-card-head {
+    padding: 28px 28px 22px;
+    background: var(--bg-rose-cream);
+    border-bottom: 1px solid rgba(33,31,26,0.06);
+    margin-bottom: 22px;
+  }
+  .track-card.popular .track-card-head {
+    background: linear-gradient(140deg, #ad7d93 0%, #8e6179 100%);
+    border-bottom: none;
+  }
+  .track-badge-inline {
+    display: inline-block;
+    background: rgba(255,255,255,0.22);
+    color: #fff;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
+    padding: 3px 12px; border-radius: 20px;
+    text-transform: uppercase; margin-bottom: 12px;
+    border: 1px solid rgba(255,255,255,0.28);
+  }
+  .track-sub-name {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--luxury-muted); opacity: 0.75;
+    margin-bottom: 6px;
+  }
+  .track-card.popular .track-card-head .track-sub-name { color: rgba(255,255,255,0.75); opacity: 1; }
+  .track-card.popular .track-card-head .track-name { color: #fff; }
+  .track-card.popular .track-card-head .track-duration { color: rgba(255,255,255,0.8); }
+  .track-card.popular .track-card-head .track-duration .material-symbols-rounded { color: rgba(255,255,255,0.8) !important; }
+
   .track-name {
     font-family: 'VarelaRound', sans-serif;
-    font-size: 1.18rem;
-    font-weight: 700; margin-bottom: 8px; line-height: 1.3;
+    font-size: 1.15rem;
+    font-weight: 700; margin-bottom: 10px; line-height: 1.28;
     color: var(--luxury-ink);
   }
   .track-duration {
-    font-size: 13.5px; color: var(--luxury-muted);
-    margin-bottom: 22px;
+    font-size: 13px; color: var(--luxury-muted);
+    margin-bottom: 0;
     display: flex; align-items: center; gap: 6px;
   }
-  .track-duration .material-symbols-rounded { font-size: 16px; color: var(--accent-brand); }
+  .track-duration .material-symbols-rounded { font-size: 15px; color: var(--accent-brand); }
+
+  /* ── Card body ── */
+  .track-body { padding: 0 28px; flex: 1; display: flex; flex-direction: column; }
+  .track-who {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(173,125,147,0.1);
+    border-radius: 20px; padding: 4px 12px 4px 10px;
+    font-size: 12px; font-weight: 600; color: var(--accent-brand);
+    margin-bottom: 8px; width: fit-content;
+  }
+  .track-who::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--accent-brand); border-radius: 50%; flex-shrink: 0;
+  }
+
   .track-list {
     list-style: none; display: grid; gap: 10px;
-    margin-bottom: 28px; flex: 1; padding: 0;
+    margin: 16px 0 24px; flex: 1; padding: 0;
   }
   .track-list li {
     display: flex; align-items: flex-start; gap: 10px;
@@ -516,6 +560,247 @@
     background: var(--accent-brand-hover) !important;
     border-color: var(--accent-brand-hover) !important;
   }
+
+  /* ── RTL: mirror directional navigation icons ── */
+  .btn-link .material-symbols-rounded,
+  .back-link .material-symbols-rounded {
+    display: inline-block;
+    transform: scaleX(-1);
+  }
+
+  /* ── Field focus ── */
+  .field:focus {
+    background: #ffffff !important;
+    border-color: var(--accent-brand) !important;
+    box-shadow: 0 0 0 3px rgba(173,125,147,0.15) !important;
+    outline: none !important;
+  }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent-brand) !important;
+    outline-offset: 3px !important;
+    border-radius: 4px;
+  }
+
+  /* ── Sale countdown banner ── */
+  .sale-countdown-banner {
+    background: transparent;
+    padding: 32px 0 44px;
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+    border-top: 1px solid rgba(173,125,147,0.18);
+  }
+  .sale-countdown-banner .sale-label {
+    font-family: 'VarelaRound', sans-serif;
+    color: var(--accent-brand);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .sale-countdown-banner .sale-title {
+    font-family: 'VarelaRound', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--luxury-muted);
+    margin-bottom: 28px;
+  }
+  .countdown-units {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .countdown-unit {
+    background: transparent;
+    border: none;
+    padding: 0 20px;
+    min-width: 72px;
+    position: relative;
+  }
+  .countdown-unit + .countdown-unit::before {
+    content: ':';
+    position: absolute;
+    right: 100%;
+    top: 4px;
+    font-size: 22px;
+    font-weight: 300;
+    color: rgba(173,125,147,0.4);
+    font-family: 'VarelaRound', sans-serif;
+    transform: translateX(50%);
+    line-height: 1;
+  }
+  .countdown-unit .cu-num {
+    display: block;
+    font-family: 'VarelaRound', sans-serif;
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: 400;
+    color: var(--accent-brand);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+  .countdown-unit .cu-label {
+    display: block;
+    font-family: 'VarelaRound', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--luxury-muted);
+    margin-top: 8px;
+    letter-spacing: normal;
+    opacity: 0.75;
+  }
+  .sale-countdown-banner .sale-note {
+    font-family: 'VarelaRound', sans-serif;
+    color: var(--luxury-muted);
+    font-size: 12px;
+    margin-top: 24px;
+    opacity: 0.6;
+  }
+
+  /* ── Price box upgraded ── */
+  .price-box {
+    margin: 20px 0 16px;
+    padding: 20px 20px 16px;
+    background: var(--bg-rose-cream);
+    border-radius: 14px;
+    text-align: center;
+    position: relative;
+  }
+  .price-box .price-old {
+    font-size: 13px;
+    color: var(--luxury-muted);
+    text-decoration: line-through;
+    opacity: 0.65;
+  }
+  .price-box .price-new {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 5px;
+    font-size: clamp(32px, 4vw, 40px);
+    font-weight: 700;
+    color: var(--accent-brand);
+    margin: 5px 0 3px;
+    line-height: 1;
+  }
+  .price-box .price-currency {
+    font-size: 0.52em;
+    font-weight: 600;
+    color: var(--accent-brand);
+    opacity: 0.85;
+  }
+  .price-box .price-note {
+    font-size: 12px;
+    color: var(--luxury-muted);
+    margin-top: 4px;
+  }
+  .price-box .saving-badge {
+    display: inline-block;
+    background: #1a7a4a;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Kit expandable ── */
+  .kit-details {
+    margin: 16px 0 8px;
+  }
+  .kit-details summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--accent-brand);
+    font-weight: 400;
+    list-style: none;
+    user-select: none;
+    background: rgba(173,125,147,0.08);
+    border-radius: 20px;
+    border: 1px solid rgba(173,125,147,0.2);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .kit-details summary:hover {
+    background: rgba(173,125,147,0.14);
+    border-color: rgba(173,125,147,0.35);
+  }
+  .kit-details summary::-webkit-details-marker { display: none; }
+  .kit-details[open] summary span { transform: rotate(180deg); display: inline-block; }
+  .kit-details summary span { transition: transform 0.2s; font-size: 11px; }
+  .kit-list {
+    list-style: none;
+    padding: 0 0 8px;
+    margin: 0;
+  }
+  .kit-list li {
+    font-size: 13px;
+    color: var(--luxury-muted);
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(173,125,147,0.08);
+    line-height: 1.5;
+  }
+  .kit-list li:last-child { border-bottom: none; }
+  .kit-list li::before {
+    content: '·';
+    margin-inline-end: 8px;
+    color: var(--accent-brand);
+    opacity: 0.45;
+  }
+
+  /* ── Bottom line tagline ── */
+  .track-bottom-line {
+    font-size: 13px;
+    color: var(--luxury-muted);
+    font-style: italic;
+    text-align: center;
+    margin: 14px 0 4px;
+    opacity: 0.7;
+    line-height: 1.6;
+  }
+
+  /* ── Track 2 gift highlight block ── */
+  .track-gift-box {
+    margin: 18px 0 10px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(173,125,147,0.18);
+  }
+  .track-gift-label {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--accent-brand);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    opacity: 0.75;
+  }
+  .track-gift-box p {
+    font-size: 14px;
+    color: var(--luxury-muted);
+    line-height: 1.65;
+    margin: 0 0 10px;
+  }
+  .kit-list--gift {
+    padding-bottom: 4px;
+  }
+  .kit-list--gift li {
+    font-size: 13px;
+  }
+  .gift-total {
+    display: block;
+    margin-top: 10px;
+    font-size: 12.5px;
+    color: var(--accent-brand);
+    opacity: 0.8;
+  }
 </style>
 </head>
 <body data-hero="classic" data-heading="serif">
@@ -539,7 +824,7 @@
 <header class="nav scheme-1" id="top" style="box-shadow: 0 4px 24px rgba(33,31,26,0.04); background: #ffffff;">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="אקדמיית קארין כהן — דף הבית"><img src="assets/logo.png" alt="אקדמיית קארין כהן" style="height:56px; width:auto; display:block;"></a>
-    <nav class="nav-links" aria-label="Primary">
+    <nav class="nav-links" aria-label="ניווט ראשי">
       <a href="index.html#about" style="color: var(--luxury-ink); font-weight: 500;">עלי קצת</a>
       <a href="course-fusion.html" aria-current="page" style="color: var(--accent-brand); font-weight: 600;">קורסים</a>
       <a href="index.html#services" style="color: var(--luxury-ink); font-weight: 500;">טיפולים באולפן</a>
@@ -547,9 +832,9 @@
       <a href="#contact" style="color: var(--luxury-ink); font-weight: 500;">יצירת קשר</a>
     </nav>
     <div class="nav-actions">
-      <a href="tel:052-3980351" class="btn btn-secondary btn-sm">052-3980351</a>
+      <a href="tel:052-3980351" class="btn btn-secondary btn-sm" dir="ltr">052-3980351</a>
       <a href="#contact" class="btn btn-primary btn-sm" style="color:#fff !important;">הרשמה לקורס</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span class="material-symbols-rounded">menu</span></button>
+      <button class="nav-toggle" id="navToggle" aria-label="פתיחת תפריט" aria-expanded="false"><span class="material-symbols-rounded">menu</span></button>
     </div>
   </div>
 </header>
@@ -558,9 +843,9 @@
 <div class="drawer" id="drawer">
   <div class="drawer-top">
     <img src="assets/logo.png" alt="אקדמיית קארין כהן" style="height:56px; width:auto; display:block;">
-    <button class="nav-toggle" id="drawerClose" aria-label="Close menu"><span class="material-symbols-rounded">close</span></button>
+    <button class="nav-toggle" id="drawerClose" aria-label="סגירת תפריט"><span class="material-symbols-rounded">close</span></button>
   </div>
-  <nav aria-label="Mobile">
+  <nav aria-label="ניווט נייד">
     <a href="index.html#about" data-close>עלי קצת</a>
     <a href="course-fusion.html" data-close aria-current="page">קורסים</a>
     <a href="index.html#services" data-close>טיפולים באולפן</a>
@@ -568,7 +853,7 @@
     <a href="#contact" data-close>יצירת קשר</a>
   </nav>
   <div class="drawer-cta">
-    <a href="tel:052-3980351" class="btn btn-secondary" data-close>052-3980351</a>
+    <a href="tel:052-3980351" class="btn btn-secondary" data-close dir="ltr">052-3980351</a>
     <a href="#contact" class="btn btn-primary" data-close>הרשמה לקורס</a>
   </div>
 </div>
@@ -660,64 +945,120 @@
 <section class="section scheme-3" id="tracks" data-screen-label="Tracks" style="padding-top: 100px; padding-bottom: 100px; background: var(--bg-pure-white);">
   <div class="container">
     <div class="center mx-auto measure reveal" style="margin-bottom: 16px; text-align: center;">
-      <span class="eyebrow" style="justify-content:center;">לבחירתך 3 מסלולים</span>
+      <span class="eyebrow" style="justify-content:center;">לבחירתך 2 מסלולים</span>
       <h2 class="mb-16">בחרי את המסלול שמתאים לך</h2>
-      <p class="text-medium muted reveal delay-1">אצלנו תרכשי את הטכניקות המתקדמות בהדבקה והרמת ריסים — ותצאי מוכנה לעבוד עם ביטחון מלא.</p>
+      <p class="text-medium muted reveal delay-1">בין אם את מתחילה מאפס ובין אם את רוצה לשדרג — יש לי בדיוק את המסלול שיקחה אותך לרמה הבאה.</p>
     </div>
-    <div class="tracks-grid">
-
-      <div class="track-card reveal delay-1">
-        <div class="track-name">קורס הדבקת ריסים</div>
-        <div class="track-duration">
-          <span class="material-symbols-rounded">schedule</span> יומיים · 12 שעות
+    <!-- SALE COUNTDOWN BANNER -->
+    <div class="sale-countdown-banner reveal delay-1">
+      <div class="sale-label">מבצע קיץ · מחיר מיוחד עד סוף אוגוסט</div>
+      <div class="sale-title">המחיר המיוחד מסתיים בעוד</div>
+      <div class="countdown-units">
+        <div class="countdown-unit">
+          <span class="cu-num" id="cd-days">--</span>
+          <span class="cu-label">ימים</span>
         </div>
-        <ul class="track-list">
-          <li><span class="material-symbols-rounded">check_circle</span><span>תעודת הסמכה מקצועית מטעם האקדמיה</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>תעודה בינלאומית מטעם EyeTalent</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>ערכת חומרים ל-30 לקוחות</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>ליווי וצמוד אחרי הקורס + תוכנית עבודה</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>גישה לקבוצת וואטסאפ עם 400+ בוגרות</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>גישה לקורס הדיגיטלי המלא באתר</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>הנחה קבועה לרכישת מוצרים</span></li>
-        </ul>
-        <a href="#contact" class="btn btn-secondary" style="justify-content:center; display:flex; align-items:center; gap:8px;">לפרטים ורישום <span class="material-symbols-rounded">arrow_forward</span></a>
+        <div class="countdown-unit">
+          <span class="cu-num" id="cd-hours">--</span>
+          <span class="cu-label">שעות</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="cu-num" id="cd-mins">--</span>
+          <span class="cu-label">דקות</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="cu-num" id="cd-secs">--</span>
+          <span class="cu-label">שניות</span>
+        </div>
+      </div>
+      <div class="sale-note">לאחר מכן המחיר חוזר לרגיל — הרשמי עכשיו וחסכי מאות שקלים</div>
+    </div>
+
+    <div class="tracks-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); max-width: 900px; margin: 0 auto;">
+
+      <!-- TRACK 1 — Master Class -->
+      <div class="track-card popular reveal delay-1">
+        <div class="track-card-head">
+          <div class="track-badge-inline">מבצע קיץ · עד סוף אוגוסט</div>
+          <div class="track-sub-name">מאסטר קלאס</div>
+          <div class="track-name">הקורס המלא – מאפס למקצוענית</div>
+          <div class="track-duration">
+            <span class="material-symbols-rounded" aria-hidden="true">schedule</span>
+            3 מפגשים: 2 מפגשים + מפגש חיזוק VIP
+          </div>
+        </div>
+        <div class="track-body">
+          <div class="track-who">למי זה מתאים?</div>
+          <p style="font-size:14px; color: var(--luxury-muted); margin: 0 0 4px; line-height:1.55;">למי שרוצה להיכנס לעולם הריסים ללא צורך בידע קודם, ולצאת עם מקצוע רווחי וביטחון מלא.</p>
+          <ul class="track-list">
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span><span>מפגש 1 — בסיס תיאורטי ומעשי: היכרות מעמיקה של תחום עולם הריסים, כל השיטות הקיימות והשוני ביניהם, התאמת עיצובים למבני עיניים שונים, עבודה סטרילית ותרגול ראשוני</span></li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span><span>מפגש 2 — טכניקה מתקדמת ותרגול מעשי: צלילה לתוך שיטות ההדבקה הבלעדיות שלי, ותרגול מלא על מודליסטית בליווי ופיקוח צמוד שלי</span></li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span><span>מפגש חיזוק VIP: מפגש המשך ממוקד שנועד לעבור על העבודות שלך בשטח, לדייק את זמני העבודה, לפתור אתגרים שעלו בדרך ולהבטיח שאת יוצאת לשוק עם 100% ביטחון עצמי וידיים יציבות</span></li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span><span>ערכה פרימיום מלאה (שווי מאות ₪) — ראי פירוט מלא למטה</span></li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span><span>ליווי אישי אחרי הקורס</span></li>
+          </ul>
+          <details class="kit-details">
+            <summary>מה בערכה הפרימיום? <span aria-hidden="true">▾</span></summary>
+            <ul class="kit-list">
+              <li>דבק שחור היפואלרגי</li>
+              <li>דבק לבן היפואלרגי</li>
+              <li>משחק דבק היפואלרגי</li>
+              <li>דבק מחזק</li>
+              <li>מסיר דבק מחזק</li>
+              <li>2 פינצטות</li>
+              <li>טבעת דבק</li>
+              <li>רטיות ניקוי עיניים</li>
+              <li>מברשות לדבק</li>
+              <li>6 קופסאות ריסי משי 20D — מידות 8/10/12 מ"מ</li>
+              <li>2 קופסאות ריסי פרימיום משי 30D/20D</li>
+            </ul>
+          </details>
+          <p class="track-bottom-line">את לא רק לומדת להדביק — את לומדת איך לבנות עסק מצליח ולייצר תוצאות מושלמות שנשמרות לאורך זמן.</p>
+          <div class="price-box">
+            <span class="price-old">מחיר רגיל: 2,500 ₪</span>
+            <span class="price-new">1,800 <span class="price-currency">₪</span></span>
+            <div class="price-note">כולל ערכה פרימיום מלאה · עד סוף אוגוסט</div>
+            <span class="saving-badge">חסכת 700 ₪</span>
+          </div>
+          <a href="#contact" class="btn btn-primary" style="justify-content:center; display:flex; align-items:center; gap:8px;">לפרטים ורישום <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a>
+        </div>
       </div>
 
-      <div class="track-card popular reveal delay-2">
-        <span class="track-badge">פופולרי במיוחד</span>
-        <div class="track-name">קורס פרימיום ALL IN ONE — הדבקה + הרמת ריסים</div>
-        <div class="track-duration">
-          <span class="material-symbols-rounded">schedule</span> יומיים · 12 שעות
+      <!-- TRACK 2 — Advanced Training -->
+      <div class="track-card reveal delay-2">
+        <div class="track-card-head">
+          <div class="track-sub-name">הכשרה מתקדמת</div>
+          <div class="track-name">השתלמות שדרוג ורענון לבעלות מקצוע</div>
+          <div class="track-duration">
+            <span class="material-symbols-rounded" aria-hidden="true">schedule</span>
+            מפגש מרוכז אחד
+          </div>
         </div>
-        <ul class="track-list">
-          <li><span class="material-symbols-rounded">check_circle</span><span>2 תעודות הסמכה מקצועיות מטעם האקדמיה</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>תעודה בינלאומית מטעם EyeTalent</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>2 ערכות חומרים ל-60–70 לקוחות</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>ליווי וצמוד אחרי הקורס + תוכנית עבודה</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>גישה לקבוצת וואטסאפ עם 400+ בוגרות</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>גישה לקורס הדיגיטלי המלא באתר</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>הנחה קבועה לרכישת מוצרים</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>קורס הרמת גבות במתנה + הנחה של 500 ₪</span></li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" style="justify-content:center; display:flex; align-items:center; gap:8px;">לפרטים ורישום <span class="material-symbols-rounded">arrow_forward</span></a>
-      </div>
-
-      <div class="track-card reveal delay-3">
-        <div class="track-name">קורס ריסים אקספרס</div>
-        <div class="track-duration">
-          <span class="material-symbols-rounded">schedule</span> 2 מפגשים אישיים
+        <div class="track-body">
+          <div class="track-who">למי זה מתאים?</div>
+          <p style="font-size:14px; color: var(--luxury-muted); margin: 0 0 4px; line-height:1.55;">למי שכבר עוסקת בתחום ומבינה שהמפתח להצלחה הוא תמיד להישאר צעד אחד לפני כולם. אם את רוצה לקצר זמנים, לשפר את העמידות, או להכניס אנרגיה חדשה לעבודה שלך — זה המקום שלך.</p>
+          <ul class="track-list">
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span><span>פיצוח שיטת העבודה שלי: אלמד אותך את הטכניקה הייחודית שפיתחתי, זו שחוסכת זמן ומייצרת מראה עשיר, מדויק ומהפנט</span></li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span><span>היכרות עם דבקים וחומרים: נעשה סדר בעולם הדבקים — נלמד איך לעבוד נכון עם המוצרים והריסים המתקדמים ביותר בשוק כדי להגיע לעמידות שיא</span></li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span><span>רענון ופתרון בעיות: נזהה "חורים" בעבודה הנוכחית שלך, נתקן הרגלים מעכבים, ונלמד איך להתמודד עם ריסים מאתגרים</span></li>
+          </ul>
+          <div class="track-gift-box">
+            <div class="track-gift-label">הטבה מטורפת לנרשמות למפגש שדרוג ורענון הקרוב</div>
+            <p>אני מאמינה שכדי להגיע לתוצאות מושלמות צריך לעבוד עם החומרים הטובים ביותר. את יוצאת מההשתלמות עם ערכת ריסים יוקרתית במתנה כדי להתחיל להפציץ בקליניקה!</p>
+            <ul class="kit-list kit-list--gift">
+              <li>4 קופסאות ריסי משי איכותיים באורכים המבוקשים ביותר — 8 מ"מ, 10 מ"מ ו-12 מ"מ (למראה מדויק, רך וטבעי)</li>
+              <li>2 קופסאות גדולות של ריסי משי מיקס (Mix) — מענה מושלם לכל סגנון עיצוב ומבנה עין</li>
+            </ul>
+            <span class="gift-total">סה"כ: 6 קופסאות ריסים פרימיום — מתנה ממני!</span>
+          </div>
+          <div class="price-box">
+            <span class="price-old">מחיר רגיל: 1,200 ₪</span>
+            <span class="price-new">800 <span class="price-currency">₪</span></span>
+            <div class="price-note">כולל 6 קופסאות ריסים במתנה · עד סוף אוגוסט</div>
+            <span class="saving-badge">חסכת 400 ₪</span>
+          </div>
+          <a href="#contact" class="btn btn-secondary" style="justify-content:center; display:flex; align-items:center; gap:8px;">לפרטים ורישום <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a>
         </div>
-        <ul class="track-list">
-          <li><span class="material-symbols-rounded">check_circle</span><span>תעודת הסמכה מקצועית מטעם האקדמיה</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>תעודה בינלאומית מטעם EyeTalent</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>ערכת חומרים ל-50 לקוחות</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>ליווי וצמוד אחרי הקורס + תוכנית עבודה</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>גישה לקבוצת וואטסאפ עם 400+ בוגרות</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>גישה לקורס הדיגיטלי המלא באתר</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>הנחה קבועה לרכישת מוצרים</span></li>
-          <li><span class="material-symbols-rounded">check_circle</span><span>קורס הרמת גבות במתנה</span></li>
-        </ul>
-        <a href="#contact" class="btn btn-secondary" style="justify-content:center; display:flex; align-items:center; gap:8px;">לפרטים ורישום <span class="material-symbols-rounded">arrow_forward</span></a>
       </div>
 
     </div>
@@ -813,7 +1154,7 @@
           </div>
           <div class="contact-row reveal delay-2" style="display: flex; gap: 16px; align-items: center;">
             <span class="ic" style="color: var(--accent-brand); display: flex;"><span class="material-symbols-rounded">call</span></span>
-            <div><h3 style="font-size:16px; margin:0 0 2px 0;">טלפון ליצירת קשר</h3><a class="big" href="tel:052-3980351" style="font-weight:600; text-decoration:none; color: var(--luxury-ink);">052-3980351</a></div>
+            <div><h3 style="font-size:16px; margin:0 0 2px 0;">טלפון ליצירת קשר</h3><a class="big" href="tel:052-3980351" dir="ltr" style="font-weight:600; text-decoration:none; color: var(--luxury-ink);">052-3980351</a></div>
           </div>
           <div class="contact-row reveal delay-3" style="display: flex; gap: 16px; align-items: center;">
             <span class="ic" style="color: var(--accent-brand); display: flex;"><span class="material-symbols-rounded">mail</span></span>
@@ -850,7 +1191,7 @@
             </select>
             <textarea class="field" name="message" placeholder="שאלות? כתבי לי כאן (אופציונלי)" style="width:100%; padding:14px; border-radius:10px; border:1px solid rgba(33,31,26,0.12); min-height:100px; font-family:inherit; background: #fafafa;"></textarea>
             <button class="btn btn-primary" type="submit" style="justify-content:center; display:flex; align-items:center; gap:8px;">שליחת בקשת הרשמה <span class="material-symbols-rounded">arrow_forward</span></button>
-            <div class="form-ok" id="courseFormOk" style="display:none; background:#f4fbf7; padding:14px; border-radius:10px; color:#1e6643; font-size:14.5px; text-align:center;"><span class="material-symbols-rounded" style="vertical-align:middle; margin-inline-end:6px;">workspace_premium</span> תודה! קארין תחזור אליך בהקדם.</div>
+            <div class="form-ok" id="courseFormOk" role="alert" aria-live="polite" style="display:none; background:#f4fbf7; padding:14px; border-radius:10px; color:#1e6643; font-size:14.5px; text-align:center;"><span class="material-symbols-rounded" aria-hidden="true" style="vertical-align:middle; margin-inline-end:6px;">workspace_premium</span> תודה! קארין תחזור אליך בהקדם.</div>
           </div>
         </form>
       </div>
@@ -860,7 +1201,7 @@
     <div class="map-container reveal delay-3" style="width: 100%; display: block; position: relative;">
       <div class="map-wrap" style="position: relative; overflow: hidden; border-radius: 20px; width: 100%; height: 420px; background: #e5e3df; box-shadow: 0 12px 36px rgba(33,31,26,0.04); border:1px solid rgba(33,31,26,0.06);">
         <iframe title="רחוב הנקין 66, חולון" src="https://maps.google.com/maps?q=Hankin%2066%2C%20Holon%2C%20Israel&z=16&output=embed&hl=he" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen style="width:100%; height:100%; border:0; display:block; position:absolute; top:0; left:0;"></iframe>
-        <a href="https://www.google.com/maps/search/?api=1&query=Hankin+66+Holon+Israel" target="_blank" rel="noopener" class="btn btn-secondary btn-sm" style="position: absolute; bottom: 20px; left: 20px; right: auto; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display:inline-flex; align-items:center; gap:6px; font-size:13px; background:#fff !important;">פתיחה ב-Maps <span class="material-symbols-rounded" style="font-size:16px;">north_east</span></a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Hankin+66+Holon+Israel" target="_blank" rel="noopener" class="btn btn-secondary btn-sm" style="position: absolute; bottom: 20px; inset-inline-start: 20px; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display:inline-flex; align-items:center; gap:6px; font-size:13px; background:#fff !important;">פתיחה ב-Maps <span class="material-symbols-rounded" style="font-size:16px;">north_east</span></a>
       </div>
     </div>
   </div>
@@ -900,7 +1241,7 @@
     </div>
     <div class="hr" style="margin-top:48px; margin-bottom:28px; opacity:0.08; border-top:1px solid #fff;"></div>
     <div class="footer-bottom reveal delay-1" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-      <p class="text-small" style="opacity:.6; font-size:13.5px; margin: 0;">רחוב הנקין 66, חולון, ישראל · 052-3980351 · kslove@walla.co.il</p>
+      <p class="text-small" style="opacity:.6; font-size:13.5px; margin: 0;">רחוב הנקין 66, חולון, ישראל · <span dir="ltr">052-3980351</span> · <span dir="ltr">kslove@walla.co.il</span></p>
       <p class="text-small" style="margin: 0; font-size:13px; opacity: 0.7; letter-spacing: 0.02em;">
         Made by <a href="https://aiterra.co.il/" target="_blank" rel="noopener" style="color: var(--accent-brand); text-decoration: none; font-weight: 600; transition: color 0.2s ease;">aiterra.co.il</a>
       </p>
@@ -911,6 +1252,35 @@
 <script src="app.js"></script>
 
 <script>
+  /* ---- Summer sale countdown (ends Aug 31 2026 23:59:59 IL time UTC+3) ---- */
+  (function () {
+    var end = new Date('2026-08-31T23:59:59+03:00').getTime();
+    var els = {
+      days:  document.getElementById('cd-days'),
+      hours: document.getElementById('cd-hours'),
+      mins:  document.getElementById('cd-mins'),
+      secs:  document.getElementById('cd-secs')
+    };
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+    function tick() {
+      var diff = end - Date.now();
+      if (diff <= 0) {
+        Object.values(els).forEach(function (el) { if (el) el.textContent = '00'; });
+        return;
+      }
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      if (els.days)  els.days.textContent  = pad(d);
+      if (els.hours) els.hours.textContent = pad(h);
+      if (els.mins)  els.mins.textContent  = pad(m);
+      if (els.secs)  els.secs.textContent  = pad(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
   /* Course form submit */
   (function () {
     var form = document.getElementById('courseForm');
