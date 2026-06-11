@@ -21,13 +21,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream:   #F7F1EA;
-      --yellow:  #E8FE59;
-      --pink:    #CC3366;
-      --black:   #111111;
-      --salmon:  #F06B6B;
+      --cream:   #F2EDE6;
+      --yellow:  #C8B89A;
+      --pink:    #8A6848;
+      --black:   #1C1A16;
+      --salmon:  #B8ACA0;
       --white:   #FFFFFF;
-      --gray:    #666666;
+      --gray:    #6C6660;
     }
 
     html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -83,8 +83,8 @@
       to   { transform: rotate(-360deg); }
     }
     @keyframes pulseBadge {
-      0%,100% { box-shadow: 0 0 0 0 rgba(204,51,102,0.4); }
-      50%     { box-shadow: 0 0 0 12px rgba(204,51,102,0); }
+      0%,100% { box-shadow: 0 0 0 0 rgba(138,104,72,0.4); }
+      50%     { box-shadow: 0 0 0 12px rgba(138,104,72,0); }
     }
     @keyframes scaleIn {
       from { opacity: 0; transform: scale(0.8); }
@@ -202,7 +202,7 @@
     .btn-outline-light { background: transparent; color: var(--cream); border-color: var(--cream); }
     .btn-outline-light:hover { background: var(--cream); color: var(--black); }
     .btn-yellow  { background: var(--yellow); color: var(--black); border-color: var(--yellow); }
-    .btn-yellow:hover { background: #d6eb47; }
+    .btn-yellow:hover { background: #B8A888; }
     .btn-pink    { background: var(--pink); color: var(--white); border-color: var(--pink); }
     .btn-pink:hover { background: #b02d59; }
     .btn-sm { padding: 10px 24px; font-size: 13px; }
@@ -1201,7 +1201,7 @@
     .insta-bg {
       position: absolute;
       inset: -20% 0;
-      background-image: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?fm=jpg&q=85&w=2400&auto=format&fit=crop&ixlib=rb-4.1.0');
+      background-image: url('assets/barbershop.jpeg');
       background-size: cover;
       background-position: center 35%;
       opacity: 0.32;
@@ -1275,7 +1275,7 @@
     .insta-post-over {
       position: absolute;
       inset: 0;
-      background: rgba(204,51,102,0.78);
+      background: rgba(138,104,72,0.78);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1563,7 +1563,7 @@
       display: block;
       font-size: 13px;
       font-weight: 700;
-      color: rgba(247,241,234,0.6);
+      color: rgba(242,237,230,0.6);
       margin-bottom: 8px;
       letter-spacing: 0;
     }
@@ -1582,7 +1582,7 @@
       direction: rtl;
     }
     .form-field input::placeholder,
-    .form-field textarea::placeholder { color: rgba(247,241,234,0.3); }
+    .form-field textarea::placeholder { color: rgba(242,237,230,0.3); }
     .form-field input:focus,
     .form-field textarea:focus {
       border-color: var(--yellow);
@@ -1706,7 +1706,7 @@
       cursor: pointer;
       transition: background 0.2s ease;
     }
-    .cookie-accept:hover { background: #d6eb47; }
+    .cookie-accept:hover { background: #B8A888; }
     .cookie-decline {
       padding: 10px 26px;
       background: transparent;
