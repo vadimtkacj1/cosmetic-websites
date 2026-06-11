@@ -38,7 +38,7 @@
       color: var(--black);
       overflow-x: hidden;
       direction: rtl;
-      text-align: right;
+      text-align: end;
     }
 
     a { text-decoration: none; color: inherit; }
@@ -243,15 +243,15 @@
     .nav-links a::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0;
+      bottom: 0; inset-inline-start: 0;
       width: 100%;
       height: 2px;
       background: var(--pink);
       transform: scaleX(0);
-      transform-origin: left;
+      transform-origin: right;
       transition: transform 0.3s ease;
     }
-    .nav-links a:hover::after { transform: scaleX(1); transform-origin: right; }
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
 
     .nav-ctas { display: flex; gap: 10px; }
 
@@ -717,7 +717,7 @@
 
     .service-card-arrow {
       position: absolute;
-      top: 18px; right: 18px;
+      top: 18px; inset-inline-start: 18px;
       width: 36px; height: 36px;
       background: var(--yellow);
       border-radius: 50%;
@@ -756,7 +756,7 @@
     .testimonials::after {
       content: '✂';
       position: absolute;
-      top: 32px; left: 48px;
+      top: 32px; inset-inline-end: 48px;
       font-size: 160px;
       opacity: 0.04;
       color: var(--white);
@@ -851,7 +851,7 @@
     .t-card::before {
       content: '"';
       position: absolute;
-      top: 12px; left: 28px;
+      top: 12px; inset-inline-start: 28px;
       font-family: 'Varela Round', sans-serif;
       font-size: 130px;
       color: var(--yellow);
@@ -878,12 +878,12 @@
       cursor: pointer;
       transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
       flex-shrink: 0;
-      box-shadow: 3px 3px 0 var(--black);
+      box-shadow: -3px 3px 0 var(--black);
     }
     .t-prev:hover, .t-next:hover {
       background: var(--pink);
       transform: scale(1.12) translateY(-2px);
-      box-shadow: 4px 5px 0 var(--black);
+      box-shadow: -4px 5px 0 var(--black);
     }
     .t-prev svg, .t-next svg {
       width: 28px; height: 28px;
@@ -956,7 +956,7 @@
     }
     .loc-card-name {
       position: absolute;
-      bottom: 22px; right: 22px;
+      bottom: 22px; inset-inline-start: 22px;
       color: var(--white);
       font-family: 'Varela Round', sans-serif;
       font-size: 20px;
@@ -1091,7 +1091,7 @@
     .pf-lightbox.open img { transform: scale(1); }
     .pf-lightbox-close {
       position: absolute;
-      top: 22px; right: 28px;
+      top: 22px; inset-inline-start: 28px;
       width: 48px; height: 48px;
       border-radius: 50%;
       background: var(--yellow);
@@ -1352,14 +1352,14 @@
       gap: 6px;
     }
     .footer-links a::before {
-      content: '←';
+      content: '→';
       opacity: 0;
-      transform: translateX(8px);
+      transform: translateX(-8px);
       transition: all 0.2s ease;
       font-size: 14px;
       color: var(--yellow);
     }
-    .footer-links a:hover { opacity: 1; color: var(--yellow); transform: translateX(-6px); }
+    .footer-links a:hover { opacity: 1; color: var(--yellow); transform: translateX(6px); }
     .footer-links a:hover::before { opacity: 1; transform: translateX(0); }
 
     .footer-book p {
@@ -1403,7 +1403,7 @@
     ========================================= */
     .back-top {
       position: fixed;
-      bottom: 28px; left: 28px;
+      bottom: 28px; inset-inline-end: 28px;
       width: 48px; height: 48px;
       background: var(--black);
       color: var(--cream);
@@ -1465,7 +1465,7 @@
       .services-about-eyebrow,
       .services-about-title,
       .services-about-body,
-      .services-about-list { text-align: right; }
+      .services-about-list { text-align: end; }
 
       /* push floats to corners so they don't overlap content */
       .hero-float:nth-child(1) { width: 56px; top: 10%; left: 2%; }
@@ -1581,6 +1581,10 @@
       transition: border-color 0.25s ease, background 0.25s ease;
       direction: rtl;
     }
+    .form-field input[type="tel"] {
+      direction: ltr;
+      text-align: start;
+    }
     .form-field input::placeholder,
     .form-field textarea::placeholder { color: rgba(242,237,230,0.3); }
     .form-field input:focus,
@@ -1613,7 +1617,7 @@
     ========================================= */
     .wa-float {
       position: fixed;
-      bottom: 28px; right: 28px;
+      bottom: 28px; inset-inline-start: 28px;
       width: 56px; height: 56px;
       background: #25D366;
       border-radius: 50%;
@@ -1635,8 +1639,8 @@
     .wa-float svg { width: 30px; height: 30px; fill: white; }
     .wa-tooltip {
       position: absolute;
-      right: calc(100% + 12px);
-      top: 50%; transform: translateY(-50%) translateX(8px);
+      inset-inline-end: calc(100% + 12px);
+      top: 50%; transform: translateY(-50%) translateX(-8px);
       background: white;
       color: #111;
       padding: 8px 14px;
@@ -1653,11 +1657,11 @@
     .wa-tooltip::after {
       content: '';
       position: absolute;
-      left: 100%;
+      inset-inline-start: 100%;
       top: 50%; transform: translateY(-50%);
       border: 6px solid transparent;
-      border-right: none;
-      border-left-color: white;
+      border-inline-end: none;
+      border-inline-start-color: white;
     }
     .wa-float:hover .wa-tooltip { opacity: 1; transform: translateY(-50%) translateX(0); }
 
@@ -1727,6 +1731,152 @@
       .cookie-accept, .cookie-decline { flex: 1; text-align: center; }
       .a11y-panel { width: 100%; border-radius: 20px 20px 0 0; }
     }
+
+    /* =========================================
+       DISCOUNT POPUP
+    ========================================= */
+    .discount-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(28,26,22,0.72);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      backdrop-filter: blur(5px);
+    }
+    .discount-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .discount-popup {
+      background: var(--cream);
+      border-radius: 28px;
+      max-width: 460px;
+      width: 100%;
+      padding: 52px 48px 44px;
+      position: relative;
+      transform: scale(0.82);
+      transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.45);
+    }
+    .discount-overlay.open .discount-popup {
+      transform: scale(1);
+    }
+    .discount-popup::before {
+      content: '✂';
+      position: absolute;
+      top: -24px; inset-inline-end: -8px;
+      font-size: 150px;
+      color: var(--yellow);
+      opacity: 0.16;
+      pointer-events: none;
+      line-height: 1;
+    }
+    .discount-popup-close {
+      position: absolute;
+      top: 16px; inset-inline-end: 16px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(28,26,22,0.09);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--black);
+      font-weight: 700;
+      transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+    }
+    .discount-popup-close:hover {
+      background: var(--pink);
+      color: var(--white);
+      transform: scale(1.12);
+    }
+    .discount-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--pink);
+      color: var(--white);
+      padding: 7px 18px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 22px;
+      animation: pulseBadge 2.5s ease-in-out infinite;
+    }
+    .discount-num {
+      font-family: 'Varela Round', sans-serif;
+      font-size: clamp(80px, 22vw, 118px);
+      font-weight: 900;
+      line-height: 0.88;
+      color: var(--black);
+      letter-spacing: -3px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+    }
+    .discount-num sup {
+      font-size: 0.4em;
+      vertical-align: top;
+      line-height: 1.7;
+      letter-spacing: 0;
+    }
+    .discount-stripe {
+      display: inline-block;
+      background: var(--yellow);
+      padding: 2px 14px 0;
+      transform: rotate(-1.5deg);
+      margin-bottom: 14px;
+    }
+    .discount-title {
+      font-family: 'Varela Round', sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 14px;
+    }
+    .discount-sub {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 320px;
+      margin-inline: auto;
+    }
+    .discount-cta {
+      width: 100%;
+      margin-bottom: 14px;
+    }
+    .discount-skip {
+      display: block;
+      width: 100%;
+      font-size: 13px;
+      color: var(--gray);
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: 'Varela Round', sans-serif;
+      opacity: 0.6;
+      transition: opacity 0.2s, color 0.2s;
+      padding: 4px 0;
+      text-align: center;
+    }
+    .discount-skip:hover { opacity: 1; color: var(--pink); }
+
+    @media (max-width: 520px) {
+      .discount-popup { padding: 44px 28px 36px; }
+      .discount-num { font-size: 90px; }
+    }
   </style>
 </head>
 <body>
@@ -1790,10 +1940,10 @@
     <span class="line"><span class="line-inner"><span class="hero-highlight">מושלם</span></span></span>
   </h1>
 
-  <p class="hero-sub">מומחיות בפריצה אורגנית, אומברה ובלייאז׳. לגברים, נשים וילדים.</p>
+  <p class="hero-sub">סטודיו בוטיק לעיצוב שיער לגברים ונשים. התמחות ייחודית בכל סוגי ההחלקות, לתוצאה חלקה, בריאה וטבעית המשקמת את השערה.</p>
 
   <div class="hero-ctas">
-    <a href="https://www.instagram.com/eli_ben_yitzhak/" target="_blank" rel="noopener" class="btn btn-outline btn-lg">עקבו אחרינו</a>
+    <a href="#portfolio" class="btn btn-outline btn-lg">גלריית עבודות</a>
     <a href="tel:0505931226" class="btn btn-dark btn-lg">קביעת תור</a>
   </div>
 
@@ -1806,19 +1956,19 @@
       <div class="feature-icon-wrap">
         <img src="animation/scissors.svg" alt="">
       </div>
-      <h3 class="feature-label">פריצה אורגנית<br>מאושרת</h3>
+      <h3 class="feature-label">תספורות<br>נשים וגברים</h3>
     </div>
     <div class="feature-item reveal d3">
       <div class="feature-icon-wrap">
         <img src="animation/fan.svg" alt="">
       </div>
-      <h3 class="feature-label">אומברה<br>ובלייאז׳</h3>
+      <h3 class="feature-label">מומחיות<br>בהחלקות שיער</h3>
     </div>
     <div class="feature-item reveal d5">
       <div class="feature-icon-wrap">
         <img src="animation/oil.svg" alt="">
       </div>
-      <h3 class="feature-label">חומרים<br>איכותיים בלבד</h3>
+      <h3 class="feature-label">עיצוב וטיפוח<br>זקן</h3>
     </div>
   </div>
 </section>
@@ -2073,7 +2223,7 @@
           <div class="contact-item-icon">
             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.11 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012.22 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
           </div>
-          <a href="tel:0505931226">050-5931226</a>
+          <a href="tel:0505931226"><bdo dir="ltr">050-5931226</bdo></a>
         </div>
         <div class="contact-item">
           <div class="contact-item-icon">
@@ -2161,7 +2311,7 @@
       <p class="footer-col-head">מיקום</p>
       <ul class="footer-links">
         <li><a href="https://maps.google.com/?q=רחוב+דניאל+70+בת+ים" target="_blank" rel="noopener">רחוב דניאל 70, בת ים</a></li>
-        <li><a href="tel:0505931226">050-5931226</a></li>
+        <li><a href="tel:0505931226"><bdo dir="ltr">050-5931226</bdo></a></li>
         <li><a href="https://www.instagram.com/eli_ben_yitzhak/" target="_blank" rel="noopener">Instagram</a></li>
         <li><a href="https://www.facebook.com/p/%D7%90%D7%9C%D7%99-%D7%91%D7%9F-%D7%99%D7%A6%D7%97%D7%A7-%D7%A2%D7%99%D7%A6%D7%95%D7%91-%D7%A9%D7%99%D7%A2%D7%A8-100060809144134/" target="_blank" rel="noopener">Facebook</a></li>
       </ul>
@@ -2197,6 +2347,24 @@
   <span class="wa-tooltip">שלחו הודעה בוואטסאפ</span>
 </a>
 
+
+<!-- ===================== DISCOUNT POPUP ===================== -->
+<div class="discount-overlay" id="discountOverlay" role="dialog" aria-modal="true" aria-label="הצעה מיוחדת">
+  <div class="discount-popup">
+    <button class="discount-popup-close" id="discountClose" aria-label="סגור">✕</button>
+    <div class="discount-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      הצעה מיוחדת לביקור ראשון
+    </div>
+    <div class="discount-num">10<sup>%</sup></div>
+    <h2 class="discount-title">
+      <span class="discount-stripe">הנחה</span> על הביקור הראשון!
+    </h2>
+    <p class="discount-sub">הצטרפו למשפחת אלי בן יצחק וקבלו 10% הנחה על כל שירות בביקורכם הראשון. התקשרו עכשיו לקביעת תור.</p>
+    <a href="tel:0505931226" class="btn btn-dark btn-lg discount-cta" id="discountCta">קביעת תור עכשיו</a>
+    <button class="discount-skip" id="discountSkip">אולי בפעם אחרת</button>
+  </div>
+</div>
 
 <!-- ===================== SIENNA ACCESSIBILITY WIDGET ===================== -->
 <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility/dist/sienna-accessibility.umd.js" async></script>
@@ -2422,6 +2590,37 @@
     item.addEventListener('mouseenter', () => vid.play());
     item.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
   });
+
+  /* --- DISCOUNT POPUP --- */
+  (function () {
+    const overlay  = document.getElementById('discountOverlay');
+    const closeBtn = document.getElementById('discountClose');
+    const skipBtn  = document.getElementById('discountSkip');
+    const ctaBtn   = document.getElementById('discountCta');
+    const KEY = 'discount-popup-shown';
+
+    function openDiscount() {
+      overlay.classList.add('open');
+      document.body.style.overflowY = 'hidden';
+    }
+    function closeDiscount() {
+      overlay.classList.remove('open');
+      document.body.style.overflowY = '';
+      localStorage.setItem(KEY, '1');
+    }
+
+    if (!localStorage.getItem(KEY)) {
+      setTimeout(openDiscount, 5000);
+    }
+
+    closeBtn.addEventListener('click', closeDiscount);
+    skipBtn.addEventListener('click', closeDiscount);
+    ctaBtn.addEventListener('click', closeDiscount);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeDiscount(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeDiscount();
+    });
+  })();
 </script>
 </body>
 </html>
