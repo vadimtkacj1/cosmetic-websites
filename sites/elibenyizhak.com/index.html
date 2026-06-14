@@ -799,6 +799,10 @@
     .testimonials-track {
       display: flex;
       gap: 24px;
+      /* Track flows LTR so the hidden reviews wait off-screen on the RIGHT;
+         advancing then slides the strip LEFT to bring them in. Each card
+         keeps its own direction: rtl for the Hebrew text. */
+      direction: ltr;
       transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
       will-change: transform;
     }
@@ -2453,14 +2457,20 @@
 
   revealEls.forEach(el => revealObs.observe(el));
 
-  /* --- TESTIMONIAL CAROUSEL --- */
+  /* --- TESTIMONIAL CAROUSEL ---
+     Page is RTL, but the track flows LTR (see CSS) so the hidden reviews wait
+     off-screen on the RIGHT. Advancing slides the strip LEFT (negative
+     translateX) to reveal them. Controls render right-to-left, so on screen:
+         [ ‹ tPrev ]   [ dots ]   [ tNext › ]
+       - Left  '‹' button -> slide cards LEFT  (show the next reviews)
+       - Right '›' button -> slide cards RIGHT (go back)
+     Navigation clamps at both ends (no wrap) so it never reverses direction. */
   const tTrack = document.getElementById('tTrack');
-  const tDots  = document.querySelectorAll('.t-dot');
-  const tPrev  = document.getElementById('tPrev');
-  const tNext  = document.getElementById('tNext');
+  const tDots  = Array.from(document.querySelectorAll('.t-dot'));
+  const tPrev  = document.getElementById('tPrev');   // rendered on the LEFT  '‹'
+  const tNext  = document.getElementById('tNext');   // rendered on the RIGHT '›'
   let tCurrent = 0;
   let tTimer;
-  const TOTAL_SLIDES = 5;
 
   function getCardWidth() {
     const card = tTrack.firstElementChild;
@@ -2478,18 +2488,24 @@
     return Math.max(0, tTrack.scrollWidth - visibleW);
   }
 
+  // Number of card-steps we can actually move (e.g. 5 cards, 3 visible -> 2).
+  function lastIndex() {
+    return Math.round(getMaxShift() / getCardWidth());
+  }
+
   function goTo(index) {
-    tCurrent = (index + TOTAL_SLIDES) % TOTAL_SLIDES;
-    // RTL track: positive translateX reveals the cards on the left.
-    // Clamp so we never scroll past the last card (no empty gap, cards stay fully visible).
+    const max = lastIndex();
+    tCurrent = Math.max(0, Math.min(index, max));        // clamp, no wrap -> never reverses
     const shift = Math.min(tCurrent * getCardWidth(), getMaxShift());
-    tTrack.style.transform = `translateX(${shift}px)`;
-    tDots.forEach((d, i) => d.classList.toggle('active', i === tCurrent));
+    tTrack.style.transform = `translateX(${-shift}px)`;  // negative -> strip slides LEFT
+    tDots.forEach((d, i) => {
+      d.style.display = i <= max ? '' : 'none';           // hide dots for positions we can't reach
+      d.classList.toggle('active', i === tCurrent);
+    });
   }
 
   function autoNext() {
-    const atEnd = (tCurrent * getCardWidth()) >= getMaxShift() - 1;
-    goTo(atEnd ? 0 : tCurrent + 1);
+    goTo(tCurrent >= lastIndex() ? 0 : tCurrent + 1);    // advance, loop back to the start at the end
   }
 
   function resetTimer() {
@@ -2497,13 +2513,14 @@
     tTimer = setInterval(autoNext, 4500);
   }
 
-  tPrev.addEventListener('click', () => { goTo(tCurrent - 1); resetTimer(); });
-  tNext.addEventListener('click', () => { goTo(tCurrent + 1); resetTimer(); });
+  // Wired by on-screen side (page is RTL), not by id name:
+  tPrev.addEventListener('click', () => { goTo(tCurrent + 1); resetTimer(); }); // '‹' left  -> next, slide LEFT
+  tNext.addEventListener('click', () => { goTo(tCurrent - 1); resetTimer(); }); // '›' right -> back, slide RIGHT
   tDots.forEach(d => {
     d.addEventListener('click', () => { goTo(parseInt(d.dataset.i)); resetTimer(); });
   });
 
-  // Touch/drag support
+  // Touch/drag support: swipe left = advance (matches the left button)
   let tStartX = 0;
   tTrack.addEventListener('touchstart', e => { tStartX = e.touches[0].clientX; }, { passive: true });
   tTrack.addEventListener('touchend', e => {
@@ -2512,6 +2529,7 @@
   }, { passive: true });
 
   window.addEventListener('resize', () => goTo(tCurrent));
+  goTo(0);
   resetTimer();
 
   /* --- PARALLAX HERO FLOATS --- */
@@ -2644,6 +2662,63 @@
           setTimeout(() => nameInput.focus({ preventScroll: true }), 600);
         }
       });
+    });
+  })();
+
+  /* --- CONTACT FORM -> AITTERA LEADS --- */
+  (function () {
+    const form    = document.getElementById('contactForm');
+    const success = document.getElementById('contactSuccess');
+    if (!form) return;
+
+    const ENDPOINT = 'https://aittera.agency/api/site-leads/submit';
+    const TOKEN    = '8da7244b-7346-4196-b4ea-512ba0067c64';
+    const btn      = form.querySelector('button[type="submit"]');
+    const btnLabel = btn ? btn.textContent : '';
+
+    function showSuccess(msg) {
+      if (!success) return;
+      success.textContent = msg || 'תודה! נחזור אליכם בהקדם ✂';
+      success.style.color = 'var(--yellow)';
+      success.style.display = 'block';
+    }
+    function showError(msg) {
+      if (!success) return;
+      success.textContent = msg || 'אופס, משהו השתבש. נסו שוב או התקשרו אלינו.';
+      success.style.color = '#e74c3c';
+      success.style.display = 'block';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name    = (form.querySelector('#cf-name')   || {}).value || '';
+      const phone   = (form.querySelector('#cf-phone')  || {}).value || '';
+      const message = (form.querySelector('#cf-msg')    || {}).value || '';
+      if (!name.trim()) return;
+
+      if (btn) { btn.disabled = true; btn.textContent = 'שולח...'; }
+
+      try {
+        const res = await fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            publicToken: TOKEN,
+            name: name.trim(),
+            phone: phone.trim() || undefined,
+            message: message.trim() || undefined,
+            source: window.location.href,
+          }),
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        form.reset();
+        showSuccess();
+      } catch (err) {
+        showError();
+      } finally {
+        if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
+      }
     });
   })();
 
