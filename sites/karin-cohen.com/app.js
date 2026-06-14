@@ -119,17 +119,6 @@
       });
     });
   }
-  var newsForm = document.getElementById('newsForm');
-  if (newsForm) {
-    newsForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var input = newsForm.querySelector('input');
-      var btn = newsForm.querySelector('button');
-      if (input && !input.checkValidity()) { input.reportValidity(); return; }
-      if (btn) { btn.textContent = 'Subscribed ✓'; }
-      if (input) input.value = '';
-    });
-  }
 
   /* ---- scroll reveal ---- */
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

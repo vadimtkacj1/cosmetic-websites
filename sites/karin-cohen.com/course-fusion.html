@@ -1200,11 +1200,6 @@
     <div class="footer-cols" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 48px;">
       <div class="footer-news reveal delay-1">
         <img class="logo-alt mb-24" src="assets/logo.png" alt="קארין אקדמי לריסים" style="height:76px; width:auto; filter:brightness(0) invert(1);">
-        <p class="text-regular mb-24" style="opacity:.8; max-width: 30rem; font-size:14.5px; line-height:1.65;">טיפים לטיפוח יופי, תאריכי קורסים חדשים באקדמיה ועדכוני מלאי מוצרים — ישירות לתיבת המייל שלך.</p>
-        <form id="newsForm" novalidate>
-          <input class="field" type="email" placeholder="כתובת האימייל שלך" required style="border: 1px solid rgba(255,255,255,0.12);">
-          <button class="btn-footer-submit" type="submit">הרשמה לניוזלטר</button>
-        </form>
         <p class="text-tiny" style="opacity:.5; margin-top:36px; font-size: 12px;">© 2026 קארין כהן (Karin Academy for Eyelashes). נבנה בחולון.</p>
       </div>
       <div class="footer-links reveal delay-2" style="display: flex; gap: 64px; justify-content: flex-end; align-items: start;">
@@ -1319,14 +1314,6 @@
     });
   })();
 
-  /* Newsletter form */
-  (function () {
-    var form = document.getElementById('newsForm');
-    if (!form) return;
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-    });
-  })();
 </script>
 
 <!-- Scroll Reveal -->
