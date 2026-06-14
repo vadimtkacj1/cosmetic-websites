@@ -69,15 +69,58 @@
     });
   });
 
-  /* ---- forms (demo) ---- */
+  /* ---- booking form → Aiterra CRM ---- */
+  var LEAD_ENDPOINT = 'https://aiterra.agency/api/site-leads/submit';
+  var LEAD_TOKEN = 'a74d0846-9303-491d-9816-ff13d723d26d';
+
   var bookForm = document.getElementById('bookForm');
   if (bookForm) {
+    var ok = document.getElementById('formOk');
+    var okHtml = ok ? ok.innerHTML : '';
+
     bookForm.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!bookForm.checkValidity()) { bookForm.reportValidity(); return; }
-      var ok = document.getElementById('formOk');
-      if (ok) ok.classList.add('show');
-      bookForm.querySelectorAll('.field').forEach(function (f) { f.value = ''; });
+
+      var val = function (n) {
+        var el = bookForm.querySelector('[name="' + n + '"]');
+        return el && el.value ? el.value.trim() : '';
+      };
+      var name = val('name');
+      var phone = val('phone');
+      var email = val('email');
+      var intent = val('intent');
+      var note = val('message');
+      var message = intent ? ('מעוניינת ב: ' + intent + (note ? ' — ' + note : '')) : note;
+
+      var btn = bookForm.querySelector('button[type="submit"]');
+      var btnHtml = btn ? btn.innerHTML : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'שולח...'; }
+
+      fetch(LEAD_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          publicToken: LEAD_TOKEN,
+          name: name,
+          phone: phone || undefined,
+          email: email || undefined,
+          message: message || undefined,
+          source: window.location.href
+        })
+      }).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        if (ok) { ok.innerHTML = okHtml; ok.style.color = '#1e6643'; ok.style.display = 'block'; }
+        bookForm.querySelectorAll('.field').forEach(function (f) { f.value = ''; });
+      }).catch(function () {
+        if (ok) {
+          ok.textContent = 'אופס, משהו השתבש. נסו שוב או התקשרו אלינו.';
+          ok.style.color = '#e74c3c';
+          ok.style.display = 'block';
+        }
+      }).finally(function () {
+        if (btn) { btn.disabled = false; btn.innerHTML = btnHtml; }
+      });
     });
   }
   var newsForm = document.getElementById('newsForm');

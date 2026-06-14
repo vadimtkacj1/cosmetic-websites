@@ -1282,16 +1282,61 @@
     setInterval(tick, 1000);
   })();
 
-  /* Course form submit */
+  /* Course form submit → Aiterra CRM */
   (function () {
     var form = document.getElementById('courseForm');
     if (!form) return;
+    var ENDPOINT = 'https://aiterra.agency/api/site-leads/submit';
+    var TOKEN = 'a74d0846-9303-491d-9816-ff13d723d26d';
+    var ok = document.getElementById('courseFormOk');
+    var okHtml = ok ? ok.innerHTML : '';
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
-      var ok = document.getElementById('courseFormOk');
-      if (ok) ok.style.display = 'block';
-      form.querySelectorAll('.field').forEach(function (f) { f.value = ''; });
+
+      var val = function (n) {
+        var el = form.querySelector('[name="' + n + '"]');
+        return el && el.value ? el.value.trim() : '';
+      };
+      var name = val('name');
+      var phone = val('phone');
+      var email = val('email');
+      var note = val('message');
+      var parts = [];
+      if (val('track')) parts.push('מסלול: ' + val('track'));
+      if (val('level')) parts.push('רמה: ' + val('level'));
+      if (note) parts.push(note);
+      var message = parts.join(' — ');
+
+      var btn = form.querySelector('button[type="submit"]');
+      var btnHtml = btn ? btn.innerHTML : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'שולח...'; }
+
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          publicToken: TOKEN,
+          name: name,
+          phone: phone || undefined,
+          email: email || undefined,
+          message: message || undefined,
+          source: window.location.href
+        })
+      }).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        if (ok) { ok.innerHTML = okHtml; ok.style.color = '#1e6643'; ok.style.display = 'block'; }
+        form.querySelectorAll('.field').forEach(function (f) { f.value = ''; });
+      }).catch(function () {
+        if (ok) {
+          ok.textContent = 'אופס, משהו השתבש. נסו שוב או התקשרו אלינו.';
+          ok.style.color = '#e74c3c';
+          ok.style.display = 'block';
+        }
+      }).finally(function () {
+        if (btn) { btn.disabled = false; btn.innerHTML = btnHtml; }
+      });
     });
   })();
 
