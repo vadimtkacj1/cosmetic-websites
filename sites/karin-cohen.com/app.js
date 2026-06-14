@@ -88,10 +88,7 @@
       };
       var name = val('name');
       var phone = val('phone');
-      var email = val('email');
-      var intent = val('intent');
-      var note = val('message');
-      var message = intent ? ('מעוניינת ב: ' + intent + (note ? ' — ' + note : '')) : note;
+      var message = val('message');
 
       var btn = bookForm.querySelector('button[type="submit"]');
       var btnHtml = btn ? btn.innerHTML : '';
@@ -104,7 +101,6 @@
           publicToken: LEAD_TOKEN,
           name: name,
           phone: phone || undefined,
-          email: email || undefined,
           message: message || undefined,
           source: window.location.href
         })

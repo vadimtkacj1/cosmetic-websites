@@ -220,24 +220,6 @@
         <label for="p-phone">טלפון *</label>
         <input type="tel" id="p-phone" name="phone" required placeholder="050-0000000" dir="ltr" style="text-align:right" />
       </div>
-      <div class="form-row">
-        <label for="p-treatment">טיפול מבוקש *</label>
-        <select id="p-treatment" name="treatment" required>
-          <option value="">בחרי טיפול...</option>
-          <option>הסרת פיגמנטציה</option>
-          <option>הסרת איפור קבוע</option>
-          <option>טיפול באקנה ופוסט אקנה</option>
-          <option>הסרת קעקועים</option>
-          <option>פילינג קרבון</option>
-          <option>מזוטרפיה</option>
-          <option>מיצוק העור</option>
-          <option>שעווה</option>
-          <option>ניקוי גבות</option>
-          <option>איפור</option>
-          <option>טיפולי פנים</option>
-          <option>אחר</option>
-        </select>
-      </div>
       <a href="#" class="btn" style="display:block;text-align:center;cursor:pointer" onclick="this.closest('form').requestSubmit();return false;">קבעי תור עכשיו ←</a>
       <button type="submit" style="display:none"></button>
       <div class="form-success" id="popupSuccess">תודה! קיבלתי את פרטייך ואחזור אלייך בקרוב 🌸</div>
@@ -578,7 +560,7 @@ document.getElementById('navClose').onclick = function(){ navOverlay.classList.r
 var CRM_TOKEN = '2a5f396b-f6d7-4c14-a530-144f2be74558';
 var CRM_URL   = 'https://aiterra.agency/api/site-leads/submit';
 function sendToCRM(fd){
-  fetch(CRM_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({publicToken:CRM_TOKEN,name:fd.get('name')||'',phone:fd.get('phone')||'',message:fd.get('treatment')?'טיפול: '+fd.get('treatment'):'',source:window.location.href})}).catch(function(){});
+  fetch(CRM_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({publicToken:CRM_TOKEN,name:fd.get('name')||'',phone:fd.get('phone')||'',message:fd.get('message')||'',source:window.location.href})}).catch(function(){});
 }
 var form = document.getElementById('popupForm');
 form.onsubmit = function(e){

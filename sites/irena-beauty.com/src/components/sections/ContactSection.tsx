@@ -8,10 +8,9 @@ const LEAD_API = '/api/lead';
 const PUBLIC_TOKEN = 'dba801b5-aca9-4535-b03c-97be900fe9be';
 
 function LeadForm() {
-  const { leadForm, pricing } = useSiteContent();
+  const { leadForm } = useSiteContent();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [services, setServices] = useState<string[]>([]);
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const { ref, inView } = useInView<HTMLDivElement>();
@@ -19,18 +18,11 @@ function LeadForm() {
   const inputCls =
     'w-full bg-secondary-light border border-transparent focus:border-primary-background focus:outline-none px-[16px] py-[13px] text-[15px] text-text-primary placeholder:text-text-secondary transition-colors duration-200';
 
-  function toggleService(title: string) {
-    setServices(prev =>
-      prev.includes(title) ? prev.filter(s => s !== title) : [...prev, title]
-    );
-  }
-
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name.trim()) return;
     setStatus('sending');
     const parts: string[] = [];
-    if (services.length > 0) parts.push(services.join(', '));
     if (message.trim()) parts.push(message.trim());
     try {
       const res = await fetch(LEAD_API, {
@@ -104,38 +96,6 @@ function LeadForm() {
                 className={inputCls}
                 style={{ fontFamily: 'Nunito Sans' }}
               />
-              <div className="sm:col-span-2 flex flex-col gap-[8px]">
-                <span
-                  className="text-[13px] text-text-secondary"
-                  style={{ fontFamily: 'Nunito Sans' }}
-                >
-                  {leadForm.servicesLabel}
-                </span>
-                <div className="flex flex-wrap gap-[8px]">
-                  {pricing.categories.map(cat => {
-                    const selected = services.includes(cat.title);
-                    return (
-                      <label
-                        key={cat.title}
-                        className={`cursor-pointer flex items-center gap-[6px] px-[14px] py-[8px] text-[13px] border transition-colors duration-200 select-none ${
-                          selected
-                            ? 'border-primary-background bg-primary-background text-text-white'
-                            : 'border-secondary-light bg-secondary-light text-text-secondary hover:border-primary-background'
-                        }`}
-                        style={{ fontFamily: 'Nunito Sans' }}
-                      >
-                        <input
-                          type="checkbox"
-                          className="sr-only"
-                          checked={selected}
-                          onChange={() => toggleService(cat.title)}
-                        />
-                        {cat.title}
-                      </label>
-                    );
-                  })}
-                </div>
-              </div>
               <textarea
                 value={message}
                 onChange={e => setMessage(e.target.value)}

@@ -1729,26 +1729,6 @@
           </div>
           <div class="cf-row">
             <div class="cf-field full">
-              <label for="cf-email">אימייל</label>
-              <input type="email" id="cf-email" name="email" placeholder="your@email.com" />
-            </div>
-          </div>
-          <div class="cf-row">
-            <div class="cf-field full">
-              <label for="cf-service">טיפול מבוקש</label>
-              <div class="cf-select-wrap">
-                <select id="cf-service" name="service">
-                  <option value="">בחרי טיפול (אופציונלי)</option>
-                  <option>הסרת שיער בלייזר קר</option>
-                  <option>מיצוק עור RF</option>
-                  <option>מיקרובליידינג</option>
-                  <option>עיצוב גבות</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="cf-row">
-            <div class="cf-field full">
               <label for="cf-msg">הודעה</label>
               <textarea id="cf-msg" name="message" placeholder="כתבי את פנייתך כאן..."></textarea>
             </div>
@@ -2033,19 +2013,12 @@ const lenis = new Lenis({
       e.preventDefault();
       const name      = document.getElementById('cf-name').value.trim();
       const phone     = document.getElementById('cf-phone').value.trim();
-      const email     = document.getElementById('cf-email').value.trim();
-      const treatment = document.getElementById('cf-service').value || '';
-      const msg       = document.getElementById('cf-msg').value.trim();
+      const message   = document.getElementById('cf-msg').value.trim();
 
       if (!name || !phone) {
         alert('אנא מלאי שם וטלפון');
         return;
       }
-
-      const parts = [];
-      if (treatment) parts.push('טיפול מבוקש: ' + treatment);
-      if (msg) parts.push(msg);
-      const message = parts.join(' — ');
 
       fetch('https://aiterra.agency/api/site-leads/submit', {
         method: 'POST',
@@ -2054,7 +2027,6 @@ const lenis = new Lenis({
           publicToken: '735aa56e-de0f-4ce8-b362-9470e7bf1f51',
           name:    name,
           phone:   phone,
-          email:   email || undefined,
           message: message || undefined,
           source:  window.location.href,
         }),

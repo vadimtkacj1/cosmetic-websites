@@ -1176,20 +1176,6 @@
               <input class="field" name="name" type="text" placeholder="שם מלא" required style="width:100%; padding:14px; border-radius:10px; border:1px solid rgba(33,31,26,0.12); background: #fafafa;">
               <input class="field" name="phone" type="tel" placeholder="מספר טלפון" required style="width:100%; padding:14px; border-radius:10px; border:1px solid rgba(33,31,26,0.12); background: #fafafa;">
             </div>
-            <input class="field" name="email" type="email" placeholder="אימייל" style="width:100%; padding:14px; border-radius:10px; border:1px solid rgba(33,31,26,0.12); background: #fafafa;">
-            <select class="field" name="track" required style="width:100%; padding:14px; border-radius:10px; border:1px solid rgba(33,31,26,0.12); color:#555; background: #fafafa;">
-              <option value="" disabled selected>באיזה מסלול את מעוניינת?</option>
-              <option>קורס הדבקת ריסים</option>
-              <option>קורס פרימיום ALL IN ONE</option>
-              <option>קורס ריסים אקספרס</option>
-              <option>עדיין לא החלטתי</option>
-            </select>
-            <select class="field" name="level" style="width:100%; padding:14px; border-radius:10px; border:1px solid rgba(33,31,26,0.12); color:#555; background: #fafafa;">
-              <option value="" disabled selected>רמת הניסיון שלי</option>
-              <option>מתחילה לחלוטין</option>
-              <option>יש לי ניסיון קצת</option>
-              <option>טכנאית מנוסה — רוצה לשדרג</option>
-            </select>
             <textarea class="field" name="message" placeholder="שאלות? כתבי לי כאן (אופציונלי)" style="width:100%; padding:14px; border-radius:10px; border:1px solid rgba(33,31,26,0.12); min-height:100px; font-family:inherit; background: #fafafa;"></textarea>
             <button class="btn btn-primary" type="submit" style="justify-content:center; display:flex; align-items:center; gap:8px;">שליחת בקשת הרשמה <span class="material-symbols-rounded">arrow_forward</span></button>
             <div class="form-ok" id="courseFormOk" role="alert" aria-live="polite" style="display:none; background:#f4fbf7; padding:14px; border-radius:10px; color:#1e6643; font-size:14.5px; text-align:center;"><span class="material-symbols-rounded" aria-hidden="true" style="vertical-align:middle; margin-inline-end:6px;">workspace_premium</span> תודה! קארין תחזור אליך בהקדם.</div>
@@ -1301,13 +1287,7 @@
       };
       var name = val('name');
       var phone = val('phone');
-      var email = val('email');
-      var note = val('message');
-      var parts = [];
-      if (val('track')) parts.push('מסלול: ' + val('track'));
-      if (val('level')) parts.push('רמה: ' + val('level'));
-      if (note) parts.push(note);
-      var message = parts.join(' — ');
+      var message = val('message');
 
       var btn = form.querySelector('button[type="submit"]');
       var btnHtml = btn ? btn.innerHTML : '';
@@ -1320,7 +1300,6 @@
           publicToken: TOKEN,
           name: name,
           phone: phone || undefined,
-          email: email || undefined,
           message: message || undefined,
           source: window.location.href
         })
