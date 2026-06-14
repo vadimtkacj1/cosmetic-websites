@@ -2034,7 +2034,7 @@ const lenis = new Lenis({
       const name      = document.getElementById('cf-name').value.trim();
       const phone     = document.getElementById('cf-phone').value.trim();
       const email     = document.getElementById('cf-email').value.trim();
-      const treatment = document.getElementById('cf-service').value || null;
+      const treatment = document.getElementById('cf-service').value || '';
       const msg       = document.getElementById('cf-msg').value.trim();
 
       if (!name || !phone) {
@@ -2042,17 +2042,21 @@ const lenis = new Lenis({
         return;
       }
 
+      const parts = [];
+      if (treatment) parts.push('טיפול מבוקש: ' + treatment);
+      if (msg) parts.push(msg);
+      const message = parts.join(' — ');
+
       fetch('https://aiterra.agency/api/site-leads/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           publicToken: '735aa56e-de0f-4ce8-b362-9470e7bf1f51',
-          name:      name,
-          phone:     phone,
-          email:     email || undefined,
-          treatment: treatment,
-          message:   msg || undefined,
-          source:    window.location.href,
+          name:    name,
+          phone:   phone,
+          email:   email || undefined,
+          message: message || undefined,
+          source:  window.location.href,
         }),
       })
       .then(function () {
