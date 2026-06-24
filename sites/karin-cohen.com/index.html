@@ -59,13 +59,18 @@
   /* ── Hero Fullscreen ─────────────────────────────── */
   .hero-section-premium {
     min-height: 100svh;
-    background: url('assets/hero-lash.jpg') center center/cover no-repeat;
+    background: url('assets/img/hero-desktop.png') center center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     padding: 0 !important;
     overflow: hidden;
+  }
+  @media (max-width: 768px) {
+    .hero-section-premium {
+      background-image: url('assets/img/hero-mobile.png');
+    }
   }
   .hero-section-premium::before {
     content: '';
