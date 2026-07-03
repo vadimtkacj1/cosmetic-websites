@@ -526,14 +526,16 @@
 
     .intro-headline {
       font-family: 'Varela Round', sans-serif;
-      font-size: clamp(52px, 9vw, 110px);
-      letter-spacing: 0;
+      font-size: clamp(44px, 8.5vw, 110px);
+      letter-spacing: -0.01em;
       font-weight: 900;
       line-height: 1;
       color: var(--yellow);
       margin-bottom: 64px;
       position: relative;
       z-index: 1;
+      max-width: 100%;
+      overflow-wrap: normal;
     }
 
     .intro-divider {
@@ -1474,14 +1476,14 @@
     }
     @media (max-width: 520px) {
       .hero { padding: 110px 28px 90px; }
-      .hero-headline { font-size: clamp(52px, 14vw, 72px); }
+      .hero-headline { font-size: clamp(34px, 11vw, 62px); }
       .hero-sub { font-size: 15px; margin-top: 20px; }
       .hero-ctas { margin-top: 32px; gap: 10px; }
       .hero-ctas .btn { width: 100%; text-align: center; }
 
       .intro { padding: 64px 24px; }
       .intro-badge { font-size: 12px; padding: 9px 14px; gap: 6px; }
-      .intro-headline { font-size: clamp(38px, 11vw, 52px); margin-bottom: 20px; }
+      .intro-headline { font-size: clamp(30px, 9vw, 46px); margin-bottom: 20px; }
       .intro-divider { font-size: 11px; margin-bottom: 20px; }
       .intro-body { font-size: 15px; margin-bottom: 32px; }
       .intro-ctas { flex-direction: column; gap: 10px; }
