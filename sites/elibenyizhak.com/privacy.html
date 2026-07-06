@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מדיניות פרטיות | אלי בן יצחק | סטודיו עיצוב שיער · בת ים</title>
+  <meta name="description" content="מדיניות הפרטיות של אתר אלי בן יצחק — סטודיו עיצוב שיער בבת ים.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+
+  <style>
+    @font-face {
+      font-family: 'Varela Round';
+      src: url('fonts/VarelaRound-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --cream:   #F2EDE6;
+      --yellow:  #C8B89A;
+      --pink:    #8A6848;
+      --black:   #1C1A16;
+      --salmon:  #B8ACA0;
+      --white:   #FFFFFF;
+      --gray:    #6C6660;
+    }
+
+    body {
+      font-family: 'Varela Round', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      background: var(--cream);
+      color: var(--black);
+      direction: rtl;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    /* ─── HEADER ─────────────────────────────────────── */
+    .legal-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--black);
+      box-shadow: 0 2px 20px rgba(28,26,22,0.25);
+    }
+    .legal-header__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .legal-logo {
+      font-size: 18px;
+      letter-spacing: 0.06em;
+      color: var(--cream);
+    }
+    .legal-logo span { color: var(--yellow); }
+    .legal-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .legal-nav a {
+      font-size: 13px;
+      color: rgba(242,237,230,0.7);
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: color 0.25s ease;
+    }
+    .legal-nav a:hover { color: var(--yellow); }
+    .btn-back-home {
+      background: var(--yellow);
+      color: var(--black);
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-size: 13px;
+      transition: opacity 0.25s ease;
+      white-space: nowrap;
+    }
+    .btn-back-home:hover { opacity: 0.85; }
+
+    /* ─── PAGE HERO ──────────────────────────────────── */
+    .page-hero {
+      background: var(--black);
+      padding: 64px 24px 56px;
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+    .page-hero p {
+      font-size: 14px;
+      color: var(--yellow);
+    }
+
+    /* ─── CONTENT ────────────────────────────────────── */
+    .legal-content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 32px 80px;
+    }
+
+    .legal-intro {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.9;
+      margin-bottom: 48px;
+    }
+    .legal-intro a { color: var(--pink); text-decoration: underline; }
+    .legal-intro a:hover { opacity: 0.8; }
+
+    .legal-part { margin-bottom: 56px; }
+
+    .part-title {
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--black);
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--yellow);
+      margin-bottom: 28px;
+    }
+
+    .part-note {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .section-block { margin-bottom: 32px; }
+
+    .section-block h3 {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-block h3::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 16px;
+      background: var(--yellow);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .section-block p {
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--gray);
+      margin-bottom: 10px;
+    }
+    .section-block p:last-child { margin-bottom: 0; }
+    .section-block p strong { color: var(--black); }
+
+    .section-block ul {
+      list-style: disc;
+      padding-right: 20px;
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.9;
+    }
+    .section-block ul li { margin-bottom: 6px; }
+
+    /* ─── CONTACT CARD ───────────────────────────────── */
+    .contact-block {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1.5px solid var(--yellow);
+      padding: 32px 28px;
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 2;
+    }
+    .contact-block h3 {
+      font-size: 16px;
+      color: var(--black);
+      margin-bottom: 14px;
+      font-weight: 400;
+    }
+    .contact-block strong { color: var(--black); }
+    .contact-block a { color: var(--pink); text-decoration: underline; }
+    .contact-block a:hover { opacity: 0.8; }
+
+    .update-note {
+      margin-top: 48px;
+      font-size: 12px;
+      color: var(--salmon);
+      text-align: center;
+      border-top: 1px solid var(--yellow);
+      padding-top: 24px;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    .legal-footer {
+      background: var(--black);
+      padding: 48px 24px 32px;
+      color: rgba(242,237,230,0.85);
+      text-align: center;
+    }
+    .footer-wordmark {
+      font-size: clamp(18px, 2.5vw, 26px);
+      letter-spacing: 0.1em;
+      color: rgba(242,237,230,0.65);
+      margin-bottom: 24px;
+    }
+    .footer-nav-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .footer-nav-menu a {
+      font-size: 12px;
+      color: rgba(242,237,230,0.65);
+      transition: color 0.25s ease;
+    }
+    .footer-nav-menu a:hover { color: var(--yellow); }
+    .footer-copyright {
+      font-size: 11px;
+      color: rgba(242,237,230,0.35);
+      letter-spacing: 0.04em;
+    }
+    .footer-copyright a { color: rgba(242,237,230,0.55); text-decoration: underline; }
+    .footer-copyright a:hover { color: var(--yellow); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 760px) {
+      .legal-nav { display: none; }
+    }
+    @media (max-width: 640px) {
+      .legal-header__inner { height: 64px; padding: 0 20px; }
+      .legal-content { padding: 40px 20px 64px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="legal-header">
+  <div class="legal-header__inner">
+    <a href="/" class="legal-logo">אלי בן יצחק <span>✂</span></a>
+    <nav class="legal-nav">
+      <a href="/#services">שירותים</a>
+      <a href="/#portfolio">פורטפוליו</a>
+      <a href="/#about">אודות</a>
+      <a href="/#beats">צרו קשר</a>
+    </nav>
+    <a href="/" class="btn-back-home">חזרה לאתר</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div>
+    <h1>מדיניות פרטיות</h1>
+    <p>עדכון אחרון: 07.07.2026 &nbsp;|&nbsp; elibenyizhak.com</p>
+  </div>
+</div>
+
+<main class="legal-content">
+
+  <p class="legal-intro">
+    ברוכים הבאים לאתר האינטרנט של אלי בן יצחק (להלן: "העסק" ו/או "מפעיל האתר"), הפועל בכתובת הדיגיטלית:
+    <a href="https://elibenyizhak.com/">https://elibenyizhak.com/</a> (להלן: "האתר").
+    מסמך זה מפרט את מדיניות הפרטיות של האתר. השימוש באתר כפוף גם ל<a href="/terms.html">תקנון ותנאי השימוש</a> המפורסמים באתר.
+    הגלישה באתר ו/או ביצוע פעולות בו מהווים הסכמה מצדך לכל התנאים המפורטים. אם אינך מסכים לתנאים אלו, כולם או חלקם, הנך מתבקש שלא לעשות כל שימוש באתר.
+  </p>
+
+  <!-- PART A -->
+  <div class="legal-part">
+    <h2 class="part-title">חלק א׳ — מדיניות הפרטיות</h2>
+
+    <p class="part-note">
+      מפעיל האתר מכבד את פרטיותם של המשתמשים ומחויב להגן עליה בהתאם לחוק הגנת הפרטיות, תשמ"א-1981 ותקנותיו.
+    </p>
+
+    <div class="section-block">
+      <h3>1. המידע שנאסף באתר</h3>
+      <p><strong>מידע אישי שנמסר מרצון:</strong> בעת מילוי טפסי יצירת קשר, קביעת תורים או רכישה, עשויים להיאסף פרטים כגון: שם מלא, מספר טלפון, כתובת דואר אלקטרוני וכתובת מגורים. מסירת המידע אינה חובה על פי חוק, אך ללא מסירתו לא ניתן יהיה לספק את השירות המבוקש.</p>
+      <p><strong>מידע טכני וסטטיסטי (אנונימי):</strong> במהלך הגלישה נאסף באופן אוטומטי מידע כגון: כתובת IP, סוג הדפדפן, דפים בהם ביקרת, משך השהות באתר ומקור ההגעה. מידע זה אינו מזהה את המשתמש באופן אישי.</p>
+    </div>
+
+    <div class="section-block">
+      <h3>2. המטרה לשמה נאסף המידע</h3>
+      <p>המידע שנאסף ישמש אך ורק למטרות הבאות:</p>
+      <ul>
+        <li>מתן השירותים המוצעים באתר (מענה לפניות, תיאום תורים, אספקת מוצרים)</li>
+        <li>תפעולו התקין, שיפורו וייעולו של האתר וחוויית המשתמש</li>
+        <li>שירות לקוחות וקשר רציף עם המשתמש</li>
+        <li>דיוור ישיר ופרסום — רק לאחר קבלת הסכמה מפורשת של המשתמש. המשתמש רשאי להסיר את עצמו מרשימת התפוצה בכל עת</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h3>3. העברת מידע לצדדים שלישיים</h3>
+      <p>העסק לא ימכור, לא ישכיר ולא יעביר את המידע האישי של המשתמשים לצדדים שלישיים, למעט במקרים הבאים:</p>
+      <ul>
+        <li>לספקי שירותים הפועלים מטעם העסק (כגון חברות סליקה, שליחויות או ניהול מערכות מידע) — לצורך השלמת השירות המבוקש בלבד</li>
+        <li>במקרה של מחלוקת משפטית בין המשתמש לבין העסק</li>
+        <li>על פי צו שיפוטי או דרישה חוקית של רשות מוסמכת</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h3>4. שימוש ב-Cookies וטכנולוגיות מעקב</h3>
+      <p>האתר משתמש בקבצי Cookie וטכנולוגיות מעקב דומות (כגון Google Analytics, Meta Pixel) לצורך תפעולו השוטף, אימות פרטים, התאמת האתר להעדפות האישיות ולצרכי שיווק מחדש (Remarketing).</p>
+      <p>המשתמש יכול לשנות את הגדרות הדפדפן שלו כך שיחסום קבלת קבצי Cookie, אך הדבר עלול לפגוע בחלק מתכונות האתר.</p>
+    </div>
+
+    <div class="section-block">
+      <h3>5. אבטחת מידע</h3>
+      <p>מפעיל האתר נוקט באמצעי אבטחה טכנולוגיים וארגוניים מקובלים כדי להגן על המידע האישי מפני גישה ללא הרשאה, שימוש לרעה או חשיפה. יחד עם זאת, אף מערכת אינה חסינה לחלוטין, והעסק אינו יכול להבטיח חסינות מוחלטת מפני פריצות או גישה זדונית.</p>
+    </div>
+
+    <div class="section-block">
+      <h3>6. זכות לעיין במידע ותיקונו</h3>
+      <p>על פי חוק הגנת הפרטיות, תשמ"א-1981, כל אדם זכאי לעיין במידע שעליו המוחזק במאגר מידע. אם המידע עליך אינו מדויק או מעודכן, הנך רשאי לפנות אלינו בבקשה לתקן את המידע או למחוק אותו לחלוטין (במידה ואין חובה חוקית אחרת לשמור אותו).</p>
+    </div>
+  </div>
+
+  <!-- PART B -->
+  <div class="legal-part">
+    <h2 class="part-title">חלק ב׳ — פרטי התקשרות ובירורים</h2>
+    <div class="contact-block">
+      <h3>לכל שאלה, בירור או בקשה לעיון ומחיקת מידע:</h3>
+      <p>
+        <strong>שם בעל האתר:</strong> אלי בן יצחק<br>
+        <strong>כתובת פיזית:</strong> רחוב דניאל 70, בת ים, ישראל<br>
+        <strong>טלפון:</strong> <a href="tel:0505931226"><bdo dir="ltr">050-5931226</bdo></a><br>
+        <strong>אתר אינטרנט:</strong> <a href="https://elibenyizhak.com/" target="_blank" rel="noopener">https://elibenyizhak.com/</a>
+      </p>
+    </div>
+  </div>
+
+  <p class="update-note">נוסח זה עודכן לאחרונה בתאריך 07.07.2026.</p>
+
+</main>
+
+<footer class="legal-footer">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="footer-wordmark">אלי בן יצחק — בת ים</div>
+    <ul class="footer-nav-menu">
+      <li><a href="/#services">שירותים</a></li>
+      <li><a href="/#portfolio">פורטפוליו</a></li>
+      <li><a href="/#about">אודות</a></li>
+      <li><a href="/#beats">צרו קשר</a></li>
+      <li><a href="/terms.html">תקנון ותנאי שימוש</a></li>
+      <li><a href="/privacy.html">מדיניות פרטיות</a></li>
+      <li><a href="/accessibility.html">הצהרת נגישות</a></li>
+    </ul>
+    <p class="footer-copyright">© כל הזכויות שמורות • 2026 • עוצב ופותח על ידי <a href="https://aiterra.co.il/" target="_blank" rel="noopener">Aiterra</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

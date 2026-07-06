@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>תקנון ותנאי שימוש | אלי בן יצחק | סטודיו עיצוב שיער · בת ים</title>
+  <meta name="description" content="תקנון ותנאי שימוש באתר אלי בן יצחק — סטודיו עיצוב שיער בבת ים.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+
+  <style>
+    @font-face {
+      font-family: 'Varela Round';
+      src: url('fonts/VarelaRound-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --cream:   #F2EDE6;
+      --yellow:  #C8B89A;
+      --pink:    #8A6848;
+      --black:   #1C1A16;
+      --salmon:  #B8ACA0;
+      --white:   #FFFFFF;
+      --gray:    #6C6660;
+    }
+
+    body {
+      font-family: 'Varela Round', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      background: var(--cream);
+      color: var(--black);
+      direction: rtl;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    /* ─── HEADER ─────────────────────────────────────── */
+    .legal-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--black);
+      box-shadow: 0 2px 20px rgba(28,26,22,0.25);
+    }
+    .legal-header__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .legal-logo {
+      font-size: 18px;
+      letter-spacing: 0.06em;
+      color: var(--cream);
+    }
+    .legal-logo span { color: var(--yellow); }
+    .legal-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .legal-nav a {
+      font-size: 13px;
+      color: rgba(242,237,230,0.7);
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: color 0.25s ease;
+    }
+    .legal-nav a:hover { color: var(--yellow); }
+    .btn-back-home {
+      background: var(--yellow);
+      color: var(--black);
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-size: 13px;
+      transition: opacity 0.25s ease;
+      white-space: nowrap;
+    }
+    .btn-back-home:hover { opacity: 0.85; }
+
+    /* ─── PAGE HERO ──────────────────────────────────── */
+    .page-hero {
+      background: var(--black);
+      padding: 64px 24px 56px;
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+    .page-hero p {
+      font-size: 14px;
+      color: var(--yellow);
+    }
+
+    /* ─── CONTENT ────────────────────────────────────── */
+    .legal-content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 32px 80px;
+    }
+
+    .legal-part { margin-bottom: 56px; }
+
+    .part-title {
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--black);
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--yellow);
+      margin-bottom: 28px;
+    }
+
+    .section-block { margin-bottom: 32px; }
+
+    .section-block h3 {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-block h3::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 16px;
+      background: var(--yellow);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .section-block p {
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--gray);
+      margin-bottom: 10px;
+    }
+    .section-block p:last-child { margin-bottom: 0; }
+    .section-block p strong { color: var(--black); }
+
+    .section-block ul {
+      list-style: disc;
+      padding-right: 20px;
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.9;
+    }
+    .section-block ul li { margin-bottom: 6px; }
+    .section-block ul li strong { color: var(--black); }
+    .section-block a { color: var(--pink); text-decoration: underline; }
+    .section-block a:hover { opacity: 0.8; }
+
+    /* ─── CONTACT CARD ───────────────────────────────── */
+    .contact-block {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1.5px solid var(--yellow);
+      padding: 32px 28px;
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 2;
+    }
+    .contact-block h3 {
+      font-size: 16px;
+      color: var(--black);
+      margin-bottom: 14px;
+      font-weight: 400;
+    }
+    .contact-block strong { color: var(--black); }
+    .contact-block a { color: var(--pink); text-decoration: underline; }
+    .contact-block a:hover { opacity: 0.8; }
+
+    .update-note {
+      margin-top: 48px;
+      font-size: 12px;
+      color: var(--salmon);
+      text-align: center;
+      border-top: 1px solid var(--yellow);
+      padding-top: 24px;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    .legal-footer {
+      background: var(--black);
+      padding: 48px 24px 32px;
+      color: rgba(242,237,230,0.85);
+      text-align: center;
+    }
+    .footer-wordmark {
+      font-size: clamp(18px, 2.5vw, 26px);
+      letter-spacing: 0.1em;
+      color: rgba(242,237,230,0.65);
+      margin-bottom: 24px;
+    }
+    .footer-nav-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .footer-nav-menu a {
+      font-size: 12px;
+      color: rgba(242,237,230,0.65);
+      transition: color 0.25s ease;
+    }
+    .footer-nav-menu a:hover { color: var(--yellow); }
+    .footer-copyright {
+      font-size: 11px;
+      color: rgba(242,237,230,0.35);
+      letter-spacing: 0.04em;
+    }
+    .footer-copyright a { color: rgba(242,237,230,0.55); text-decoration: underline; }
+    .footer-copyright a:hover { color: var(--yellow); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 760px) {
+      .legal-nav { display: none; }
+    }
+    @media (max-width: 640px) {
+      .legal-header__inner { height: 64px; padding: 0 20px; }
+      .legal-content { padding: 40px 20px 64px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="legal-header">
+  <div class="legal-header__inner">
+    <a href="/" class="legal-logo">אלי בן יצחק <span>✂</span></a>
+    <nav class="legal-nav">
+      <a href="/#services">שירותים</a>
+      <a href="/#portfolio">פורטפוליו</a>
+      <a href="/#about">אודות</a>
+      <a href="/#beats">צרו קשר</a>
+    </nav>
+    <a href="/" class="btn-back-home">חזרה לאתר</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div>
+    <h1>תקנון ותנאי שימוש באתר</h1>
+    <p>עדכון אחרון: 07.07.2026 &nbsp;|&nbsp; elibenyizhak.com</p>
+  </div>
+</div>
+
+<main class="legal-content">
+
+  <div class="legal-part">
+
+    <div class="section-block">
+      <h3>1. מבוא</h3>
+      <p>ברוכים הבאים לאתר האינטרנט של אלי בן יצחק — סטודיו עיצוב שיער (להלן: "האתר" ו-"הסטודיו" או "בית העסק" בהתאמה).</p>
+      <p>האתר משמש כפלטפורמה להצגת מידע אודות שירותי עיצוב שיער, תספורות, צבע, החלקות וטיפולי שיער, וכן ליצירת קשר וקביעת תורים.</p>
+      <p>גלישה באתר, שימוש בשירותיו, ביצוע הזמנות או השארת פרטים, מהווים את הסכמתך המלאה והבלתי חוזרת לתנאי השימוש המפורטים בתקנון זה (להלן: "התקנון"). אנא קראו תנאים אלו בקפידה בטרם כל שימוש באתר. אם אינך מסכים/ה לאיזה מתנאי התקנון, הנך מתבקש/ת לחדול מיד מכל שימוש באתר.</p>
+      <p>התקנון מנוסח בלשון זכר או נקבה מטעמי נוחות בלבד, אך מתייחס לכל המינים ולרבים כאחד.</p>
+    </div>
+
+    <div class="section-block">
+      <h3>2. הבהרה מקצועית ואחריות אישית (ט.ל.ח)</h3>
+      <p>סעיף זה הינו מהותי ומהווה תנאי יסודי לשימוש באתר ובשירותי הסטודיו:</p>
+      <ul>
+        <li><strong>התאמה אישית ותוצאות:</strong> טיפולי שיער, צבע והחלקות משפיעים באופן שונה על כל אדם, בהתאם לסוג השיער, מצבו, טיפולים כימיים קודמים ומצב הקרקפת. התמונות באתר (לרבות תמונות "לפני ואחרי") נועדו להמחשה בלבד ואינן מהוות הבטחה או התחייבות לתוצאה זהה.</li>
+        <li><strong>גילוי נאות (רגישויות ואלרגיות):</strong> באחריות הלקוח/ה ליידע את צוות הסטודיו בטרם כל טיפול על כל בעיה רפואית, רגישות בקרקפת, נטילת תרופות, היריון, הנקה, אלרגיות לחומרי צבע או לחומרים כימיים אחרים, וכן על טיפולים כימיים קודמים שבוצעו בשיער.</li>
+        <li>בית העסק לא יישא בשום אחריות לכל נזק, תגובה אלרגית, גירוי או תופעת לוואי שייגרמו כתוצאה מטיפול או משימוש במוצרים, במידה והלקוח/ה לא פעל/ה בהתאם להוראות הטיפול והשימוש או לא מסר/ה מידע מדויק ומלא.</li>
+        <li><strong>היעדר ייעוץ רפואי:</strong> המידע והתכנים המופיעים באתר נועדו להעשרה ומידע כללי בלבד, ואינם מהווים ייעוץ רפואי או תחליף להתייעצות עם רופא מומחה (כגון רופא עור).</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h3>3. קביעת תורים ומדיניות ביטולים בסטודיו</h3>
+      <ul>
+        <li>קביעת תורים לטיפולים בסטודיו תתבצע באמצעות יצירת קשר טלפוני, השארת פרטים באתר או באמצעות הודעות (WhatsApp).</li>
+        <li><strong>ביטול תור:</strong> אנו מכבדים את הזמן שלך, ומבקשים שתכבדו את שלנו. במידה וברצונך לבטל או לדחות תור שנקבע, יש להודיע על כך לפחות 24 שעות מראש.</li>
+        <li>בית העסק שומר לעצמו את הזכות לחייב לקוח/ה בדמי ביטול או לדרוש תשלום מקדמה בעת קביעת תורים עתידיים, במקרים של אי-הגעה ללא הודעה מוקדמת.</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h3>4. מדיניות רכישת מוצרים והחזרות (בהתאם לחוק הגנת הצרכן)</h3>
+      <p>ככל שהאתר או הסטודיו מאפשרים רכישת מוצרי טיפוח ושיער:</p>
+      <ul>
+        <li><strong>זכות ביטול עסקה:</strong> על פי חוק הגנת הצרכן, התשמ"א-1981, לקוח/ה רשאי/ת לבטל רכישת מוצר בתוך 14 ימים מיום קבלת המוצר או מיום קבלת מסמך פרטי העסקה (לפי המאוחר מביניהם).</li>
+        <li><strong>תנאי להחזרה:</strong> בתחום מוצרי הטיפוח, ביטול עסקה והחזרת מוצר יתאפשרו אך ורק אם המוצר לא נפתח, לא נעשה בו כל שימוש, והוא נשמר באריזתו המקורית השלמה (כולל ניילון העטיפה ככל שישנו). לא ניתן להחזיר מוצרים שנפתחו או נפגמו, מטעמי היגיינה ובריאות הציבור.</li>
+        <li>החזר כספי יינתן בהתאם לחוק, בניכוי דמי ביטול בשיעור של 5% ממחיר העסקה או 100 ש"ח (הנמוך מביניהם), ובניכוי דמי המשלוח (ככל שנגבו).</li>
+        <li>באחריות הלקוח/ה לבדוק את המוצרים בעת קבלתם ולהודיע לבית העסק מיד על כל פגם במוצר.</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h3>5. קניין רוחני וזכויות יוצרים</h3>
+      <p>כל זכויות הקניין הרוחני באתר – לרבות שם המותג, הלוגו, העיצוב הגרפי, קוד האתר, התכנים, התיאורים, ובמיוחד התמונות והסרטונים המציגים את העבודות ותמונות הלקוחות ("לפני ואחרי") – הינן רכושו הבלעדי של אלי בן יצחק.</p>
+      <p>אין להעתיק, לשכפל, להפיץ, להציג בפומבי, או לעשות כל שימוש מסחרי בתכנים ובתמונות המופיעים באתר ללא קבלת אישור מראש ובכתב מבית העסק. חל איסור חמור על שימוש בתמונות הלקוחות של הסטודיו ללא רשות.</p>
+    </div>
+
+    <div class="section-block">
+      <h3>6. הגבלת אחריות ותנאי שימוש באתר</h3>
+      <ul>
+        <li>האתר מסופק לשימוש כפי שהוא (AS IS). בית העסק אינו מתחייב שפעילות האתר לא תופרע, תפעל ללא הפסקות או תקלות טכניות.</li>
+        <li>בית העסק שומר לעצמו את הזכות לשנות את מחירי הטיפולים והמוצרים המופיעים באתר בכל עת וללא הודעה מוקדמת. המחיר הקובע הוא המחיר שנמסר ללקוח/ה בעת קביעת הטיפול או השלמת הרכישה.</li>
+        <li>חל איסור על הפעלת רובוטים או תוכנות אוטומטיות לשם סריקת האתר והעתקת נתונים מתוכו.</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h3>7. מדיניות פרטיות ודיוור שיווקי</h3>
+      <p>הפרטיות שלך חשובה לנו. בית העסק מקפיד על שמירת סודיות הלקוחות והמידע הנמסר לו.</p>
+      <p>השארת פרטים באתר (בטופס צור קשר או בעת קביעת תור) מהווה הסכמה לקבלת פניות מבית העסק. באישורו (סימון תיבה או אישור אקטיבי אחר), הלקוח/ה מסכים/ה לקבלת דיוור שיווקי, מבצעים ועדכונים מקצועיים באמצעי התקשורת השונים (SMS, WhatsApp, דוא"ל). ניתן לבקש הסרה מרשימת התפוצה בכל עת (באמצעות שליחת בקשת "הסר").</p>
+      <p>לפירוט מלא, אנא עיינו ב<a href="/privacy.html">"מדיניות הפרטיות"</a> המופיעה באתר.</p>
+    </div>
+
+    <div class="section-block">
+      <h3>8. דין וסמכות שיפוט</h3>
+      <p>על תקנון זה ועל השימוש באתר יחולו אך ורק דיני מדינת ישראל. סמכות השיפוט הבלעדית והייחודית בכל עניין ומחלוקת הנובעים מהשימוש באתר תהא נתונה לבתי המשפט המוסמכים במחוז תל אביב-יפו.</p>
+    </div>
+
+    <div class="section-block">
+      <h3>9. יצירת קשר</h3>
+      <div class="contact-block">
+        <h3>נשמח לעמוד לרשותכם בכל שאלה, ייעוץ או בירור:</h3>
+        <p>
+          <strong>שם:</strong> אלי בן יצחק — סטודיו עיצוב שיער<br>
+          <strong>טלפון:</strong> <a href="tel:0505931226"><bdo dir="ltr">050-5931226</bdo></a><br>
+          <strong>כתובת פיזית:</strong> רחוב דניאל 70, בת ים, ישראל
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="update-note">נוסח זה עודכן לאחרונה בתאריך 07.07.2026.</p>
+
+</main>
+
+<footer class="legal-footer">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="footer-wordmark">אלי בן יצחק — בת ים</div>
+    <ul class="footer-nav-menu">
+      <li><a href="/#services">שירותים</a></li>
+      <li><a href="/#portfolio">פורטפוליו</a></li>
+      <li><a href="/#about">אודות</a></li>
+      <li><a href="/#beats">צרו קשר</a></li>
+      <li><a href="/terms.html">תקנון ותנאי שימוש</a></li>
+      <li><a href="/privacy.html">מדיניות פרטיות</a></li>
+      <li><a href="/accessibility.html">הצהרת נגישות</a></li>
+    </ul>
+    <p class="footer-copyright">© כל הזכויות שמורות • 2026 • עוצב ופותח על ידי <a href="https://aiterra.co.il/" target="_blank" rel="noopener">Aiterra</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

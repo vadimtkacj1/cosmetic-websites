@@ -908,6 +908,27 @@
     }
     .cf-submit button:hover { background: #1ebe5d; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.35); }
     .cf-submit button svg { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
+    .cf-consent { margin-top: 16px; }
+    .cf-consent label {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--brown-light);
+      line-height: 1.6;
+      text-align: right;
+      cursor: pointer;
+    }
+    .cf-consent input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      accent-color: var(--brown);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .cf-consent a { color: var(--brown); text-decoration: underline; }
+    .cf-consent a:hover { color: var(--brown-light); }
     .cf-success {
       display: none;
       text-align: center;
@@ -1733,6 +1754,12 @@
               <textarea id="cf-msg" name="message" placeholder="כתבי את פנייתך כאן..."></textarea>
             </div>
           </div>
+          <div class="cf-consent">
+            <label>
+              <input type="checkbox" id="cf-consent" name="consent" required />
+              <span>קראתי ואני מסכימה ל<a href="terms.html" target="_blank" rel="noopener">תקנון ותנאי השימוש</a> ול<a href="privacy.html" target="_blank" rel="noopener">מדיניות הפרטיות</a> *</span>
+            </label>
+          </div>
           <div class="cf-submit">
             <button type="submit">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
@@ -1764,6 +1791,7 @@
             <li><a href="#reviews">ביקורות</a></li>
             <li><a href="#contact">צור קשר</a></li>
             <li><a href="tel:054-2186634"><bdo dir="ltr">054-2186634</bdo></a></li>
+            <li><a href="/terms.html">תקנון ותנאי שימוש</a></li>
             <li><a href="/privacy.html">מדיניות פרטיות</a></li>
             <li><a href="/accessibility.html">הצהרת נגישות</a></li>
           </ul>
@@ -2017,6 +2045,12 @@ const lenis = new Lenis({
 
       if (!name || !phone) {
         alert('אנא מלאי שם וטלפון');
+        return;
+      }
+
+      const consent = document.getElementById('cf-consent');
+      if (consent && !consent.checked) {
+        alert('כדי לשלוח את הפנייה יש לאשר את התקנון ומדיניות הפרטיות');
         return;
       }
 

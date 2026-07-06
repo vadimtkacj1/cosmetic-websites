@@ -1623,6 +1623,27 @@
       background: rgba(255,255,255,0.1);
     }
     .form-field textarea { resize: vertical; min-height: 110px; }
+    .form-consent { margin: 4px 0 16px; }
+    .form-consent label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(242,237,230,0.6);
+      line-height: 1.6;
+      text-align: start;
+      cursor: pointer;
+    }
+    .form-consent input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      margin-top: 3px;
+      accent-color: var(--yellow);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .form-consent a { color: var(--yellow); text-decoration: underline; }
+    .form-consent a:hover { color: var(--cream); }
     .form-submit { width: 100%; margin-top: 8px; }
     .contact-success {
       display: none;
@@ -2286,6 +2307,12 @@
           <label for="cf-msg">הודעה</label>
           <textarea id="cf-msg" name="message" placeholder="איך נוכל לעזור?"></textarea>
         </div>
+        <div class="form-consent">
+          <label>
+            <input type="checkbox" id="cf-consent" name="consent" required>
+            <span>קראתי ואני מסכים/ה ל<a href="terms.html" target="_blank" rel="noopener">תקנון ותנאי השימוש</a> ול<a href="privacy.html" target="_blank" rel="noopener">מדיניות הפרטיות</a> *</span>
+          </label>
+        </div>
         <button type="submit" class="btn btn-yellow btn-lg form-submit">שלחו הודעה</button>
       </form>
       <p class="contact-success" id="contactSuccess">תודה! נחזור אליכם בהקדם ✂</p>
@@ -2334,6 +2361,9 @@
         <li><a href="#portfolio">פורטפוליו</a></li>
         <li><a href="#about">אודות</a></li>
         <li><a href="#beats">צרו קשר</a></li>
+        <li><a href="terms.html">תקנון ותנאי שימוש</a></li>
+        <li><a href="privacy.html">מדיניות פרטיות</a></li>
+        <li><a href="accessibility.html">הצהרת נגישות</a></li>
       </ul>
     </div>
 
@@ -2698,6 +2728,12 @@
       const phone   = (form.querySelector('#cf-phone')  || {}).value || '';
       const message = (form.querySelector('#cf-msg')    || {}).value || '';
       if (!name.trim()) return;
+
+      const consent = form.querySelector('#cf-consent');
+      if (consent && !consent.checked) {
+        showError('כדי לשלוח את ההודעה יש לאשר את התקנון ומדיניות הפרטיות');
+        return;
+      }
 
       if (btn) { btn.disabled = true; btn.textContent = 'שולח...'; }
 
