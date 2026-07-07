@@ -32,6 +32,7 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
   const [phone, setPhone] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
+  const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<Status>('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -71,6 +72,7 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
       setPhone('');
       setDate('');
       setTime('');
+      setConsent(false);
       setStatus('idle');
       setErrorMsg('');
     }, 300);
@@ -93,6 +95,7 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
     phone.trim().length > 0 &&
     !!date &&
     !!time &&
+    consent &&
     status !== 'sending';
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -246,6 +249,27 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
                         </div>
                       )}
                     </Field>
+
+                    <label className="flex items-start gap-[8px] cursor-pointer select-none">
+                      <input
+                        type="checkbox"
+                        checked={consent}
+                        onChange={(e) => setConsent(e.target.checked)}
+                        required
+                        className="mt-[3px] w-[16px] h-[16px] shrink-0 accent-primary-background"
+                      />
+                      <span className="text-[13px] leading-relaxed text-text-secondary" style={{ fontFamily: 'Nunito Sans' }}>
+                        {t.consentPrefix}
+                        <a href="/terms" target="_blank" rel="noopener" className="underline text-text-primary hover:opacity-80">
+                          {t.consentTerms}
+                        </a>
+                        {t.consentAnd}
+                        <a href="/privacy" target="_blank" rel="noopener" className="underline text-text-primary hover:opacity-80">
+                          {t.consentPrivacy}
+                        </a>
+                        {' *'}
+                      </span>
+                    </label>
 
                     {status === 'error' && (
                       <p className="text-[14px] text-red-500 text-center" style={{ fontFamily: 'Nunito Sans' }}>

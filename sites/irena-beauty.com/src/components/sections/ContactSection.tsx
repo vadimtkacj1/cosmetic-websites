@@ -12,6 +12,7 @@ function LeadForm() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
+  const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const { ref, inView } = useInView<HTMLDivElement>();
 
@@ -20,7 +21,7 @@ function LeadForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!name.trim()) return;
+    if (!name.trim() || !consent) return;
     setStatus('sending');
     const parts: string[] = [];
     if (message.trim()) parts.push(message.trim());
@@ -105,6 +106,29 @@ function LeadForm() {
                 style={{ fontFamily: 'Nunito Sans' }}
               />
             </div>
+            <label className="flex items-start gap-[8px] mb-[14px] cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={consent}
+                onChange={e => setConsent(e.target.checked)}
+                required
+                className="mt-[3px] w-[16px] h-[16px] shrink-0 accent-primary-background"
+              />
+              <span
+                className="text-[13px] leading-relaxed text-text-secondary"
+                style={{ fontFamily: 'Nunito Sans' }}
+              >
+                {leadForm.consentPrefix}
+                <a href="/terms" target="_blank" rel="noopener" className="underline text-text-primary hover:opacity-80">
+                  {leadForm.consentTerms}
+                </a>
+                {leadForm.consentAnd}
+                <a href="/privacy" target="_blank" rel="noopener" className="underline text-text-primary hover:opacity-80">
+                  {leadForm.consentPrivacy}
+                </a>
+                {' *'}
+              </span>
+            </label>
             {status === 'error' && (
               <p
                 className="text-[13px] text-red-500 mb-[10px]"
@@ -115,7 +139,7 @@ function LeadForm() {
             )}
             <button
               type="submit"
-              disabled={status === 'sending' || !name.trim()}
+              disabled={status === 'sending' || !name.trim() || !consent}
               className="inline-flex items-center justify-center bg-primary-background text-text-white px-[32px] py-[14px] hover:opacity-90 hover:-translate-y-0.5 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0 text-[15px] font-normal tracking-wide"
               style={{ fontFamily: 'Nunito Sans' }}
             >

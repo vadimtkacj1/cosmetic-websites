@@ -108,6 +108,10 @@ export interface SiteContent {
     successTitle: string
     successText: string
     errorGeneric: string
+    consentPrefix: string
+    consentTerms: string
+    consentAnd: string
+    consentPrivacy: string
   }
   footer: {
     brandText: string
@@ -141,6 +145,10 @@ export interface SiteContent {
     errorGeneric: string
     errorNetwork: string
     close: string
+    consentPrefix: string
+    consentTerms: string
+    consentAnd: string
+    consentPrivacy: string
   }
   discountPopup: {
     badge: string
@@ -357,6 +365,10 @@ export const SITE_CONTENT_RU: SiteContent = {
     successTitle: 'Заявка принята!',
     successText: 'Я свяжусь с вами в ближайшее время.',
     errorGeneric: 'Не удалось отправить. Попробуйте ещё раз.',
+    consentPrefix: 'Я ознакомлен(а) и согласен(на) с ',
+    consentTerms: 'условиями использования',
+    consentAnd: ' и ',
+    consentPrivacy: 'политикой конфиденциальности',
   },
   footer: {
     brandText:
@@ -391,6 +403,10 @@ export const SITE_CONTENT_RU: SiteContent = {
     errorGeneric: 'Не удалось записаться. Попробуйте ещё раз.',
     errorNetwork: 'Ошибка сети. Попробуйте ещё раз.',
     close: 'Закрыть',
+    consentPrefix: 'Я ознакомлен(а) и согласен(на) с ',
+    consentTerms: 'условиями использования',
+    consentAnd: ' и ',
+    consentPrivacy: 'политикой конфиденциальности',
   },
   discountPopup: {
     badge: 'ЗНАКОМСТВО С МАСТЕРОМ 💅',
@@ -599,6 +615,10 @@ export const SITE_CONTENT_HE: SiteContent = {
     successTitle: 'הטופס נשלח!',
     successText: 'אצור איתך קשר בהקדם.',
     errorGeneric: 'שליחה נכשלה. נסו שוב.',
+    consentPrefix: 'קראתי ואני מסכים/ה ל',
+    consentTerms: 'תנאי השימוש',
+    consentAnd: 'ול',
+    consentPrivacy: 'מדיניות הפרטיות',
   },
   footer: {
     brandText:
@@ -633,6 +653,10 @@ export const SITE_CONTENT_HE: SiteContent = {
     errorGeneric: 'לא הצלחנו לקבוע תור. נסו שוב.',
     errorNetwork: 'שגיאת רשת. נסו שוב.',
     close: 'סגירה',
+    consentPrefix: 'קראתי ואני מסכים/ה ל',
+    consentTerms: 'תנאי השימוש',
+    consentAnd: 'ול',
+    consentPrivacy: 'מדיניות הפרטיות',
   },
   discountPopup: {
     badge: 'היכרות עם המומחית 💅',
