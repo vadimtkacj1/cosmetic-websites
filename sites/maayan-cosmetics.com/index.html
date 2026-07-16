@@ -289,6 +289,21 @@
     font-weight: 400; color: #fff;
     margin-bottom: 0;
   }
+  .portfolio-cat {
+    text-align: center;
+    margin: 52px 0 22px;
+    padding: 0 40px;
+  }
+  .portfolio-head + .portfolio-cat { margin-top: 0; }
+  .portfolio-cat h3 {
+    font-family: var(--ff-h);
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 400;
+    color: var(--rose);
+  }
+  .portfolio-item img.pos-top { object-position: 50% 20%; }
+  /* makeup grid: 18 items + 2 tall cells = exactly 4 full rows of 5 */
+  .pg-makeup .portfolio-item:nth-child(13) { grid-row: span 1; }
   .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -857,7 +872,7 @@
   <button class="nav-overlay-close" id="navClose">&times;</button>
   <a href="#services"   onclick="navOverlay.classList.remove('open'); document.body.style.overflow='';">טיפולים</a>
   <a href="#about"      onclick="navOverlay.classList.remove('open'); document.body.style.overflow='';">אודות</a>
-  <a href="#products"  onclick="navOverlay.classList.remove('open'); document.body.style.overflow='';">מוצרים</a>
+  <a href="#portfolio" onclick="navOverlay.classList.remove('open'); document.body.style.overflow='';">גלריה</a>
   <a href="#contact"   onclick="navOverlay.classList.remove('open'); document.body.style.overflow='';">צרי קשר</a>
   <a href="#" onclick="openPopup();navOverlay.classList.remove('open');return false;" style="color:var(--rose);">קביעת תור</a>
 </div>
@@ -869,7 +884,7 @@
       <nav class="nav-links">
         <a href="#services">טיפולים</a>
         <a href="#about">אודות</a>
-        <a href="#products">מוצרים</a>
+        <a href="#portfolio">גלריה</a>
         <a href="#contact">צרי קשר</a>
       </nav>
       <button class="menu-btn" id="menuBtn">
@@ -919,8 +934,8 @@
     <span>כתובת</span>
     <strong>ושעות</strong>
   </a>
-  <a href="#products" class="quick-nav-item">
-    <span>המוצרים</span>
+  <a href="#portfolio" class="quick-nav-item">
+    <span>הגלריה</span>
     <strong>שלי</strong>
   </a>
 </div>
@@ -930,114 +945,114 @@
   <div class="section-center sr">
     <h2>הטיפולים שלי</h2>
     <p class="sub">טכנולוגיות מתקדמות, חומרים איכותיים, תוצאות אמיתיות</p>
+    <div class="tcard-divider" style="width:230px;margin:18px auto 0">
+      <svg width="14" height="13" viewBox="0 0 24 22" fill="none"><path d="M12 20 C5.5 14.5 2 10.5 2 6.8 C2 3.8 4.3 1.8 6.8 1.8 C8.9 1.8 10.9 3.1 12 5.2 C13.1 3.1 15.1 1.8 17.2 1.8 C19.7 1.8 22 3.8 22 6.8 C22 10.5 18.5 14.5 12 20 Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+    </div>
   </div>
-  <div class="treatment-circles sr-group">
+  <div class="treatment-cards sr-group">
 
-    <!-- הסרת פיגמנטציה -->
-    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
-      <div class="treatment-circle-icon">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <circle cx="22" cy="22" r="7" stroke="currentColor" stroke-width="1.8"/>
-          <line x1="22" y1="7" x2="22" y2="12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="22" y1="31.5" x2="22" y2="37" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="7" y1="22" x2="12.5" y2="22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="31.5" y1="22" x2="37" y2="22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="11.2" y1="11.2" x2="15.2" y2="15.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="28.8" y1="28.8" x2="32.8" y2="32.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="32.8" y1="11.2" x2="28.8" y2="15.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="15.2" y1="28.8" x2="11.2" y2="32.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    <!-- טיפולי פנים -->
+    <div class="tcard">
+      <div class="tcard-icon">
+        <svg width="46" height="46" viewBox="0 0 44 44" fill="none">
+          <circle cx="19" cy="25" r="11" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M14.5 23 Q16 21.5 17.5 23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M20.5 23 Q22 21.5 23.5 23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M15 28 Q19 31.5 23 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M33 7 L34.3 11.7 L39 13 L34.3 14.3 L33 19 L31.7 14.3 L27 13 L31.7 11.7 Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <line x1="33" y1="24" x2="33" y2="29" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="30.5" y1="26.5" x2="35.5" y2="26.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </div>
-      <span>הסרת פיגמנטציה</span>
-    </a>
+      <h3>טיפולי פנים</h3>
+      <div class="tcard-divider">
+        <svg width="14" height="13" viewBox="0 0 24 22" fill="none"><path d="M12 20 C5.5 14.5 2 10.5 2 6.8 C2 3.8 4.3 1.8 6.8 1.8 C8.9 1.8 10.9 3.1 12 5.2 C13.1 3.1 15.1 1.8 17.2 1.8 C19.7 1.8 22 3.8 22 6.8 C22 10.5 18.5 14.5 12 20 Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      </div>
+      <ul>
+        <li>טיפול פנים קלאסי</li>
+        <li>טיפול זוהר לעור הפנים</li>
+        <li>טיפול קרבוקסין</li>
+        <li>מזוטרפיה</li>
+        <li>מיצוק העור</li>
+        <li>טיפול פוסט אקנה</li>
+        <li>פילינג קרבון לייזר</li>
+      </ul>
+      <a href="pricelist.html" class="tcard-btn">לפרטים נוספים ←</a>
+    </div>
 
-    <!-- הסרת איפור קבוע -->
-    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
-      <div class="treatment-circle-icon">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <!-- Upper lip with cupid's bow -->
-          <path d="M12 22 C14 17 18 16 22 19 C26 16 30 17 32 22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <!-- Lower lip -->
-          <path d="M12 22 C14 29 18 31 22 31 C26 31 30 29 32 22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <!-- Cupid's bow dip -->
-          <path d="M18 22 C20 21 24 21 26 22" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    <!-- טיפולים מתקדמים -->
+    <div class="tcard">
+      <div class="tcard-icon">
+        <svg width="46" height="46" viewBox="0 0 44 44" fill="none">
+          <rect x="15" y="16" width="14" height="21" rx="3" stroke="currentColor" stroke-width="1.8"/>
+          <rect x="18.5" y="11.5" width="7" height="4.5" stroke="currentColor" stroke-width="1.6"/>
+          <ellipse cx="22" cy="8.2" rx="3.4" ry="3" stroke="currentColor" stroke-width="1.6"/>
+          <line x1="22" y1="16" x2="22" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M22 33 C20.8 33 20 32.1 20 31 C20 29.9 22 27.5 22 27.5 C22 27.5 24 29.9 24 31 C24 32.1 23.2 33 22 33 Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
         </svg>
       </div>
-      <span>הסרת איפור קבוע</span>
-    </a>
+      <h3>טיפולים מתקדמים</h3>
+      <div class="tcard-divider">
+        <svg width="14" height="13" viewBox="0 0 24 22" fill="none"><path d="M12 20 C5.5 14.5 2 10.5 2 6.8 C2 3.8 4.3 1.8 6.8 1.8 C8.9 1.8 10.9 3.1 12 5.2 C13.1 3.1 15.1 1.8 17.2 1.8 C19.7 1.8 22 3.8 22 6.8 C22 10.5 18.5 14.5 12 20 Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      </div>
+      <ul>
+        <li>הסרת פיגמנטציה</li>
+        <li>הסרת קעקועים</li>
+        <li>הסרת איפור קבוע</li>
+      </ul>
+      <a href="pricelist.html" class="tcard-btn">לפרטים נוספים ←</a>
+    </div>
 
-    <!-- טיפול באקנה ופוסט אקנה -->
-    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
-      <div class="treatment-circle-icon">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <path d="M11 24 Q11 10 22 10 Q33 10 33 24 Q33 35 22 36 Q11 35 11 24 Z" stroke="currentColor" stroke-width="1.8"/>
-          <circle cx="17" cy="20" r="1.8" fill="currentColor"/>
-          <circle cx="27" cy="20" r="1.8" fill="currentColor"/>
-          <circle cx="22" cy="17" r="1.4" fill="currentColor"/>
-          <path d="M17 29 Q22 33 27 29" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- טיפוח ריסים וגבות -->
+    <div class="tcard">
+      <div class="tcard-icon">
+        <svg width="46" height="46" viewBox="0 0 44 44" fill="none">
+          <path d="M11 12 Q20 7 33 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M9 26 Q22 16 35 26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="12.5" y1="24.5" x2="10.5" y2="28.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="17" y1="22" x2="15.8" y2="26.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="22" y1="21" x2="22" y2="25.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="27" y1="22" x2="28.2" y2="26.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="31.5" y1="24.5" x2="33.5" y2="28.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </div>
-      <span>טיפול באקנה ופוסט אקנה</span>
-    </a>
+      <h3>טיפוח ריסים וגבות</h3>
+      <div class="tcard-divider">
+        <svg width="14" height="13" viewBox="0 0 24 22" fill="none"><path d="M12 20 C5.5 14.5 2 10.5 2 6.8 C2 3.8 4.3 1.8 6.8 1.8 C8.9 1.8 10.9 3.1 12 5.2 C13.1 3.1 15.1 1.8 17.2 1.8 C19.7 1.8 22 3.8 22 6.8 C22 10.5 18.5 14.5 12 20 Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      </div>
+      <ul>
+        <li>הרמת ריסים והרמת גבות</li>
+        <li>ניקוי ועיצוב הגבות</li>
+      </ul>
+      <a href="pricelist.html" class="tcard-btn">לפרטים נוספים ←</a>
+    </div>
 
-    <!-- הסרת קעקועים -->
-    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
-      <div class="treatment-circle-icon">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <path d="M26 7 L12 24 H21 L18 37 L32 20 H23 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+    <!-- איפור מקצועי -->
+    <div class="tcard">
+      <div class="tcard-icon">
+        <svg width="46" height="46" viewBox="0 0 44 44" fill="none">
+          <path d="M12 29 C14 24.5 18 23.5 22 26 C26 23.5 30 24.5 32 29" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M12 29 C14 35.5 18 37.5 22 37.5 C26 37.5 30 35.5 32 29" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M18 29 C20 28.2 24 28.2 26 29" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="34.5" y1="5.5" x2="27" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M27 13 C25 15 21.5 15.5 19 17.5 C21.5 19.5 25.5 18 27.5 16 C28.5 15 28 13.8 27 13 Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
         </svg>
       </div>
-      <span>הסרת קעקועים</span>
-    </a>
-
-    <!-- פילינג קרבון -->
-    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
-      <div class="treatment-circle-icon">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <!-- 4-pointed sparkle — brightening/renewal treatment -->
-          <path d="M22 8 L24.2 19.8 L36 22 L24.2 24.2 L22 36 L19.8 24.2 L8 22 L19.8 19.8 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-          <circle cx="22" cy="22" r="3" stroke="currentColor" stroke-width="1.3"/>
-        </svg>
+      <h3>איפור מקצועי</h3>
+      <div class="tcard-divider">
+        <svg width="14" height="13" viewBox="0 0 24 22" fill="none"><path d="M12 20 C5.5 14.5 2 10.5 2 6.8 C2 3.8 4.3 1.8 6.8 1.8 C8.9 1.8 10.9 3.1 12 5.2 C13.1 3.1 15.1 1.8 17.2 1.8 C19.7 1.8 22 3.8 22 6.8 C22 10.5 18.5 14.5 12 20 Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
       </div>
-      <span>פילינג קרבון</span>
-    </a>
+      <ul>
+        <li>איפור כלות</li>
+        <li>איפור ערב</li>
+      </ul>
+      <a href="pricelist.html" class="tcard-btn">לפרטים נוספים ←</a>
+    </div>
 
-    <!-- מזוטרפיה -->
-    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
-      <div class="treatment-circle-icon">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <!-- Syringe barrel -->
-          <rect x="18" y="13" width="8" height="18" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
-          <!-- Plunger rod (thinner, clearly separate from barrel) -->
-          <line x1="22" y1="13" x2="22" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <!-- Plunger handle T-bar -->
-          <line x1="19" y1="7" x2="25" y2="7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-          <!-- Needle (narrow tip below barrel) -->
-          <path d="M20 31 L22 37 L24 31" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- Scale marks on the side -->
-          <line x1="18" y1="19" x2="15.5" y2="19" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-          <line x1="18" y1="24" x2="15.5" y2="24" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <span>מזוטרפיה</span>
-    </a>
-
-    <!-- מיצוק העור -->
-    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
-      <div class="treatment-circle-icon">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <ellipse cx="22" cy="28" rx="10" ry="12" stroke="currentColor" stroke-width="1.8"/>
-          <line x1="22" y1="21" x2="22" y2="9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <path d="M18 13 L22 9 L26 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <span>מיצוק העור</span>
-    </a>
-
-    <!-- שעווה -->
-    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
-      <div class="treatment-circle-icon">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+    <!-- הסרת שיער -->
+    <div class="tcard">
+      <div class="tcard-icon">
+        <svg width="46" height="46" viewBox="0 0 44 44" fill="none">
           <rect x="9" y="26" width="26" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/>
           <path d="M22 26 Q25 20 31 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
           <path d="M28 12 L31 13 L30 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1046,46 +1061,15 @@
           <line x1="29" y1="29" x2="29" y2="33" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </div>
-      <span>שעווה</span>
-    </a>
-
-    <!-- ניקוי גבות -->
-    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
-      <div class="treatment-circle-icon">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <path d="M8 27 Q13 17 22 16 Q31 17 36 27" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M14 34 Q22 28 30 34" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <path d="M14 34 Q22 40 30 34" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <circle cx="22" cy="34" r="2.5" fill="currentColor"/>
-        </svg>
+      <h3>הסרת שיער</h3>
+      <div class="tcard-divider">
+        <svg width="14" height="13" viewBox="0 0 24 22" fill="none"><path d="M12 20 C5.5 14.5 2 10.5 2 6.8 C2 3.8 4.3 1.8 6.8 1.8 C8.9 1.8 10.9 3.1 12 5.2 C13.1 3.1 15.1 1.8 17.2 1.8 C19.7 1.8 22 3.8 22 6.8 C22 10.5 18.5 14.5 12 20 Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
       </div>
-      <span>ניקוי גבות</span>
-    </a>
-
-    <!-- איפור -->
-    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
-      <div class="treatment-circle-icon">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <rect x="16" y="28" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
-          <path d="M16 28 L16 22 L28 22 L28 28" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M16 22 L22 11 L28 22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <span>איפור</span>
-    </a>
-
-    <!-- טיפולי פנים -->
-    <a href="#" onclick="openPopup();return false;" class="treatment-circle">
-      <div class="treatment-circle-icon">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <path d="M22 33 C22 26 19 20 22 14 C25 20 22 26 22 33 Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M22 30 C17 28 10 25 9 20 C15 18 21 24 22 30 Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M22 30 C27 28 34 25 35 20 C29 18 23 24 22 30 Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <line x1="14" y1="37" x2="30" y2="37" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <span>טיפולי פנים</span>
-    </a>
+      <ul>
+        <li>שעווה לכל חלקי הגוף</li>
+      </ul>
+      <a href="pricelist.html" class="tcard-btn">לפרטים נוספים ←</a>
+    </div>
 
   </div>
   <div class="view-all-wrap" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
@@ -1124,63 +1108,53 @@
 <section class="portfolio-section" id="portfolio">
   <div class="portfolio-head sr">
     <p>הגלריה שלי</p>
-    <h2>תוצאות אמיתיות</h2>
+    <h2>נשים אמיתיות, תוצאות אמיתיות</h2>
   </div>
+
+  <div class="portfolio-cat sr"><h3>תחום האיפור</h3></div>
+  <div class="portfolio-grid pg-makeup sr-group">
+    <div class="portfolio-item" onclick="openLb(0)"><img class="pos-top" src="img/gallery/makeup-01.jpg"  alt="איפור מקצועי — צילום סטודיו"      loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(1)"><img class="pos-top" src="img/gallery/makeup-02.jpg"  alt="איפור מקצועי — צילום סטודיו"      loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(2)"><img class="pos-top" src="img/gallery/makeup-03.jpg"  alt="איפור מקצועי — צילום שחור-לבן"    loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(3)"><img class="pos-top" src="img/gallery/makeup-04.jpg"  alt="איפור טבעי זוהר"                  loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(4)"><img class="pos-top" src="img/gallery/makeup-05.jpg"  alt="איפור עיניים מעושן"               loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(5)"><img class="pos-top" src="img/gallery/makeup-06.jpg"  alt="איפור ערב"                        loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(6)"><img class="pos-top" src="img/gallery/makeup-07.jpg"  alt="איפור ערב"                        loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(7)"><img class="pos-top" src="img/gallery/makeup-08.jpg"  alt="איפור טבעי"                       loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(8)"><img class="pos-top" src="img/gallery/makeup-09.jpg"  alt="איפור מקצועי — צילום אופנה"       loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(9)"><img class="pos-top" src="img/gallery/makeup-10.jpg"  alt="איפור מקצועי — צילום אופנה"       loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(10)"><img class="pos-top" src="img/gallery/makeup-11.jpg" alt="איפור צבעוני"                     loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(11)"><img src="img/gallery/makeup-12.jpg"                 alt="איפור עדין"                       loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(12)"><img class="pos-top" src="img/gallery/makeup-13.jpg" alt="איפור לאירועים"                   loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(13)"><img src="img/gallery/makeup-14.jpg"                 alt="איפור עדין"                       loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(14)"><img class="pos-top" src="img/gallery/makeup-15.jpg" alt="איפור אפקטים מיוחדים"             loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(15)"><img class="pos-top" src="img/gallery/makeup-16.jpg" alt="איפור אפקטים מיוחדים"             loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(16)"><img class="pos-top" src="img/gallery/makeup-17.jpg" alt="איפור אפקטים מיוחדים"             loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(17)"><img class="pos-top" src="img/gallery/makeup-18.jpg" alt="איפור אפקטים מיוחדים"             loading="lazy"/></div>
+  </div>
+
+  <div class="portfolio-cat sr"><h3>תחום הקוסמטיקה</h3></div>
   <div class="portfolio-grid sr-group">
-    <div class="portfolio-item" onclick="openLb(0)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07.jpeg"         alt="תוצאה 1"  loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(1)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07 (1).jpeg"     alt="תוצאה 2"  loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(2)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07 (2).jpeg"     alt="תוצאה 3"  loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(3)"><img src="img/WhatsApp Image 2026-05-29 at 18.44.07 (4).jpeg"     alt="תוצאה 4"  loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(4)"><img src="img/WhatsApp Image 2026-05-29 at 18.45.08.jpeg"         alt="תוצאה 5"  loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(5)"><img src="img/WhatsApp Image 2026-06-01 at 10.47.11.jpeg"         alt="תוצאה 6"  loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(6)"><img src="img/WhatsApp Image 2026-06-01 at 10.48.57.jpeg"         alt="תוצאה 7"  loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(7)"><img src="img/WhatsApp Image 2026-06-01 at 10.49.37.jpeg"         alt="תוצאה 8"  loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(8)"><img src="img/WhatsApp Image 2026-06-01 at 10.50.34.jpeg"         alt="תוצאה 9"  loading="lazy"/></div>
-    <div class="portfolio-item" onclick="openLb(9)"><img src="img/WhatsApp Image 2026-06-01 at 10.52.57.jpeg"        alt="תוצאה 10" loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(18)"><img src="img/gallery/cosmetic-01.jpg" alt="מעיין בזמן טיפול בקליניקה"          loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(19)"><img src="img/gallery/cosmetic-02.jpg" alt="טיפול פילינג קרבון"                 loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(20)"><img src="img/gallery/cosmetic-03.jpg" alt="טיפול פנים עם מסכה"                 loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(21)"><img src="img/gallery/cosmetic-04.jpg" alt="טיפול פנים בקליניקה"                loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(22)"><img src="img/gallery/cosmetic-05.jpg" alt="פילינג קרבון — תהליך הטיפול"        loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(23)"><img src="img/gallery/cosmetic-06.jpg" alt="סדרת טיפולי אקנה — לפני ואחרי"      loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(24)"><img src="img/gallery/cosmetic-07.jpg" alt="טיפולי אקנה — לפני ואחרי"           loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(25)"><img src="img/gallery/cosmetic-08.jpg" alt="טיפול פנים — תהליך"                 loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(26)"><img src="img/gallery/cosmetic-09.jpg" alt="לפני ואחרי — טיפול פנים"            loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(27)"><img src="img/gallery/cosmetic-10.jpg" alt="לפני ואחרי — טיפול פנים"            loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(28)"><img src="img/gallery/cosmetic-11.jpg" alt="לפני ואחרי — טיפול בעור אדמומי"     loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(29)"><img src="img/gallery/cosmetic-12.jpg" alt="לפני ואחרי — טיפול פנים"            loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(30)"><img src="img/gallery/cosmetic-13.jpg" alt="עיצוב גבות והרמת ריסים"             loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(31)"><img src="img/gallery/cosmetic-14.jpg" alt="מסכת זהב — לפני ואחרי"              loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(32)"><img src="img/gallery/cosmetic-15.jpg" alt="טיפול פנים לגבר — לפני ואחרי"       loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(33)"><img src="img/gallery/cosmetic-16.jpg" alt="טיפול קרבוקסין — תהליך"             loading="lazy"/></div>
+    <div class="portfolio-item" onclick="openLb(34)"><img src="img/gallery/cosmetic-17.jpg" alt="הרמת ריסים — תקריב"                 loading="lazy"/></div>
   </div>
   <div class="portfolio-cta">
     <button onclick="openPopup()" class="btn" style="border-color:#fff;color:#fff;background:transparent;margin-top:0">קביעת תור ←</button>
-  </div>
-</section>
-
-
-<section class="my-pick-section" id="products">
-  <div class="my-pick-head sr">
-    <h2>המוצרים שלי</h2>
-    <p>״הטוב ביותר לעורך — זמין אצלי בקליניקה״</p>
-    <span class="rose-line"></span>
-  </div>
-  <div class="my-pick-grid sr-group">
-    <div class="pick-card">
-      <img src="img/gigi-vitamin-e.jpg" alt="GIGI Vitamin E Moisturizing Cream" loading="lazy" />
-      <h3>Vitamin E Moisturizing Cream</h3>
-      <p>קרם לחות עשיר בויטמין E לעור יבש ורגיש</p>
-    </div>
-    <div class="pick-card">
-      <img src="img/gigi-carotene-butter.jpg" alt="GIGI Carotene Butter Cream" loading="lazy" />
-      <h3>Carotene Butter Cream</h3>
-      <p>קרם בטר קרוטן מזין המחזיר את זוהר העור</p>
-    </div>
-    <div class="pick-card">
-      <img src="img/gigi-solar-spf50.jpg" alt="GIGI Solar Energy SPF 50" loading="lazy" />
-      <h3>Solar Energy SPF 50</h3>
-      <p>הגנת שמש מקצועית, קלה ומרגישה טוב</p>
-    </div>
-    <div class="pick-card">
-      <img src="img/gigi-bio-placenta.png" alt="GIGI Bio Placenta Serum" loading="lazy" />
-      <h3>Bio Placenta Serum</h3>
-      <p>סרום מחזיר נעורים לעור בוגר</p>
-    </div>
-    <div class="pick-card">
-      <img src="img/gigi-eye-cream.jpg" alt="GIGI Nutri-Peptide Eye Cream" loading="lazy" />
-      <h3>Nutri-Peptide Eye Cream</h3>
-      <p>קרם עיניים עתיר פפטידים נגד קמטוטים</p>
-    </div>
-  </div>
-  <div style="text-align:center;padding:0 40px 20px;max-width:700px;margin:0 auto">
-    <p style="font-size:14px;color:var(--grey);font-family:var(--ff-b)">
-      המוצרים שלי <strong>זמינים לרכישה ישירות בקליניקה</strong> — עם ייעוץ אישי מותאם לעורך.
-    </p>
   </div>
 </section>
 
@@ -1283,7 +1257,7 @@
         <ul>
           <li><a href="#services">טיפולים</a></li>
           <li><a href="#about">אודות</a></li>
-          <li><a href="#products">מוצרים</a></li>
+          <li><a href="#portfolio">גלריה</a></li>
           <li><a href="#contact">צרי קשר</a></li>
         </ul>
       </div>
@@ -1292,7 +1266,7 @@
         <ul>
           <li><a href="#about">מי אני</a></li>
           <li><a href="#services">כל הטיפולים</a></li>
-          <li><a href="#products">המוצרים שלי</a></li>
+          <li><a href="#portfolio">הגלריה שלי</a></li>
           <li><a href="#contact">כתובת ושעות</a></li>
         </ul>
       </div>
