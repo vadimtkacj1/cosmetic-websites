@@ -734,6 +734,12 @@
       object-fit: cover;
       transition: transform 0.7s cubic-bezier(0.4,0,0.2,1);
     }
+    .beforeAfterTreatment .swiper-slide video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
     .beforeAfterTreatment .swiper-slide:hover img { transform: scale(1.05); }
     .ba-nav { display: flex; gap: 12px; justify-content: flex-start; padding: 0 32px; }
     .ba-btn {
@@ -1652,22 +1658,108 @@
       <h2 class="title reveal">תוצאות לפני ואחרי</h2>
       <div class="ba-nav">
         <button class="ba-btn" id="baPrev" aria-label="הקודם">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </button>
         <button class="ba-btn" id="baNext" aria-label="הבא">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
       </div>
     </div>
   </div>
   <div class="swiper beforeAfterSwiper" style="padding:0 32px 60px;">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="img/ba-1.jpg" alt="טיפול פנים עם מסכה מרגיעה בקליניקה" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="img/ba-2.jpg" alt="עיצוב גבות — תוצאה לאחר טיפול" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="img/ba-3.jpg" alt="קוסמטיקאית מורחת מסכת פנים בקליניקה" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="img/ba-4.jpg" alt="עור פנים זוהר לאחר טיפול קוסמטי" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="img/ba-5.jpg" alt="עיצוב גבות מקצועי בקליניקה" loading="lazy" /></div>
-      <div class="swiper-slide"><img src="img/ba-6.jpg" alt="מסכת פנים משקמת בקליניקה" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/clinic-1.jpg" alt="טיפול בפיגמנטציה בפנים — לפני ואחרי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/clinic-2.jpg" alt="הסרת שיער בבית השחי — לפני ואחרי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/clinic-3.jpg" alt="טיפול פנים לעור אחיד וזוהר — לפני ואחרי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/clinic-4.jpg" alt="הסרת שיער ברגליים — לפני ואחרי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/clinic-5.jpg" alt="הסרת שיער בבית השחי — לפני ואחרי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/clinic-6.jpg" alt="הבהרת פיגמנט בבית השחי — לפני ואחרי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/clinic-7.jpg" alt="הסרת שיער בבית השחי — לפני ואחרי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/clinic-8.jpg" alt="עור בהיר ואחיד לאחר טיפול בקליניקה" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/clinic-9.jpg" alt="רגליים חלקות לאחר טיפול" loading="lazy" /></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<section class="beforeAfterTreatment">
+  <div class="top">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <h2 class="title reveal">מיצוק העור</h2>
+      <div class="ba-nav">
+        <button class="ba-btn" id="sfPrev" aria-label="הקודם">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="ba-btn" id="sfNext" aria-label="הבא">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="swiper skinFirmingSwiper" style="padding:0 32px 60px;">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="img/firming-1.jpg" alt="מיצוק עור הפנים והצוואר — לפני ואחרי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/firming-2.jpg" alt="טיפול מיצוק עור RF בפנים — לפני ואחרי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/firming-3.jpg" alt="חיטוב קו הלסת ומיצוק העור — לפני ואחרי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/firming-4.jpg" alt="תגובת לקוחה מרוצה לאחר טיפול מיצוק עור" loading="lazy" /></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<section class="beforeAfterTreatment">
+  <div class="top">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <h2 class="title reveal">מיקרובליידינג</h2>
+      <div class="ba-nav">
+        <button class="ba-btn" id="mbPrev" aria-label="הקודם">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="ba-btn" id="mbNext" aria-label="הבא">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="swiper microbladingSwiper" style="padding:0 32px 60px;">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="img/microblading-1.jpg" alt="מיקרובליידינג — עיצוב גבות לפני ואחרי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/microblading-2.jpg" alt="מיקרובליידינג — מילוי גבות לפני ואחרי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/microblading-3.jpg" alt="מיקרובליידינג — גבות מלאות לפני ואחרי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/microblading-4.jpg" alt="שיקום גבות במיקרובליידינג — לפני ואחרי" loading="lazy" /></div>
+      <div class="swiper-slide"><img src="img/microblading-5.jpg" alt="טיפול מיקרובליידינג בקליניקה" loading="lazy" /></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<section class="beforeAfterTreatment">
+  <div class="top">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <h2 class="title reveal">צילומים מהקליניקה</h2>
+      <div class="ba-nav">
+        <button class="ba-btn" id="cvPrev" aria-label="הקודם">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="ba-btn" id="cvNext" aria-label="הבא">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="swiper clinicVideosSwiper" style="padding:0 32px 60px;">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><video controls playsinline preload="none" poster="img/vidposter-06.jpg"><source src="video/clinic-06.mp4" type="video/mp4" /></video></div>
+      <div class="swiper-slide"><video controls playsinline preload="none" poster="img/vidposter-02.jpg"><source src="video/clinic-02.mp4" type="video/mp4" /></video></div>
+      <div class="swiper-slide"><video controls playsinline preload="none" poster="img/vidposter-04.jpg"><source src="video/clinic-04.mp4" type="video/mp4" /></video></div>
+      <div class="swiper-slide"><video controls playsinline preload="none" poster="img/vidposter-08.jpg"><source src="video/clinic-08.mp4" type="video/mp4" /></video></div>
+      <div class="swiper-slide"><video controls playsinline preload="none" poster="img/vidposter-10.jpg"><source src="video/clinic-10.mp4" type="video/mp4" /></video></div>
+      <div class="swiper-slide"><video controls playsinline preload="none" poster="img/vidposter-01.jpg"><source src="video/clinic-01.mp4" type="video/mp4" /></video></div>
+      <div class="swiper-slide"><video controls playsinline preload="none" poster="img/vidposter-05.jpg"><source src="video/clinic-05.mp4" type="video/mp4" /></video></div>
+      <div class="swiper-slide"><video controls playsinline preload="none" poster="img/vidposter-07.jpg"><source src="video/clinic-07.mp4" type="video/mp4" /></video></div>
+      <div class="swiper-slide"><video controls playsinline preload="none" poster="img/vidposter-09.jpg"><source src="video/clinic-09.mp4" type="video/mp4" /></video></div>
+      <div class="swiper-slide"><video controls playsinline preload="none" poster="img/vidposter-03.jpg"><source src="video/clinic-03.mp4" type="video/mp4" /></video></div>
+      <div class="swiper-slide"><video controls playsinline preload="none" poster="img/vidposter-11.jpg"><source src="video/clinic-11.mp4" type="video/mp4" /></video></div>
     </div>
     <div class="swiper-pagination"></div>
   </div>
@@ -1945,6 +2037,53 @@ const lenis = new Lenis({
       1024: { slidesPerView: 3, spaceBetween: 24 },
       1280: { slidesPerView: 3.5, spaceBetween: 28 }
     }
+  });
+
+  new Swiper('.skinFirmingSwiper', {
+    slidesPerView: 1.2,
+    spaceBetween: 20,
+    loop: true,
+    rtl: true,
+    autoplay: { delay: 3500, disableOnInteraction: false },
+    pagination: { el: '.skinFirmingSwiper .swiper-pagination', clickable: true },
+    navigation: { prevEl: '#sfPrev', nextEl: '#sfNext' },
+    breakpoints: {
+      640:  { slidesPerView: 2, spaceBetween: 20 },
+      1024: { slidesPerView: 2.5, spaceBetween: 24 },
+      1280: { slidesPerView: 3, spaceBetween: 28 }
+    }
+  });
+
+  new Swiper('.microbladingSwiper', {
+    slidesPerView: 1.2,
+    spaceBetween: 20,
+    loop: true,
+    rtl: true,
+    autoplay: { delay: 3500, disableOnInteraction: false },
+    pagination: { el: '.microbladingSwiper .swiper-pagination', clickable: true },
+    navigation: { prevEl: '#mbPrev', nextEl: '#mbNext' },
+    breakpoints: {
+      640:  { slidesPerView: 2, spaceBetween: 20 },
+      1024: { slidesPerView: 2.5, spaceBetween: 24 },
+      1280: { slidesPerView: 3, spaceBetween: 28 }
+    }
+  });
+
+  const clinicVideosSwiper = new Swiper('.clinicVideosSwiper', {
+    slidesPerView: 1.2,
+    spaceBetween: 20,
+    loop: true,
+    rtl: true,
+    pagination: { el: '.clinicVideosSwiper .swiper-pagination', clickable: true },
+    navigation: { prevEl: '#cvPrev', nextEl: '#cvNext' },
+    breakpoints: {
+      640:  { slidesPerView: 2, spaceBetween: 20 },
+      1024: { slidesPerView: 3, spaceBetween: 24 },
+      1280: { slidesPerView: 3.5, spaceBetween: 28 }
+    }
+  });
+  clinicVideosSwiper.on('slideChange', () => {
+    document.querySelectorAll('.clinicVideosSwiper video').forEach(v => v.pause());
   });
 
   /* ── Ticker pause on hover ───────────────────────── */
