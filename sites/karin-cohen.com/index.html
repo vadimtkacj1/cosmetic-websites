@@ -59,7 +59,7 @@
   /* ── Hero Fullscreen ─────────────────────────────── */
   .hero-section-premium {
     min-height: 100svh;
-    background: url('assets/img/hero-lash-procedure.jpg') center center/cover no-repeat;
+    background: url('assets/img/hero-lash-tweezers.jpg') center center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,7 +69,7 @@
   }
   @media (max-width: 768px) {
     .hero-section-premium {
-      background-image: url('assets/img/hero-lash-procedure.jpg');
+      background-image: url('assets/img/hero-lash-tweezers.jpg');
     }
   }
   .hero-section-premium::before {
@@ -77,9 +77,9 @@
     position: absolute; inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba(0,0,0,0.45) 0%,
-      rgba(0,0,0,0.38) 50%,
-      rgba(82,67,61,0.78) 100%
+      rgba(0,0,0,0.25) 0%,
+      rgba(0,0,0,0.15) 50%,
+      rgba(82,67,61,0.65) 100%
     );
   }
   .hero-section-premium .container { position: relative; z-index: 1; }
@@ -187,16 +187,23 @@
     display: block;
   }
 
-  /* ── Reviews (screenshots — never cropped) ── */
-  .rev-grid {
-    column-count: 3;
-    column-gap: 20px;
+  /* ── Reviews carousel (screenshots — never cropped) ── */
+  .rev-carousel { position: relative; }
+  .rev-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px 4px 26px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
+  .rev-track::-webkit-scrollbar { display: none; }
   .rev-item {
-    break-inside: avoid;
-    -webkit-column-break-inside: avoid;
-    page-break-inside: avoid;
-    margin: 0 0 20px;
+    flex: 0 0 auto;
+    height: 420px;
+    scroll-snap-align: center;
+    margin: 0;
     border-radius: 16px;
     overflow: hidden;
     background: #fff;
@@ -211,12 +218,45 @@
   }
   .rev-item img {
     display: block;
-    width: 100%;
-    height: auto;      /* full screenshot, no cropping */
+    height: 100%;
+    width: auto;       /* full screenshot, no cropping */
+    max-width: 82vw;
     object-fit: contain;
   }
-  @media (max-width: 900px) { .rev-grid { column-count: 2; } }
-  @media (max-width: 560px) { .rev-grid { column-count: 1; column-gap: 0; } }
+  .rev-nav {
+    position: absolute;
+    top: calc(50% - 8px);
+    transform: translateY(-50%);
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid rgba(33, 31, 26, 0.1);
+    box-shadow: 0 8px 24px rgba(33, 31, 26, 0.14);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; line-height: 1;
+    color: var(--luxury-ink);
+    cursor: pointer;
+    z-index: 2;
+    transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+  }
+  .rev-nav:hover { transform: translateY(-50%) scale(1.08); box-shadow: 0 12px 30px rgba(33, 31, 26, 0.2); }
+  .rev-nav.prev { right: -10px; }
+  .rev-nav.next { left: -10px; }
+  .rev-dots { display: flex; justify-content: center; gap: 8px; margin-top: 6px; }
+  .rev-dot {
+    width: 8px; height: 8px;
+    border-radius: 99px;
+    border: none; padding: 0;
+    background: rgba(33, 31, 26, 0.18);
+    cursor: pointer;
+    transition: background .25s ease, width .25s ease;
+  }
+  .rev-dot.active { background: var(--luxury-ink); width: 22px; }
+  @media (max-width: 900px) { .rev-item { height: 360px; } }
+  @media (max-width: 560px) {
+    .rev-item { height: 320px; }
+    .rev-nav { display: none; }   /* swipe on mobile */
+  }
 
   /* ── Review lightbox ── */
   #revLightbox {
@@ -695,7 +735,6 @@
       </div>
       <div class="reveal delay-1">
         <span class="eyebrow">הסיפור שלי</span>
-        <h2 class="mb-24">המסע שלי</h2>
         <p class="text-medium muted mb-16 reveal delay-1">כבר מגיל צעיר הייתי מהופנטת מהריחות ומהמרקמים של הקרמים, והסקרנות להבין איך העור מגיב לכל טיפה של תכשיר — זה פשוט הקסים אותי.<br>ידעתי שזה הייעוד שלי עוד לפני שבכלל ידעתי מה המילה "קריירה" אומרת.</p>
         <p class="text-medium muted mb-16 reveal delay-2">זה התחיל מלפנק ולטפל בחברות והפך לקהל לקוחות שרק הולך וגדל.</p>
         <p class="text-medium muted mb-16 reveal delay-3">נשאבתי לזה. לא הייתי מוכנה להתפשר על ריסים "רגילים". רציתי את הכי טבעי, הכי נוח, הכי עמיד והכי וואוו שיש. חקרתי, ניסיתי, דייקתי, עד שפיתחתי את השיטה הבלעדית שלי. כזאת שנותנת מבט מהפנט שאי אפשר להתעלם ממנו, אבל מרגיש קליל כאילו נולדת ככה.</p>
@@ -730,7 +769,7 @@
         </div>
       </div>
       <div class="cpc reveal delay-2">
-        <img src="assets/course-1.jpg" alt="השתלמות שדרוג ורענון לבעלות מקצוע">
+        <img src="assets/lash-work-3.jpg" alt="השתלמות שדרוג ורענון לבעלות מקצוע">
         <div class="cpc-body">
           <span class="cpc-badge cpc-badge--secondary">מבצע קיץ</span>
           <h3>השתלמות שדרוג ורענון</h3>
@@ -872,7 +911,11 @@
       <h2 class="mb-24">דירוג 4.8 מתוך 5 כוכבים</h2>
       <p class="text-medium muted reveal delay-1">הודעות אמיתיות מלקוחות ומבוגרות הסטודיו — צילומי מסך מקוריים, ללא עריכה.</p>
     </div>
-    <div class="rev-grid reveal delay-1">
+    <div class="rev-carousel reveal delay-1">
+      <!-- RTL: first item is at the right, so "prev" sits on the right (points right), "next" on the left (points left) -->
+      <button class="rev-nav prev" type="button" aria-label="ההמלצה הקודמת">&#10095;</button>
+      <button class="rev-nav next" type="button" aria-label="ההמלצה הבאה">&#10094;</button>
+      <div class="rev-track">
       <figure class="rev-item"><img src="assets/reviews/WhatsApp%20Image%202026-07-28%20at%2019.31.18.jpeg" alt="המלצה מלקוחה — צילום מסך" loading="lazy" decoding="async"></figure>
       <figure class="rev-item"><img src="assets/reviews/WhatsApp%20Image%202026-07-28%20at%2019.31.19.jpeg" alt="המלצה מלקוחה — צילום מסך" loading="lazy" decoding="async"></figure>
       <figure class="rev-item"><img src="assets/reviews/WhatsApp%20Image%202026-07-28%20at%2019.31.19%20(1).jpeg" alt="המלצה מלקוחה — צילום מסך" loading="lazy" decoding="async"></figure>
@@ -885,8 +928,9 @@
       <figure class="rev-item"><img src="assets/reviews/WhatsApp%20Image%202026-07-28%20at%2019.31.19%20(8).jpeg" alt="המלצה מלקוחה — צילום מסך" loading="lazy" decoding="async"></figure>
       <figure class="rev-item"><img src="assets/reviews/WhatsApp%20Image%202026-07-28%20at%2019.31.19%20(9).jpeg" alt="המלצה מלקוחה — צילום מסך" loading="lazy" decoding="async"></figure>
       <figure class="rev-item"><img src="assets/reviews/WhatsApp%20Image%202026-07-28%20at%2019.31.20.jpeg" alt="המלצה מלקוחה — צילום מסך" loading="lazy" decoding="async"></figure>
+      </div>
     </div>
-    
+    <div class="rev-dots"></div>
   </div>
 </section>
 
@@ -902,22 +946,22 @@
       <!-- Item 1 -->
       <div class="faq-item reveal delay-1" style="background: var(--bg-soft-smoke); border-radius: 14px; border: 1px solid rgba(33, 31, 26, 0.08); overflow: hidden;">
         <button class="faq-q" aria-expanded="false" style="width: 100%; text-align: start; background: none; border: none; padding: 22px 24px; font-size: 16px; font-weight: 600; color: var(--luxury-ink); display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-          <span>כמה זמן לוקח תור לעיצוב והדבקת ריסים?</span>
+          <span>כמה זמן לוקח טיפול הדבקת ריסים?</span>
           <span class="material-symbols-rounded" aria-hidden="true" style="color: var(--accent-brand); font-size: 22px;">add</span>
         </button>
         <div class="faq-a" style="max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1); padding: 0 24px; color: var(--luxury-muted); line-height: 1.7; font-size: 14.5px; text-align: start;">
-          <p style="margin: 0; padding-bottom: 22px;">סט ריסים מלא בשיטת החתימה לוקח כשעתיים; תור פילינג קצר יותר. עם קביעת התור תקבלי הערכת זמן מדויקת לפי המראה שבחרת.</p>
+          <p style="margin: 0; padding-bottom: 22px;">סט ריסים מלא לפי השיטה שאני מלמדת לוקח כחצי שעה, אך כתלמידה יידרש ממך בהתחלה בין 40 ל-45 דקות זמן טיפול. עם הזמן גם את תגיעי לזמן של חצי שעה.</p>
         </div>
       </div>
 
       <!-- Item 2 -->
       <div class="faq-item reveal delay-2" style="background: var(--bg-soft-smoke); border-radius: 14px; border: 1px solid rgba(33, 31, 26, 0.08); overflow: hidden;">
         <button class="faq-q" aria-expanded="false" style="width: 100%; text-align: start; background: none; border: none; padding: 22px 24px; font-size: 16px; font-weight: 600; color: var(--luxury-ink); display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-          <span>האם אני צריכה ניסיון קודם כדי להירשם לקורס?</span>
+          <span>האם אני צריכה ניסיון קודם?</span>
           <span class="material-symbols-rounded" aria-hidden="true" style="color: var(--accent-brand); font-size: 22px;">add</span>
         </button>
         <div class="faq-a" style="max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1); padding: 0 24px; color: var(--luxury-muted); line-height: 1.7; font-size: 14.5px; text-align: start;">
-          <p style="margin: 0; padding-bottom: 22px;">לא. קורסי הבסיס מתחילים מאפס לחלוטין. גם הבלוקים המתקדמים מותאמים לשתי רמות — מתחילות לחלוטין וטכנאיות מנוסות שרוצות לשדרג את הטכניקה שלהן.</p>
+          <p style="margin: 0; padding-bottom: 22px;">לא. קורסי הבסיס מתחילים מאפס לחלוטין ואין צורך בידע וניסיון, אך מיד עם סיום הקורס תרגישי מספיק בטוחה להתחיל לטפל ולקבל לקוחות.</p>
         </div>
       </div>
     </div>
@@ -1171,6 +1215,52 @@
     });
     box.addEventListener('click', function (e) { if (e.target !== img) close(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  })();
+</script>
+<script>
+  /* Reviews carousel — arrows + dots, RTL-aware */
+  (function () {
+    var track = document.querySelector('.rev-track');
+    var dotsBox = document.querySelector('.rev-dots');
+    if (!track || !dotsBox) return;
+
+    var items = Array.prototype.slice.call(track.querySelectorAll('.rev-item'));
+
+    var dots = items.map(function (item, i) {
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'rev-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'המלצה ' + (i + 1));
+      d.addEventListener('click', function () {
+        item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      });
+      dotsBox.appendChild(d);
+      return d;
+    });
+
+    /* go(+1) moves the view right, go(-1) moves it left — physical, works the same in RTL */
+    function go(dir) {
+      var step = items[0].getBoundingClientRect().width + 20;
+      track.scrollBy({ left: dir * step, behavior: 'smooth' });
+    }
+    var prev = document.querySelector('.rev-nav.prev'); /* right side — back toward the first item */
+    var next = document.querySelector('.rev-nav.next'); /* left side — forward */
+    if (prev) prev.addEventListener('click', function () { go(1); });
+    if (next) next.addEventListener('click', function () { go(-1); });
+
+    function update() {
+      var r = track.getBoundingClientRect();
+      var center = r.left + r.width / 2;
+      var best = 0, bestDist = Infinity;
+      items.forEach(function (el, i) {
+        var b = el.getBoundingClientRect();
+        var d = Math.abs(b.left + b.width / 2 - center);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      dots.forEach(function (d, i) { d.classList.toggle('active', i === best); });
+    }
+    track.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+    window.addEventListener('resize', update);
   })();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility/dist/sienna-accessibility.umd.js" async></script>
