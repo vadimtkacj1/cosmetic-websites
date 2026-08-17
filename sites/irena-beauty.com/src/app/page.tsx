@@ -9,7 +9,9 @@ export const metadata: Metadata = {
   title: 'איפור קבוע ומניקור בחולון',
   description: 'אירנה — סטודיו לאיפור קבוע ושירותי מניקור בחולון. גבות, שפתיים וקו ריסים באיפור קבוע, מניקור ופדיקור מקצועיים.',
   keywords: 'איפור קבוע, מניקור, פדיקור, גבות, שפתיים, קו ריסים, חולון, אירנה',
-
+  alternates: {
+    canonical: 'https://irena-beauty.com/',
+  },
   openGraph: {
     title: 'איפור קבוע ומניקור בחולון',
     description: 'אירנה — סטודיו לאיפור קבוע ושירותי מניקור בחולון. גבות, שפתיים וקו ריסים באיפור קבוע, מניקור ופדיקור מקצועיים.',
@@ -18,10 +20,33 @@ export const metadata: Metadata = {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Irena Beauty',
+        alt: 'אירנה בוטי — איפור קבוע ומניקור בחולון',
       },
     ],
   }
+}
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BeautySalon',
+  name: 'Irena Beauty',
+  description: 'אירנה — סטודיו לאיפור קבוע ושירותי מניקור בחולון. גבות, שפתיים וקו ריסים באיפור קבוע, מניקור ופדיקור מקצועיים.',
+  url: 'https://irena-beauty.com/',
+  image: 'https://irena-beauty.com/images/og-image.jpg',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'חולון',
+    addressCountry: 'IL',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'חולון',
+  },
+  employee: {
+    '@type': 'Person',
+    name: 'אירנה',
+    jobTitle: 'מאפרת קבועה ומניקוריסטית',
+  },
 }
 
 export default async function Page() {
@@ -29,6 +54,10 @@ export default async function Page() {
   const contentByLocale = readSiteContent()
   return (
     <LocaleProvider initialLocale={locale} contentByLocale={contentByLocale}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
       <HomePage />
     </LocaleProvider>
   )

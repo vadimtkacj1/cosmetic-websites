@@ -12,8 +12,8 @@ export const viewport = {
 export const metadata = {
   metadataBase: new URL('https://irena-beauty.com'),
   title: {
-    default: 'Irena Beauty',
-    template: 'Irena Beauty | %s',
+    default: 'Irena Beauty | איפור קבוע ומניקור בחולון',
+    template: '%s | Irena Beauty',
   },
   icons: {
     icon: '/favicon.ico',
@@ -26,8 +26,8 @@ export const metadata = {
     siteName: 'Irena Beauty',
     locale: 'he_IL',
     title: {
-      default: 'Irena Beauty',
-      template: 'Irena Beauty | %s',
+      default: 'Irena Beauty | איפור קבוע ומניקור בחולון',
+      template: '%s | Irena Beauty',
     },
     description: 'אירנה — סטודיו לאיפור קבוע ושירותי מניקור בחולון. גבות, שפתיים וקו ריסים באיפור קבוע, מניקור ופדיקור מקצועיים.',
     images: [
