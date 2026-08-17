@@ -10,23 +10,40 @@ export const viewport = {
 };
 
 export const metadata = {
+  metadataBase: new URL('https://irena-beauty.com'),
   title: {
-    default: 'GlamNails',
-    template: 'GlamNails | %s',
+    default: 'Irena Beauty',
+    template: 'Irena Beauty | %s',
   },
   icons: {
     icon: '/favicon.ico',
   },
-  description: 'Experience luxury nail care at GlamNails. Expert manicures, pedicures, and artistic nail designs. Book your appointment today for professional nail services, relaxing spa treatments, and stunning nail art in a welcoming atmosphere.',
-  keywords: 'nail salon, manicure, pedicure, nail art, gel nails, acrylic nails, nail spa, nail designs, professional nail care, nail technician, beauty salon',
-  
+  description: 'אירנה — סטודיו לאיפור קבוע ושירותי מניקור בחולון. גבות, שפתיים וקו ריסים באיפור קבוע, מניקור ופדיקור מקצועיים.',
+  keywords: 'איפור קבוע, מניקור, פדיקור, גבות, שפתיים, קו ריסים, חולון, אירנה',
+
   openGraph: {
     type: 'website',
+    siteName: 'Irena Beauty',
+    locale: 'he_IL',
     title: {
-      default: 'GlamNails',
-      template: 'GlamNails | %s',
+      default: 'Irena Beauty',
+      template: 'Irena Beauty | %s',
     },
-    description: 'Transform your nails with GlamNails premium services. Expert nail technicians, luxurious treatments, and stunning nail designs. Book now for professional manicures, pedicures, and custom nail art.',
+    description: 'אירנה — סטודיו לאיפור קבוע ושירותי מניקור בחולון. גבות, שפתיים וקו ריסים באיפור קבוע, מניקור ופדיקור מקצועיים.',
+    images: [
+      {
+        url: '/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Irena Beauty',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Irena Beauty',
+    description: 'אירנה — סטודיו לאיפור קבוע ושירותי מניקור בחולון. גבות, שפתיים וקו ריסים באיפור קבוע, מניקור ופדיקור מקצועיים.',
+    images: ['/images/og-image.jpg'],
   },
 };
 

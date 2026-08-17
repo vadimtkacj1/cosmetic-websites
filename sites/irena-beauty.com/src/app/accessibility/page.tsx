@@ -6,7 +6,7 @@ import { LocaleProvider } from '@/components/i18n/LocaleProvider';
 import LegalPage from '@/components/common/LegalPage';
 
 export const metadata: Metadata = {
-  title: 'הצהרת נגישות | Beauty Irena',
+  title: 'הצהרת נגישות | Irena Beauty',
   description: 'הצהרת הנגישות של אתר irena-beauty.com',
 };
 

@@ -6,7 +6,7 @@ import { LocaleProvider } from '@/components/i18n/LocaleProvider';
 import LegalPage from '@/components/common/LegalPage';
 
 export const metadata: Metadata = {
-  title: 'מדיניות פרטיות | Beauty Irena',
+  title: 'מדיניות פרטיות | Irena Beauty',
   description: 'מדיניות הפרטיות של אתר irena-beauty.com',
   robots: { index: false },
 };

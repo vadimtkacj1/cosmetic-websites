@@ -57,17 +57,7 @@
     });
   });
 
-  /* ---- FAQ accordion ---- */
-  document.querySelectorAll('.faq-item').forEach(function (item) {
-    var q = item.querySelector('.faq-q');
-    var a = item.querySelector('.faq-a');
-    if (!q || !a) return;
-    q.addEventListener('click', function () {
-      var open = item.classList.toggle('open');
-      q.setAttribute('aria-expanded', open ? 'true' : 'false');
-      a.style.maxHeight = open ? a.scrollHeight + 'px' : '0px';
-    });
-  });
+  /* ---- FAQ accordion: handled by inline script in index.html (single source of truth) ---- */
 
   /* ---- booking form → Aiterra CRM ---- */
   var LEAD_ENDPOINT = 'https://aiterra.agency/api/site-leads/submit';
