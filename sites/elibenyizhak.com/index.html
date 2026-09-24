@@ -581,32 +581,21 @@
     .promo-media {
       position: relative;
       align-self: stretch;
-      min-height: 200px;
-    }
-    .promo-media::before {
-      content: '';
-      position: absolute;
-      inset: 50% auto auto 50%;
-      width: 230px;
-      height: 230px;
-      transform: translate(-50%, -40%);
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(200,184,154,0.45) 0%, rgba(200,184,154,0) 70%);
-      pointer-events: none;
+      min-height: 220px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--pink);
     }
     .promo-media img {
       position: absolute;
-      left: 50%;
-      bottom: -16px;
-      height: calc(100% + 110px);
-      max-height: 330px;
-      width: auto;
-      transform: translateX(-50%) rotate(-7deg);
-      transform-origin: bottom center;
-      filter: drop-shadow(0 10px 14px rgba(0,0,0,0.5));
-      transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      transition: transform 0.6s ease;
     }
-    .promo-card:hover .promo-media img { transform: translateX(-50%) rotate(0deg) scale(1.04); }
+    .promo-card:hover .promo-media img { transform: scale(1.06); }
 
 
     /* =========================================
@@ -1869,15 +1858,13 @@
       .hero-ctas .btn { width: 100%; text-align: center; }
 
       .promo { padding: 36px 16px 56px; }
-      .promo-card { grid-template-columns: 1fr 88px; gap: 10px; padding: 26px 20px 24px 12px; border-radius: 22px; }
+      .promo-card { grid-template-columns: 1fr 96px; gap: 14px; padding: 22px 20px; border-radius: 22px; }
       .promo-badge { font-size: 11px; padding: 5px 12px; margin-bottom: 12px; }
       .promo-title { font-size: 30px; }
       .promo-brand { font-size: 11px; margin-bottom: 12px; }
       .promo-text { font-size: 14px; margin-bottom: 18px; }
       .promo-cta { font-size: 14px; padding: 10px 20px; }
-      .promo-media { min-height: 160px; }
-      .promo-media::before { width: 140px; height: 140px; }
-      .promo-media img { bottom: -8px; height: calc(100% + 24px); max-height: 210px; transform: translateX(-50%) rotate(-4deg); }
+      .promo-media { min-height: 0; border-radius: 14px; }
 
       .intro { padding: 64px 24px; }
       .intro-badge { font-size: 12px; padding: 9px 14px; gap: 6px; }
@@ -2342,30 +2329,23 @@
       overflow-y: auto;
     }
     .product-popup::before { content: none; }
-    .pp-media {
-      height: 210px;
-      margin-bottom: 18px;
-      position: relative;
-      display: flex;
-      justify-content: center;
+    .product-popup .discount-popup-close {
+      background: var(--cream);
+      box-shadow: 0 2px 10px rgba(28,26,22,0.25);
     }
-    .pp-media::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 200px;
-      height: 200px;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(200,184,154,0.65) 0%, rgba(200,184,154,0) 70%);
+    .product-popup .discount-popup-close:hover { background: var(--pink); }
+    .pp-media {
+      height: 170px;
+      margin-bottom: 20px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--pink);
     }
     .pp-media img {
-      position: relative;
+      width: 100%;
       height: 100%;
-      width: auto;
-      transform: rotate(-6deg);
-      filter: drop-shadow(0 14px 18px rgba(28,26,22,0.3));
+      object-fit: cover;
+      object-position: center 30%;
     }
     .pp-title {
       font-family: 'Varela Round', sans-serif;
@@ -2386,7 +2366,7 @@
       .discount-popup { padding: 44px 28px 36px; }
       .discount-num { font-size: 90px; }
       .product-popup { padding-top: 32px; }
-      .pp-media { height: 170px; }
+      .pp-media { height: 140px; }
     }
   </style>
 </head>
@@ -2475,7 +2455,7 @@
       <span class="promo-cta">לפרטים על המוצר ←</span>
     </div>
     <div class="promo-media" aria-hidden="true">
-      <img src="assets/koo-koo.webp" alt="" width="227" height="720" loading="lazy">
+      <img src="assets/glossy-hair.webp" alt="" width="480" height="640" loading="lazy">
     </div>
   </a>
 </section>
@@ -3019,7 +2999,7 @@
   <div class="discount-popup product-popup">
     <button class="discount-popup-close" id="productClose" aria-label="סגור">✕</button>
     <div class="pp-media">
-      <img src="assets/koo-koo.webp" alt="ספריי KOO KOO של Mon Platin" width="227" height="720" loading="lazy">
+      <img src="assets/glossy-hair.webp" alt="" width="480" height="640" loading="lazy">
     </div>
     <div class="discount-badge">מומלץ לשמירה על ההחלקה</div>
     <p class="pp-title" id="productTitle">KOO KOO</p>
